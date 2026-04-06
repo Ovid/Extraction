@@ -36,7 +36,7 @@
                 "financial_extraction": { "$ref": "#/definitions/domain_score" },
                 "institutional_gatekeeping": { "$ref": "#/definitions/domain_score" },
                 "information_capture": { "$ref": "#/definitions/domain_score" },
-                "resource_labor_extraction": { "$ref": "#/definitions/domain_score" },
+                "resource_capture": { "$ref": "#/definitions/domain_score" },
                 "transnational_facilitation": { "$ref": "#/definitions/domain_score" }
               },
               "required": [
@@ -45,7 +45,7 @@
                 "financial_extraction",
                 "institutional_gatekeeping",
                 "information_capture",
-                "resource_labor_extraction",
+                "resource_capture",
                 "transnational_facilitation"
               ]
             },

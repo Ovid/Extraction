@@ -68,7 +68,7 @@ The JS contains a hard-coded `numericToAlpha3` mapping (ISO 3166-1 numeric → a
 3. **financial_extraction** — financialization, financial secrecy
 4. **institutional_gatekeeping** — whether institutions serve broad population or narrow interests
 5. **information_capture** — media freedom, information control
-6. **resource_labor_extraction** — natural resource governance, labor rights
+6. **resource_capture** — vulnerability of resource wealth to elite capture
 7. **transnational_facilitation** — enabling extraction elsewhere (tax havens, profit shifting)
 
 ## Data Pipeline
@@ -85,7 +85,7 @@ python fetch_all.py --list               # Show available sources
 
 | Source | Type | Domains covered |
 |--------|------|-----------------|
-| World Bank | API (automatic) | economic_concentration, financial_extraction, institutional_gatekeeping, resource_labor_extraction |
+| World Bank | API (automatic) | economic_concentration, financial_extraction, institutional_gatekeeping, resource_capture |
 | V-Dem | Manual download (CAPTCHA) | political_capture, information_capture, institutional_gatekeeping |
 | RSF | Page scrape (automatic) | information_capture |
 | TJN FSI | API with public token (automatic) | transnational_facilitation |

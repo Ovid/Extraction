@@ -41,7 +41,7 @@ INDICATOR_CONFIG = [
     {'file': 'wb_gini.csv',                 'domain': 'economic_concentration',    'inverted': False, 'source_key': 'wb_gini',        'name': 'Gini Index'},
     {'file': 'wb_gdp_per_worker.csv',       'domain': 'economic_concentration',    'inverted': False, 'source_key': 'wb_labor_share', 'name': 'GDP per worker'},
     {'file': 'wb_domestic_credit.csv',       'domain': 'financial_extraction',      'inverted': False, 'source_key': 'wb_domestic_credit', 'name': 'Domestic credit to private sector'},
-    {'file': 'wb_natural_rents.csv',         'domain': 'resource_labor_extraction', 'inverted': False, 'source_key': 'wb_natural_rents',   'name': 'Natural resource rents'},
+    {'file': 'wb_natural_rents.csv',         'domain': 'resource_capture', 'inverted': False, 'source_key': 'wb_natural_rents',   'name': 'Natural resource rents'},
     {'file': 'wb_wgi_corruption.csv',        'domain': 'institutional_gatekeeping', 'inverted': True,  'source_key': 'wb_wgi_corruption',  'name': 'WGI Control of Corruption'},
     {'file': 'wb_wgi_reg_quality.csv',       'domain': 'institutional_gatekeeping', 'inverted': True,  'source_key': 'wb_reg_quality',     'name': 'WGI Regulatory Quality'},
     {'file': 'wb_wgi_gov_effectiveness.csv', 'domain': 'institutional_gatekeeping', 'inverted': True,  'source_key': 'wb_wgi_gov_eff',     'name': 'WGI Government Effectiveness'},
@@ -51,11 +51,11 @@ INDICATOR_CONFIG = [
 INDICATOR_QUESTIONS = {
     # World Bank indicators
     'wb_gini':              'How unequal is income distribution?',
-    'wb_labor_share':       'How much of the economy bypasses workers?',
-    'wb_domestic_credit':   'How financialized is the economy?',
-    'wb_natural_rents':     'How dependent is the economy on natural resource extraction?',
+    'wb_labor_share':       'How little do workers get paid relative to what they produce?',
+    'wb_domestic_credit':   'How much wealth is extracted through debt and financial fees?',
+    'wb_natural_rents':     'How dependent is the economy on natural resources?',
     'wb_wgi_corruption':    'How well is corruption controlled?',
-    'wb_reg_quality':       'How well does regulation serve the public?',
+    'wb_reg_quality':       'How well do government regulations protect people?',
     'wb_wgi_gov_eff':       'How effective is the government?',
     # V-Dem indicators
     'vdem_political_corruption':  'How corrupt is the political system?',
@@ -634,6 +634,32 @@ def build_country_scores():
 
         if not domains:
             continue
+
+        # Resource capture: composite of resource rents × institutional weakness
+        # High resource rents + weak institutions = high extraction risk
+        # High resource rents + strong institutions (e.g. Norway) = low extraction risk
+        if 'resource_capture' in domains and 'institutional_gatekeeping' in domains:
+            raw_resource = domains['resource_capture']['score']
+            inst_weakness = domains['institutional_gatekeeping']['score']
+            # Multiply resource dependence by institutional weakness (both 0-100)
+            # Scale back to 0-100
+            composite_resource = round(raw_resource * inst_weakness / 100)
+            domains['resource_capture']['score'] = composite_resource
+            domains['resource_capture']['sources'] = domains['resource_capture']['sources'] + ['wb_wgi_corruption', 'wb_reg_quality', 'wb_wgi_gov_eff']
+            domains['resource_capture']['justification'] = (
+                f'How vulnerable is resource wealth to elite capture? {score_to_label(composite_resource)}.'
+            )
+            domains['resource_capture']['justification_detail'] = (
+                f'{domains["resource_capture"]["justification_detail"]} '
+                f'Composite: resource rents ({raw_resource}) × institutional weakness ({inst_weakness}) / 100 = {composite_resource}.'
+            )
+        elif 'resource_capture' in domains:
+            # No institutional data to weight against — mark low confidence
+            domains['resource_capture']['confidence'] = 'low'
+            domains['resource_capture']['justification'] = (
+                f'How dependent is the economy on natural resources? {score_to_label(domains["resource_capture"]["score"])}. '
+                f'(No institutional data available to assess who benefits.)'
+            )
 
         # Compute overall confidence from totals across all domains
         total_indicators = sum(d.get('_n_indicators', 1) for d in domains.values())

@@ -8,7 +8,7 @@ Covers domains:
   - economic_concentration: Gini, labor share
   - financial_extraction: domestic credit to private sector
   - institutional_gatekeeping: regulatory quality (WGI), control of corruption (WGI)
-  - resource_labor_extraction: total natural resource rents
+  - resource_capture: total natural resource rents
 """
 
 import json
@@ -26,7 +26,7 @@ INDICATORS = [
     ('SI.POV.GINI',       'wb_gini.csv',             'Gini Index',                              'economic_concentration',    False),
     ('SL.GDP.PCAP.EM.KD', 'wb_gdp_per_worker.csv',   'GDP per person employed (constant 2017 $)', 'economic_concentration',  False),
     ('FS.AST.PRVT.GD.ZS', 'wb_domestic_credit.csv',  'Domestic credit to private sector (% GDP)', 'financial_extraction',    False),
-    ('NY.GDP.TOTL.RT.ZS', 'wb_natural_rents.csv',    'Total natural resources rents (% GDP)',    'resource_labor_extraction', False),
+    ('NY.GDP.TOTL.RT.ZS', 'wb_natural_rents.csv',    'Total natural resources rents (% GDP)',    'resource_capture', False),
     ('CC.EST',            'wb_wgi_corruption.csv',    'WGI Control of Corruption',               'institutional_gatekeeping', True),
     ('RQ.EST',            'wb_wgi_reg_quality.csv',   'WGI Regulatory Quality',                  'institutional_gatekeeping', True),
     ('GE.EST',            'wb_wgi_gov_effectiveness.csv', 'WGI Government Effectiveness',        'institutional_gatekeeping', True),

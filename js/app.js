@@ -4,7 +4,7 @@ const DOMAIN_LABELS = {
   financial_extraction: 'Financial Extraction',
   institutional_gatekeeping: 'Institutional Gatekeeping',
   information_capture: 'Information & Media Capture',
-  resource_labor_extraction: 'Resource & Labor Extraction',
+  resource_capture: 'Resource Capture',
   transnational_facilitation: 'Transnational Facilitation'
 };
 
