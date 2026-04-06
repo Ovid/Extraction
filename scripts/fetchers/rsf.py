@@ -4,52 +4,86 @@ Reporters Without Borders (RSF) — World Press Freedom Index
 Covers domain: information_capture
 
 Data home: https://rsf.org/en/index
-The index scores 180 countries on press freedom (0–100, lower = more free).
+The index scores 180+ countries on press freedom.
 
-RSF publishes downloadable data but the URLs change annually.
-This fetcher attempts known API endpoints; falls back to manual instructions.
+RSF embeds ranking data as GeoJSON in the page's drupalSettings JSON.
+This fetcher parses that to extract country scores.
 """
 
 import json
+import re
 from pathlib import Path
 
 import requests
+import pandas as pd
 
-RSF_API_URL = 'https://rsf.org/index/result'
+RSF_PAGE_URL = 'https://rsf.org/en/index'
 
 
 def fetch(raw_data_dir: Path) -> list[str]:
-    """Fetch RSF Press Freedom Index."""
+    """Fetch RSF Press Freedom Index by scraping embedded page data."""
     output_dir = raw_data_dir / 'rsf'
     output_dir.mkdir(parents=True, exist_ok=True)
     files = []
 
-    # RSF sometimes exposes a JSON API; try it
     try:
-        resp = requests.get(RSF_API_URL, timeout=30, headers={
-            'Accept': 'application/json',
-            'User-Agent': 'ExtractionIndex/0.1 (research)',
+        resp = requests.get(RSF_PAGE_URL, timeout=30, headers={
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml',
         })
-        if resp.status_code == 200 and resp.headers.get('content-type', '').startswith('application/json'):
-            data = resp.json()
-            out_path = output_dir / 'rsf_index.json'
-            with open(out_path, 'w') as f:
-                json.dump(data, f, indent=2)
-            files.append(str(out_path.relative_to(raw_data_dir)))
-            print(f'      → RSF data fetched via API')
-        else:
-            raise ValueError(f'Unexpected response: {resp.status_code}')
+        resp.raise_for_status()
+
+        # Extract drupalSettings JSON from script tag
+        match = re.search(
+            r'<script[^>]*data-drupal-selector="drupal-settings-json"[^>]*>(.*?)</script>',
+            resp.text
+        )
+        if not match:
+            raise ValueError('Could not find drupalSettings JSON in page')
+
+        settings = json.loads(match.group(1))
+        classement = settings.get('rsf_classement', {})
+        features = classement.get('countries', {}).get('features', [])
+
+        if not features:
+            raise ValueError('No country features found in rsf_classement')
+
+        # Extract country data
+        records = []
+        for feat in features:
+            props = feat.get('properties', {})
+            iso3 = feat.get('id')  # ISO alpha-3 is in the feature id, not properties
+            name = props.get('name')
+            score = props.get('score')
+            if iso3 and score is not None:
+                records.append({
+                    'country_code': iso3,
+                    'country_name': name,
+                    'score': float(score),
+                })
+
+        df = pd.DataFrame(records)
+        csv_path = output_dir / 'rsf_scores.csv'
+        df.to_csv(csv_path, index=False)
+        files.append(str(csv_path.relative_to(raw_data_dir)))
+        print(f'      → {len(df)} countries with press freedom scores')
+
+        # Also save the raw JSON
+        raw_path = output_dir / 'rsf_raw.json'
+        with open(raw_path, 'w') as f:
+            json.dump(features, f, indent=2)
+        files.append(str(raw_path.relative_to(raw_data_dir)))
+
     except Exception as e:
-        print(f'      ⚠ RSF API unavailable: {e}')
+        print(f'      ⚠ RSF fetch failed: {e}')
         instructions = output_dir / 'DOWNLOAD_INSTRUCTIONS.md'
         instructions.write_text(
             '# RSF Press Freedom Index — Manual Download\n\n'
+            f'Automatic fetch failed: {e}\n\n'
             '1. Go to https://rsf.org/en/index\n'
             '2. Look for a "Download" or "Data" link\n'
             '3. Download the full rankings as CSV or Excel\n'
-            f'4. Save to: {output_dir}/rsf_index.csv\n\n'
-            'Alternative: The data is also available via V-Dem\'s media indicators,\n'
-            'which may be easier to work with programmatically.\n'
+            f'4. Save to: {output_dir}/rsf_scores.csv\n'
         )
         files.append(str(instructions.relative_to(raw_data_dir)))
 
@@ -58,7 +92,7 @@ def fetch(raw_data_dir: Path) -> list[str]:
         'url': 'https://rsf.org/en/index',
         'domain': 'information_capture',
         'inverted': False,
-        'note': 'RSF scores: higher = less free (more extractive). Scale 0-100.'
+        'note': 'RSF scores: higher = less free (more extractive). Extracted from page-embedded GeoJSON.'
     }
     meta_path = output_dir / '_metadata.json'
     with open(meta_path, 'w') as f:

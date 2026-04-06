@@ -25,10 +25,14 @@ from pathlib import Path
 
 import pandas as pd
 
+from collections import Counter
+
 PROJECT_ROOT = Path(__file__).parent.parent
 RAW_DATA_DIR = PROJECT_ROOT / 'raw_data'
 SCORES_PATH = PROJECT_ROOT / 'data' / 'scores.json'
 WB_DIR = RAW_DATA_DIR / 'worldbank'
+RSF_DIR = RAW_DATA_DIR / 'rsf'
+TJN_DIR = RAW_DATA_DIR / 'tjn'
 
 # Map indicator files to domains, with normalization direction
 # inverted=True means higher raw value = LESS extraction → we flip
@@ -76,6 +80,73 @@ EXCLUDE_CODES = {
     'TEA', 'TEC', 'TLA', 'TMN', 'TSA', 'TSS', 'UMC', 'WLD',
     'EUU', 'SXZ', 'XKX',
 }
+
+
+# ISO alpha-2 → alpha-3 mapping for FSI data (which uses 2-letter codes)
+ALPHA2_TO_ALPHA3 = {
+    'AD': 'AND', 'AE': 'ARE', 'AG': 'ATG', 'AI': 'AIA', 'AL': 'ALB', 'AO': 'AGO',
+    'AR': 'ARG', 'AS': 'ASM', 'AT': 'AUT', 'AU': 'AUS', 'AW': 'ABW', 'AZ': 'AZE',
+    'BA': 'BIH', 'BB': 'BRB', 'BD': 'BGD', 'BE': 'BEL', 'BG': 'BGR', 'BH': 'BHR',
+    'BM': 'BMU', 'BN': 'BRN', 'BO': 'BOL', 'BR': 'BRA', 'BS': 'BHS', 'BW': 'BWA',
+    'BZ': 'BLZ', 'CA': 'CAN', 'CH': 'CHE', 'CK': 'COK', 'CL': 'CHL', 'CM': 'CMR',
+    'CN': 'CHN', 'CO': 'COL', 'CR': 'CRI', 'CU': 'CUB', 'CW': 'CUW', 'CY': 'CYP',
+    'CZ': 'CZE', 'DE': 'DEU', 'DJ': 'DJI', 'DK': 'DNK', 'DM': 'DMA', 'DO': 'DOM',
+    'DZ': 'DZA', 'EC': 'ECU', 'EG': 'EGY', 'ER': 'ERI', 'ES': 'ESP', 'ET': 'ETH',
+    'FI': 'FIN', 'FR': 'FRA', 'GB': 'GBR', 'GD': 'GRD', 'GE': 'GEO', 'GG': 'GGY',
+    'GH': 'GHA', 'GI': 'GIB', 'GM': 'GMB', 'GR': 'GRC', 'GT': 'GTM', 'GU': 'GUM',
+    'GW': 'GNB', 'GY': 'GUY', 'HK': 'HKG', 'HN': 'HND', 'HR': 'HRV', 'HU': 'HUN',
+    'ID': 'IDN', 'IE': 'IRL', 'IL': 'ISR', 'IM': 'IMN', 'IN': 'IND', 'IQ': 'IRQ',
+    'IR': 'IRN', 'IS': 'ISL', 'IT': 'ITA', 'JE': 'JEY', 'JM': 'JAM', 'JO': 'JOR',
+    'JP': 'JPN', 'KE': 'KEN', 'KG': 'KGZ', 'KH': 'KHM', 'KN': 'KNA', 'KR': 'KOR',
+    'KW': 'KWT', 'KY': 'CYM', 'KZ': 'KAZ', 'LA': 'LAO', 'LB': 'LBN', 'LC': 'LCA',
+    'LI': 'LIE', 'LK': 'LKA', 'LR': 'LBR', 'LS': 'LSO', 'LT': 'LTU', 'LU': 'LUX',
+    'LV': 'LVA', 'LY': 'LBY', 'MA': 'MAR', 'MC': 'MCO', 'ME': 'MNE', 'MG': 'MDG',
+    'MH': 'MHL', 'MK': 'MKD', 'ML': 'MLI', 'MM': 'MMR', 'MN': 'MNG', 'MO': 'MAC',
+    'MR': 'MRT', 'MS': 'MSR', 'MT': 'MLT', 'MU': 'MUS', 'MV': 'MDV', 'MW': 'MWI',
+    'MX': 'MEX', 'MY': 'MYS', 'MZ': 'MOZ', 'NA': 'NAM', 'NG': 'NGA', 'NI': 'NIC',
+    'NL': 'NLD', 'NO': 'NOR', 'NP': 'NPL', 'NR': 'NRU', 'NZ': 'NZL', 'OM': 'OMN',
+    'PA': 'PAN', 'PE': 'PER', 'PG': 'PNG', 'PH': 'PHL', 'PK': 'PAK', 'PL': 'POL',
+    'PR': 'PRI', 'PT': 'PRT', 'PW': 'PLW', 'PY': 'PRY', 'QA': 'QAT', 'RO': 'ROU',
+    'RS': 'SRB', 'RU': 'RUS', 'RW': 'RWA', 'SA': 'SAU', 'SC': 'SYC', 'SD': 'SDN',
+    'SE': 'SWE', 'SG': 'SGP', 'SI': 'SVN', 'SK': 'SVK', 'SL': 'SLE', 'SM': 'SMR',
+    'SN': 'SEN', 'SO': 'SOM', 'SR': 'SUR', 'SS': 'SSD', 'SV': 'SLV', 'SZ': 'SWZ',
+    'TC': 'TCA', 'TD': 'TCD', 'TG': 'TGO', 'TH': 'THA', 'TN': 'TUN', 'TO': 'TON',
+    'TR': 'TUR', 'TT': 'TTO', 'TW': 'TWN', 'TZ': 'TZA', 'UA': 'UKR', 'UG': 'UGA',
+    'US': 'USA', 'UY': 'URY', 'UZ': 'UZB', 'VC': 'VCT', 'VE': 'VEN', 'VG': 'VGB',
+    'VI': 'VIR', 'VN': 'VNM', 'VU': 'VUT', 'WS': 'WSM', 'ZA': 'ZAF', 'ZM': 'ZMB',
+    'ZW': 'ZWE',
+}
+
+
+def load_rsf_data():
+    """Load RSF press freedom scores. Returns dict of {alpha3: score}."""
+    csv_path = RSF_DIR / 'rsf_scores.csv'
+    if not csv_path.exists():
+        return {}
+    df = pd.read_csv(csv_path)
+    if df.empty or 'score' not in df.columns:
+        return {}
+    return dict(zip(df['country_code'], df['score']))
+
+
+def load_fsi_data():
+    """Load FSI financial secrecy scores. Returns dict of {alpha3: score}."""
+    csv_path = TJN_DIR / 'fsi_jurisdictions.csv'
+    if not csv_path.exists():
+        return {}
+    df = pd.read_csv(csv_path)
+    if df.empty:
+        return {}
+    # Take most recent edition
+    latest_scoring = df['methodology_id'].unique()[-1]
+    df = df[df['methodology_id'] == latest_scoring]
+    # Map alpha-2 to alpha-3
+    result = {}
+    for _, row in df.iterrows():
+        a3 = ALPHA2_TO_ALPHA3.get(row['jurisdiction_id'])
+        if a3 and pd.notna(row['index_score']):
+            result[a3] = float(row['index_score'])
+    return result
 
 
 def load_indicator(filepath):
@@ -138,56 +209,106 @@ def build_country_scores():
         df['indicator_file'] = cfg['file']
         indicators[cfg['file']] = df
 
-    if not indicators:
-        print('No indicator data found in raw_data/worldbank/')
+    # Load RSF data (information_capture)
+    rsf_scores = load_rsf_data()
+    if rsf_scores:
+        print(f'  RSF: {len(rsf_scores)} countries')
+        rsf_series = pd.Series(rsf_scores)
+        rsf_normalized = normalize_minmax(rsf_series, inverted=False)  # Higher RSF = less free = more extraction
+        rsf_map = dict(zip(rsf_series.index, rsf_normalized))
+    else:
+        rsf_map = {}
+
+    # Load FSI data (transnational_facilitation)
+    fsi_scores = load_fsi_data()
+    if fsi_scores:
+        print(f'  FSI: {len(fsi_scores)} countries')
+        fsi_series = pd.Series(fsi_scores)
+        fsi_normalized = normalize_minmax(fsi_series, inverted=False)  # Higher FSI = more secretive = more extraction
+        fsi_map = dict(zip(fsi_series.index, fsi_normalized))
+    else:
+        fsi_map = {}
+
+    if not indicators and not rsf_map and not fsi_map:
+        print('No indicator data found!')
         return {}
 
-    # Combine all indicators
-    all_data = pd.concat(indicators.values(), ignore_index=True)
+    # Combine all World Bank indicators
+    all_data = pd.concat(indicators.values(), ignore_index=True) if indicators else pd.DataFrame()
 
-    # Get unique country codes
-    country_codes = all_data['country_code'].unique()
+    # Get unique country codes from all sources
+    country_codes = set()
+    if not all_data.empty:
+        country_codes.update(all_data['country_code'].unique())
+    country_codes.update(rsf_map.keys())
+    country_codes.update(fsi_map.keys())
 
     countries = {}
     for code in sorted(country_codes):
-        country_data = all_data[all_data['country_code'] == code]
+        country_data = all_data[all_data['country_code'] == code] if not all_data.empty else pd.DataFrame()
 
         # Get country name
-        name = COUNTRY_NAME_OVERRIDES.get(code,
-            country_data['country_name'].iloc[0])
+        if not country_data.empty:
+            name = COUNTRY_NAME_OVERRIDES.get(code, country_data['country_name'].iloc[0])
+        else:
+            name = COUNTRY_NAME_OVERRIDES.get(code, code)
 
-        # Group by domain
+        # Group World Bank indicators by domain
         domains = {}
-        for domain, group in country_data.groupby('domain'):
-            score = int(group['normalized'].mean().round(0))
-            sources = group['source_key'].tolist()
-            n_indicators = len(group)
+        source_names = []
+        if not country_data.empty:
+            for domain, group in country_data.groupby('domain'):
+                score = int(group['normalized'].mean().round(0))
+                sources = group['source_key'].tolist()
+                n_indicators = len(group)
 
-            # Confidence based on indicator count within domain
-            if n_indicators >= 3:
-                confidence = 'moderate'
-            elif n_indicators >= 2:
-                confidence = 'low'
-            else:
-                confidence = 'very_low'
+                if n_indicators >= 3:
+                    confidence = 'moderate'
+                elif n_indicators >= 2:
+                    confidence = 'low'
+                else:
+                    confidence = 'very_low'
 
-            # Estimate trend from the first indicator in this domain
-            first_file = group['indicator_file'].iloc[0]
-            trend = estimate_trend(all_data, code, first_file)
+                first_file = group['indicator_file'].iloc[0]
+                trend = estimate_trend(all_data, code, first_file)
 
-            # Build justification from actual values
-            parts = []
-            for _, row in group.iterrows():
-                parts.append(f'{row["indicator_name"]}: {row["value"]:.1f} (normalized: {row["normalized"]})')
-            justification = f'Auto-scored from World Bank data. {"; ".join(parts)}.'
+                parts = []
+                for _, row in group.iterrows():
+                    parts.append(f'{row["indicator_name"]}: {row["value"]:.1f} (normalized: {row["normalized"]})')
+                justification = f'Auto-scored from World Bank data. {"; ".join(parts)}.'
 
-            domains[domain] = {
-                'score': score,
-                'confidence': confidence,
-                'trend': trend,
-                'sources': sources,
-                'justification': justification,
+                domains[domain] = {
+                    'score': score,
+                    'confidence': confidence,
+                    'trend': trend,
+                    'sources': sources,
+                    'justification': justification,
+                }
+            source_names.append('World Bank')
+
+        # Add RSF (information_capture)
+        if code in rsf_map:
+            raw_score = rsf_scores[code]
+            domains['information_capture'] = {
+                'score': int(rsf_map[code]),
+                'confidence': 'low',
+                'trend': 'unknown',
+                'sources': ['rsf_press'],
+                'justification': f'Auto-scored from RSF Press Freedom Index. Raw score: {raw_score:.1f} (normalized: {int(rsf_map[code])}).',
             }
+            source_names.append('RSF')
+
+        # Add FSI (transnational_facilitation)
+        if code in fsi_map:
+            raw_score = fsi_scores[code]
+            domains['transnational_facilitation'] = {
+                'score': int(fsi_map[code]),
+                'confidence': 'low',
+                'trend': 'unknown',
+                'sources': ['tjn_fsi'],
+                'justification': f'Auto-scored from Tax Justice Network FSI. Raw score: {raw_score:.1f} (normalized: {int(fsi_map[code])}).',
+            }
+            source_names.append('TJN')
 
         if not domains:
             continue
@@ -204,18 +325,18 @@ def build_country_scores():
         # Overall trend: majority vote
         trends = [d['trend'] for d in domains.values() if d['trend'] != 'unknown']
         if trends:
-            from collections import Counter
             overall_trend = Counter(trends).most_common(1)[0][0]
         else:
             overall_trend = 'unknown'
 
+        unique_sources = sorted(set(source_names))
         countries[code] = {
             'name': name,
             'domains': domains,
             'composite_score': composite,
             'overall_confidence': overall_confidence,
             'overall_trend': overall_trend,
-            'notes': f'Auto-scored from World Bank indicators ({len(domains)}/7 domains covered).',
+            'notes': f'Auto-scored from {", ".join(unique_sources)} ({len(domains)}/7 domains covered).',
         }
 
     return countries
@@ -232,8 +353,10 @@ def main():
     with open(SCORES_PATH) as f:
         scores = json.load(f)
 
-    existing_countries = set(scores['countries'].keys())
-    print(f'Existing hand-scored countries: {len(existing_countries)} ({", ".join(sorted(existing_countries))})')
+    # Distinguish hand-scored from auto-scored
+    hand_scored = {k for k, v in scores['countries'].items()
+                   if not v.get('notes', '').startswith('Auto-scored')}
+    print(f'Hand-scored countries: {len(hand_scored)} ({", ".join(sorted(hand_scored))})')
 
     # Build new scores
     print('Loading and normalizing World Bank indicators...')
@@ -247,15 +370,15 @@ def main():
             return
         new_countries = {code: new_countries[code]}
 
-    # Merge: preserve hand-scored, add auto-scored
+    # Merge: always preserve hand-scored, update auto-scored
     added = 0
     skipped = 0
     overwritten = 0
     for code, data in new_countries.items():
-        if code in existing_countries and not args.overwrite:
+        if code in hand_scored and not args.overwrite:
             skipped += 1
             continue
-        if code in existing_countries:
+        if code in scores['countries']:
             overwritten += 1
         else:
             added += 1
