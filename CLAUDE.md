@@ -17,15 +17,23 @@ Open `http://localhost:8000`. No build step required.
 
 ## Architecture
 
-Everything lives in `index.html` — markup, styles, and all JavaScript are in a single file. Data is loaded at init via `Promise.all` from three sources:
+Static site with no build step. Files are organized as:
 
-- `scores.json` — country-level extraction scores across seven domains, keyed by ISO 3166-1 alpha-3 codes
-- `schema.json` — JSON Schema defining the data structure and validation rules
-- World topology from CDN (world-atlas TopoJSON)
+- `index.html` — markup only
+- `css/style.css` — all styles, including light/dark theme via CSS custom properties
+- `js/app.js` — all JavaScript (D3 visualization, interactivity, theme toggle)
+- `data/scores.json` — country extraction scores
+- `data/schema.json` — JSON Schema for validation
+
+Data is loaded at init via `Promise.all` from `data/scores.json` and a CDN-hosted world-atlas TopoJSON.
+
+### Theming
+
+Light/dark mode is driven by CSS custom properties on `:root` (dark default) and `:root[data-theme="light"]`. All colors — including overlays, radar chart fills, no-data country fills, and shadows — use variables so both themes stay consistent. The JS toggle respects `prefers-color-scheme`, persists to `localStorage`, and calls `refreshMapColors()` to repaint the map.
 
 ### Data Flow
 
-`scores.json` → `computeComposite()` (weighted average of domain scores) → `countryFill()` (D3 color scale) + `countryOpacity()` (confidence-based) → SVG map render.
+`data/scores.json` → `computeComposite()` (weighted average of domain scores) → `countryFill()` (D3 color scale) + `countryOpacity()` (confidence-based) → SVG map render.
 
 Users can adjust domain weights interactively; composite scores and map colors recalculate in real time.
 
@@ -42,11 +50,11 @@ Political Capture, Economic Concentration, Financial Extraction, Institutional G
 
 ### Key Mappings
 
-The JS contains a hard-coded `isoNumericToAlpha3` mapping (ISO 3166-1 numeric → alpha-3) used to join TopoJSON geometry IDs to scores.json keys. Currently only 8 countries have actual scores; others render as greyed out.
+The JS contains a hard-coded `numericToAlpha3` mapping (ISO 3166-1 numeric → alpha-3) used to join TopoJSON geometry IDs to `data/scores.json` keys. Currently only 8 countries have actual scores; others render as greyed out.
 
 ## Data Schema
 
-Scores follow `schema.json`. Key constraints:
+Scores follow `data/schema.json`. Key constraints:
 - Country keys are 3-letter ISO 3166-1 alpha-3 codes
 - Scores are integers 0–100
 - Confidence levels: `high`, `moderate`, `low`, `very_low`
