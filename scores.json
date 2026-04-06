@@ -1,0 +1,482 @@
+{
+  "metadata": {
+    "version": "0.1.0",
+    "last_updated": "2026-04-06",
+    "methodology_url": "https://github.com/Ovid/extraction",
+    "default_weights": {
+      "political_capture": 0.143,
+      "economic_concentration": 0.143,
+      "financial_extraction": 0.143,
+      "institutional_gatekeeping": 0.143,
+      "information_capture": 0.143,
+      "resource_labor_extraction": 0.143,
+      "transnational_facilitation": 0.143
+    }
+  },
+  "countries": {
+    "USA": {
+      "name": "United States",
+      "domains": {
+        "political_capture": {
+          "score": 45,
+          "confidence": "high",
+          "trend": "rising",
+          "sources": ["vdem_polyarchy", "vdem_corruption", "fh_freedom"],
+          "justification": "Formally democratic but with significant donor capture, gerrymandering, and revolving-door dynamics. Citizens United accelerated legal bribery."
+        },
+        "economic_concentration": {
+          "score": 72,
+          "confidence": "high",
+          "trend": "rising",
+          "sources": ["wid_inequality", "wb_gini", "wb_labor_share"],
+          "justification": "Extreme wealth concentration; top 1% holds ~32% of wealth. Labor share of GDP has declined steadily since 1980. Great Decoupling is well-documented."
+        },
+        "financial_extraction": {
+          "score": 68,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["bis_finance", "wb_domestic_credit"],
+          "justification": "Financial sector profits as share of total corporate profits remain historically elevated. Healthcare and education heavily financialized."
+        },
+        "institutional_gatekeeping": {
+          "score": 55,
+          "confidence": "moderate",
+          "trend": "rising",
+          "sources": ["wjp_rule_of_law", "wb_reg_quality"],
+          "justification": "Strong formal institutions that increasingly serve concentrated interests. Regulatory complexity as extraction cover. Criminal justice system extracts from the poor."
+        },
+        "information_capture": {
+          "score": 38,
+          "confidence": "high",
+          "trend": "rising",
+          "sources": ["rsf_press", "vdem_media"],
+          "justification": "Press legally free but concentrated ownership; media ecosystem fragmented into partisan silos. Disinformation amplified by social media business models."
+        },
+        "resource_labor_extraction": {
+          "score": 48,
+          "confidence": "high",
+          "trend": "rising",
+          "sources": ["ituc_rights", "ilo_wages"],
+          "justification": "Union density at historic lows. Gig economy erodes labor protections. Wage theft exceeds all property crime combined."
+        },
+        "transnational_facilitation": {
+          "score": 55,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["tjn_fsi", "tjn_cthi"],
+          "justification": "Delaware, Nevada, and South Dakota trusts create significant financial secrecy. US often overlooked as tax haven due to domestic focus."
+        }
+      },
+      "composite_score": 54,
+      "overall_confidence": "high",
+      "overall_trend": "rising",
+      "notes": "The US is the book's central case study: high institutional quality by governance metrics, massive extraction through legal, privatized channels. The gap between formal democratic quality and actual extractive outcomes is the defining feature."
+    },
+    "DNK": {
+      "name": "Denmark",
+      "domains": {
+        "political_capture": {
+          "score": 8,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["vdem_polyarchy", "vdem_corruption", "fh_freedom"],
+          "justification": "Consistently top-ranked democracy with low corruption, high transparency, and broad political participation."
+        },
+        "economic_concentration": {
+          "score": 18,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["wid_inequality", "wb_gini", "wb_labor_share"],
+          "justification": "Low inequality by global standards, though wealth concentration has increased. Strong labor share maintained through collective bargaining."
+        },
+        "financial_extraction": {
+          "score": 22,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["bis_finance", "wb_domestic_credit"],
+          "justification": "High household debt relative to income. Danske Bank money laundering scandal revealed vulnerabilities, but domestic financialization is moderate."
+        },
+        "institutional_gatekeeping": {
+          "score": 10,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["wjp_rule_of_law", "wb_reg_quality"],
+          "justification": "Institutions broadly serve population. Strong ombudsman tradition. Regulatory capture limited by transparency norms."
+        },
+        "information_capture": {
+          "score": 5,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["rsf_press", "vdem_media"],
+          "justification": "Consistently among top press freedom scores globally. Public broadcasting well-funded."
+        },
+        "resource_labor_extraction": {
+          "score": 12,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["ituc_rights", "ilo_wages"],
+          "justification": "Flexicurity model maintains strong labor protections with economic flexibility. High union density (~67%)."
+        },
+        "transnational_facilitation": {
+          "score": 15,
+          "confidence": "moderate",
+          "trend": "stable",
+          "sources": ["tjn_fsi"],
+          "justification": "Low secrecy score. Danske Bank Estonia scandal showed vulnerability to being used as a conduit, prompting regulatory tightening."
+        }
+      },
+      "composite_score": 13,
+      "overall_confidence": "high",
+      "overall_trend": "stable",
+      "notes": "Near the low end of the extraction spectrum. Not zero — no country is — but demonstrates that low-extraction governance is achievable and sustainable."
+    },
+    "SGP": {
+      "name": "Singapore",
+      "domains": {
+        "political_capture": {
+          "score": 62,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["vdem_polyarchy", "fh_freedom"],
+          "justification": "Single-party dominance since independence. Elections held but playing field heavily tilted. Defamation suits against opposition. Formally legal, substantively captured."
+        },
+        "economic_concentration": {
+          "score": 45,
+          "confidence": "moderate",
+          "trend": "rising",
+          "sources": ["wid_inequality", "wb_gini"],
+          "justification": "High Gini coefficient for a developed nation. Significant wealth inequality mitigated by public housing (80%+ homeownership) and sovereign wealth redistribution."
+        },
+        "financial_extraction": {
+          "score": 35,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["bis_finance", "wb_domestic_credit"],
+          "justification": "Major financial center but domestic financialization is controlled. CPF system channels savings through state management."
+        },
+        "institutional_gatekeeping": {
+          "score": 30,
+          "confidence": "moderate",
+          "trend": "stable",
+          "sources": ["wjp_rule_of_law", "wb_reg_quality"],
+          "justification": "Efficient institutions that deliver services well. Rule of law is strong for commercial matters. However, institutions serve state priorities, and the state is captured by a narrow elite."
+        },
+        "information_capture": {
+          "score": 65,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["rsf_press", "vdem_media"],
+          "justification": "Media tightly controlled. Self-censorship widespread. POFMA (fake news law) gives government broad powers. Among lowest press freedom scores for high-income countries."
+        },
+        "resource_labor_extraction": {
+          "score": 52,
+          "confidence": "moderate",
+          "trend": "stable",
+          "sources": ["ituc_rights", "ilo_wages"],
+          "justification": "Migrant worker exploitation is systemic. Domestic workers excluded from key protections. Citizens fare much better, creating a two-tier system."
+        },
+        "transnational_facilitation": {
+          "score": 48,
+          "confidence": "high",
+          "trend": "rising",
+          "sources": ["tjn_fsi", "tjn_cthi"],
+          "justification": "Increasingly important financial secrecy jurisdiction. Wealth management hub with growing role in facilitating capital flows from region."
+        }
+      },
+      "composite_score": 48,
+      "overall_confidence": "high",
+      "overall_trend": "stable",
+      "notes": "Illustrates the extraction framework's value: traditional governance metrics score Singapore well, but cross-domain analysis reveals political capture, information control, and labor extraction coexisting with institutional efficiency."
+    },
+    "NGA": {
+      "name": "Nigeria",
+      "domains": {
+        "political_capture": {
+          "score": 72,
+          "confidence": "moderate",
+          "trend": "stable",
+          "sources": ["vdem_polyarchy", "vdem_clientelism", "vdem_corruption"],
+          "justification": "Patronage networks dominate politics. Electoral violence. State governorships function as extractive fiefdoms."
+        },
+        "economic_concentration": {
+          "score": 78,
+          "confidence": "moderate",
+          "trend": "rising",
+          "sources": ["wid_inequality", "wb_gini"],
+          "justification": "Extreme inequality. Oil wealth captured by narrow elite. Largest economy in Africa with massive poverty rate."
+        },
+        "financial_extraction": {
+          "score": 45,
+          "confidence": "low",
+          "trend": "unknown",
+          "sources": ["wb_domestic_credit"],
+          "justification": "Financial sector less developed, so financialization-as-extraction is lower. However, banking sector extracts through high fees from underbanked population."
+        },
+        "institutional_gatekeeping": {
+          "score": 70,
+          "confidence": "moderate",
+          "trend": "stable",
+          "sources": ["wjp_rule_of_law", "cpi_corruption"],
+          "justification": "Legal system serves those who can afford it. Police and judiciary widely perceived as corrupt. Formal institutions exist but are routinely captured."
+        },
+        "information_capture": {
+          "score": 52,
+          "confidence": "moderate",
+          "trend": "rising",
+          "sources": ["rsf_press", "vdem_media"],
+          "justification": "Vibrant private media exists but operates under pressure. Social media restrictions increasing. Journalists face violence and detention."
+        },
+        "resource_labor_extraction": {
+          "score": 82,
+          "confidence": "moderate",
+          "trend": "stable",
+          "sources": ["nrgi_rgi", "ituc_rights", "wb_natural_rents"],
+          "justification": "Oil-dependent economy with catastrophic Niger Delta environmental extraction. Informal labor sector vast and unprotected. Child labor prevalent."
+        },
+        "transnational_facilitation": {
+          "score": 30,
+          "confidence": "low",
+          "trend": "unknown",
+          "sources": ["gfi_iff"],
+          "justification": "Nigeria is primarily a victim of transnational extraction (capital flight) rather than a facilitator. Illicit financial outflows significant."
+        }
+      },
+      "composite_score": 61,
+      "overall_confidence": "moderate",
+      "overall_trend": "stable",
+      "notes": "Classic resource-curse extraction pattern. High domestic extraction with the country simultaneously victimized by transnational capital flight."
+    },
+    "PRK": {
+      "name": "North Korea",
+      "domains": {
+        "political_capture": {
+          "score": 98,
+          "confidence": "moderate",
+          "trend": "stable",
+          "sources": ["vdem_polyarchy", "fh_freedom"],
+          "justification": "Totalitarian single-family dynasty. No political competition. Among most closed political systems on earth."
+        },
+        "economic_concentration": {
+          "score": 95,
+          "confidence": "very_low",
+          "trend": "unknown",
+          "sources": ["fh_freedom"],
+          "justification": "Economy controlled entirely by state/party/military elite. Songbun caste system determines economic access. Limited data available."
+        },
+        "financial_extraction": {
+          "score": 60,
+          "confidence": "very_low",
+          "trend": "unknown",
+          "sources": [],
+          "justification": "Financial system is rudimentary and state-controlled. Score reflects state extraction rather than financialization. Very little data."
+        },
+        "institutional_gatekeeping": {
+          "score": 95,
+          "confidence": "low",
+          "trend": "stable",
+          "sources": ["fh_freedom"],
+          "justification": "All institutions serve the regime. No independent judiciary. Laws exist to control population, not protect rights."
+        },
+        "information_capture": {
+          "score": 99,
+          "confidence": "moderate",
+          "trend": "stable",
+          "sources": ["rsf_press", "vdem_media"],
+          "justification": "Total information monopoly. No independent media. Foreign media consumption criminalized. Internet access limited to tiny elite."
+        },
+        "resource_labor_extraction": {
+          "score": 90,
+          "confidence": "low",
+          "trend": "stable",
+          "sources": ["ituc_rights"],
+          "justification": "Forced labor widespread including prison camps. Workers sent abroad with wages confiscated by state. No labor rights."
+        },
+        "transnational_facilitation": {
+          "score": 40,
+          "confidence": "very_low",
+          "trend": "unknown",
+          "sources": [],
+          "justification": "Sanctions evasion networks exist but North Korea is primarily an extraction endpoint, not a facilitator for others."
+        }
+      },
+      "composite_score": 82,
+      "overall_confidence": "low",
+      "overall_trend": "stable",
+      "notes": "Scores extremely high on domestic extraction but data confidence is very low. Illustrates the legibility paradox: the most extractive regimes produce the least reliable data."
+    },
+    "LUX": {
+      "name": "Luxembourg",
+      "domains": {
+        "political_capture": {
+          "score": 12,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["vdem_polyarchy", "fh_freedom"],
+          "justification": "Functional democracy with coalition governments. Low corruption. Small size enables direct engagement."
+        },
+        "economic_concentration": {
+          "score": 30,
+          "confidence": "moderate",
+          "trend": "stable",
+          "sources": ["wid_inequality", "wb_gini"],
+          "justification": "High average income masks inequality between citizens and cross-border workers. Financial sector dominates economy."
+        },
+        "financial_extraction": {
+          "score": 40,
+          "confidence": "high",
+          "trend": "falling",
+          "sources": ["bis_finance", "wb_domestic_credit"],
+          "justification": "Financial sector is ~25% of GDP. Domestic population benefits from financial sector employment, but economy is dependent on facilitating others' financial flows."
+        },
+        "institutional_gatekeeping": {
+          "score": 15,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["wjp_rule_of_law", "wb_reg_quality"],
+          "justification": "Strong rule of law domestically. Institutions serve citizens well."
+        },
+        "information_capture": {
+          "score": 8,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["rsf_press", "vdem_media"],
+          "justification": "Free press. Multilingual media landscape."
+        },
+        "resource_labor_extraction": {
+          "score": 18,
+          "confidence": "moderate",
+          "trend": "stable",
+          "sources": ["ituc_rights", "ilo_wages"],
+          "justification": "Strong labor protections. Cross-border workers from France, Belgium, Germany do much of the lower-paid work."
+        },
+        "transnational_facilitation": {
+          "score": 78,
+          "confidence": "high",
+          "trend": "falling",
+          "sources": ["tjn_fsi", "tjn_cthi", "oecd_beps"],
+          "justification": "Major corporate tax haven. LuxLeaks revealed massive facilitation of profit shifting. Reforms underway post-BEPS but structural role persists."
+        }
+      },
+      "composite_score": 29,
+      "overall_confidence": "high",
+      "overall_trend": "stable",
+      "notes": "The case for the transnational facilitation axis. Domestic governance is excellent; the extraction Luxembourg enables happens elsewhere. Without axis 7, Luxembourg looks like Denmark."
+    },
+    "RUS": {
+      "name": "Russia",
+      "domains": {
+        "political_capture": {
+          "score": 88,
+          "confidence": "high",
+          "trend": "rising",
+          "sources": ["vdem_polyarchy", "vdem_corruption", "fh_freedom"],
+          "justification": "Consolidated authoritarian system. Elections are performative. Opposition criminalized or eliminated."
+        },
+        "economic_concentration": {
+          "score": 80,
+          "confidence": "moderate",
+          "trend": "stable",
+          "sources": ["wid_inequality", "wb_gini"],
+          "justification": "Oligarchic capture of post-Soviet assets persists despite reshuffling. Extreme wealth concentration."
+        },
+        "financial_extraction": {
+          "score": 55,
+          "confidence": "moderate",
+          "trend": "unknown",
+          "sources": ["wb_domestic_credit"],
+          "justification": "State-directed financial system. Capital flight has been a defining feature. Sanctions regime has reshaped financial architecture."
+        },
+        "institutional_gatekeeping": {
+          "score": 82,
+          "confidence": "moderate",
+          "trend": "rising",
+          "sources": ["wjp_rule_of_law", "cpi_corruption"],
+          "justification": "Judiciary serves state interests. Legal system weaponized against opposition and independent business. Selective enforcement is a primary extraction mechanism."
+        },
+        "information_capture": {
+          "score": 85,
+          "confidence": "high",
+          "trend": "rising",
+          "sources": ["rsf_press", "vdem_media", "vdem_internet"],
+          "justification": "Independent media effectively eliminated. Internet increasingly restricted. Journalists face imprisonment or worse."
+        },
+        "resource_labor_extraction": {
+          "score": 72,
+          "confidence": "moderate",
+          "trend": "stable",
+          "sources": ["nrgi_rgi", "ituc_rights", "wb_natural_rents"],
+          "justification": "Hydrocarbon wealth captured by state-connected elite. Labor rights weak in practice. Migrant workers from Central Asia exploited."
+        },
+        "transnational_facilitation": {
+          "score": 45,
+          "confidence": "low",
+          "trend": "unknown",
+          "sources": ["tjn_fsi", "gfi_iff"],
+          "justification": "Russia is both a source of illicit capital flight and a facilitator through opaque corporate structures. Sanctions have disrupted but not eliminated this role."
+        }
+      },
+      "composite_score": 72,
+      "overall_confidence": "moderate",
+      "overall_trend": "rising",
+      "notes": "Post-Soviet extraction consolidated under authoritarian control. Illustrates how political capture enables extraction across all other domains."
+    },
+    "NOR": {
+      "name": "Norway",
+      "domains": {
+        "political_capture": {
+          "score": 6,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["vdem_polyarchy", "vdem_corruption", "fh_freedom"],
+          "justification": "Among the world's strongest democracies. Transparent governance, broad participation, low corruption."
+        },
+        "economic_concentration": {
+          "score": 15,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["wid_inequality", "wb_gini", "wb_labor_share"],
+          "justification": "Low inequality. Sovereign wealth fund distributes resource wealth broadly. Strong labor share."
+        },
+        "financial_extraction": {
+          "score": 15,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["bis_finance", "wb_domestic_credit"],
+          "justification": "Financial sector appropriately sized. Sovereign wealth fund is world's largest but managed with high transparency."
+        },
+        "institutional_gatekeeping": {
+          "score": 8,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["wjp_rule_of_law", "wb_reg_quality"],
+          "justification": "Strong institutions serving broad population. High trust in government and judiciary."
+        },
+        "information_capture": {
+          "score": 4,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["rsf_press", "vdem_media"],
+          "justification": "Consistently ranked #1 or near-top for press freedom globally."
+        },
+        "resource_labor_extraction": {
+          "score": 10,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["nrgi_rgi", "ituc_rights", "ilo_wages"],
+          "justification": "The counter-example to the resource curse. Oil wealth managed through sovereign fund with democratic oversight. Strong labor protections and high union density."
+        },
+        "transnational_facilitation": {
+          "score": 10,
+          "confidence": "high",
+          "trend": "stable",
+          "sources": ["tjn_fsi"],
+          "justification": "Low financial secrecy. Not a significant facilitator of transnational extraction."
+        }
+      },
+      "composite_score": 10,
+      "overall_confidence": "high",
+      "overall_trend": "stable",
+      "notes": "The benchmark for low-extraction resource governance. Demonstrates that resource wealth does not inevitably produce extraction — institutional design matters."
+    }
+  }
+}
