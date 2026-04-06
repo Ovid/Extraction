@@ -444,7 +444,7 @@ function drawDomainList(domains) {
           <div class="domain-bar-fill" style="width:${d.score}%; background:${color}; opacity:${CONFIDENCE_OPACITY[conf]}"></div>
         </div>
       </div>
-      ${d.justification ? `<div class="domain-justification">${d.justification}</div>` : ''}
+      ${d.justification ? `<ul class="domain-justification">${d.justification.split(/(?<=\.)\s+/).filter(s => s.trim()).map(s => `<li>${s.replace(/\.$/, '')}</li>`).join('')}</ul>` : ''}
       ${d.justification_detail ? `<a class="raw-data-toggle" href="#">Show raw data &#9656;</a><div class="raw-data-detail" style="display:none"><div class="domain-justification">${d.justification_detail}</div>${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.join(', ')}</div>` : ''}</div>` : ''}
       <div class="domain-meta">
         <span class="confidence-badge">Confidence: ${conf.replace('_', ' ')}</span>
