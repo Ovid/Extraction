@@ -465,6 +465,13 @@ ul.domain-justification li .context-fact {
   font-size: 0.68rem;
   margin-top: 0.2rem;
 }
+.domain-sources a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+}
+.domain-sources a:hover {
+  color: var(--text-primary);
+}
 
 /* -- Weights Controls -- */
 .weights-section {
