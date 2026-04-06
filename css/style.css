@@ -58,7 +58,7 @@ body {
   --radar-accent: rgba(180, 140, 48, 0.15);
   --radar-accent-stroke: rgba(180, 140, 48, 0.7);
   --radar-dot-fill: #fff;
-  --no-data-fill: #dde0e8;
+  --no-data-fill: #c0c4d0;
   --shadow-tooltip: 0 4px 20px rgba(0,0,0,0.12);
 }
 
@@ -69,7 +69,7 @@ body {
   --radar-accent: rgba(212, 168, 78, 0.12);
   --radar-accent-stroke: rgba(212, 168, 78, 0.6);
   --radar-dot-fill: #fff;
-  --no-data-fill: #1a1f2e;
+  --no-data-fill: #252b3d;
   --shadow-tooltip: 0 4px 20px rgba(0,0,0,0.4);
 }
 
