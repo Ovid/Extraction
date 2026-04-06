@@ -241,9 +241,9 @@ function selectCountry(alpha3, numericId) {
   d3.selectAll('.country-path').classed('selected', false);
   if (numericId != null) {
     d3.selectAll('.country-path')
-      .filter(d => d.id === numericId)
+      .filter(d => String(d.id) === String(numericId))
       .classed('selected', true)
-      .raise();  // Move to top of SVG so stroke renders above neighbors
+      .raise();
   }
 
   const cd = getCountryData(alpha3);
