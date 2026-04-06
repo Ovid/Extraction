@@ -20,15 +20,20 @@ Open `http://localhost:8000`. No build step required.
 ## Architecture
 
 ```
-index.html            → Shell, loads CSS/JS
+index.html            → Shell, loads CSS/JS, methodology modal, country picker
 css/style.css         → All styles, including light/dark theme via CSS custom properties
 js/app.js             → D3 map, radar chart, weight controls, panel logic, theme toggle
-data/scores.json      → THE DATA FILE — per-country extraction scores
+data/scores.json      → THE DATA FILE — per-country extraction scores (222 countries)
 data/schema.json      → JSON Schema defining the data structure
 sources.md            → Registry of every data source with keys, URLs, coverage
-scripts/              → Python scripts that fetch raw data from public APIs
+scripts/
+  fetch_all.py        → Orchestrator for data fetching (--source, --list)
+  score_countries.py  → Auto-scorer: raw data → normalized scores → scores.json
+  requirements.txt    → Python dependencies (requests, pandas, openpyxl)
+  fetchers/           → Per-source fetch scripts (worldbank, vdem, rsf, fsi, cpi)
 raw_data/             → Fetched data (gitignored, reproduced via scripts)
 raw_data/manifest.json → Tracks what was fetched, when, from where
+.venv/                → Python virtual environment (gitignored)
 ```
 
 Data is loaded at init via `Promise.all` from `data/scores.json` and a CDN-hosted world-atlas TopoJSON.
@@ -39,20 +44,22 @@ Light/dark mode is driven by CSS custom properties on `:root` (dark default) and
 
 ### Data Flow
 
-`data/scores.json` → `computeComposite()` (weighted average of domain scores) → `countryFill()` (D3 color scale) + `countryOpacity()` (confidence-based) → SVG map render.
+`data/scores.json` → `computeComposite()` (weighted average of domain scores) → `countryFill()` (D3 color scale) → SVG map render.
 
 Users can adjust domain weights interactively; composite scores and map colors recalculate in real time.
 
 ### Visualization Components
 
-- **Choropleth map** (D3 + TopoJSON): countries colored by composite score, opacity by confidence
+- **Choropleth map** (D3 + TopoJSON): countries colored by composite score
 - **Radar chart**: seven-axis domain comparison per country
-- **Side panel**: domain breakdown cards with score bars, sources, and trends
+- **Side panel**: domain breakdown cards with score bars, sources, confidence, and trends
 - **Weight sliders**: interactive domain weight adjustment
+- **Country picker**: dropdown in header with A-Z / Score sort toggle
+- **Methodology modal**: "?" button explaining data sources, scoring, and confidence
 
 ### Key Mappings
 
-The JS contains a hard-coded `numericToAlpha3` mapping (ISO 3166-1 numeric → alpha-3) used to join TopoJSON geometry IDs to `data/scores.json` keys. A separate `COUNTRY_NAMES` object provides human-readable names for all mapped countries. Currently only 8 countries have actual scores; others render as greyed out.
+The JS contains a hard-coded `numericToAlpha3` mapping (ISO 3166-1 numeric → alpha-3) used to join TopoJSON geometry IDs to `data/scores.json` keys. A separate `COUNTRY_NAMES` object provides human-readable names for all mapped countries. Both must be updated when adding new territories.
 
 ## The Seven Domains
 
@@ -64,6 +71,74 @@ The JS contains a hard-coded `numericToAlpha3` mapping (ISO 3166-1 numeric → a
 6. **resource_labor_extraction** — natural resource governance, labor rights
 7. **transnational_facilitation** — enabling extraction elsewhere (tax havens, profit shifting)
 
+## Data Pipeline
+
+### Step 1: Fetch raw data
+
+```bash
+source .venv/bin/activate
+cd scripts
+python fetch_all.py                      # All sources
+python fetch_all.py --source worldbank   # Single source
+python fetch_all.py --list               # Show available sources
+```
+
+| Source | Type | Domains covered |
+|--------|------|-----------------|
+| World Bank | API (automatic) | economic_concentration, financial_extraction, institutional_gatekeeping, resource_labor_extraction |
+| V-Dem | Manual download (CAPTCHA) | political_capture, information_capture, institutional_gatekeeping |
+| RSF | Page scrape (automatic) | information_capture |
+| TJN FSI | API with public token (automatic) | transnational_facilitation |
+| CPI | Manual download (protected Excel) | institutional_gatekeeping (supporting) |
+
+V-Dem requires downloading "Country-Year: V-Dem Core" (CSV) from https://www.v-dem.net/data/the-v-dem-dataset/ and extracting the CSV to `raw_data/vdem/vdem_core_full.csv`.
+
+### Step 2: Score countries
+
+```bash
+python score_countries.py                  # Score all, preserve hand-scored
+python score_countries.py --overwrite      # Re-score everything
+python score_countries.py --preview        # Dry run
+python score_countries.py --country USA    # Single country
+```
+
+The scorer reads all available raw data, normalizes each indicator to 0–100 via min-max scaling, averages within domains, and writes `data/scores.json`. When multiple sources cover the same domain (e.g. World Bank WGI + V-Dem rule of law for institutional_gatekeeping), scores are merged by averaging.
+
+### Normalization
+
+- Higher raw values = more extraction for most indicators (Gini, corruption, secrecy)
+- Inverted indicators (democracy, press freedom, rule of law): flipped so higher = more extraction
+- All normalization is global min-max across the full dataset
+
+### Confidence Model
+
+Confidence reflects data reliability, assessed per domain via three factors:
+
+1. **Completeness** — number of indicators with data (0–3 points)
+2. **Source diversity** — number of independent datasets (0–3 points)
+3. **Recency** — how recent the latest data point is (0–3 points)
+
+Total 0–9 maps to: high (7+), moderate (5–6), low (3–4), very_low (0–2).
+
+Overall country confidence is also capped by domain coverage: ≤3 domains caps at "low", ≤5 at "moderate". This ensures sparse-data countries (like North Korea with 3/7 domains) don't appear over-confident.
+
+### Adding new data sources
+
+1. Create a fetcher in `scripts/fetchers/` with a `fetch(raw_data_dir)` function
+2. Register it in `FETCHER_REGISTRY` in `fetch_all.py`
+3. Add indicator config to `score_countries.py` (domain mapping, inversion, source key)
+4. Add name overrides in `COUNTRY_NAME_OVERRIDES` for any non-standard country codes
+5. Exclude aggregate/regional codes in `EXCLUDE_CODES`
+
+### Code-to-name mappings
+
+Country names must be maintained in two places:
+- `scripts/score_countries.py` → `COUNTRY_NAME_OVERRIDES` (used when generating scores.json)
+- `js/app.js` → `COUNTRY_NAMES` (used for tooltip display of countries not in scores.json)
+- `js/app.js` → `NUMERIC_MAP` (TopoJSON numeric ID → alpha-3 mapping)
+
+Non-standard codes from data sources (RSF, V-Dem) should be remapped or excluded in `score_countries.py`.
+
 ## Scoring Rules
 
 - All scores: 0–100 (0 = no extraction, 100 = extreme extraction)
@@ -71,19 +146,7 @@ The JS contains a hard-coded `numericToAlpha3` mapping (ISO 3166-1 numeric → a
 - Confidence: high | moderate | low | very_low
 - Trend: rising | falling | stable | unknown (roughly past decade)
 - Source keys reference entries in `sources.md`
-- Composite score = weighted average of 7 domains (default: equal weights)
-
-## Working with data/scores.json
-
-Country entries are keyed by ISO 3166-1 alpha-3 codes. Scores follow `data/schema.json`.
-
-When adding or updating a country:
-1. Pull indicator values from `raw_data/` files
-2. Normalize to 0–100 using min-max scaling across the global dataset
-3. Set confidence based on source availability (see sources.md)
-4. Estimate trend from the most recent ~10 years of data where available
-5. Write a brief justification grounding the score in specific indicators
-6. List source keys used
+- Composite score = weighted average of available domains (default: equal weights)
 
 ### Critical rules:
 - **Never invent scores.** If data is missing, set confidence to `very_low` and note it.
@@ -91,46 +154,6 @@ When adding or updating a country:
 - **Legal extraction counts.** Most structurally important extraction is legal.
 - **Transnational axis matters.** Without it, Luxembourg looks like Denmark.
 - **Acknowledge the legibility paradox.** The most extractive regimes produce the worst data.
-
-## Data Pipeline
-
-### Fetching raw data
-
-```bash
-cd scripts
-pip install -r requirements.txt
-python fetch_all.py              # Fetches all API-accessible sources
-python fetch_all.py --source worldbank   # Fetch a single source
-python fetch_all.py --list       # Show available sources
-```
-
-Raw data lands in `raw_data/` as CSV/JSON files, one per source per indicator. The manifest tracks provenance.
-
-### From raw data to scores
-
-1. Read the relevant raw_data files for a country
-2. Extract the specific indicator values
-3. Normalize: for each indicator, apply min-max scaling across all countries in the dataset
-4. Average indicators within each domain (equal weight within domain)
-5. Set confidence based on how many sources had data for this country/domain
-6. Estimate trend by comparing most recent value to value ~10 years ago
-7. Write justification citing the specific numbers
-8. Update data/scores.json
-
-### Normalization approach
-
-For most indicators, higher raw values = more extraction:
-- Gini coefficient: higher = more extraction
-- Top 1% wealth share: higher = more extraction
-- Financial secrecy score: higher = more extraction
-
-For inverted indicators (where higher = less extraction):
-- V-Dem democracy scores: INVERT (subtract from max)
-- Press freedom: INVERT
-- Rule of law: INVERT
-- Labor rights score: depends on scale (ITUC: higher = worse rights = more extraction)
-
-The `sources.md` file specifies the direction for each indicator.
 
 ## Style & Tone
 
