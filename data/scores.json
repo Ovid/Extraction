@@ -212,7 +212,7 @@
         "financial_extraction": {
           "score": 56,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -283,7 +283,7 @@
       },
       "composite_score": 41,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "NGA": {
@@ -313,7 +313,7 @@
         "institutional_gatekeeping": {
           "score": 72,
           "confidence": "high",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -374,7 +374,7 @@
       },
       "composite_score": 38,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PRK": {
@@ -430,7 +430,7 @@
         "economic_concentration": {
           "score": 62,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -451,7 +451,7 @@
         "institutional_gatekeeping": {
           "score": 6,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -512,7 +512,7 @@
       },
       "composite_score": 29,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "RUS": {
@@ -542,7 +542,7 @@
         "institutional_gatekeeping": {
           "score": 81,
           "confidence": "high",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -603,7 +603,7 @@
       },
       "composite_score": 52,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "NOR": {
@@ -612,7 +612,7 @@
         "economic_concentration": {
           "score": 36,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -623,7 +623,7 @@
         "financial_extraction": {
           "score": 56,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -694,7 +694,7 @@
       },
       "composite_score": 29,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ABW": {
@@ -703,7 +703,7 @@
         "financial_extraction": {
           "score": 25,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -748,7 +748,7 @@
       },
       "composite_score": 33,
       "overall_confidence": "moderate",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from TJN, World Bank (4/7 domains covered)."
     },
     "AFG": {
@@ -757,7 +757,7 @@
         "economic_concentration": {
           "score": 3,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_labor_share"
           ],
@@ -790,7 +790,7 @@
         "resource_capture": {
           "score": 1,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_natural_rents",
             "wb_wgi_corruption",
@@ -828,7 +828,7 @@
       },
       "composite_score": 40,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "AGO": {
@@ -871,7 +871,7 @@
         "resource_capture": {
           "score": 32,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_natural_rents",
             "wb_wgi_corruption",
@@ -928,7 +928,7 @@
         "economic_concentration": {
           "score": 15,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -1255,7 +1255,7 @@
         "economic_concentration": {
           "score": 13,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -1445,7 +1445,7 @@
         "financial_extraction": {
           "score": 56,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -1455,7 +1455,7 @@
         "institutional_gatekeeping": {
           "score": 7,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -1516,7 +1516,7 @@
       },
       "composite_score": 29,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "AUT": {
@@ -1536,7 +1536,7 @@
         "financial_extraction": {
           "score": 35,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -1546,7 +1546,7 @@
         "institutional_gatekeeping": {
           "score": 15,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -1607,7 +1607,7 @@
       },
       "composite_score": 28,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "AZE": {
@@ -1649,7 +1649,7 @@
         "resource_capture": {
           "score": 38,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_natural_rents",
             "wb_wgi_corruption",
@@ -1687,7 +1687,7 @@
       },
       "composite_score": 47,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "BDI": {
@@ -1798,7 +1798,7 @@
         "institutional_gatekeeping": {
           "score": 14,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -1859,7 +1859,7 @@
       },
       "composite_score": 24,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "BEN": {
@@ -1879,7 +1879,7 @@
         "financial_extraction": {
           "score": 8,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -2041,7 +2041,7 @@
         "financial_extraction": {
           "score": 16,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -2051,7 +2051,7 @@
         "institutional_gatekeeping": {
           "score": 70,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -2112,7 +2112,7 @@
       },
       "composite_score": 41,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "BGR": {
@@ -2121,7 +2121,7 @@
         "economic_concentration": {
           "score": 34,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -2142,7 +2142,7 @@
         "institutional_gatekeeping": {
           "score": 46,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "falling",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -2203,7 +2203,7 @@
       },
       "composite_score": 33,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "falling",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "BHR": {
@@ -2212,7 +2212,7 @@
         "economic_concentration": {
           "score": 39,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_labor_share"
           ],
@@ -2232,7 +2232,7 @@
         "institutional_gatekeeping": {
           "score": 56,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -2293,7 +2293,7 @@
       },
       "composite_score": 48,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "BHS": {
@@ -2302,7 +2302,7 @@
         "economic_concentration": {
           "score": 24,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_labor_share"
           ],
@@ -2357,7 +2357,7 @@
       },
       "composite_score": 35,
       "overall_confidence": "moderate",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from TJN, World Bank (5/7 domains covered)."
     },
     "BIH": {
@@ -2447,7 +2447,7 @@
         "economic_concentration": {
           "score": 12,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -2519,7 +2519,7 @@
       },
       "composite_score": 37,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "BLZ": {
@@ -2829,7 +2829,7 @@
         "economic_concentration": {
           "score": 21,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -2910,7 +2910,7 @@
       },
       "composite_score": 25,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "BRN": {
@@ -2929,7 +2929,7 @@
         "financial_extraction": {
           "score": 16,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -3085,7 +3085,7 @@
         "financial_extraction": {
           "score": 14,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -3165,7 +3165,7 @@
         "economic_concentration": {
           "score": 24,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -3176,7 +3176,7 @@
         "financial_extraction": {
           "score": 6,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -3237,7 +3237,7 @@
       },
       "composite_score": 42,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "CAN": {
@@ -3246,7 +3246,7 @@
         "economic_concentration": {
           "score": 30,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -3257,7 +3257,7 @@
         "institutional_gatekeeping": {
           "score": 10,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -3318,7 +3318,7 @@
       },
       "composite_score": 24,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (6/7 domains covered)."
     },
     "CHE": {
@@ -3429,7 +3429,7 @@
         "financial_extraction": {
           "score": 45,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -3500,7 +3500,7 @@
       },
       "composite_score": 32,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "CHN": {
@@ -3509,7 +3509,7 @@
         "economic_concentration": {
           "score": 24,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -3681,7 +3681,7 @@
         "economic_concentration": {
           "score": 26,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -3763,7 +3763,7 @@
       },
       "composite_score": 44,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "COD": {
@@ -3772,7 +3772,7 @@
         "economic_concentration": {
           "score": 27,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -3844,7 +3844,7 @@
       },
       "composite_score": 49,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "COG": {
@@ -3874,7 +3874,7 @@
         "institutional_gatekeeping": {
           "score": 81,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -3925,7 +3925,7 @@
       },
       "composite_score": 52,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "COL": {
@@ -4411,7 +4411,7 @@
         "economic_concentration": {
           "score": 23,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -5344,7 +5344,7 @@
         "economic_concentration": {
           "score": 24,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -5426,7 +5426,7 @@
       },
       "composite_score": 20,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ETH": {
@@ -5435,7 +5435,7 @@
         "economic_concentration": {
           "score": 10,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -5631,7 +5631,7 @@
         "resource_capture": {
           "score": 1,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_natural_rents",
             "wb_wgi_corruption",
@@ -5808,7 +5808,7 @@
         "financial_extraction": {
           "score": 10,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -5863,7 +5863,7 @@
         "financial_extraction": {
           "score": 6,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -5924,7 +5924,7 @@
       },
       "composite_score": 37,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "GBR": {
@@ -5954,7 +5954,7 @@
         "institutional_gatekeeping": {
           "score": 12,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -6015,7 +6015,7 @@
       },
       "composite_score": 26,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "GEO": {
@@ -6024,7 +6024,7 @@
         "economic_concentration": {
           "score": 23,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -6389,7 +6389,7 @@
         "institutional_gatekeeping": {
           "score": 82,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -6470,7 +6470,7 @@
         "institutional_gatekeeping": {
           "score": 90,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -6530,7 +6530,7 @@
         "economic_concentration": {
           "score": 29,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -6612,7 +6612,7 @@
       },
       "composite_score": 25,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "GRD": {
@@ -6719,7 +6719,7 @@
         "economic_concentration": {
           "score": 33,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -6801,7 +6801,7 @@
       },
       "composite_score": 39,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "rising",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "GUM": {
@@ -6864,7 +6864,7 @@
         "financial_extraction": {
           "score": 6,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -6954,7 +6954,7 @@
         "institutional_gatekeeping": {
           "score": 20,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -7024,7 +7024,7 @@
         "economic_concentration": {
           "score": 31,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -7096,7 +7096,7 @@
       },
       "composite_score": 34,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "rising",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "HRV": {
@@ -7105,7 +7105,7 @@
         "economic_concentration": {
           "score": 26,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -7196,7 +7196,7 @@
         "economic_concentration": {
           "score": 23,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -7368,7 +7368,7 @@
         "economic_concentration": {
           "score": 19,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -7579,7 +7579,7 @@
         "economic_concentration": {
           "score": 51,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -7661,7 +7661,7 @@
       },
       "composite_score": 25,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "IRN": {
@@ -7772,7 +7772,7 @@
         "institutional_gatekeeping": {
           "score": 82,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -7823,7 +7823,7 @@
       },
       "composite_score": 45,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "ISL": {
@@ -7923,7 +7923,7 @@
         "economic_concentration": {
           "score": 38,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -7944,7 +7944,7 @@
         "institutional_gatekeeping": {
           "score": 20,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -8005,7 +8005,7 @@
       },
       "composite_score": 29,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ITA": {
@@ -8035,7 +8035,7 @@
         "institutional_gatekeeping": {
           "score": 26,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "falling",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -8105,7 +8105,7 @@
         "economic_concentration": {
           "score": 24,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -8298,7 +8298,7 @@
         "institutional_gatekeeping": {
           "score": 12,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -8359,7 +8359,7 @@
       },
       "composite_score": 34,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "KAZ": {
@@ -8459,7 +8459,7 @@
         "economic_concentration": {
           "score": 20,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -8470,7 +8470,7 @@
         "financial_extraction": {
           "score": 14,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -8541,7 +8541,7 @@
       },
       "composite_score": 32,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "KGZ": {
@@ -8571,7 +8571,7 @@
         "institutional_gatekeeping": {
           "score": 68,
           "confidence": "high",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -8622,7 +8622,7 @@
       },
       "composite_score": 36,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "KHM": {
@@ -8755,7 +8755,7 @@
         "financial_extraction": {
           "score": 28,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -8800,7 +8800,7 @@
       },
       "composite_score": 42,
       "overall_confidence": "moderate",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from TJN, World Bank (4/7 domains covered)."
     },
     "KOR": {
@@ -8990,7 +8990,7 @@
         "economic_concentration": {
           "score": 22,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -9062,7 +9062,7 @@
       },
       "composite_score": 40,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "LBN": {
@@ -9105,7 +9105,7 @@
         "resource_capture": {
           "score": 0,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_natural_rents",
             "wb_wgi_corruption",
@@ -9162,7 +9162,7 @@
         "economic_concentration": {
           "score": 14,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -9183,7 +9183,7 @@
         "institutional_gatekeeping": {
           "score": 69,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -9244,7 +9244,7 @@
       },
       "composite_score": 42,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "LBY": {
@@ -9263,7 +9263,7 @@
         "financial_extraction": {
           "score": 6,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -9910,7 +9910,7 @@
         "institutional_gatekeeping": {
           "score": 52,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -9971,7 +9971,7 @@
       },
       "composite_score": 41,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "MCO": {
@@ -10058,7 +10058,7 @@
         "resource_capture": {
           "score": 0,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_natural_rents",
             "wb_wgi_corruption",
@@ -10186,7 +10186,7 @@
         "economic_concentration": {
           "score": 16,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -10268,7 +10268,7 @@
       },
       "composite_score": 30,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "MEX": {
@@ -10277,7 +10277,7 @@
         "economic_concentration": {
           "score": 34,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -10359,7 +10359,7 @@
       },
       "composite_score": 36,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "rising",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "MHL": {
@@ -10433,7 +10433,7 @@
         "financial_extraction": {
           "score": 23,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -10594,7 +10594,7 @@
         "economic_concentration": {
           "score": 36,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -10676,7 +10676,7 @@
       },
       "composite_score": 31,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "MMR": {
@@ -10719,7 +10719,7 @@
         "resource_capture": {
           "score": 13,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_natural_rents",
             "wb_wgi_corruption",
@@ -10868,7 +10868,7 @@
         "financial_extraction": {
           "score": 17,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -10929,7 +10929,7 @@
       },
       "composite_score": 34,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "MNP": {
@@ -10957,7 +10957,7 @@
         "economic_concentration": {
           "score": 33,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -11029,7 +11029,7 @@
       },
       "composite_score": 41,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "rising",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "MRT": {
@@ -11140,7 +11140,7 @@
         "institutional_gatekeeping": {
           "score": 28,
           "confidence": "high",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -11382,7 +11382,7 @@
         "economic_concentration": {
           "score": 51,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -11454,7 +11454,7 @@
       },
       "composite_score": 31,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "NCL": {
@@ -11482,7 +11482,7 @@
         "economic_concentration": {
           "score": 12,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -11554,7 +11554,7 @@
       },
       "composite_score": 29,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "falling",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "NIC": {
@@ -11563,7 +11563,7 @@
         "economic_concentration": {
           "score": 32,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -11635,7 +11635,7 @@
       },
       "composite_score": 48,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "NLD": {
@@ -11735,7 +11735,7 @@
         "economic_concentration": {
           "score": 12,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -11890,7 +11890,7 @@
         "institutional_gatekeeping": {
           "score": 6,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -12061,7 +12061,7 @@
         "financial_extraction": {
           "score": 5,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -12132,7 +12132,7 @@
       },
       "composite_score": 38,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PAN": {
@@ -12232,7 +12232,7 @@
         "economic_concentration": {
           "score": 26,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -12314,7 +12314,7 @@
       },
       "composite_score": 33,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "rising",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PHL": {
@@ -12694,7 +12694,7 @@
         "institutional_gatekeeping": {
           "score": 22,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -12755,7 +12755,7 @@
       },
       "composite_score": 28,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PRY": {
@@ -13046,7 +13046,7 @@
         "economic_concentration": {
           "score": 26,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -13228,7 +13228,7 @@
         "economic_concentration": {
           "score": 49,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_labor_share"
           ],
@@ -13352,7 +13352,7 @@
         "resource_capture": {
           "score": 18,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_natural_rents",
             "wb_wgi_corruption",
@@ -13399,7 +13399,7 @@
         "economic_concentration": {
           "score": 18,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -13514,7 +13514,7 @@
         "resource_capture": {
           "score": 14,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_natural_rents",
             "wb_wgi_corruption",
@@ -13560,7 +13560,7 @@
         "economic_concentration": {
           "score": 16,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -13632,7 +13632,7 @@
       },
       "composite_score": 30,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "SLV": {
@@ -13641,7 +13641,7 @@
         "economic_concentration": {
           "score": 25,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -13723,7 +13723,7 @@
       },
       "composite_score": 44,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "rising",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "SMR": {
@@ -13732,7 +13732,7 @@
         "institutional_gatekeeping": {
           "score": 26,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -13767,7 +13767,7 @@
       },
       "composite_score": 30,
       "overall_confidence": "low",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from TJN, World Bank (3/7 domains covered)."
     },
     "SOM": {
@@ -13796,7 +13796,7 @@
         "institutional_gatekeeping": {
           "score": 88,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -13856,7 +13856,7 @@
         "economic_concentration": {
           "score": 22,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -13867,7 +13867,7 @@
         "financial_extraction": {
           "score": 14,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -13938,7 +13938,7 @@
       },
       "composite_score": 41,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "SSD": {
@@ -14027,7 +14027,7 @@
         "economic_concentration": {
           "score": 29,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -14300,7 +14300,7 @@
         "institutional_gatekeeping": {
           "score": 22,
           "confidence": "high",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -14361,7 +14361,7 @@
       },
       "composite_score": 18,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "SWE": {
@@ -14370,7 +14370,7 @@
         "economic_concentration": {
           "score": 31,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -14391,7 +14391,7 @@
         "institutional_gatekeeping": {
           "score": 6,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -14452,7 +14452,7 @@
       },
       "composite_score": 25,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "SWZ": {
@@ -14495,7 +14495,7 @@
         "resource_capture": {
           "score": 4,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_natural_rents",
             "wb_wgi_corruption",
@@ -14795,7 +14795,7 @@
         "resource_capture": {
           "score": 32,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_natural_rents",
             "wb_wgi_corruption",
@@ -14833,7 +14833,7 @@
       },
       "composite_score": 47,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "TGO": {
@@ -14842,7 +14842,7 @@
         "economic_concentration": {
           "score": 19,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -14923,7 +14923,7 @@
         "economic_concentration": {
           "score": 20,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -15005,7 +15005,7 @@
       },
       "composite_score": 46,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "rising",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "TJK": {
@@ -15014,7 +15014,7 @@
         "economic_concentration": {
           "score": 19,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -15035,7 +15035,7 @@
         "institutional_gatekeeping": {
           "score": 86,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -15086,7 +15086,7 @@
       },
       "composite_score": 45,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "TKM": {
@@ -15311,7 +15311,7 @@
         "economic_concentration": {
           "score": 26,
           "confidence": "low",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_labor_share"
           ],
@@ -15392,7 +15392,7 @@
       },
       "composite_score": 30,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "rising",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "TUN": {
@@ -15401,7 +15401,7 @@
         "economic_concentration": {
           "score": 20,
           "confidence": "moderate",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -15483,7 +15483,7 @@
       },
       "composite_score": 30,
       "overall_confidence": "high",
-      "overall_trend": "falling",
+      "overall_trend": "rising",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "TUR": {
@@ -15492,7 +15492,7 @@
         "economic_concentration": {
           "score": 44,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -15503,7 +15503,7 @@
         "financial_extraction": {
           "score": 19,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -15574,7 +15574,7 @@
       },
       "composite_score": 46,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "TUV": {
@@ -15627,7 +15627,7 @@
         "economic_concentration": {
           "score": 22,
           "confidence": "moderate",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -15638,7 +15638,7 @@
         "financial_extraction": {
           "score": 7,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_domestic_credit"
           ],
@@ -15709,7 +15709,7 @@
       },
       "composite_score": 35,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "UGA": {
@@ -15739,7 +15739,7 @@
         "institutional_gatekeeping": {
           "score": 73,
           "confidence": "high",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -15790,7 +15790,7 @@
       },
       "composite_score": 40,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "UKR": {
@@ -15799,7 +15799,7 @@
         "economic_concentration": {
           "score": 10,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_gini",
             "wb_labor_share"
@@ -15911,7 +15911,7 @@
         "institutional_gatekeeping": {
           "score": 16,
           "confidence": "high",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",
@@ -15972,7 +15972,7 @@
       },
       "composite_score": 24,
       "overall_confidence": "high",
-      "overall_trend": "rising",
+      "overall_trend": "stable",
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "UZB": {
@@ -16015,7 +16015,7 @@
         "resource_capture": {
           "score": 25,
           "confidence": "low",
-          "trend": "rising",
+          "trend": "stable",
           "sources": [
             "wb_natural_rents",
             "wb_wgi_corruption",
@@ -16789,7 +16789,7 @@
         "institutional_gatekeeping": {
           "score": 81,
           "confidence": "high",
-          "trend": "falling",
+          "trend": "stable",
           "sources": [
             "wb_wgi_corruption",
             "wb_reg_quality",

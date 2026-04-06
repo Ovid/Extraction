@@ -416,7 +416,7 @@ def estimate_trend(df_full, country_code, indicator_file, inverted=False):
     change = (recent - older) / abs(older)
     if inverted:
         change = -change  # Falling raw value = rising extraction
-    if abs(change) < 0.05:
+    if abs(change) < 0.10:
         return 'stable'
     return 'rising' if change > 0 else 'falling'
 
