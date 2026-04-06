@@ -74,7 +74,16 @@ const NUMERIC_MAP = {
   '768': 'TGO', '780': 'TTO', '784': 'ARE', '788': 'TUN', '792': 'TUR',
   '795': 'TKM', '800': 'UGA', '804': 'UKR', '807': 'MKD', '826': 'GBR',
   '834': 'TZA', '854': 'BFA', '858': 'URY', '860': 'UZB', '862': 'VEN',
-  '887': 'YEM', '894': 'ZMB'
+  '887': 'YEM', '894': 'ZMB',
+  // Additional mappings for TopoJSON coverage
+  '010': 'ATA', '031': 'AZE', '044': 'BHS', '051': 'ARM', '064': 'BTN',
+  '070': 'BIH', '072': 'BWA', '084': 'BLZ', '090': 'SLB', '096': 'BRN',
+  '108': 'BDI', '112': 'BLR', '140': 'CAF', '148': 'TCD', '158': 'TWN',
+  '204': 'BEN', '226': 'GNQ', '232': 'ERI', '238': 'FLK', '242': 'FJI',
+  '260': 'ATF', '262': 'DJI', '270': 'GMB', '275': 'PSE', '304': 'GRL',
+  '328': 'GUY', '417': 'KGZ', '426': 'LSO', '498': 'MDA', '499': 'MNE',
+  '548': 'VUT', '624': 'GNB', '626': 'TLS', '703': 'SVK', '705': 'SVN',
+  '732': 'ESH'
 };
 Object.assign(numericToAlpha3, NUMERIC_MAP);
 
@@ -107,7 +116,16 @@ const COUNTRY_NAMES = {
   ARE: 'United Arab Emirates', TUN: 'Tunisia', TUR: 'Turkey', TKM: 'Turkmenistan',
   UGA: 'Uganda', UKR: 'Ukraine', MKD: 'North Macedonia', GBR: 'United Kingdom',
   TZA: 'Tanzania', USA: 'United States', BFA: 'Burkina Faso', URY: 'Uruguay',
-  UZB: 'Uzbekistan', VEN: 'Venezuela', YEM: 'Yemen', ZMB: 'Zambia', PRK: 'North Korea'
+  UZB: 'Uzbekistan', VEN: 'Venezuela', YEM: 'Yemen', ZMB: 'Zambia', PRK: 'North Korea',
+  ATA: 'Antarctica', AZE: 'Azerbaijan', BHS: 'Bahamas', ARM: 'Armenia', BTN: 'Bhutan',
+  BIH: 'Bosnia and Herzegovina', BWA: 'Botswana', BLZ: 'Belize', SLB: 'Solomon Islands',
+  BDI: 'Burundi', BLR: 'Belarus', CAF: 'Central African Republic', TCD: 'Chad',
+  TWN: 'Taiwan', GNQ: 'Equatorial Guinea', ERI: 'Eritrea', FLK: 'Falkland Islands',
+  FJI: 'Fiji', ATF: 'French Southern Lands', DJI: 'Djibouti', GMB: 'Gambia',
+  PSE: 'Palestine', GRL: 'Greenland', GUY: 'Guyana', KGZ: 'Kyrgyzstan',
+  LSO: 'Lesotho', MDA: 'Moldova', MNE: 'Montenegro', VUT: 'Vanuatu',
+  GNB: 'Guinea-Bissau', TLS: 'Timor-Leste', SVK: 'Slovakia', SVN: 'Slovenia',
+  ESH: 'Western Sahara'
 };
 
 function getCountryAlpha3(numericId) {
