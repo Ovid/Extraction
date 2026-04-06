@@ -128,8 +128,13 @@ header p {
   stroke-width: 1.5;
 }
 .country-path.selected {
-  stroke: var(--accent-mid);
-  stroke-width: 2;
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+}
+:root[data-theme="light"] .country-path.selected {
+  stroke: #000000;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.5));
 }
 .country-path.disputed {
   stroke-dasharray: 3 2;
