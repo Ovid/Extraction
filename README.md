@@ -40,6 +40,10 @@ Every score is grounded in published, independent data sources: V-Dem for politi
 
 **Show your work.** Every score has a justification and source citations. The methodology is transparent and the weights are adjustable because reasonable people can disagree about what matters most.
 
+## Background
+
+See [BACKGROUND.md](BACKGROUND.md) for the intellectual history of the project.
+
 ## Learn more
 
 **[Methodology](METHODOLOGY.md)** — how scores are calculated, what the confidence levels mean, and the known limitations of the data.
