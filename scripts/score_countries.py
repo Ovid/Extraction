@@ -197,6 +197,160 @@ COUNTRY_NAME_OVERRIDES = {
     'TLS': 'Timor-Leste',
 }
 
+# UN geoscheme region mapping for peer comparisons
+REGION_MAP = {
+    # Eastern Africa
+    'BDI': 'Eastern Africa', 'COM': 'Eastern Africa', 'DJI': 'Eastern Africa',
+    'ERI': 'Eastern Africa', 'ETH': 'Eastern Africa', 'KEN': 'Eastern Africa',
+    'MDG': 'Eastern Africa', 'MWI': 'Eastern Africa', 'MUS': 'Eastern Africa',
+    'MOZ': 'Eastern Africa', 'RWA': 'Eastern Africa', 'SYC': 'Eastern Africa',
+    'SOM': 'Eastern Africa', 'SSD': 'Eastern Africa', 'TZA': 'Eastern Africa',
+    'UGA': 'Eastern Africa', 'ZMB': 'Eastern Africa', 'ZWE': 'Eastern Africa',
+    # Middle Africa
+    'AGO': 'Middle Africa', 'CMR': 'Middle Africa', 'CAF': 'Middle Africa',
+    'TCD': 'Middle Africa', 'COG': 'Middle Africa', 'COD': 'Middle Africa',
+    'GNQ': 'Middle Africa', 'GAB': 'Middle Africa',
+    # Northern Africa
+    'DZA': 'Northern Africa', 'EGY': 'Northern Africa', 'LBY': 'Northern Africa',
+    'MAR': 'Northern Africa', 'SDN': 'Northern Africa', 'TUN': 'Northern Africa',
+    # Southern Africa
+    'BWA': 'Southern Africa', 'SWZ': 'Southern Africa', 'LSO': 'Southern Africa',
+    'NAM': 'Southern Africa', 'ZAF': 'Southern Africa',
+    # Western Africa
+    'BEN': 'Western Africa', 'BFA': 'Western Africa', 'CPV': 'Western Africa',
+    'CIV': 'Western Africa', 'GMB': 'Western Africa', 'GHA': 'Western Africa',
+    'GIN': 'Western Africa', 'GNB': 'Western Africa', 'LBR': 'Western Africa',
+    'MLI': 'Western Africa', 'MRT': 'Western Africa', 'NER': 'Western Africa',
+    'NGA': 'Western Africa', 'SEN': 'Western Africa', 'SLE': 'Western Africa',
+    'TGO': 'Western Africa',
+    # Caribbean
+    'ATG': 'Caribbean', 'BHS': 'Caribbean', 'BRB': 'Caribbean', 'CUB': 'Caribbean',
+    'DMA': 'Caribbean', 'DOM': 'Caribbean', 'GRD': 'Caribbean', 'HTI': 'Caribbean',
+    'JAM': 'Caribbean', 'KNA': 'Caribbean', 'LCA': 'Caribbean', 'VCT': 'Caribbean',
+    'TTO': 'Caribbean', 'PRI': 'Caribbean',
+    # Central America
+    'BLZ': 'Central America', 'CRI': 'Central America', 'SLV': 'Central America',
+    'GTM': 'Central America', 'HND': 'Central America', 'MEX': 'Central America',
+    'NIC': 'Central America', 'PAN': 'Central America',
+    # South America
+    'ARG': 'South America', 'BOL': 'South America', 'BRA': 'South America',
+    'CHL': 'South America', 'COL': 'South America', 'ECU': 'South America',
+    'GUY': 'South America', 'PRY': 'South America', 'PER': 'South America',
+    'SUR': 'South America', 'URY': 'South America', 'VEN': 'South America',
+    # Northern America
+    'CAN': 'Northern America', 'USA': 'Northern America',
+    # Central Asia
+    'KAZ': 'Central Asia', 'KGZ': 'Central Asia', 'TJK': 'Central Asia',
+    'TKM': 'Central Asia', 'UZB': 'Central Asia',
+    # Eastern Asia
+    'CHN': 'Eastern Asia', 'JPN': 'Eastern Asia', 'MNG': 'Eastern Asia',
+    'PRK': 'Eastern Asia', 'KOR': 'Eastern Asia', 'TWN': 'Eastern Asia',
+    'HKG': 'Eastern Asia', 'MAC': 'Eastern Asia',
+    # South-eastern Asia
+    'BRN': 'South-eastern Asia', 'KHM': 'South-eastern Asia', 'IDN': 'South-eastern Asia',
+    'LAO': 'South-eastern Asia', 'MYS': 'South-eastern Asia', 'MMR': 'South-eastern Asia',
+    'PHL': 'South-eastern Asia', 'SGP': 'South-eastern Asia', 'THA': 'South-eastern Asia',
+    'TLS': 'South-eastern Asia', 'VNM': 'South-eastern Asia',
+    # Southern Asia
+    'AFG': 'Southern Asia', 'BGD': 'Southern Asia', 'BTN': 'Southern Asia',
+    'IND': 'Southern Asia', 'IRN': 'Southern Asia', 'MDV': 'Southern Asia',
+    'NPL': 'Southern Asia', 'PAK': 'Southern Asia', 'LKA': 'Southern Asia',
+    # Western Asia
+    'ARM': 'Western Asia', 'AZE': 'Western Asia', 'BHR': 'Western Asia',
+    'CYP': 'Western Asia', 'GEO': 'Western Asia', 'IRQ': 'Western Asia',
+    'ISR': 'Western Asia', 'JOR': 'Western Asia', 'KWT': 'Western Asia',
+    'LBN': 'Western Asia', 'OMN': 'Western Asia', 'PSE': 'Western Asia',
+    'QAT': 'Western Asia', 'SAU': 'Western Asia', 'SYR': 'Western Asia',
+    'TUR': 'Western Asia', 'ARE': 'Western Asia', 'YEM': 'Western Asia',
+    # Eastern Europe
+    'BLR': 'Eastern Europe', 'BGR': 'Eastern Europe', 'CZE': 'Eastern Europe',
+    'HUN': 'Eastern Europe', 'POL': 'Eastern Europe', 'MDA': 'Eastern Europe',
+    'ROU': 'Eastern Europe', 'RUS': 'Eastern Europe', 'SVK': 'Eastern Europe',
+    'UKR': 'Eastern Europe',
+    # Northern Europe
+    'DNK': 'Northern Europe', 'EST': 'Northern Europe', 'FIN': 'Northern Europe',
+    'ISL': 'Northern Europe', 'IRL': 'Northern Europe', 'LVA': 'Northern Europe',
+    'LTU': 'Northern Europe', 'NOR': 'Northern Europe', 'SWE': 'Northern Europe',
+    'GBR': 'Northern Europe',
+    # Southern Europe
+    'ALB': 'Southern Europe', 'AND': 'Southern Europe', 'BIH': 'Southern Europe',
+    'HRV': 'Southern Europe', 'GRC': 'Southern Europe', 'ITA': 'Southern Europe',
+    'MLT': 'Southern Europe', 'MNE': 'Southern Europe', 'MKD': 'Southern Europe',
+    'PRT': 'Southern Europe', 'SMR': 'Southern Europe', 'SRB': 'Southern Europe',
+    'SVN': 'Southern Europe', 'ESP': 'Southern Europe',
+    # Western Europe
+    'AUT': 'Western Europe', 'BEL': 'Western Europe', 'FRA': 'Western Europe',
+    'DEU': 'Western Europe', 'LIE': 'Western Europe', 'LUX': 'Western Europe',
+    'MCO': 'Western Europe', 'NLD': 'Western Europe', 'CHE': 'Western Europe',
+    # Oceania
+    'AUS': 'Oceania', 'FJI': 'Oceania', 'NZL': 'Oceania', 'PNG': 'Oceania',
+    'SLB': 'Oceania', 'VUT': 'Oceania', 'WSM': 'Oceania', 'TON': 'Oceania',
+    'PLW': 'Oceania', 'MHL': 'Oceania', 'NRU': 'Oceania',
+}
+
+# World Bank income group classification (July 2024)
+INCOME_GROUP_MAP = {
+    # High income
+    'AND': 'High income', 'ARE': 'High income', 'ATG': 'High income', 'AUS': 'High income',
+    'AUT': 'High income', 'BEL': 'High income', 'BHR': 'High income', 'BHS': 'High income',
+    'BRB': 'High income', 'BRN': 'High income', 'CAN': 'High income', 'CHE': 'High income',
+    'CHL': 'High income', 'CYP': 'High income', 'CZE': 'High income', 'DEU': 'High income',
+    'DNK': 'High income', 'ESP': 'High income', 'EST': 'High income', 'FIN': 'High income',
+    'FRA': 'High income', 'GBR': 'High income', 'GRC': 'High income', 'GRD': 'High income',
+    'GUY': 'High income', 'HKG': 'High income', 'HRV': 'High income', 'HUN': 'High income',
+    'IRL': 'High income', 'ISL': 'High income', 'ISR': 'High income', 'ITA': 'High income',
+    'JPN': 'High income', 'KNA': 'High income', 'KOR': 'High income', 'KWT': 'High income',
+    'LIE': 'High income', 'LTU': 'High income', 'LUX': 'High income', 'LVA': 'High income',
+    'MAC': 'High income', 'MCO': 'High income', 'MLT': 'High income', 'NLD': 'High income',
+    'NOR': 'High income', 'NZL': 'High income', 'OMN': 'High income', 'PAN': 'High income',
+    'POL': 'High income', 'PRT': 'High income', 'QAT': 'High income', 'ROU': 'High income',
+    'SAU': 'High income', 'SGP': 'High income', 'SMR': 'High income', 'SVK': 'High income',
+    'SVN': 'High income', 'SWE': 'High income', 'SYC': 'High income', 'TTO': 'High income',
+    'URY': 'High income', 'USA': 'High income',
+    # Upper middle income
+    'ALB': 'Upper middle income', 'ARG': 'Upper middle income', 'ARM': 'Upper middle income',
+    'AZE': 'Upper middle income', 'BGR': 'Upper middle income', 'BIH': 'Upper middle income',
+    'BLR': 'Upper middle income', 'BLZ': 'Upper middle income', 'BOL': 'Upper middle income',
+    'BRA': 'Upper middle income', 'BWA': 'Upper middle income', 'CHN': 'Upper middle income',
+    'COL': 'Upper middle income', 'CRI': 'Upper middle income', 'CUB': 'Upper middle income',
+    'DMA': 'Upper middle income', 'DOM': 'Upper middle income', 'ECU': 'Upper middle income',
+    'GAB': 'Upper middle income', 'GEO': 'Upper middle income', 'GNQ': 'Upper middle income',
+    'GTM': 'Upper middle income', 'IDN': 'Upper middle income', 'IRQ': 'Upper middle income',
+    'JAM': 'Upper middle income', 'JOR': 'Upper middle income', 'KAZ': 'Upper middle income',
+    'LBN': 'Upper middle income', 'LBY': 'Upper middle income', 'LCA': 'Upper middle income',
+    'MDA': 'Upper middle income', 'MDV': 'Upper middle income', 'MEX': 'Upper middle income',
+    'MKD': 'Upper middle income', 'MNE': 'Upper middle income', 'MUS': 'Upper middle income',
+    'MYS': 'Upper middle income', 'NAM': 'Upper middle income', 'PER': 'Upper middle income',
+    'PRY': 'Upper middle income', 'RUS': 'Upper middle income', 'SRB': 'Upper middle income',
+    'SUR': 'Upper middle income', 'THA': 'Upper middle income', 'TUR': 'Upper middle income',
+    'TKM': 'Upper middle income', 'VCT': 'Upper middle income', 'ZAF': 'Upper middle income',
+    # Lower middle income
+    'AGO': 'Lower middle income', 'BEN': 'Lower middle income', 'BGD': 'Lower middle income',
+    'BTN': 'Lower middle income', 'CIV': 'Lower middle income',
+    'CMR': 'Lower middle income', 'COG': 'Lower middle income', 'COM': 'Lower middle income',
+    'CPV': 'Lower middle income', 'DJI': 'Lower middle income', 'DZA': 'Lower middle income',
+    'EGY': 'Lower middle income', 'GHA': 'Lower middle income', 'HND': 'Lower middle income',
+    'HTI': 'Lower middle income', 'IND': 'Lower middle income', 'IRN': 'Lower middle income',
+    'KEN': 'Lower middle income', 'KGZ': 'Lower middle income', 'KHM': 'Lower middle income',
+    'LAO': 'Lower middle income', 'LBR': 'Lower middle income', 'LKA': 'Lower middle income',
+    'LSO': 'Lower middle income', 'MAR': 'Lower middle income', 'MMR': 'Lower middle income',
+    'MNG': 'Lower middle income', 'MRT': 'Lower middle income', 'NGA': 'Lower middle income',
+    'NIC': 'Lower middle income', 'NPL': 'Lower middle income', 'PAK': 'Lower middle income',
+    'PHL': 'Lower middle income', 'PNG': 'Lower middle income', 'SEN': 'Lower middle income',
+    'SLV': 'Lower middle income', 'SWZ': 'Lower middle income', 'TJK': 'Lower middle income',
+    'TLS': 'Lower middle income', 'TUN': 'Lower middle income', 'TZA': 'Lower middle income',
+    'UKR': 'Lower middle income', 'UZB': 'Lower middle income', 'VNM': 'Lower middle income',
+    'ZMB': 'Lower middle income',
+    # Low income
+    'AFG': 'Low income', 'BDI': 'Low income', 'BFA': 'Low income', 'CAF': 'Low income',
+    'COD': 'Low income', 'ERI': 'Low income', 'ETH': 'Low income', 'GIN': 'Low income',
+    'GMB': 'Low income', 'GNB': 'Low income', 'MDG': 'Low income', 'MLI': 'Low income',
+    'MOZ': 'Low income', 'MWI': 'Low income', 'NER': 'Low income', 'PRK': 'Low income',
+    'RWA': 'Low income', 'SDN': 'Low income', 'SLE': 'Low income', 'SOM': 'Low income',
+    'SSD': 'Low income', 'SYR': 'Low income', 'TCD': 'Low income', 'TGO': 'Low income',
+    'UGA': 'Low income', 'YEM': 'Low income', 'ZWE': 'Low income',
+}
+
 # Aggregates and regions to exclude (World Bank includes these as "countries")
 EXCLUDE_CODES = {
     'AFE', 'AFW', 'ARB', 'CEB', 'CSS', 'EAP', 'EAR', 'EAS', 'ECA', 'ECS',
