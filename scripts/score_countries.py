@@ -174,6 +174,61 @@ def load_vdem_data():
     return result
 
 
+def assess_domain_confidence(n_indicators, n_sources, most_recent_year):
+    """Assess confidence for a domain based on data reliability.
+
+    Factors:
+      1. Completeness — number of indicators with data
+      2. Source diversity — number of independent data sources
+      3. Recency — how recent the most recent data point is
+
+    Returns one of: 'high', 'moderate', 'low', 'very_low'
+    """
+    # Score each factor 0-3
+    # Completeness
+    if n_indicators >= 4:
+        completeness = 3
+    elif n_indicators >= 3:
+        completeness = 2
+    elif n_indicators >= 2:
+        completeness = 1
+    else:
+        completeness = 0
+
+    # Source diversity (how many independent datasets contribute)
+    if n_sources >= 3:
+        diversity = 3
+    elif n_sources >= 2:
+        diversity = 2
+    elif n_sources >= 1:
+        diversity = 1
+    else:
+        diversity = 0
+
+    # Recency
+    if most_recent_year is None:
+        recency = 0
+    elif most_recent_year >= 2022:
+        recency = 3
+    elif most_recent_year >= 2019:
+        recency = 2
+    elif most_recent_year >= 2015:
+        recency = 1
+    else:
+        recency = 0
+
+    total = completeness + diversity + recency  # 0-9
+
+    if total >= 7:
+        return 'high'
+    elif total >= 5:
+        return 'moderate'
+    elif total >= 3:
+        return 'low'
+    else:
+        return 'very_low'
+
+
 def load_indicator(filepath):
     """Load a World Bank indicator CSV and return most recent value per country."""
     if not filepath.exists():
@@ -320,13 +375,9 @@ def build_country_scores():
                 score = int(group['normalized'].mean().round(0))
                 sources = group['source_key'].tolist()
                 n_indicators = len(group)
+                most_recent = int(group['year'].max())
 
-                if n_indicators >= 3:
-                    confidence = 'moderate'
-                elif n_indicators >= 2:
-                    confidence = 'low'
-                else:
-                    confidence = 'very_low'
+                confidence = assess_domain_confidence(n_indicators, 1, most_recent)
 
                 first_file = group['indicator_file'].iloc[0]
                 trend = estimate_trend(all_data, code, first_file)
@@ -342,30 +393,41 @@ def build_country_scores():
                     'trend': trend,
                     'sources': sources,
                     'justification': justification,
+                    '_n_indicators': n_indicators,
+                    '_n_sources': 1,
+                    '_most_recent_year': most_recent,
                 }
             source_names.append('World Bank')
 
-        # Add RSF (information_capture)
+        # Add RSF (information_capture) — RSF 2025 data
         if code in rsf_map:
             raw_score = rsf_scores[code]
+            rsf_confidence = assess_domain_confidence(1, 1, 2025)
             domains['information_capture'] = {
                 'score': int(rsf_map[code]),
-                'confidence': 'low',
+                'confidence': rsf_confidence,
                 'trend': 'unknown',
                 'sources': ['rsf_press'],
                 'justification': f'Auto-scored from RSF Press Freedom Index. Raw score: {raw_score:.1f} (normalized: {int(rsf_map[code])}).',
+                '_n_indicators': 1,
+                '_n_sources': 1,
+                '_most_recent_year': 2025,
             }
             source_names.append('RSF')
 
-        # Add FSI (transnational_facilitation)
+        # Add FSI (transnational_facilitation) — FSI 2025 data
         if code in fsi_map:
             raw_score = fsi_scores[code]
+            fsi_confidence = assess_domain_confidence(1, 1, 2025)
             domains['transnational_facilitation'] = {
                 'score': int(fsi_map[code]),
-                'confidence': 'low',
+                'confidence': fsi_confidence,
                 'trend': 'unknown',
                 'sources': ['tjn_fsi'],
                 'justification': f'Auto-scored from Tax Justice Network FSI. Raw score: {raw_score:.1f} (normalized: {int(fsi_map[code])}).',
+                '_n_indicators': 1,
+                '_n_sources': 1,
+                '_most_recent_year': 2025,
             }
             source_names.append('TJN')
 
@@ -384,28 +446,36 @@ def build_country_scores():
                 vdem_score = round(sum(i['score'] for i in indicators_list) / len(indicators_list))
                 vdem_sources = ['vdem_' + i['name'].lower().replace(' ', '_') for i in indicators_list]
                 parts = [f'{i["name"]}: {i["raw"]:.3f} (normalized: {i["score"]})' for i in indicators_list]
-
-                n = len(indicators_list)
-                confidence = 'moderate' if n >= 3 else 'low'
+                n_vdem = len(indicators_list)
 
                 if domain in domains:
-                    # Merge with existing domain score (average of WB and V-Dem)
+                    # Merge with existing domain score (average of WB/RSF and V-Dem)
                     existing = domains[domain]
                     merged_score = round((existing['score'] + vdem_score) / 2)
+                    merged_n = existing.get('_n_indicators', 1) + n_vdem
+                    merged_sources = existing.get('_n_sources', 1) + 1
+                    merged_year = max(existing.get('_most_recent_year') or 0, 2024)
                     domains[domain] = {
                         'score': merged_score,
-                        'confidence': max(existing['confidence'], confidence, key=lambda c: {'very_low': 0, 'low': 1, 'moderate': 2, 'high': 3}[c]),
+                        'confidence': assess_domain_confidence(merged_n, merged_sources, merged_year),
                         'trend': existing['trend'] if existing['trend'] != 'unknown' else 'unknown',
                         'sources': existing['sources'] + vdem_sources,
                         'justification': f'{existing["justification"]} V-Dem: {"; ".join(parts)}.',
+                        '_n_indicators': merged_n,
+                        '_n_sources': merged_sources,
+                        '_most_recent_year': merged_year,
                     }
                 else:
+                    vdem_confidence = assess_domain_confidence(n_vdem, 1, 2024)
                     domains[domain] = {
                         'score': vdem_score,
-                        'confidence': confidence,
+                        'confidence': vdem_confidence,
                         'trend': 'unknown',
                         'sources': vdem_sources,
                         'justification': f'Auto-scored from V-Dem. {"; ".join(parts)}.',
+                        '_n_indicators': n_vdem,
+                        '_n_sources': 1,
+                        '_most_recent_year': 2024,
                     }
             source_names.append('V-Dem')
 
@@ -415,14 +485,35 @@ def build_country_scores():
         if not domains:
             continue
 
+        # Compute overall confidence from totals across all domains
+        total_indicators = sum(d.get('_n_indicators', 1) for d in domains.values())
+        total_sources = len(set(source_names))
+        all_years = [d.get('_most_recent_year') for d in domains.values() if d.get('_most_recent_year')]
+        overall_most_recent = max(all_years) if all_years else None
+        overall_confidence = assess_domain_confidence(total_indicators, total_sources, overall_most_recent)
+
+        # Downgrade overall confidence based on domain coverage
+        n_domains = len(domains)
+        if n_domains <= 3:
+            # Cap at 'low' if less than half domains covered
+            conf_cap = 'low'
+        elif n_domains <= 5:
+            conf_cap = 'moderate'
+        else:
+            conf_cap = 'high'
+        conf_rank = {'very_low': 0, 'low': 1, 'moderate': 2, 'high': 3}
+        if conf_rank[overall_confidence] > conf_rank[conf_cap]:
+            overall_confidence = conf_cap
+
+        # Clean internal tracking fields from domain entries
+        for d in domains.values():
+            d.pop('_n_indicators', None)
+            d.pop('_n_sources', None)
+            d.pop('_most_recent_year', None)
+
         # Composite: average of available domains
         scores = [d['score'] for d in domains.values()]
         composite = round(sum(scores) / len(scores))
-
-        # Overall confidence: lowest of domain confidences
-        conf_rank = {'very_low': 0, 'low': 1, 'moderate': 2, 'high': 3}
-        min_conf = min(domains.values(), key=lambda d: conf_rank[d['confidence']])
-        overall_confidence = min_conf['confidence']
 
         # Overall trend: majority vote
         trends = [d['trend'] for d in domains.values() if d['trend'] != 'unknown']
