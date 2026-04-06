@@ -243,7 +243,7 @@ header p {
 .no-data-note {
   position: absolute;
   top: 1rem;
-  left: 1.5rem;
+  left: 3.5rem;
   font-size: 0.8rem;
   color: var(--text-muted);
   font-style: italic;
