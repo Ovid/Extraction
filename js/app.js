@@ -196,7 +196,7 @@ function countryOpacity(numericId) {
   const a3 = getCountryAlpha3(numericId);
   const cd = getCountryData(a3);
   if (!cd) return 0.8;
-  return CONFIDENCE_OPACITY[cd.overall_confidence] || 0.5;
+  return 1.0;
 }
 
 function refreshMapColors() {
