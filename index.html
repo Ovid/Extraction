@@ -17,14 +17,12 @@
     <p>Mapping how value is systematically captured from populations — across politics, economics, finance, institutions, information, labor, and transnational flows.</p>
   </div>
   <div class="header-controls">
-    <div class="country-picker">
-      <div class="picker-sort">
-        <button class="sort-btn active" id="sort-alpha" aria-label="Sort alphabetically">A–Z</button>
-        <button class="sort-btn" id="sort-score" aria-label="Sort by score">Score</button>
+    <div class="country-picker" id="country-picker">
+      <button class="picker-button" id="picker-button">Select a country…</button>
+      <div class="picker-dropdown" id="picker-dropdown">
+        <button class="picker-sort-toggle" id="picker-sort-toggle">⇅ Sort by: Name</button>
+        <div class="picker-list" id="picker-list"></div>
       </div>
-      <select id="country-select">
-        <option value="">Select a country…</option>
-      </select>
     </div>
     <button class="header-btn" id="methodology-btn" aria-label="About the data">?</button>
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">☀</button>

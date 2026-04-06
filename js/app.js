@@ -325,9 +325,9 @@ function selectCountry(alpha3, numericId) {
   empty.style.display = 'none';
   content.style.display = 'block';
 
-  // Sync dropdown
-  const select = document.getElementById('country-select');
-  if (select) select.value = alpha3;
+  // Sync dropdown button text
+  const pickerBtn = document.getElementById('picker-button');
+  if (pickerBtn && cd) pickerBtn.textContent = cd.name;
 
   const composite = computeComposite(cd.domains);
   document.getElementById('country-name').textContent = cd.name;
@@ -625,8 +625,12 @@ window.addEventListener('resize', () => {
 })();
 
 // -- Country picker --
+let countrySortMode = 'alpha';
+
 function populateCountrySelect(sortBy) {
-  const select = document.getElementById('country-select');
+  countrySortMode = sortBy || countrySortMode;
+  const list = document.getElementById('picker-list');
+  const toggle = document.getElementById('picker-sort-toggle');
   const countries = scoreData?.countries || {};
   const entries = Object.entries(countries).map(([code, data]) => ({
     code,
@@ -638,51 +642,59 @@ function populateCountrySelect(sortBy) {
   entries.sort((a, b) => b.composite - a.composite);
   const rankMap = new Map(entries.map((e, i) => [e.code, i + 1]));
 
-  if (sortBy !== 'score') {
+  if (countrySortMode !== 'score') {
     entries.sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  // Preserve current selection
-  const current = select.value;
-  select.innerHTML = '<option value="">Select a country…</option>';
+  const sortLabel = countrySortMode === 'score' ? 'Score' : 'Name';
+  toggle.textContent = `\u21C5 Sort by: ${sortLabel}`;
+
+  list.innerHTML = '';
   entries.forEach(({ code, name, composite }) => {
     const rank = rankMap.get(code);
-    const opt = document.createElement('option');
-    opt.value = code;
-    opt.textContent = sortBy === 'score'
+    const div = document.createElement('div');
+    div.className = 'picker-item' + (code === selectedCountryCode ? ' selected' : '');
+    div.dataset.code = code;
+    div.textContent = countrySortMode === 'score'
       ? `${rank}. ${name} (${composite})`
       : `${name} (#${rank})`;
-    select.appendChild(opt);
+    list.appendChild(div);
   });
-  select.value = current;
 }
 
 (function initCountryPicker() {
-  const select = document.getElementById('country-select');
-  const alphaBtn = document.getElementById('sort-alpha');
-  const scoreBtn = document.getElementById('sort-score');
-  let currentSort = 'alpha';
+  const picker = document.getElementById('country-picker');
+  const button = document.getElementById('picker-button');
+  const dropdown = document.getElementById('picker-dropdown');
+  const toggle = document.getElementById('picker-sort-toggle');
+  const list = document.getElementById('picker-list');
 
-  select.addEventListener('change', () => {
-    const code = select.value;
-    if (!code) return;
-    // Find the numeric ID for this alpha-3 code to highlight on map
+  button.addEventListener('click', () => {
+    dropdown.classList.toggle('open');
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!picker.contains(e.target)) {
+      dropdown.classList.remove('open');
+    }
+  });
+
+  // Sort toggle — stays open
+  toggle.addEventListener('click', () => {
+    countrySortMode = countrySortMode === 'alpha' ? 'score' : 'alpha';
+    populateCountrySelect();
+  });
+
+  // Country selection — closes dropdown
+  list.addEventListener('click', (e) => {
+    const item = e.target.closest('.picker-item');
+    if (!item) return;
+    const code = item.dataset.code;
     const numId = Object.entries(numericToAlpha3).find(([, a3]) => a3 === code)?.[0];
     selectCountry(code, numId ? Number(numId) : null);
-  });
-
-  alphaBtn.addEventListener('click', () => {
-    currentSort = 'alpha';
-    alphaBtn.classList.add('active');
-    scoreBtn.classList.remove('active');
-    populateCountrySelect('alpha');
-  });
-
-  scoreBtn.addEventListener('click', () => {
-    currentSort = 'score';
-    scoreBtn.classList.add('active');
-    alphaBtn.classList.remove('active');
-    populateCountrySelect('score');
+    button.textContent = item.textContent;
+    dropdown.classList.remove('open');
   });
 })();
 

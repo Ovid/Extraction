@@ -602,38 +602,9 @@ ul.domain-justification li .context-fact {
 
 /* -- Country Picker -- */
 .country-picker {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+  position: relative;
 }
-
-.picker-sort {
-  display: flex;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.sort-btn {
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-size: 0.7rem;
-  font-family: inherit;
-  font-weight: 600;
-  padding: 0.3rem 0.5rem;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.sort-btn.active {
-  background: var(--bg-card);
-  color: var(--text-primary);
-}
-.sort-btn:hover:not(.active) {
-  color: var(--text-secondary);
-}
-
-#country-select {
+.picker-button {
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-primary);
@@ -641,12 +612,70 @@ ul.domain-justification li .context-fact {
   font-size: 0.85rem;
   padding: 0.35rem 0.6rem;
   border-radius: 4px;
-  max-width: 200px;
   cursor: pointer;
+  min-width: 200px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-#country-select option {
+.picker-button::after {
+  content: ' ▾';
+  color: var(--text-muted);
+}
+.picker-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 2px;
   background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  min-width: 260px;
+  max-height: 400px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+}
+.picker-dropdown.open {
+  display: flex;
+}
+.picker-sort-toggle {
+  background: var(--bg-deep);
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem 0.6rem;
+  cursor: pointer;
+  text-align: left;
+  flex-shrink: 0;
+}
+.picker-sort-toggle:hover {
   color: var(--text-primary);
+  background: var(--bg-card);
+}
+.picker-list {
+  overflow-y: auto;
+  flex: 1;
+}
+.picker-item {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+.picker-item:hover {
+  background: var(--bg-card);
+}
+.picker-item.selected {
+  background: var(--bg-deep);
+  font-weight: 600;
 }
 
 /* -- Methodology Modal -- */
