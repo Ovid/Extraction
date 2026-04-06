@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-The Extraction Index is a static single-page application that visualizes systematic value capture ("extraction") across seven domains for countries worldwide. It is a companion to the book "Bread, Circuses, and GPUs." There is no build system, no backend, and no framework — just vanilla HTML/CSS/JS with D3.js.
+The Extraction Index is a static single-page application that visualizes systematic value capture ("extraction") across seven domains for countries worldwide. There is no build system, no backend, and no framework — just vanilla HTML/CSS/JS with D3.js.
 
 The key insight of the extraction framework: extraction is **cross-domain convertible** — block it in one domain and it migrates to another. This is why the index has seven axes, not one.
 

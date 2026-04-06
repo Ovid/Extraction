@@ -122,7 +122,7 @@ See `CLAUDE.md` for the scoring methodology and ground rules. The short version:
 
 ## Context
 
-This project is a companion to the book *Bread, Circuses, and GPUs*, which argues that AI is arriving into a society whose institutions have already been systematically hollowed out by extraction. The index is an attempt to make that argument visible and interactive.
+The Extraction Index argues that AI is arriving into a society whose institutions have already been systematically hollowed out by extraction. The index is an attempt to make that argument visible and interactive.
 
 ## License
 
