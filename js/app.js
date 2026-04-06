@@ -554,20 +554,24 @@ function populateCountrySelect(sortBy) {
     composite: data.composite_score ?? 0,
   }));
 
-  if (sortBy === 'score') {
-    entries.sort((a, b) => b.composite - a.composite);
-  } else {
+  // Always compute rank from score order
+  entries.sort((a, b) => b.composite - a.composite);
+  const rankMap = new Map(entries.map((e, i) => [e.code, i + 1]));
+
+  if (sortBy !== 'score') {
     entries.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   // Preserve current selection
   const current = select.value;
   select.innerHTML = '<option value="">Select a country…</option>';
-  const total = entries.length;
-  entries.forEach(({ code, name, composite }, i) => {
+  entries.forEach(({ code, name, composite }) => {
+    const rank = rankMap.get(code);
     const opt = document.createElement('option');
     opt.value = code;
-    opt.textContent = sortBy === 'score' ? `${i + 1}/${total} — ${name} (${composite})` : name;
+    opt.textContent = sortBy === 'score'
+      ? `${rank}. ${name} (${composite})`
+      : `${name} (#${rank})`;
     select.appendChild(opt);
   });
   select.value = current;
