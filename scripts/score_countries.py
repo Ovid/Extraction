@@ -128,6 +128,118 @@ def build_technical_justification(source_label, indicators_info):
     return f'Auto-scored from {source_label}. {"; ".join(parts)}.'
 
 
+# Display formatting for context facts
+# comparison_label: [highest_phrase, lowest_phrase] for natural language at extremes
+INDICATOR_DISPLAY = {
+    'wb_gini':              {'label': 'Gini coefficient', 'format': '{:.1f}', 'unit': '',
+                             'comparison_label': ['Most unequal among', 'Most equal among']},
+    'wb_labor_share':       {'label': 'GDP per worker', 'format': '${:,.0f}', 'unit': '',
+                             'comparison_label': ['Highest among', 'Lowest among']},
+    'wb_domestic_credit':   {'label': 'Domestic credit to private sector', 'format': '{:.1f}', 'unit': '% of GDP',
+                             'comparison_label': ['Most financialized among', 'Least financialized among']},
+    'wb_natural_rents':     {'label': 'Natural resource rents', 'format': '{:.1f}', 'unit': '% of GDP',
+                             'comparison_label': ['Most resource-dependent among', 'Least resource-dependent among']},
+    'wb_wgi_corruption':    {'label': 'Control of corruption index', 'format': '{:.2f}', 'unit': '(scale: -2.5 to 2.5)',
+                             'comparison_label': ['Strongest corruption control among', 'Weakest corruption control among']},
+    'wb_reg_quality':       {'label': 'Regulatory quality index', 'format': '{:.2f}', 'unit': '(scale: -2.5 to 2.5)',
+                             'comparison_label': ['Strongest regulatory quality among', 'Weakest regulatory quality among']},
+    'wb_wgi_gov_eff':       {'label': 'Government effectiveness index', 'format': '{:.2f}', 'unit': '(scale: -2.5 to 2.5)',
+                             'comparison_label': ['Most effective government among', 'Least effective government among']},
+    'vdem_political_corruption':  {'label': 'Political corruption index', 'format': '{:.2f}', 'unit': '(scale: 0-1)',
+                                   'comparison_label': ['Most corrupt among', 'Least corrupt among']},
+    'vdem_clientelism':           {'label': 'Clientelism index', 'format': '{:.2f}', 'unit': '(scale: 0-1)',
+                                   'comparison_label': ['Most clientelistic among', 'Least clientelistic among']},
+    'vdem_electoral_democracy':   {'label': 'Electoral democracy index', 'format': '{:.2f}', 'unit': '(scale: 0-1)',
+                                   'comparison_label': ['Most democratic among', 'Least democratic among']},
+    'vdem_physical_violence':     {'label': 'Physical violence index', 'format': '{:.2f}', 'unit': '(scale: 0-1)',
+                                   'comparison_label': ['Least political violence among', 'Most political violence among']},
+    'vdem_freedom_of_expression': {'label': 'Freedom of expression index', 'format': '{:.2f}', 'unit': '(scale: 0-1)',
+                                   'comparison_label': ['Freest expression among', 'Least free expression among']},
+    'vdem_alternative_info_sources': {'label': 'Alternative info sources index', 'format': '{:.2f}', 'unit': '(scale: 0-1)',
+                                      'comparison_label': ['Most independent media among', 'Least independent media among']},
+    'vdem_rule_of_law':           {'label': 'Rule of law index', 'format': '{:.2f}', 'unit': '(scale: 0-1)',
+                                   'comparison_label': ['Strongest rule of law among', 'Weakest rule of law among']},
+    'rsf_press':            {'label': 'Press freedom score', 'format': '{:.1f}', 'unit': 'out of 100',
+                             'comparison_label': ['Least free press among', 'Freest press among']},
+    'tjn_fsi':              {'label': 'Financial Secrecy Index score', 'format': '{:.0f}', 'unit': '',
+                             'comparison_label': ['Most secretive among', 'Least secretive among']},
+}
+
+
+def generate_context_facts(source_key, raw_value, normalized_score, country_code,
+                           all_indicator_values):
+    """Generate 1-2 context facts for a single indicator.
+
+    Args:
+        source_key: indicator key (e.g. 'wb_gini')
+        raw_value: the actual raw data value
+        normalized_score: 0-100 normalized score
+        country_code: ISO alpha-3 code
+        all_indicator_values: dict of {country_code: raw_value} for this indicator
+
+    Returns:
+        list of fact strings (1-2 items), or empty list if no display config.
+    """
+    display = INDICATOR_DISPLAY.get(source_key)
+    if not display:
+        return []
+
+    facts = []
+
+    # Fact 1: raw value with units
+    formatted = display['format'].format(raw_value)
+    unit_str = f" {display['unit']}" if display['unit'] else ''
+    facts.append(f"{display['label']}: {formatted}{unit_str}")
+
+    # Fact 2: peer comparison (if meaningful)
+    region = REGION_MAP.get(country_code)
+    income = INCOME_GROUP_MAP.get(country_code)
+
+    best_comparison = None
+    best_delta = 0
+
+    for group_name, group_map, group_label in [
+        (region, REGION_MAP, region),
+        (income, INCOME_GROUP_MAP, f"{income.lower()} countries" if income else None),
+    ]:
+        if not group_name or not group_label:
+            continue
+        peers = {c: v for c, v in all_indicator_values.items()
+                 if (group_map.get(c) == group_name) and c != country_code}
+        if len(peers) < 3:
+            continue
+        peer_avg = sum(peers.values()) / len(peers)
+        if peer_avg == 0:
+            continue
+        delta_pct = abs(raw_value - peer_avg) / abs(peer_avg) * 100
+        if delta_pct <= 10:
+            continue
+
+        if delta_pct > best_delta:
+            best_delta = delta_pct
+            all_in_group = {c: v for c, v in all_indicator_values.items()
+                           if group_map.get(c) == group_name}
+            sorted_vals = sorted(all_in_group.values())
+            is_highest = raw_value >= sorted_vals[-1]
+            is_lowest = raw_value <= sorted_vals[0]
+            avg_formatted = display['format'].format(peer_avg)
+            highest_phrase, lowest_phrase = display['comparison_label']
+
+            if is_highest:
+                best_comparison = f"{highest_phrase} {group_label} (avg: {avg_formatted})"
+            elif is_lowest:
+                best_comparison = f"{lowest_phrase} {group_label} (avg: {avg_formatted})"
+            elif raw_value > peer_avg:
+                best_comparison = f"{delta_pct:.0f}% above {group_label} average ({avg_formatted})"
+            else:
+                best_comparison = f"{delta_pct:.0f}% below {group_label} average ({avg_formatted})"
+
+    if best_comparison:
+        facts.append(best_comparison)
+
+    return facts
+
+
 # Country name overrides for codes where World Bank names are awkward
 COUNTRY_NAME_OVERRIDES = {
     'KOR': 'South Korea',
