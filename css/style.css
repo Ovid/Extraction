@@ -27,8 +27,11 @@ body {
   font-family: 'Source Sans 3', sans-serif;
   background: var(--bg-deep);
   color: var(--text-primary);
-  min-height: 100vh;
+  height: 100vh;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 :root[data-theme="light"] {
@@ -74,7 +77,7 @@ body {
 }
 
 header {
-  padding: 2.5rem 3rem 1.5rem;
+  padding: 1.2rem 3rem;
   border-bottom: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
@@ -84,7 +87,7 @@ header {
 header h1 {
   font-family: 'Playfair Display', serif;
   font-weight: 900;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   letter-spacing: -0.02em;
   background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-mid) 100%);
   -webkit-background-clip: text;
@@ -94,16 +97,17 @@ header h1 {
 
 header p {
   color: var(--text-secondary);
-  font-size: 1.05rem;
+  font-size: 0.85rem;
   font-weight: 300;
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
   max-width: 720px;
 }
 
 .layout {
   display: grid;
   grid-template-columns: 1fr 6px 380px;
-  height: calc(100vh - 120px);
+  flex: 1;
+  min-height: 0;
 }
 
 .panel-divider {
@@ -183,16 +187,17 @@ header p {
 
 .legend {
   position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
+  bottom: 12%;
+  left: 1rem;
+  z-index: 5;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
   background: var(--bg-panel);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 1rem 1.2rem;
-  font-size: 0.8rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.75rem;
 }
 
 .legend-title {
@@ -465,6 +470,13 @@ ul.domain-justification li .context-fact {
   font-size: 0.68rem;
   margin-top: 0.2rem;
 }
+.domain-sources a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+}
+.domain-sources a:hover {
+  color: var(--text-primary);
+}
 
 /* -- Weights Controls -- */
 .weights-section {
@@ -595,38 +607,9 @@ ul.domain-justification li .context-fact {
 
 /* -- Country Picker -- */
 .country-picker {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+  position: relative;
 }
-
-.picker-sort {
-  display: flex;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.sort-btn {
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-size: 0.7rem;
-  font-family: inherit;
-  font-weight: 600;
-  padding: 0.3rem 0.5rem;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.sort-btn.active {
-  background: var(--bg-card);
-  color: var(--text-primary);
-}
-.sort-btn:hover:not(.active) {
-  color: var(--text-secondary);
-}
-
-#country-select {
+.picker-button {
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-primary);
@@ -634,12 +617,70 @@ ul.domain-justification li .context-fact {
   font-size: 0.85rem;
   padding: 0.35rem 0.6rem;
   border-radius: 4px;
-  max-width: 200px;
   cursor: pointer;
+  min-width: 200px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-#country-select option {
+.picker-button::after {
+  content: ' ▾';
+  color: var(--text-muted);
+}
+.picker-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 2px;
   background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  min-width: 260px;
+  max-height: 400px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+}
+.picker-dropdown.open {
+  display: flex;
+}
+.picker-sort-toggle {
+  background: var(--bg-deep);
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem 0.6rem;
+  cursor: pointer;
+  text-align: left;
+  flex-shrink: 0;
+}
+.picker-sort-toggle:hover {
   color: var(--text-primary);
+  background: var(--bg-card);
+}
+.picker-list {
+  overflow-y: auto;
+  flex: 1;
+}
+.picker-item {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+.picker-item:hover {
+  background: var(--bg-card);
+}
+.picker-item.selected {
+  background: var(--bg-deep);
+  font-weight: 600;
 }
 
 /* -- Methodology Modal -- */
@@ -674,7 +715,19 @@ ul.domain-justification li .context-fact {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
   font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.modal-links {
+  font-size: 0.8rem;
+  color: var(--text-muted);
   margin-bottom: 1.2rem;
+}
+.modal-links a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+}
+.modal-links a:hover {
+  color: var(--text-primary);
 }
 
 .modal h3 {
@@ -683,6 +736,13 @@ ul.domain-justification li .context-fact {
   margin-top: 1.4rem;
   margin-bottom: 0.4rem;
   color: var(--text-primary);
+}
+.modal h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-secondary);
 }
 
 .modal p, .modal li {

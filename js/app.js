@@ -10,6 +10,25 @@ const DOMAIN_LABELS = {
 
 const DOMAIN_KEYS = Object.keys(DOMAIN_LABELS);
 
+const SOURCE_URLS = {
+  wb_gini: 'https://data.worldbank.org/indicator/SI.POV.GINI',
+  wb_labor_share: 'https://data.worldbank.org/indicator/SL.GDP.PCAP.EM.KD',
+  wb_domestic_credit: 'https://data.worldbank.org/indicator/FS.AST.PRVT.GD.ZS',
+  wb_natural_rents: 'https://data.worldbank.org/indicator/NY.GDP.TOTL.RT.ZS',
+  wb_wgi_corruption: 'https://data.worldbank.org/indicator/CC.EST',
+  wb_reg_quality: 'https://data.worldbank.org/indicator/RQ.EST',
+  wb_wgi_gov_eff: 'https://data.worldbank.org/indicator/GE.EST',
+  rsf_press: 'https://rsf.org/en/index',
+  tjn_fsi: 'https://fsi.taxjustice.net/',
+  vdem_political_corruption: 'https://www.v-dem.net/',
+  vdem_clientelism: 'https://www.v-dem.net/',
+  vdem_electoral_democracy: 'https://www.v-dem.net/',
+  vdem_physical_violence: 'https://www.v-dem.net/',
+  vdem_freedom_of_expression: 'https://www.v-dem.net/',
+  vdem_alternative_info_sources: 'https://www.v-dem.net/',
+  vdem_rule_of_law: 'https://www.v-dem.net/',
+};
+
 const CONFIDENCE_OPACITY = { high: 1.0, moderate: 0.75, low: 0.5, very_low: 0.3 };
 const TREND_ARROWS = { rising: '↑', falling: '↓', stable: '→', unknown: '?' };
 const TREND_TIPS = {
@@ -306,9 +325,9 @@ function selectCountry(alpha3, numericId) {
   empty.style.display = 'none';
   content.style.display = 'block';
 
-  // Sync dropdown
-  const select = document.getElementById('country-select');
-  if (select) select.value = alpha3;
+  // Sync dropdown button text
+  const pickerBtn = document.getElementById('picker-button');
+  if (pickerBtn && cd) pickerBtn.textContent = cd.name;
 
   const composite = computeComposite(cd.domains);
   document.getElementById('country-name').textContent = cd.name;
@@ -454,7 +473,7 @@ function drawDomainList(domains) {
         const factsHtml = (ind.facts || []).map(f => `<span class="context-fact">${f}</span>`).join('');
         return `<li>${ind.question} ${ind.label}${factsHtml}</li>`;
       }).join('')}</ul>` : (d.justification ? `<ul class="domain-justification">${d.justification.split(/(?<=\.)\s+/).filter(s => s.trim()).map(s => `<li>${s.replace(/\.$/, '')}</li>`).join('')}</ul>` : '')}
-      ${d.justification_detail ? `<a class="raw-data-toggle" href="#">Show raw data &#9656;</a><div class="raw-data-detail" style="display:none"><div class="domain-justification">${d.justification_detail}</div>${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.join(', ')}</div>` : ''}</div>` : ''}
+      ${d.justification_detail ? `<a class="raw-data-toggle" href="#">Show raw data &#9656;</a><div class="raw-data-detail" style="display:none"><div class="domain-justification">${d.justification_detail}</div>${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.map(s => SOURCE_URLS[s] ? `<a href="${SOURCE_URLS[s]}" target="_blank" rel="noopener">${s}</a>` : s).join(', ')}</div>` : ''}</div>` : ''}
       <div class="domain-meta">
         <span class="confidence-badge">Confidence: ${conf.replace('_', ' ')}</span>
       </div>
@@ -606,8 +625,12 @@ window.addEventListener('resize', () => {
 })();
 
 // -- Country picker --
+let countrySortMode = 'alpha';
+
 function populateCountrySelect(sortBy) {
-  const select = document.getElementById('country-select');
+  countrySortMode = sortBy || countrySortMode;
+  const list = document.getElementById('picker-list');
+  const toggle = document.getElementById('picker-sort-toggle');
   const countries = scoreData?.countries || {};
   const entries = Object.entries(countries).map(([code, data]) => ({
     code,
@@ -619,51 +642,59 @@ function populateCountrySelect(sortBy) {
   entries.sort((a, b) => b.composite - a.composite);
   const rankMap = new Map(entries.map((e, i) => [e.code, i + 1]));
 
-  if (sortBy !== 'score') {
+  if (countrySortMode !== 'score') {
     entries.sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  // Preserve current selection
-  const current = select.value;
-  select.innerHTML = '<option value="">Select a country…</option>';
+  const sortLabel = countrySortMode === 'score' ? 'Score' : 'Name';
+  toggle.textContent = `\u21C5 Sort by: ${sortLabel}`;
+
+  list.innerHTML = '';
   entries.forEach(({ code, name, composite }) => {
     const rank = rankMap.get(code);
-    const opt = document.createElement('option');
-    opt.value = code;
-    opt.textContent = sortBy === 'score'
+    const div = document.createElement('div');
+    div.className = 'picker-item' + (code === selectedCountryCode ? ' selected' : '');
+    div.dataset.code = code;
+    div.textContent = countrySortMode === 'score'
       ? `${rank}. ${name} (${composite})`
       : `${name} (#${rank})`;
-    select.appendChild(opt);
+    list.appendChild(div);
   });
-  select.value = current;
 }
 
 (function initCountryPicker() {
-  const select = document.getElementById('country-select');
-  const alphaBtn = document.getElementById('sort-alpha');
-  const scoreBtn = document.getElementById('sort-score');
-  let currentSort = 'alpha';
+  const picker = document.getElementById('country-picker');
+  const button = document.getElementById('picker-button');
+  const dropdown = document.getElementById('picker-dropdown');
+  const toggle = document.getElementById('picker-sort-toggle');
+  const list = document.getElementById('picker-list');
 
-  select.addEventListener('change', () => {
-    const code = select.value;
-    if (!code) return;
-    // Find the numeric ID for this alpha-3 code to highlight on map
+  button.addEventListener('click', () => {
+    dropdown.classList.toggle('open');
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!picker.contains(e.target)) {
+      dropdown.classList.remove('open');
+    }
+  });
+
+  // Sort toggle — stays open
+  toggle.addEventListener('click', () => {
+    countrySortMode = countrySortMode === 'alpha' ? 'score' : 'alpha';
+    populateCountrySelect();
+  });
+
+  // Country selection — closes dropdown
+  list.addEventListener('click', (e) => {
+    const item = e.target.closest('.picker-item');
+    if (!item) return;
+    const code = item.dataset.code;
     const numId = Object.entries(numericToAlpha3).find(([, a3]) => a3 === code)?.[0];
     selectCountry(code, numId ? Number(numId) : null);
-  });
-
-  alphaBtn.addEventListener('click', () => {
-    currentSort = 'alpha';
-    alphaBtn.classList.add('active');
-    scoreBtn.classList.remove('active');
-    populateCountrySelect('alpha');
-  });
-
-  scoreBtn.addEventListener('click', () => {
-    currentSort = 'score';
-    scoreBtn.classList.add('active');
-    alphaBtn.classList.remove('active');
-    populateCountrySelect('score');
+    button.textContent = item.textContent;
+    dropdown.classList.remove('open');
   });
 })();
 
