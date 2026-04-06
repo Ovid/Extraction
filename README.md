@@ -32,74 +32,92 @@ Axis 7 exists because some countries score well on domestic governance while fac
 - All scores include a **confidence level** (high, moderate, low, very low) that controls the visual opacity of the country on the map
 - All scores include a **trend** (rising, falling, stable, unknown) over roughly the past decade
 
-## Confidence Visualization
+### Confidence Visualization
 
 The most extractive regimes often produce the least reliable data — what the project calls the **legibility paradox**. Rather than hiding this problem, the map encodes it visually:
 
 - **Saturated colors** = high data confidence
 - **Desaturated/transparent colors** = low data confidence
 
-A country can score 95 (extreme extraction) but appear faded because the data behind that score is sparse or indirect. This is by design.
-
-## Data Sources
-
-See [`data/sources.md`](data/sources.md) for a complete registry of every data source, including coverage, update frequency, and known limitations.
-
 ## Project Structure
 
 ```
-extraction/
-├── index.html           # Single-page application (D3 + TopoJSON)
+.
+├── CLAUDE.md                  # Instructions for Claude Code
+├── css/style.css              # Styles
 ├── data/
-│   ├── schema.json      # JSON Schema for country data
-│   ├── scores.json      # Per-country scores (the actual data)
-│   └── sources.md       # Source documentation
-├── LICENSE              # MIT
-└── README.md            # This file
+│   ├── schema.json            # JSON Schema for country data
+│   └── scores.json            # Per-country extraction scores
+├── index.html                 # Single-page application shell
+├── js/app.js                  # D3 map, radar chart, all interactivity
+├── LICENSE                    # MIT
+├── README.md                  # This file
+├── sources.md                 # Data source registry
+├── scripts/
+│   ├── fetch_all.py           # Orchestrator for data fetching
+│   ├── requirements.txt       # Python dependencies
+│   └── fetchers/              # Per-source fetch scripts
+│       ├── worldbank.py       # World Bank API (Gini, labor share, etc.)
+│       ├── vdem.py            # V-Dem democracy indicators
+│       ├── fsi.py             # Tax Justice Network FSI/CTHI
+│       ├── rsf.py             # RSF Press Freedom Index
+│       └── cpi.py             # Transparency International CPI
+└── raw_data/                  # Fetched data (gitignored)
+    └── manifest.json          # Tracks what was fetched and when
 ```
 
-## Running Locally
+## Data Pipeline
 
-No build step required. Serve the directory with any static file server:
+### 1. Fetch raw data
 
 ```bash
-# Python
-python3 -m http.server 8000
-
-# Node
-npx serve .
-
-# Then open http://localhost:8000
+cd scripts
+pip install -r requirements.txt
+python fetch_all.py                      # All sources
+python fetch_all.py --source worldbank   # Single source
+python fetch_all.py --list               # Show available sources
 ```
 
-The map loads TopoJSON data from a CDN. The country scores are loaded from `data/scores.json`.
+Raw data lands in `raw_data/` (gitignored — large files). The manifest tracks provenance.
+
+Some sources require manual download (noted in fetcher output). The fetchers will generate `DOWNLOAD_INSTRUCTIONS.md` files when automated access fails.
+
+### 2. Generate scores (Claude Code)
+
+With raw data in place, use Claude Code to:
+1. Read raw indicator values for each country
+2. Normalize to 0–100 using min-max scaling across the global dataset
+3. Set confidence based on source availability
+4. Estimate trends from ~10 years of data
+5. Write justifications citing specific numbers
+6. Update `data/scores.json`
+
+See `CLAUDE.md` for detailed instructions.
+
+### 3. Serve the site
+
+```bash
+python3 -m http.server 8000
+# Open http://localhost:8000
+```
+
+No build step required. The map loads TopoJSON from a CDN.
 
 ## Contributing Data
 
-The project currently has sample data for 8 countries. To add a country:
+See `CLAUDE.md` for the scoring methodology and ground rules. The short version:
 
-1. Follow the schema in `data/schema.json`
-2. Use ISO 3166-1 alpha-3 country codes
-3. Document every score with:
-   - Source keys referencing `data/sources.md`
-   - A brief justification
-   - An honest confidence level
-   - A trend direction with reasoning
-4. Submit a pull request with your additions to `data/scores.json`
-
-### Ground Rules
-
-- **No overclaiming.** If data is sparse, say so. A low-confidence score honestly labeled is more valuable than a precise-looking number backed by nothing.
+- **No overclaiming.** Low-confidence scores honestly labeled beat precise-looking numbers backed by nothing.
 - **Show your work.** Every score needs a justification and source citations.
-- **Extraction ≠ corruption.** A country can have low corruption and high extraction. The score should reflect *systematic value capture*, not just bribery.
-- **Legal extraction counts.** In fact, the most structurally important extraction is usually perfectly legal. That's what makes it hard to fight.
+- **Extraction ≠ corruption.** Legal extraction is the structurally important kind.
+- **Use ISO 3166-1 alpha-3** country codes.
 
 ## Known Limitations
 
-1. **Sample data only.** The current dataset covers 8 countries for illustration. Real global coverage will take time and collaboration.
-2. **Institutional gatekeeping is under-measured.** No existing index directly measures "who does the law serve." This domain carries higher uncertainty.
-3. **OECD data bias.** Sources have better coverage for wealthy nations, creating systematic confidence gaps for developing countries.
-4. **Static snapshot.** The trend indicators are directional estimates, not time-series data. Proper longitudinal tracking is a future goal.
+1. **Sample data only.** The current dataset covers 8 countries for illustration.
+2. **Institutional gatekeeping is under-measured.** No existing index directly measures "who does the law serve."
+3. **OECD data bias.** Sources have better coverage for wealthy nations.
+4. **Static snapshot.** Trend indicators are directional estimates, not full time series.
 5. **Weighting is normative.** Equal weights are a defensible default, not an empirical claim.
 
 ## Context

@@ -1,0 +1,20 @@
+{
+  "fetches": [
+    {
+      "source": "worldbank",
+      "timestamp": "2026-04-06T12:23:32.409513+00:00",
+      "files": [
+        "worldbank/wb_gini.csv",
+        "worldbank/wb_gdp_per_worker.csv",
+        "worldbank/wb_domestic_credit.csv",
+        "worldbank/wb_natural_rents.csv",
+        "worldbank/wb_wgi_corruption.csv",
+        "worldbank/wb_wgi_reg_quality.csv",
+        "worldbank/wb_wgi_gov_effectiveness.csv",
+        "worldbank/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    }
+  ]
+}
