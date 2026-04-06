@@ -720,6 +720,13 @@ ul.domain-justification li .context-fact {
   margin-bottom: 0.4rem;
   color: var(--text-primary);
 }
+.modal h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-secondary);
+}
 
 .modal p, .modal li {
   font-size: 0.9rem;

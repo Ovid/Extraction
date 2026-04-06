@@ -57,6 +57,32 @@
       <li><strong>Tax Justice Network</strong> — Financial Secrecy Index</li>
     </ul>
 
+    <h3>Source Reliability &amp; Bias</h3>
+
+    <h4>World Bank (WGI, Gini, economic indicators)</h4>
+    <p><strong>Why chosen:</strong> The most widely used governance and economic dataset globally. Covers 190+ countries with annual updates. No comparable alternative for breadth.</p>
+    <p><strong>Strengths:</strong> Institutional credibility, extensive academic validation, long time series, transparent methodology. Economic indicators (Gini, GDP, credit) are measured from survey data and relatively uncontroversial.</p>
+    <p><strong>Limitations:</strong> Governance indicators (WGI) aggregate 24+ sub-sources in opaque ways. Perception-based measures may not reflect ground reality. Limited actionability — measures how secure business people feel, not why.</p>
+    <p><strong>Known biases:</strong> Over-represents business and elite perspectives. Gallup's World Poll (which captures ordinary citizens' views) gets zero or marginal weight on most WGI dimensions. Better coverage and likely more accurate for OECD countries.</p>
+
+    <h4>V-Dem (Varieties of Democracy)</h4>
+    <p><strong>Why chosen:</strong> The most granular democracy dataset available — 450+ indicators vs. Freedom House's ~25. Expert-coded with a sophisticated statistical model that adjusts for individual coder bias and reliability.</p>
+    <p><strong>Strengths:</strong> 3,700+ country experts, covers 202 countries back to 1789, transparent methodology with published measurement model. Considered the gold standard for democracy measurement in political science.</p>
+    <p><strong>Limitations:</strong> Expert-coded data can produce false positives compared to observational data. Potential selection bias toward easier-to-code cases. Some conceptual debates about specific sub-indices.</p>
+    <p><strong>Known biases:</strong> Like all expert surveys, reflects the academic community's assumptions about what democracy looks like. May under-weight non-Western democratic forms.</p>
+
+    <h4>RSF (Reporters Without Borders Press Freedom Index)</h4>
+    <p><strong>Why chosen:</strong> The only comprehensive annual press freedom index with near-global coverage (180 countries). No clearly superior alternative exists.</p>
+    <p><strong>Strengths:</strong> Combines quantitative abuse tallies with qualitative expert assessment. Annual updates, high public visibility, drives policy discussion.</p>
+    <p><strong>Limitations:</strong> Concerns about small sample sizes per country (reportedly as few as 3-4 questionnaires). Methodology has been criticized as opaque. Scores are not directly comparable across major methodology revisions (e.g., 2022 overhaul).</p>
+    <p><strong>Known biases:</strong> Potential Western bias — penalizes government media ownership in developing countries but not press subsidies in Scandinavia. Has faced allegations of political motivation from Latin American and Asian governments. This is our most contested source; confidence scores for domains relying solely on RSF are capped accordingly.</p>
+
+    <h4>Tax Justice Network (Financial Secrecy Index)</h4>
+    <p><strong>Why chosen:</strong> The only comprehensive index of financial secrecy. Evaluates 100+ questions across 20 indicators. No competing dataset offers comparable coverage of secrecy jurisdictions.</p>
+    <p><strong>Strengths:</strong> Methodologically detailed, covers 141 jurisdictions, widely cited in EU policy reports and academic research. Uniquely captures the transnational facilitation dimension that other indices miss entirely.</p>
+    <p><strong>Limitations:</strong> Secrecy scores are not directly comparable across editions due to evolving methodology. Focuses on legal structures rather than actual secrecy activity. Scores what laws permit, not what actually happens.</p>
+    <p><strong>Known biases:</strong> TJN is an advocacy organization, not a neutral academic body. Some critics argue the methodology is back-engineered from desired outputs. However, no alternative exists with comparable rigor for this domain.</p>
+
     <h3>Scoring Methodology</h3>
     <p>Each raw indicator is normalized to a 0–100 scale using min-max scaling across all countries. For inverted indicators (where higher values mean <em>less</em> extraction, such as democracy scores), values are flipped. Indicators within each domain are averaged with equal weight. The composite score is the average of all available domains.</p>
 
