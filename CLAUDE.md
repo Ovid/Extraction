@@ -141,6 +141,8 @@ Non-standard codes from data sources (RSF, V-Dem) should be remapped or excluded
 
 ## Scoring Rules
 
+**Any changes to scoring methodology, data sources, normalization, confidence model, or trend calculation must be reflected in `METHODOLOGY.md`.**
+
 - All scores: 0–100 (0 = no extraction, 100 = extreme extraction)
 - Every score MUST have: confidence level, trend, source keys, justification
 - Confidence: high | moderate | low | very_low
