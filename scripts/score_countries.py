@@ -33,6 +33,7 @@ SCORES_PATH = PROJECT_ROOT / 'data' / 'scores.json'
 WB_DIR = RAW_DATA_DIR / 'worldbank'
 RSF_DIR = RAW_DATA_DIR / 'rsf'
 TJN_DIR = RAW_DATA_DIR / 'tjn'
+VDEM_DIR = RAW_DATA_DIR / 'vdem'
 
 # Map indicator files to domains, with normalization direction
 # inverted=True means higher raw value = LESS extraction → we flip
@@ -149,6 +150,30 @@ def load_fsi_data():
     return result
 
 
+def load_vdem_data():
+    """Load V-Dem indicators. Returns dict of {alpha3: {var: value}} for most recent year."""
+    csv_path = VDEM_DIR / 'vdem_extract.csv'
+    if not csv_path.exists():
+        return {}
+    df = pd.read_csv(csv_path)
+    if df.empty:
+        return {}
+    # Take most recent year per country
+    df = df.sort_values('year', ascending=False).drop_duplicates('country_text_id', keep='first')
+    result = {}
+    vdem_vars = ['v2x_polyarchy', 'v2x_corr', 'v2xnp_client',
+                 'v2x_freexp_altinf', 'v2xme_altinf', 'v2x_clphy', 'v2x_rule']
+    for _, row in df.iterrows():
+        code = row['country_text_id']
+        vals = {}
+        for v in vdem_vars:
+            if v in row and pd.notna(row[v]):
+                vals[v] = float(row[v])
+        if vals:
+            result[code] = vals
+    return result
+
+
 def load_indicator(filepath):
     """Load a World Bank indicator CSV and return most recent value per country."""
     if not filepath.exists():
@@ -229,7 +254,40 @@ def build_country_scores():
     else:
         fsi_map = {}
 
-    if not indicators and not rsf_map and not fsi_map:
+    # Load V-Dem data (political_capture + information_capture)
+    vdem_raw = load_vdem_data()
+    if vdem_raw:
+        print(f'  V-Dem: {len(vdem_raw)} countries')
+        # Normalize each V-Dem variable across all countries
+        # political_capture indicators: v2x_corr (direct), v2xnp_client (direct),
+        #   v2x_polyarchy (inverted), v2x_clphy (inverted)
+        # information_capture: v2x_freexp_altinf (inverted), v2xme_altinf (inverted)
+        # institutional_gatekeeping: v2x_rule (inverted)
+        vdem_vars_config = {
+            'v2x_corr':          {'domain': 'political_capture',       'inverted': False, 'name': 'Political Corruption'},
+            'v2xnp_client':      {'domain': 'political_capture',       'inverted': False, 'name': 'Clientelism'},
+            'v2x_polyarchy':     {'domain': 'political_capture',       'inverted': True,  'name': 'Electoral Democracy'},
+            'v2x_clphy':         {'domain': 'political_capture',       'inverted': True,  'name': 'Physical Violence'},
+            'v2x_freexp_altinf': {'domain': 'information_capture',     'inverted': True,  'name': 'Freedom of Expression'},
+            'v2xme_altinf':      {'domain': 'information_capture',     'inverted': True,  'name': 'Alternative Info Sources'},
+            'v2x_rule':          {'domain': 'institutional_gatekeeping', 'inverted': True, 'name': 'Rule of Law'},
+        }
+        # Build per-variable series for normalization
+        vdem_normalized = {}  # {country: {var: normalized_score}}
+        for var, cfg in vdem_vars_config.items():
+            values = {code: vals[var] for code, vals in vdem_raw.items() if var in vals}
+            if not values:
+                continue
+            series = pd.Series(values)
+            normed = normalize_minmax(series, inverted=cfg['inverted'])
+            for code, score in normed.items():
+                if code not in vdem_normalized:
+                    vdem_normalized[code] = {}
+                vdem_normalized[code][var] = {'score': int(score), 'raw': values[code], 'name': cfg['name'], 'domain': cfg['domain']}
+    else:
+        vdem_normalized = {}
+
+    if not indicators and not rsf_map and not fsi_map and not vdem_normalized:
         print('No indicator data found!')
         return {}
 
@@ -242,6 +300,7 @@ def build_country_scores():
         country_codes.update(all_data['country_code'].unique())
     country_codes.update(rsf_map.keys())
     country_codes.update(fsi_map.keys())
+    country_codes.update(vdem_normalized.keys())
 
     countries = {}
     for code in sorted(country_codes):
@@ -309,6 +368,49 @@ def build_country_scores():
                 'justification': f'Auto-scored from Tax Justice Network FSI. Raw score: {raw_score:.1f} (normalized: {int(fsi_map[code])}).',
             }
             source_names.append('TJN')
+
+        # Add V-Dem indicators (political_capture, information_capture, institutional_gatekeeping)
+        if code in vdem_normalized:
+            vdem_country = vdem_normalized[code]
+            # Group V-Dem indicators by domain
+            vdem_by_domain = {}
+            for var, info in vdem_country.items():
+                domain = info['domain']
+                if domain not in vdem_by_domain:
+                    vdem_by_domain[domain] = []
+                vdem_by_domain[domain].append(info)
+
+            for domain, indicators_list in vdem_by_domain.items():
+                vdem_score = round(sum(i['score'] for i in indicators_list) / len(indicators_list))
+                vdem_sources = ['vdem_' + i['name'].lower().replace(' ', '_') for i in indicators_list]
+                parts = [f'{i["name"]}: {i["raw"]:.3f} (normalized: {i["score"]})' for i in indicators_list]
+
+                n = len(indicators_list)
+                confidence = 'moderate' if n >= 3 else 'low'
+
+                if domain in domains:
+                    # Merge with existing domain score (average of WB and V-Dem)
+                    existing = domains[domain]
+                    merged_score = round((existing['score'] + vdem_score) / 2)
+                    domains[domain] = {
+                        'score': merged_score,
+                        'confidence': max(existing['confidence'], confidence, key=lambda c: {'very_low': 0, 'low': 1, 'moderate': 2, 'high': 3}[c]),
+                        'trend': existing['trend'] if existing['trend'] != 'unknown' else 'unknown',
+                        'sources': existing['sources'] + vdem_sources,
+                        'justification': f'{existing["justification"]} V-Dem: {"; ".join(parts)}.',
+                    }
+                else:
+                    domains[domain] = {
+                        'score': vdem_score,
+                        'confidence': confidence,
+                        'trend': 'unknown',
+                        'sources': vdem_sources,
+                        'justification': f'Auto-scored from V-Dem. {"; ".join(parts)}.',
+                    }
+            source_names.append('V-Dem')
+
+        # Similarly merge V-Dem info_capture with RSF if both exist
+        # (already handled by the merge logic above)
 
         if not domains:
             continue
