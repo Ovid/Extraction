@@ -405,6 +405,13 @@ ul.domain-justification {
 ul.domain-justification li {
   margin-bottom: 0.1rem;
 }
+ul.domain-justification li .context-fact {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  margin-top: 0.1rem;
+  font-style: italic;
+}
 .raw-data-detail .domain-justification {
   font-size: 0.7rem;
   color: var(--text-muted);
