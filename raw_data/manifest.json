@@ -1,0 +1,121 @@
+{
+  "fetches": [
+    {
+      "source": "worldbank",
+      "timestamp": "2026-04-06T12:23:32.409513+00:00",
+      "files": [
+        "worldbank/wb_gini.csv",
+        "worldbank/wb_gdp_per_worker.csv",
+        "worldbank/wb_domestic_credit.csv",
+        "worldbank/wb_natural_rents.csv",
+        "worldbank/wb_wgi_corruption.csv",
+        "worldbank/wb_wgi_reg_quality.csv",
+        "worldbank/wb_wgi_gov_effectiveness.csv",
+        "worldbank/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "rsf",
+      "timestamp": "2026-04-06T12:31:57.274143+00:00",
+      "files": [
+        "rsf/DOWNLOAD_INSTRUCTIONS.md",
+        "rsf/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "fsi",
+      "timestamp": "2026-04-06T12:31:58.466434+00:00",
+      "files": [
+        "tjn/DOWNLOAD_INSTRUCTIONS.md",
+        "tjn/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "cpi",
+      "timestamp": "2026-04-06T12:31:59.071092+00:00",
+      "files": [
+        "cpi/DOWNLOAD_INSTRUCTIONS.md",
+        "cpi/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "vdem",
+      "timestamp": "2026-04-06T12:32:05.861543+00:00",
+      "files": [
+        "vdem/DOWNLOAD_INSTRUCTIONS.md"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "rsf",
+      "timestamp": "2026-04-06T13:45:11.290905+00:00",
+      "files": [
+        "rsf/rsf_scores.csv",
+        "rsf/rsf_raw.json",
+        "rsf/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "fsi",
+      "timestamp": "2026-04-06T13:45:14.207307+00:00",
+      "files": [
+        "tjn/fsi_jurisdictions.csv",
+        "tjn/fsi_scorings.csv",
+        "tjn/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "cpi",
+      "timestamp": "2026-04-06T13:45:16.188223+00:00",
+      "files": [
+        "cpi/DOWNLOAD_INSTRUCTIONS.md",
+        "cpi/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "rsf",
+      "timestamp": "2026-04-06T13:46:33.590267+00:00",
+      "files": [
+        "rsf/rsf_scores.csv",
+        "rsf/rsf_raw.json",
+        "rsf/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "vdem",
+      "timestamp": "2026-04-06T13:52:28.132174+00:00",
+      "files": [
+        "vdem/vdem_core_full.csv"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "vdem",
+      "timestamp": "2026-04-06T13:53:40.092405+00:00",
+      "files": [
+        "vdem/vdem_extract.csv",
+        "vdem/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    }
+  ]
+}

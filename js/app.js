@@ -4,7 +4,7 @@ const DOMAIN_LABELS = {
   financial_extraction: 'Financial Extraction',
   institutional_gatekeeping: 'Institutional Gatekeeping',
   information_capture: 'Information & Media Capture',
-  resource_labor_extraction: 'Resource & Labor Extraction',
+  resource_capture: 'Resource Capture',
   transnational_facilitation: 'Transnational Facilitation'
 };
 
@@ -12,11 +12,17 @@ const DOMAIN_KEYS = Object.keys(DOMAIN_LABELS);
 
 const CONFIDENCE_OPACITY = { high: 1.0, moderate: 0.75, low: 0.5, very_low: 0.3 };
 const TREND_ARROWS = { rising: '↑', falling: '↓', stable: '→', unknown: '?' };
+const TREND_TIPS = {
+  rising: 'Extraction is increasing over the past decade',
+  falling: 'Extraction is decreasing over the past decade',
+  stable: 'Extraction has been roughly stable over the past decade',
+  unknown: 'Not enough data to determine trend',
+};
 
-// Color scale: blue-teal (low) → amber (mid) → crimson (high)
+// Color scale: green (low) → yellow (mid) → red (high)
 const extractionColor = d3.scaleLinear()
-  .domain([0, 25, 50, 75, 100])
-  .range(['#1a9e78', '#6ec8db', '#d4a84e', '#e07842', '#c43545'])
+  .domain([0, 50, 100])
+  .range(['#2ecc71', '#f1c40f', '#e74c3c'])
   .clamp(true);
 
 let scoreData = null;
@@ -40,6 +46,7 @@ async function init() {
   drawMap(world);
   drawLegendGradient();
   setupWeightControls();
+  populateCountrySelect('alpha');
 }
 
 // -- ISO numeric → alpha-3 mapping (subset for sample data; extend as needed) --
@@ -74,7 +81,16 @@ const NUMERIC_MAP = {
   '768': 'TGO', '780': 'TTO', '784': 'ARE', '788': 'TUN', '792': 'TUR',
   '795': 'TKM', '800': 'UGA', '804': 'UKR', '807': 'MKD', '826': 'GBR',
   '834': 'TZA', '854': 'BFA', '858': 'URY', '860': 'UZB', '862': 'VEN',
-  '887': 'YEM', '894': 'ZMB'
+  '887': 'YEM', '894': 'ZMB',
+  // Additional mappings for TopoJSON coverage
+  '010': 'ATA', '031': 'AZE', '044': 'BHS', '051': 'ARM', '064': 'BTN',
+  '070': 'BIH', '072': 'BWA', '084': 'BLZ', '090': 'SLB', '096': 'BRN',
+  '108': 'BDI', '112': 'BLR', '140': 'CAF', '148': 'TCD', '158': 'TWN',
+  '204': 'BEN', '226': 'GNQ', '232': 'ERI', '238': 'FLK', '242': 'FJI',
+  '260': 'ATF', '262': 'DJI', '270': 'GMB', '275': 'PSE', '304': 'GRL',
+  '328': 'GUY', '417': 'KGZ', '426': 'LSO', '498': 'MDA', '499': 'MNE',
+  '548': 'VUT', '624': 'GNB', '626': 'TLS', '703': 'SVK', '705': 'SVN',
+  '732': 'ESH'
 };
 Object.assign(numericToAlpha3, NUMERIC_MAP);
 
@@ -107,7 +123,16 @@ const COUNTRY_NAMES = {
   ARE: 'United Arab Emirates', TUN: 'Tunisia', TUR: 'Turkey', TKM: 'Turkmenistan',
   UGA: 'Uganda', UKR: 'Ukraine', MKD: 'North Macedonia', GBR: 'United Kingdom',
   TZA: 'Tanzania', USA: 'United States', BFA: 'Burkina Faso', URY: 'Uruguay',
-  UZB: 'Uzbekistan', VEN: 'Venezuela', YEM: 'Yemen', ZMB: 'Zambia', PRK: 'North Korea'
+  UZB: 'Uzbekistan', VEN: 'Venezuela', YEM: 'Yemen', ZMB: 'Zambia', PRK: 'North Korea',
+  ATA: 'Antarctica', AZE: 'Azerbaijan', BHS: 'Bahamas', ARM: 'Armenia', BTN: 'Bhutan',
+  BIH: 'Bosnia and Herzegovina', BWA: 'Botswana', BLZ: 'Belize', SLB: 'Solomon Islands',
+  BDI: 'Burundi', BLR: 'Belarus', CAF: 'Central African Republic', TCD: 'Chad',
+  TWN: 'Taiwan', GNQ: 'Equatorial Guinea', ERI: 'Eritrea', FLK: 'Falkland Islands',
+  FJI: 'Fiji', ATF: 'French Southern Lands', DJI: 'Djibouti', GMB: 'Gambia',
+  PSE: 'Palestine', GRL: 'Greenland', GUY: 'Guyana', KGZ: 'Kyrgyzstan',
+  LSO: 'Lesotho', MDA: 'Moldova', MNE: 'Montenegro', VUT: 'Vanuatu',
+  GNB: 'Guinea-Bissau', TLS: 'Timor-Leste', SVK: 'Slovakia', SVN: 'Slovenia',
+  ESH: 'Western Sahara'
 };
 
 function getCountryAlpha3(numericId) {
@@ -135,23 +160,34 @@ function computeComposite(domains) {
 }
 
 // -- Map --
+let mapZoom = null;
+let mapSvg = null;
+let mapG = null;
+let mapProjection = null;
+let mapPath = null;
+let mapWidth = 0;
+let mapHeight = 0;
+
 function drawMap(world) {
-  const svg = d3.select('#map-svg');
+  mapSvg = d3.select('#map-svg');
   const container = document.querySelector('.map-container');
-  const width = container.clientWidth;
-  const height = container.clientHeight;
-  svg.attr('viewBox', `0 0 ${width} ${height}`);
+  mapWidth = container.clientWidth;
+  mapHeight = container.clientHeight;
+  mapSvg.attr('viewBox', `0 0 ${mapWidth} ${mapHeight}`);
 
-  const projection = d3.geoNaturalEarth1()
-    .fitSize([width - 20, height - 20], topojson.feature(world, world.objects.countries))
-    .translate([width / 2, height / 2]);
+  mapProjection = d3.geoNaturalEarth1()
+    .fitSize([mapWidth - 20, mapHeight - 20], topojson.feature(world, world.objects.countries))
+    .translate([mapWidth / 2, mapHeight / 2]);
 
-  const path = d3.geoPath(projection);
+  mapPath = d3.geoPath(mapProjection);
   const countries = topojson.feature(world, world.objects.countries).features;
 
   const tooltip = d3.select('#tooltip');
 
-  svg.selectAll('.country-path')
+  // Create a group for all country paths (zoom transforms this group)
+  mapG = mapSvg.append('g').attr('class', 'countries-group');
+
+  mapG.selectAll('.country-path')
     .data(countries)
     .join('path')
     .attr('class', d => {
@@ -161,7 +197,7 @@ function drawMap(world) {
       if (cd?.disputed) cls += ' disputed';
       return cls;
     })
-    .attr('d', path)
+    .attr('d', mapPath)
     .attr('fill', d => countryFill(d.id))
     .attr('opacity', d => countryOpacity(d.id))
     .on('mousemove', (event, d) => {
@@ -182,6 +218,20 @@ function drawMap(world) {
       const a3 = getCountryAlpha3(d.id);
       selectCountry(a3, d.id);
     });
+
+  // Zoom behavior
+  mapZoom = d3.zoom()
+    .scaleExtent([1, 8])
+    .on('zoom', (event) => {
+      mapG.attr('transform', event.transform);
+    });
+
+  mapSvg.call(mapZoom);
+
+  // Zoom controls
+  d3.select('#zoom-in').on('click', () => mapSvg.transition().duration(300).call(mapZoom.scaleBy, 1.5));
+  d3.select('#zoom-out').on('click', () => mapSvg.transition().duration(300).call(mapZoom.scaleBy, 1 / 1.5));
+  d3.select('#zoom-reset').on('click', () => mapSvg.transition().duration(500).call(mapZoom.transform, d3.zoomIdentity));
 }
 
 function countryFill(numericId) {
@@ -196,7 +246,7 @@ function countryOpacity(numericId) {
   const a3 = getCountryAlpha3(numericId);
   const cd = getCountryData(a3);
   if (!cd) return 0.8;
-  return CONFIDENCE_OPACITY[cd.overall_confidence] || 0.5;
+  return 1.0;
 }
 
 function refreshMapColors() {
@@ -221,9 +271,24 @@ function drawLegendGradient() {
 function selectCountry(alpha3, numericId) {
   d3.selectAll('.country-path').classed('selected', false);
   if (numericId != null) {
-    d3.selectAll('.country-path')
-      .filter(d => d.id === numericId)
-      .classed('selected', true);
+    const sel = d3.selectAll('.country-path')
+      .filter(d => String(d.id) === String(numericId));
+    sel.classed('selected', true).raise();
+
+    // Center map on selected country
+    if (mapZoom && mapSvg && sel.size() > 0) {
+      const bounds = mapPath.bounds(sel.datum());
+      const dx = bounds[1][0] - bounds[0][0];
+      const dy = bounds[1][1] - bounds[0][1];
+      const cx = (bounds[0][0] + bounds[1][0]) / 2;
+      const cy = (bounds[0][1] + bounds[1][1]) / 2;
+      const scale = Math.min(8, 0.7 / Math.max(dx / mapWidth, dy / mapHeight));
+      const translate = [mapWidth / 2 - scale * cx, mapHeight / 2 - scale * cy];
+      mapSvg.transition().duration(750).call(
+        mapZoom.transform,
+        d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
+      );
+    }
   }
 
   const cd = getCountryData(alpha3);
@@ -241,6 +306,10 @@ function selectCountry(alpha3, numericId) {
   empty.style.display = 'none';
   content.style.display = 'block';
 
+  // Sync dropdown
+  const select = document.getElementById('country-select');
+  if (select) select.value = alpha3;
+
   const composite = computeComposite(cd.domains);
   document.getElementById('country-name').textContent = cd.name;
   const scoreEl = document.getElementById('composite-score');
@@ -251,7 +320,7 @@ function selectCountry(alpha3, numericId) {
 
   const trendEl = document.getElementById('overall-trend');
   trendEl.className = `trend-badge ${cd.overall_trend}`;
-  trendEl.textContent = `${TREND_ARROWS[cd.overall_trend]} ${cd.overall_trend}`;
+  trendEl.textContent = `${TREND_ARROWS[cd.overall_trend]} ${TREND_TIPS[cd.overall_trend]}`;
 
   const notesEl = document.getElementById('country-notes');
   notesEl.textContent = cd.notes || '';
@@ -373,7 +442,7 @@ function drawDomainList(domains) {
     div.innerHTML = `
       <div class="domain-item-header">
         <span class="domain-name">${DOMAIN_LABELS[k]}</span>
-        <span class="trend-badge ${trend}" style="font-size:0.7rem">${TREND_ARROWS[trend]} ${trend}</span>
+        <span class="trend-badge ${trend}" style="font-size:0.7rem">${TREND_ARROWS[trend]} ${TREND_TIPS[trend]}</span>
       </div>
       <div class="domain-score-row">
         <span class="domain-score-value" style="color:${color}">${d.score}</span>
@@ -381,13 +450,25 @@ function drawDomainList(domains) {
           <div class="domain-bar-fill" style="width:${d.score}%; background:${color}; opacity:${CONFIDENCE_OPACITY[conf]}"></div>
         </div>
       </div>
-      ${d.justification ? `<div class="domain-justification">${d.justification}</div>` : ''}
+      ${d.justification ? `<ul class="domain-justification">${d.justification.split(/(?<=\.)\s+/).filter(s => s.trim()).map(s => `<li>${s.replace(/\.$/, '')}</li>`).join('')}</ul>` : ''}
+      ${d.justification_detail ? `<a class="raw-data-toggle" href="#">Show raw data &#9656;</a><div class="raw-data-detail" style="display:none"><div class="domain-justification">${d.justification_detail}</div>${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.join(', ')}</div>` : ''}</div>` : ''}
       <div class="domain-meta">
         <span class="confidence-badge">Confidence: ${conf.replace('_', ' ')}</span>
       </div>
-      ${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.join(', ')}</div>` : ''}
     `;
     container.appendChild(div);
+
+    // Wire up raw data toggle
+    const toggle = div.querySelector('.raw-data-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const detail = div.querySelector('.raw-data-detail');
+        const visible = detail.style.display !== 'none';
+        detail.style.display = visible ? 'none' : 'block';
+        toggle.innerHTML = visible ? 'Show raw data &#9656;' : 'Hide raw data &#9662;';
+      });
+    }
   });
 }
 
@@ -502,6 +583,84 @@ window.addEventListener('resize', () => {
     if (!localStorage.getItem('theme')) {
       apply(e.matches ? 'dark' : 'light');
     }
+  });
+})();
+
+// -- Methodology modal --
+(function initModal() {
+  const backdrop = document.getElementById('modal-backdrop');
+  const openBtn = document.getElementById('methodology-btn');
+  const closeBtn = document.getElementById('modal-close');
+
+  openBtn.addEventListener('click', () => backdrop.classList.add('visible'));
+  closeBtn.addEventListener('click', () => backdrop.classList.remove('visible'));
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) backdrop.classList.remove('visible');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') backdrop.classList.remove('visible');
+  });
+})();
+
+// -- Country picker --
+function populateCountrySelect(sortBy) {
+  const select = document.getElementById('country-select');
+  const countries = scoreData?.countries || {};
+  const entries = Object.entries(countries).map(([code, data]) => ({
+    code,
+    name: data.name,
+    composite: data.composite_score ?? 0,
+  }));
+
+  // Always compute rank from score order
+  entries.sort((a, b) => b.composite - a.composite);
+  const rankMap = new Map(entries.map((e, i) => [e.code, i + 1]));
+
+  if (sortBy !== 'score') {
+    entries.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  // Preserve current selection
+  const current = select.value;
+  select.innerHTML = '<option value="">Select a country…</option>';
+  entries.forEach(({ code, name, composite }) => {
+    const rank = rankMap.get(code);
+    const opt = document.createElement('option');
+    opt.value = code;
+    opt.textContent = sortBy === 'score'
+      ? `${rank}. ${name} (${composite})`
+      : `${name} (#${rank})`;
+    select.appendChild(opt);
+  });
+  select.value = current;
+}
+
+(function initCountryPicker() {
+  const select = document.getElementById('country-select');
+  const alphaBtn = document.getElementById('sort-alpha');
+  const scoreBtn = document.getElementById('sort-score');
+  let currentSort = 'alpha';
+
+  select.addEventListener('change', () => {
+    const code = select.value;
+    if (!code) return;
+    // Find the numeric ID for this alpha-3 code to highlight on map
+    const numId = Object.entries(numericToAlpha3).find(([, a3]) => a3 === code)?.[0];
+    selectCountry(code, numId ? Number(numId) : null);
+  });
+
+  alphaBtn.addEventListener('click', () => {
+    currentSort = 'alpha';
+    alphaBtn.classList.add('active');
+    scoreBtn.classList.remove('active');
+    populateCountrySelect('alpha');
+  });
+
+  scoreBtn.addEventListener('click', () => {
+    currentSort = 'score';
+    scoreBtn.classList.add('active');
+    alphaBtn.classList.remove('active');
+    populateCountrySelect('score');
   });
 })();
 

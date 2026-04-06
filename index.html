@@ -16,23 +16,87 @@
     <h1>The Extraction Index</h1>
     <p>Mapping how value is systematically captured from populations — across politics, economics, finance, institutions, information, labor, and transnational flows.</p>
   </div>
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">☀</button>
+  <div class="header-controls">
+    <div class="country-picker">
+      <div class="picker-sort">
+        <button class="sort-btn active" id="sort-alpha" aria-label="Sort alphabetically">A–Z</button>
+        <button class="sort-btn" id="sort-score" aria-label="Sort by score">Score</button>
+      </div>
+      <select id="country-select">
+        <option value="">Select a country…</option>
+      </select>
+    </div>
+    <button class="header-btn" id="methodology-btn" aria-label="About the data">?</button>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">☀</button>
+  </div>
 </header>
+
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal" id="methodology-modal">
+    <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+    <h2>About the Data</h2>
+
+    <h3>What This Measures</h3>
+    <p>The Extraction Index measures systematic value capture — the degree to which a country's institutions, economy, and power structures transfer value from the many to the few, whether or not those transfers are legal. Extraction is not the same as corruption. A country can have low corruption and high extraction.</p>
+
+    <h3>The Seven Domains</h3>
+    <ol>
+      <li><strong>Political Capture</strong> — elite monopolization of political power</li>
+      <li><strong>Economic Concentration</strong> — wealth inequality, labor share decline</li>
+      <li><strong>Financial Extraction</strong> — financialization, financial secrecy</li>
+      <li><strong>Institutional Gatekeeping</strong> — whether institutions serve broad populations or narrow interests</li>
+      <li><strong>Information &amp; Media Capture</strong> — media freedom, information control</li>
+      <li><strong>Resource &amp; Labor Extraction</strong> — natural resource governance, labor rights</li>
+      <li><strong>Transnational Facilitation</strong> — enabling extraction elsewhere (tax havens, profit shifting)</li>
+    </ol>
+
+    <h3>Data Sources</h3>
+    <p>Scores are computed from four independent datasets:</p>
+    <ul>
+      <li><strong>World Bank</strong> — Gini index, governance indicators (WGI), domestic credit, resource rents</li>
+      <li><strong>V-Dem</strong> — democracy, corruption, clientelism, media freedom, rule of law</li>
+      <li><strong>RSF</strong> — Reporters Without Borders Press Freedom Index</li>
+      <li><strong>Tax Justice Network</strong> — Financial Secrecy Index</li>
+    </ul>
+
+    <h3>Scoring Methodology</h3>
+    <p>Each raw indicator is normalized to a 0–100 scale using min-max scaling across all countries. For inverted indicators (where higher values mean <em>less</em> extraction, such as democracy scores), values are flipped. Indicators within each domain are averaged with equal weight. The composite score is the average of all available domains.</p>
+
+    <h3>Confidence Levels</h3>
+    <p>Confidence reflects how reliable a score is likely to be, based on three factors:</p>
+    <ul>
+      <li><strong>Completeness</strong> — how many indicators have data for this country</li>
+      <li><strong>Source diversity</strong> — how many independent datasets contribute</li>
+      <li><strong>Recency</strong> — how recent the most recent data point is</li>
+    </ul>
+    <p>Overall confidence is also capped by domain coverage: a country with data for only 3 of 7 domains cannot exceed "low" confidence, regardless of the quality of those 3 domains. This means countries like North Korea (sparse data, externally estimated) show lower confidence than countries like the United States (dense, multi-source, recent data).</p>
+
+    <h3>Weights</h3>
+    <p>The composite score uses equal weights (1/7 each) by default. You can adjust weights using the controls in the side panel to explore how different priorities change the rankings.</p>
+
+    <h3>Limitations</h3>
+    <ul>
+      <li>Institutional gatekeeping is under-measured — no existing index directly measures "who does the law serve"</li>
+      <li>OECD data bias — sources have better coverage for wealthy nations</li>
+      <li>The most extractive regimes produce the worst data (the legibility paradox)</li>
+      <li>Trend indicators are directional estimates, not full time series</li>
+    </ul>
+
+  </div>
+</div>
 
 <div class="layout">
   <div class="map-container">
     <svg id="map-svg"></svg>
+    <div class="map-controls">
+      <button id="zoom-in" title="Zoom in">+</button>
+      <button id="zoom-out" title="Zoom out">−</button>
+      <button id="zoom-reset" title="Reset view">⟳</button>
+    </div>
     <div class="legend" id="legend">
       <span class="legend-title">Composite Extraction Score</span>
       <canvas class="legend-gradient" id="legend-gradient" width="180" height="12"></canvas>
       <div class="legend-labels"><span>0 — Low</span><span>100 — Extreme</span></div>
-      <span class="legend-title" style="margin-top:0.5rem">Data Confidence</span>
-      <div class="legend-confidence">
-        <div class="legend-confidence-swatch" style="opacity:1"></div><label>High</label>
-        <div class="legend-confidence-swatch" style="opacity:0.75"></div><label>Mod</label>
-        <div class="legend-confidence-swatch" style="opacity:0.5"></div><label>Low</label>
-        <div class="legend-confidence-swatch" style="opacity:0.3"></div><label>V.Low</label>
-      </div>
     </div>
     <div class="no-data-note">Grey countries: no data yet</div>
     <div class="tooltip" id="tooltip"></div>
