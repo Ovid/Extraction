@@ -196,6 +196,22 @@ Overall country confidence is further capped by how many of the seven domains ha
 
 This ensures countries with sparse data (e.g., North Korea with 3/7 domains) do not appear overconfident.
 
+## Context Facts
+
+Each indicator displays 1-2 concrete facts beneath its score to make abstract numbers meaningful.
+
+**Fact 1 — Raw value:** Always shown. The actual indicator value with units (e.g., "Gini coefficient: 41.8").
+
+**Fact 2 — Peer comparison:** Shown when the country differs meaningfully (>10%) from its peer group average. The scorer compares against both:
+- **Regional peers** (UN geoscheme regions: Eastern Africa, Northern Europe, South America, etc.)
+- **Income peers** (World Bank income groups: High income, Upper middle income, Lower middle income, Low income)
+
+Whichever comparison produces the larger divergence is shown. If fewer than 3 peers have data, that comparison is skipped.
+
+At extremes, comparisons use natural language appropriate to the indicator — e.g., "Strongest rule of law among high-income countries" rather than generic "Highest among."
+
+For the resource capture domain, context facts reflect the composite calculation (resource rents moderated by institutional strength) rather than raw resource rents alone.
+
 ## Data Sources
 
 | Source | Type | Domains | Coverage |
