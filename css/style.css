@@ -336,6 +336,15 @@ header p {
   border-left: 2px solid var(--border);
   padding-left: 0.8rem;
 }
+.data-advisory {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+}
+.data-advisory:empty {
+  display: none;
+}
 
 /* -- Radar Chart -- */
 .radar-section {

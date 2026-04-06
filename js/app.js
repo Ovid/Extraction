@@ -367,6 +367,18 @@ function selectCountry(alpha3, numericId) {
   notesEl.textContent = cd.notes || '';
   notesEl.style.display = cd.notes ? 'block' : 'none';
 
+  // Data advisories
+  const advisories = [];
+  if (numericId == null) {
+    advisories.push('This territory is too small to display on the world map.');
+  }
+  const nDomains = Object.keys(cd.domains).length;
+  if (nDomains <= 3) {
+    advisories.push(`Score is based on ${nDomains} of 7 domains \u2014 may not reflect overall extraction.`);
+  }
+  const advisoryEl = document.getElementById('data-advisory');
+  advisoryEl.innerHTML = advisories.join(' ');
+
   drawRadar(cd.domains);
   drawDomainList(cd.domains);
 }
