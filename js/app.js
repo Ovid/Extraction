@@ -40,6 +40,7 @@ async function init() {
   drawMap(world);
   drawLegendGradient();
   setupWeightControls();
+  populateCountrySelect('alpha');
 }
 
 // -- ISO numeric → alpha-3 mapping (subset for sample data; extend as needed) --
@@ -258,6 +259,10 @@ function selectCountry(alpha3, numericId) {
   selectedCountryCode = alpha3;
   empty.style.display = 'none';
   content.style.display = 'block';
+
+  // Sync dropdown
+  const select = document.getElementById('country-select');
+  if (select) select.value = alpha3;
 
   const composite = computeComposite(cd.domains);
   document.getElementById('country-name').textContent = cd.name;
@@ -520,6 +525,79 @@ window.addEventListener('resize', () => {
     if (!localStorage.getItem('theme')) {
       apply(e.matches ? 'dark' : 'light');
     }
+  });
+})();
+
+// -- Methodology modal --
+(function initModal() {
+  const backdrop = document.getElementById('modal-backdrop');
+  const openBtn = document.getElementById('methodology-btn');
+  const closeBtn = document.getElementById('modal-close');
+
+  openBtn.addEventListener('click', () => backdrop.classList.add('visible'));
+  closeBtn.addEventListener('click', () => backdrop.classList.remove('visible'));
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) backdrop.classList.remove('visible');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') backdrop.classList.remove('visible');
+  });
+})();
+
+// -- Country picker --
+function populateCountrySelect(sortBy) {
+  const select = document.getElementById('country-select');
+  const countries = scoreData?.countries || {};
+  const entries = Object.entries(countries).map(([code, data]) => ({
+    code,
+    name: data.name,
+    composite: data.composite_score ?? 0,
+  }));
+
+  if (sortBy === 'score') {
+    entries.sort((a, b) => b.composite - a.composite);
+  } else {
+    entries.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  // Preserve current selection
+  const current = select.value;
+  select.innerHTML = '<option value="">Select a country…</option>';
+  entries.forEach(({ code, name, composite }) => {
+    const opt = document.createElement('option');
+    opt.value = code;
+    opt.textContent = sortBy === 'score' ? `${name} (${composite})` : name;
+    select.appendChild(opt);
+  });
+  select.value = current;
+}
+
+(function initCountryPicker() {
+  const select = document.getElementById('country-select');
+  const alphaBtn = document.getElementById('sort-alpha');
+  const scoreBtn = document.getElementById('sort-score');
+  let currentSort = 'alpha';
+
+  select.addEventListener('change', () => {
+    const code = select.value;
+    if (!code) return;
+    // Find the numeric ID for this alpha-3 code to highlight on map
+    const numId = Object.entries(numericToAlpha3).find(([, a3]) => a3 === code)?.[0];
+    selectCountry(code, numId ? Number(numId) : null);
+  });
+
+  alphaBtn.addEventListener('click', () => {
+    currentSort = 'alpha';
+    alphaBtn.classList.add('active');
+    scoreBtn.classList.remove('active');
+    populateCountrySelect('alpha');
+  });
+
+  scoreBtn.addEventListener('click', () => {
+    currentSort = 'score';
+    scoreBtn.classList.add('active');
+    alphaBtn.classList.remove('active');
+    populateCountrySelect('score');
   });
 })();
 

@@ -474,13 +474,20 @@ header p {
   margin-left: 0.3rem;
 }
 
-/* -- Theme Toggle -- */
+/* -- Header Controls -- */
 .header-text {
   flex: 1;
   min-width: 0;
 }
 
-.theme-toggle {
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.header-btn, .theme-toggle {
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-secondary);
@@ -494,11 +501,146 @@ header p {
   justify-content: center;
   flex-shrink: 0;
   transition: border-color 0.15s, color 0.15s;
-  margin-top: 0.3rem;
+  font-family: inherit;
 }
-.theme-toggle:hover {
+.header-btn:hover, .theme-toggle:hover {
   border-color: var(--text-muted);
   color: var(--text-primary);
+}
+
+/* -- Country Picker -- */
+.country-picker {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.picker-sort {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.sort-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-family: inherit;
+  font-weight: 600;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.sort-btn.active {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+.sort-btn:hover:not(.active) {
+  color: var(--text-secondary);
+}
+
+#country-select {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  max-width: 200px;
+  cursor: pointer;
+}
+#country-select option {
+  background: var(--bg-panel);
+  color: var(--text-primary);
+}
+
+/* -- Methodology Modal -- */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+.modal-backdrop.visible {
+  display: flex;
+}
+
+.modal {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  max-width: 680px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 2rem 2.5rem;
+  position: relative;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.modal h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+.modal h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 1.4rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.modal p, .modal li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.modal ul, .modal ol {
+  padding-left: 1.4rem;
+  margin: 0.4rem 0;
+}
+
+.modal li {
+  margin-bottom: 0.3rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.6rem;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.15s;
+}
+.modal-close:hover {
+  color: var(--text-primary);
+}
+
+.modal-context {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-style: italic;
+  color: var(--text-muted);
 }
 
 @media (max-width: 900px) {
