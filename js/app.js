@@ -13,10 +13,10 @@ const DOMAIN_KEYS = Object.keys(DOMAIN_LABELS);
 const CONFIDENCE_OPACITY = { high: 1.0, moderate: 0.75, low: 0.5, very_low: 0.3 };
 const TREND_ARROWS = { rising: '↑', falling: '↓', stable: '→', unknown: '?' };
 
-// Color scale: blue-teal (low) → amber (mid) → crimson (high)
+// Color scale: green (low) → yellow (mid) → red (high)
 const extractionColor = d3.scaleLinear()
-  .domain([0, 25, 50, 75, 100])
-  .range(['#1a9e78', '#6ec8db', '#d4a84e', '#e07842', '#c43545'])
+  .domain([0, 50, 100])
+  .range(['#2ecc71', '#f1c40f', '#e74c3c'])
   .clamp(true);
 
 let scoreData = null;
@@ -563,10 +563,11 @@ function populateCountrySelect(sortBy) {
   // Preserve current selection
   const current = select.value;
   select.innerHTML = '<option value="">Select a country…</option>';
-  entries.forEach(({ code, name, composite }) => {
+  const total = entries.length;
+  entries.forEach(({ code, name, composite }, i) => {
     const opt = document.createElement('option');
     opt.value = code;
-    opt.textContent = sortBy === 'score' ? `${name} (${composite})` : name;
+    opt.textContent = sortBy === 'score' ? `${i + 1}/${total} — ${name} (${composite})` : name;
     select.appendChild(opt);
   });
   select.value = current;
