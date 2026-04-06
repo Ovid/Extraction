@@ -320,8 +320,7 @@ function selectCountry(alpha3, numericId) {
 
   const trendEl = document.getElementById('overall-trend');
   trendEl.className = `trend-badge ${cd.overall_trend}`;
-  trendEl.textContent = `${TREND_ARROWS[cd.overall_trend]} ${cd.overall_trend}`;
-  trendEl.title = TREND_TIPS[cd.overall_trend];
+  trendEl.textContent = `${TREND_ARROWS[cd.overall_trend]} ${TREND_TIPS[cd.overall_trend]}`;
 
   const notesEl = document.getElementById('country-notes');
   notesEl.textContent = cd.notes || '';
@@ -443,7 +442,7 @@ function drawDomainList(domains) {
     div.innerHTML = `
       <div class="domain-item-header">
         <span class="domain-name">${DOMAIN_LABELS[k]}</span>
-        <span class="trend-badge ${trend}" style="font-size:0.7rem" title="${TREND_TIPS[trend]}">${TREND_ARROWS[trend]} ${trend}</span>
+        <span class="trend-badge ${trend}" style="font-size:0.7rem">${TREND_ARROWS[trend]} ${TREND_TIPS[trend]}</span>
       </div>
       <div class="domain-score-row">
         <span class="domain-score-value" style="color:${color}">${d.score}</span>
