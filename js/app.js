@@ -667,6 +667,41 @@ function populateCountrySelect(sortBy) {
   });
 })();
 
+// -- Draggable panel divider --
+(() => {
+  const divider = document.getElementById('panel-divider');
+  const layout = document.querySelector('.layout');
+  if (!divider || !layout) return;
+
+  const MIN_PANEL = 300;
+  const MAX_PANEL = 800;
+
+  let dragging = false;
+
+  divider.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    dragging = true;
+    divider.classList.add('dragging');
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    const layoutRect = layout.getBoundingClientRect();
+    const panelWidth = Math.min(MAX_PANEL, Math.max(MIN_PANEL, layoutRect.right - e.clientX));
+    layout.style.gridTemplateColumns = `1fr 6px ${panelWidth}px`;
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (!dragging) return;
+    dragging = false;
+    divider.classList.remove('dragging');
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  });
+})();
+
 init().catch(err => {
   console.error('Failed to initialize:', err);
   document.querySelector('.no-data-note').textContent = 'Error loading data. See console.';

@@ -102,8 +102,21 @@ header p {
 
 .layout {
   display: grid;
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: 1fr 6px 380px;
   height: calc(100vh - 120px);
+}
+
+.panel-divider {
+  width: 6px;
+  cursor: col-resize;
+  background: var(--border);
+  transition: background 0.15s;
+  position: relative;
+  z-index: 10;
+}
+.panel-divider:hover,
+.panel-divider.dragging {
+  background: var(--accent, #f1c40f);
 }
 
 .map-container {
@@ -335,7 +348,7 @@ header p {
 
 #radar-svg {
   width: 100%;
-  max-width: 340px;
+  max-width: 500px;
   margin: 0 auto;
   display: block;
 }
@@ -721,6 +734,7 @@ ul.domain-justification li .context-fact {
     grid-template-rows: 55vh 1fr;
     height: auto;
   }
+  .panel-divider { display: none; }
   .panel { border-left: none; border-top: 1px solid var(--border); }
   header { padding: 1.5rem; }
   header h1 { font-size: 1.6rem; }
