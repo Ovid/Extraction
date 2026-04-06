@@ -97,9 +97,27 @@
           "items": { "type": "string" },
           "description": "Source keys referencing the sources documentation"
         },
-        "justification": {
+        "indicators": {
+          "type": "array",
+          "description": "Structured indicator entries with questions, labels, and context facts",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": { "type": "string", "description": "Source key for this indicator" },
+              "question": { "type": "string", "description": "Human-readable question about this aspect of extraction" },
+              "label": { "type": "string", "description": "Answer label (Very low, Low, Moderate, High, Very high)" },
+              "facts": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "1-2 concrete facts: raw value and optional peer comparison"
+              }
+            },
+            "required": ["key", "question", "label"]
+          }
+        },
+        "justification_detail": {
           "type": "string",
-          "description": "Brief explanation for the score"
+          "description": "Technical breakdown with raw values and normalized scores"
         }
       },
       "required": ["score", "confidence"]
