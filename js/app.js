@@ -12,6 +12,12 @@ const DOMAIN_KEYS = Object.keys(DOMAIN_LABELS);
 
 const CONFIDENCE_OPACITY = { high: 1.0, moderate: 0.75, low: 0.5, very_low: 0.3 };
 const TREND_ARROWS = { rising: '↑', falling: '↓', stable: '→', unknown: '?' };
+const TREND_TIPS = {
+  rising: 'Extraction is increasing over the past decade',
+  falling: 'Extraction is decreasing over the past decade',
+  stable: 'Extraction has been roughly stable over the past decade',
+  unknown: 'Not enough data to determine trend',
+};
 
 // Color scale: green (low) → yellow (mid) → red (high)
 const extractionColor = d3.scaleLinear()
@@ -315,6 +321,7 @@ function selectCountry(alpha3, numericId) {
   const trendEl = document.getElementById('overall-trend');
   trendEl.className = `trend-badge ${cd.overall_trend}`;
   trendEl.textContent = `${TREND_ARROWS[cd.overall_trend]} ${cd.overall_trend}`;
+  trendEl.title = TREND_TIPS[cd.overall_trend];
 
   const notesEl = document.getElementById('country-notes');
   notesEl.textContent = cd.notes || '';
@@ -436,7 +443,7 @@ function drawDomainList(domains) {
     div.innerHTML = `
       <div class="domain-item-header">
         <span class="domain-name">${DOMAIN_LABELS[k]}</span>
-        <span class="trend-badge ${trend}" style="font-size:0.7rem">${TREND_ARROWS[trend]} ${trend}</span>
+        <span class="trend-badge ${trend}" style="font-size:0.7rem" title="${TREND_TIPS[trend]}">${TREND_ARROWS[trend]} ${trend}</span>
       </div>
       <div class="domain-score-row">
         <span class="domain-score-value" style="color:${color}">${d.score}</span>
