@@ -335,7 +335,7 @@ function drawRadar(domains) {
   const svg = d3.select('#radar-svg');
   svg.selectAll('*').remove();
 
-  const cx = 170, cy = 155, maxR = 120;
+  const cx = 230, cy = 165, maxR = 120;
   const n = DOMAIN_KEYS.length;
   const angleSlice = (2 * Math.PI) / n;
 
@@ -450,7 +450,10 @@ function drawDomainList(domains) {
           <div class="domain-bar-fill" style="width:${d.score}%; background:${color}; opacity:${CONFIDENCE_OPACITY[conf]}"></div>
         </div>
       </div>
-      ${d.justification ? `<ul class="domain-justification">${d.justification.split(/(?<=\.)\s+/).filter(s => s.trim()).map(s => `<li>${s.replace(/\.$/, '')}</li>`).join('')}</ul>` : ''}
+      ${d.indicators?.length ? `<ul class="domain-justification">${d.indicators.map(ind => {
+        const factsHtml = (ind.facts || []).map(f => `<span class="context-fact">${f}</span>`).join('');
+        return `<li>${ind.question} ${ind.label}${factsHtml}</li>`;
+      }).join('')}</ul>` : (d.justification ? `<ul class="domain-justification">${d.justification.split(/(?<=\.)\s+/).filter(s => s.trim()).map(s => `<li>${s.replace(/\.$/, '')}</li>`).join('')}</ul>` : '')}
       ${d.justification_detail ? `<a class="raw-data-toggle" href="#">Show raw data &#9656;</a><div class="raw-data-detail" style="display:none"><div class="domain-justification">${d.justification_detail}</div>${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.join(', ')}</div>` : ''}</div>` : ''}
       <div class="domain-meta">
         <span class="confidence-badge">Confidence: ${conf.replace('_', ' ')}</span>
@@ -661,6 +664,41 @@ function populateCountrySelect(sortBy) {
     scoreBtn.classList.add('active');
     alphaBtn.classList.remove('active');
     populateCountrySelect('score');
+  });
+})();
+
+// -- Draggable panel divider --
+(() => {
+  const divider = document.getElementById('panel-divider');
+  const layout = document.querySelector('.layout');
+  if (!divider || !layout) return;
+
+  const MIN_PANEL = 300;
+  const MAX_PANEL = 800;
+
+  let dragging = false;
+
+  divider.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    dragging = true;
+    divider.classList.add('dragging');
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    const layoutRect = layout.getBoundingClientRect();
+    const panelWidth = Math.min(MAX_PANEL, Math.max(MIN_PANEL, layoutRect.right - e.clientX));
+    layout.style.gridTemplateColumns = `1fr 6px ${panelWidth}px`;
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (!dragging) return;
+    dragging = false;
+    divider.classList.remove('dragging');
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
   });
 })();
 
