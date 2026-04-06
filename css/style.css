@@ -710,7 +710,19 @@ ul.domain-justification li .context-fact {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
   font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.modal-links {
+  font-size: 0.8rem;
+  color: var(--text-muted);
   margin-bottom: 1.2rem;
+}
+.modal-links a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+}
+.modal-links a:hover {
+  color: var(--text-primary);
 }
 
 .modal h3 {
