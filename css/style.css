@@ -120,7 +120,7 @@ header p {
 }
 .panel-divider:hover,
 .panel-divider.dragging {
-  background: var(--accent, #f1c40f);
+  background: var(--accent-mid);
 }
 
 .map-container {
