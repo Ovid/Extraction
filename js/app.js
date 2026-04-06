@@ -335,7 +335,7 @@ function drawRadar(domains) {
   const svg = d3.select('#radar-svg');
   svg.selectAll('*').remove();
 
-  const cx = 170, cy = 155, maxR = 120;
+  const cx = 230, cy = 165, maxR = 120;
   const n = DOMAIN_KEYS.length;
   const angleSlice = (2 * Math.PI) / n;
 
