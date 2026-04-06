@@ -47,6 +47,69 @@ INDICATOR_CONFIG = [
     {'file': 'wb_wgi_gov_effectiveness.csv', 'domain': 'institutional_gatekeeping', 'inverted': True,  'source_key': 'wb_wgi_gov_eff',     'name': 'WGI Government Effectiveness'},
 ]
 
+# Human-readable questions for each indicator (used in justifications)
+INDICATOR_QUESTIONS = {
+    # World Bank indicators
+    'wb_gini':              'How unequal is income distribution?',
+    'wb_labor_share':       'How much of the economy bypasses workers?',
+    'wb_domestic_credit':   'How financialized is the economy?',
+    'wb_natural_rents':     'How dependent is the economy on natural resource extraction?',
+    'wb_wgi_corruption':    'How well is corruption controlled?',
+    'wb_reg_quality':       'How well does regulation serve the public?',
+    'wb_wgi_gov_eff':       'How effective is the government?',
+    # V-Dem indicators
+    'vdem_political_corruption':  'How corrupt is the political system?',
+    'vdem_clientelism':           'How common is vote-buying and patronage?',
+    'vdem_electoral_democracy':   'How democratic are elections?',
+    'vdem_physical_violence':     'How common is political violence?',
+    'vdem_freedom_of_expression': 'How free is public expression?',
+    'vdem_alternative_info_sources': 'How available are independent information sources?',
+    'vdem_rule_of_law':           'How strong is the rule of law?',
+    # RSF
+    'rsf_press':            'How free is the press?',
+    # TJN FSI
+    'tjn_fsi':              'How much financial secrecy exists?',
+}
+
+
+def score_to_label(score):
+    """Convert a 0-100 extraction score to a human-readable label."""
+    if score <= 15:
+        return 'Very low'
+    elif score <= 35:
+        return 'Low'
+    elif score <= 55:
+        return 'Moderate'
+    elif score <= 75:
+        return 'High'
+    else:
+        return 'Very high'
+
+
+def build_human_justification(indicators_info):
+    """Build a human-readable justification from a list of indicator dicts.
+
+    Each dict should have: 'source_key', 'normalized' (0-100 score).
+    Returns a string like: "How corrupt is the political system? Very low. ..."
+    """
+    parts = []
+    for ind in indicators_info:
+        key = ind['source_key']
+        question = INDICATOR_QUESTIONS.get(key, key)
+        label = score_to_label(ind['normalized'])
+        parts.append(f'{question} {label}.')
+    return ' '.join(parts)
+
+
+def build_technical_justification(source_label, indicators_info):
+    """Build the technical detail string (raw values + normalized scores).
+
+    Each dict should have: 'name', 'raw', 'normalized'.
+    """
+    parts = [f'{ind["name"]}: {ind["raw"]:.3f} (normalized: {ind["normalized"]})' for ind in indicators_info]
+    return f'Auto-scored from {source_label}. {"; ".join(parts)}.'
+
+
 # Country name overrides for codes where World Bank names are awkward
 COUNTRY_NAME_OVERRIDES = {
     'KOR': 'South Korea',
@@ -443,10 +506,16 @@ def build_country_scores():
                 first_file = group['indicator_file'].iloc[0]
                 trend = estimate_trend(all_data, code, first_file)
 
-                parts = []
+                ind_info = []
                 for _, row in group.iterrows():
-                    parts.append(f'{row["indicator_name"]}: {row["value"]:.1f} (normalized: {row["normalized"]})')
-                justification = f'Auto-scored from World Bank data. {"; ".join(parts)}.'
+                    ind_info.append({
+                        'source_key': row['source_key'],
+                        'name': row['indicator_name'],
+                        'raw': row['value'],
+                        'normalized': int(row['normalized']),
+                    })
+                justification = build_human_justification(ind_info)
+                justification_detail = build_technical_justification('World Bank data', ind_info)
 
                 domains[domain] = {
                     'score': score,
@@ -454,6 +523,7 @@ def build_country_scores():
                     'trend': trend,
                     'sources': sources,
                     'justification': justification,
+                    'justification_detail': justification_detail,
                     '_n_indicators': n_indicators,
                     '_n_sources': 1,
                     '_most_recent_year': most_recent,
@@ -464,12 +534,15 @@ def build_country_scores():
         if code in rsf_map:
             raw_score = rsf_scores[code]
             rsf_confidence = assess_domain_confidence(1, 1, 2025)
+            rsf_norm = int(rsf_map[code])
+            rsf_ind = [{'source_key': 'rsf_press', 'name': 'Press Freedom Index', 'raw': raw_score, 'normalized': rsf_norm}]
             domains['information_capture'] = {
-                'score': int(rsf_map[code]),
+                'score': rsf_norm,
                 'confidence': rsf_confidence,
                 'trend': 'unknown',
                 'sources': ['rsf_press'],
-                'justification': f'Auto-scored from RSF Press Freedom Index. Raw score: {raw_score:.1f} (normalized: {int(rsf_map[code])}).',
+                'justification': build_human_justification(rsf_ind),
+                'justification_detail': build_technical_justification('RSF Press Freedom Index', rsf_ind),
                 '_n_indicators': 1,
                 '_n_sources': 1,
                 '_most_recent_year': 2025,
@@ -480,12 +553,15 @@ def build_country_scores():
         if code in fsi_map:
             raw_score = fsi_scores[code]
             fsi_confidence = assess_domain_confidence(1, 1, 2025)
+            fsi_norm = int(fsi_map[code])
+            fsi_ind = [{'source_key': 'tjn_fsi', 'name': 'Financial Secrecy Index', 'raw': raw_score, 'normalized': fsi_norm}]
             domains['transnational_facilitation'] = {
-                'score': int(fsi_map[code]),
+                'score': fsi_norm,
                 'confidence': fsi_confidence,
                 'trend': 'unknown',
                 'sources': ['tjn_fsi'],
-                'justification': f'Auto-scored from Tax Justice Network FSI. Raw score: {raw_score:.1f} (normalized: {int(fsi_map[code])}).',
+                'justification': build_human_justification(fsi_ind),
+                'justification_detail': build_technical_justification('Tax Justice Network FSI', fsi_ind),
                 '_n_indicators': 1,
                 '_n_sources': 1,
                 '_most_recent_year': 2025,
@@ -506,8 +582,19 @@ def build_country_scores():
             for domain, indicators_list in vdem_by_domain.items():
                 vdem_score = round(sum(i['score'] for i in indicators_list) / len(indicators_list))
                 vdem_sources = ['vdem_' + i['name'].lower().replace(' ', '_') for i in indicators_list]
-                parts = [f'{i["name"]}: {i["raw"]:.3f} (normalized: {i["score"]})' for i in indicators_list]
                 n_vdem = len(indicators_list)
+
+                vdem_ind_info = []
+                for i in indicators_list:
+                    src_key = 'vdem_' + i['name'].lower().replace(' ', '_')
+                    vdem_ind_info.append({
+                        'source_key': src_key,
+                        'name': i['name'],
+                        'raw': i['raw'],
+                        'normalized': i['score'],
+                    })
+                vdem_justification = build_human_justification(vdem_ind_info)
+                vdem_detail = build_technical_justification('V-Dem', vdem_ind_info)
 
                 if domain in domains:
                     # Merge with existing domain score (average of WB/RSF and V-Dem)
@@ -521,7 +608,8 @@ def build_country_scores():
                         'confidence': assess_domain_confidence(merged_n, merged_sources, merged_year),
                         'trend': existing['trend'] if existing['trend'] != 'unknown' else 'unknown',
                         'sources': existing['sources'] + vdem_sources,
-                        'justification': f'{existing["justification"]} V-Dem: {"; ".join(parts)}.',
+                        'justification': f'{existing["justification"]} {vdem_justification}',
+                        'justification_detail': f'{existing.get("justification_detail", "")} {vdem_detail}'.strip(),
                         '_n_indicators': merged_n,
                         '_n_sources': merged_sources,
                         '_most_recent_year': merged_year,
@@ -533,7 +621,8 @@ def build_country_scores():
                         'confidence': vdem_confidence,
                         'trend': 'unknown',
                         'sources': vdem_sources,
-                        'justification': f'Auto-scored from V-Dem. {"; ".join(parts)}.',
+                        'justification': vdem_justification,
+                        'justification_detail': vdem_detail,
                         '_n_indicators': n_vdem,
                         '_n_sources': 1,
                         '_most_recent_year': 2024,

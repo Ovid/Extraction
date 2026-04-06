@@ -445,12 +445,24 @@ function drawDomainList(domains) {
         </div>
       </div>
       ${d.justification ? `<div class="domain-justification">${d.justification}</div>` : ''}
+      ${d.justification_detail ? `<a class="raw-data-toggle" href="#">Show raw data &#9656;</a><div class="raw-data-detail" style="display:none"><div class="domain-justification">${d.justification_detail}</div>${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.join(', ')}</div>` : ''}</div>` : ''}
       <div class="domain-meta">
         <span class="confidence-badge">Confidence: ${conf.replace('_', ' ')}</span>
       </div>
-      ${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.join(', ')}</div>` : ''}
     `;
     container.appendChild(div);
+
+    // Wire up raw data toggle
+    const toggle = div.querySelector('.raw-data-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const detail = div.querySelector('.raw-data-detail');
+        const visible = detail.style.display !== 'none';
+        detail.style.display = visible ? 'none' : 'block';
+        toggle.innerHTML = visible ? 'Show raw data &#9656;' : 'Hide raw data &#9662;';
+      });
+    }
   });
 }
 
