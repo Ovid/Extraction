@@ -2043,7 +2043,7 @@
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "BHS": {
-      "name": "Bahamas, The",
+      "name": "Bahamas",
       "domains": {
         "economic_concentration": {
           "score": 24,
@@ -3850,7 +3850,7 @@
       "notes": "Auto-scored from RSF, V-Dem, World Bank (4/7 domains covered)."
     },
     "CUW": {
-      "name": "Curacao",
+      "name": "Cura\u00e7ao",
       "domains": {
         "resource_labor_extraction": {
           "score": 0,
@@ -4797,6 +4797,15 @@
           ],
           "justification": "Auto-scored from RSF Press Freedom Index. Raw score: 89.5 (normalized: 96). V-Dem: Freedom of Expression: 0.969 (normalized: 1); Alternative Info Sources: 0.957 (normalized: 1)."
         },
+        "transnational_facilitation": {
+          "score": 33,
+          "confidence": "low",
+          "trend": "unknown",
+          "sources": [
+            "tjn_fsi"
+          ],
+          "justification": "Auto-scored from Tax Justice Network FSI. Raw score: 46.1 (normalized: 33)."
+        },
         "political_capture": {
           "score": 2,
           "confidence": "high",
@@ -4810,10 +4819,10 @@
           "justification": "Auto-scored from V-Dem. Political Corruption: 0.025 (normalized: 2); Clientelism: 0.058 (normalized: 3); Electoral Democracy: 0.887 (normalized: 3); Physical Violence: 0.980 (normalized: 1)."
         }
       },
-      "composite_score": 19,
+      "composite_score": 21,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ETH": {
       "name": "Ethiopia",
@@ -5013,6 +5022,15 @@
           ],
           "justification": "Auto-scored from RSF Press Freedom Index. Raw score: 71.2 (normalized: 74). V-Dem: Freedom of Expression: 0.724 (normalized: 26); Alternative Info Sources: 0.723 (normalized: 26)."
         },
+        "transnational_facilitation": {
+          "score": 94,
+          "confidence": "low",
+          "trend": "unknown",
+          "sources": [
+            "tjn_fsi"
+          ],
+          "justification": "Auto-scored from Tax Justice Network FSI. Raw score: 77.4 (normalized: 94)."
+        },
         "political_capture": {
           "score": 32,
           "confidence": "high",
@@ -5026,10 +5044,10 @@
           "justification": "Auto-scored from V-Dem. Political Corruption: 0.289 (normalized: 30); Clientelism: 0.406 (normalized: 41); Electoral Democracy: 0.507 (normalized: 45); Physical Violence: 0.858 (normalized: 14)."
         }
       },
-      "composite_score": 31,
+      "composite_score": 40,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "FRA": {
       "name": "France",
@@ -6137,7 +6155,7 @@
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "HKG": {
-      "name": "Hong Kong SAR, China",
+      "name": "Hong Kong",
       "domains": {
         "economic_concentration": {
           "score": 50,
@@ -7757,7 +7775,7 @@
       "notes": "Auto-scored from World Bank (3/7 domains covered)."
     },
     "KNA": {
-      "name": "St. Kitts and Nevis",
+      "name": "Saint Kitts and Nevis",
       "domains": {
         "financial_extraction": {
           "score": 28,
@@ -8270,7 +8288,7 @@
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "LCA": {
-      "name": "St. Lucia",
+      "name": "Saint Lucia",
       "domains": {
         "economic_concentration": {
           "score": 34,
@@ -8689,7 +8707,7 @@
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "MAC": {
-      "name": "Macao SAR, China",
+      "name": "Macao",
       "domains": {
         "economic_concentration": {
           "score": 73,
@@ -11189,7 +11207,7 @@
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PRI": {
-      "name": "Puerto Rico (US)",
+      "name": "Puerto Rico",
       "domains": {
         "economic_concentration": {
           "score": 47,
@@ -12957,6 +12975,17 @@
           ],
           "justification": "Auto-scored from World Bank data. Natural resource rents: 0.1 (normalized: 0)."
         },
+        "information_capture": {
+          "score": 42,
+          "confidence": "high",
+          "trend": "unknown",
+          "sources": [
+            "rsf_press",
+            "vdem_freedom_of_expression",
+            "vdem_alternative_info_sources"
+          ],
+          "justification": "Auto-scored from RSF Press Freedom Index. Raw score: 68.6 (normalized: 71). V-Dem: Freedom of Expression: 0.874 (normalized: 11); Alternative Info Sources: 0.807 (normalized: 17)."
+        },
         "transnational_facilitation": {
           "score": 84,
           "confidence": "low",
@@ -12977,22 +13006,12 @@
             "vdem_physical_violence"
           ],
           "justification": "Auto-scored from V-Dem. Political Corruption: 0.054 (normalized: 5); Clientelism: 0.184 (normalized: 17); Electoral Democracy: 0.760 (normalized: 17); Physical Violence: 0.947 (normalized: 4)."
-        },
-        "information_capture": {
-          "score": 14,
-          "confidence": "moderate",
-          "trend": "unknown",
-          "sources": [
-            "vdem_freedom_of_expression",
-            "vdem_alternative_info_sources"
-          ],
-          "justification": "Auto-scored from V-Dem. Freedom of Expression: 0.874 (normalized: 11); Alternative Info Sources: 0.807 (normalized: 17)."
         }
       },
-      "composite_score": 23,
+      "composite_score": 27,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "SYR": {
       "name": "Syria",
@@ -14249,7 +14268,7 @@
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "VCT": {
-      "name": "St. Vincent and the Grenadines",
+      "name": "Saint Vincent and the Grenadines",
       "domains": {
         "economic_concentration": {
           "score": 15,
@@ -14376,7 +14395,7 @@
       "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (6/7 domains covered)."
     },
     "VIR": {
-      "name": "Virgin Islands (U.S.)",
+      "name": "US Virgin Islands",
       "domains": {
         "economic_concentration": {
           "score": 43,
@@ -14946,7 +14965,7 @@
       "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "AIA": {
-      "name": "AIA",
+      "name": "Anguilla",
       "domains": {
         "transnational_facilitation": {
           "score": 96,
@@ -14964,7 +14983,7 @@
       "notes": "Auto-scored from TJN (1/7 domains covered)."
     },
     "COK": {
-      "name": "COK",
+      "name": "Cook Islands",
       "domains": {
         "transnational_facilitation": {
           "score": 83,
@@ -14981,44 +15000,8 @@
       "overall_trend": "unknown",
       "notes": "Auto-scored from TJN (1/7 domains covered)."
     },
-    "CS-KM": {
-      "name": "CS-KM",
-      "domains": {
-        "information_capture": {
-          "score": 51,
-          "confidence": "low",
-          "trend": "unknown",
-          "sources": [
-            "rsf_press"
-          ],
-          "justification": "Auto-scored from RSF Press Freedom Index. Raw score: 52.7 (normalized: 51)."
-        }
-      },
-      "composite_score": 51,
-      "overall_confidence": "low",
-      "overall_trend": "unknown",
-      "notes": "Auto-scored from RSF (1/7 domains covered)."
-    },
-    "CTU": {
-      "name": "CTU",
-      "domains": {
-        "information_capture": {
-          "score": 54,
-          "confidence": "low",
-          "trend": "unknown",
-          "sources": [
-            "rsf_press"
-          ],
-          "justification": "Auto-scored from RSF Press Freedom Index. Raw score: 54.8 (normalized: 54)."
-        }
-      },
-      "composite_score": 54,
-      "overall_confidence": "low",
-      "overall_trend": "unknown",
-      "notes": "Auto-scored from RSF (1/7 domains covered)."
-    },
     "GGY": {
-      "name": "GGY",
+      "name": "Guernsey",
       "domains": {
         "transnational_facilitation": {
           "score": 90,
@@ -15036,7 +15019,7 @@
       "notes": "Auto-scored from TJN (1/7 domains covered)."
     },
     "GIB": {
-      "name": "GIB",
+      "name": "Gibraltar",
       "domains": {
         "transnational_facilitation": {
           "score": 78,
@@ -15054,7 +15037,7 @@
       "notes": "Auto-scored from TJN (1/7 domains covered)."
     },
     "JEY": {
-      "name": "JEY",
+      "name": "Jersey",
       "domains": {
         "transnational_facilitation": {
           "score": 68,
@@ -15072,7 +15055,7 @@
       "notes": "Auto-scored from TJN (1/7 domains covered)."
     },
     "MSR": {
-      "name": "MSR",
+      "name": "Montserrat",
       "domains": {
         "transnational_facilitation": {
           "score": 81,
@@ -15089,26 +15072,8 @@
       "overall_trend": "unknown",
       "notes": "Auto-scored from TJN (1/7 domains covered)."
     },
-    "SEY": {
-      "name": "SEY",
-      "domains": {
-        "information_capture": {
-          "score": 71,
-          "confidence": "low",
-          "trend": "unknown",
-          "sources": [
-            "rsf_press"
-          ],
-          "justification": "Auto-scored from RSF Press Freedom Index. Raw score: 68.6 (normalized: 71)."
-        }
-      },
-      "composite_score": 71,
-      "overall_confidence": "low",
-      "overall_trend": "unknown",
-      "notes": "Auto-scored from RSF (1/7 domains covered)."
-    },
     "TWN": {
-      "name": "TWN",
+      "name": "Taiwan",
       "domains": {
         "information_capture": {
           "score": 50,
@@ -15158,7 +15123,7 @@
       "notes": "Auto-scored from RSF, TJN, V-Dem (4/7 domains covered)."
     },
     "VGB": {
-      "name": "VGB",
+      "name": "British Virgin Islands",
       "domains": {
         "transnational_facilitation": {
           "score": 83,
@@ -15175,183 +15140,23 @@
       "overall_trend": "unknown",
       "notes": "Auto-scored from TJN (1/7 domains covered)."
     },
-    "XCD": {
-      "name": "XCD",
-      "domains": {
-        "information_capture": {
-          "score": 70,
-          "confidence": "low",
-          "trend": "unknown",
-          "sources": [
-            "rsf_press"
-          ],
-          "justification": "Auto-scored from RSF Press Freedom Index. Raw score: 68.1 (normalized: 70)."
-        }
-      },
-      "composite_score": 70,
-      "overall_confidence": "low",
-      "overall_trend": "unknown",
-      "notes": "Auto-scored from RSF (1/7 domains covered)."
-    },
-    "PSG": {
-      "name": "PSG",
-      "domains": {
-        "political_capture": {
-          "score": 71,
-          "confidence": "high",
-          "trend": "unknown",
-          "sources": [
-            "vdem_political_corruption",
-            "vdem_clientelism",
-            "vdem_electoral_democracy",
-            "vdem_physical_violence"
-          ],
-          "justification": "Auto-scored from V-Dem. Political Corruption: 0.372 (normalized: 38); Clientelism: 0.625 (normalized: 65); Electoral Democracy: 0.128 (normalized: 88); Physical Violence: 0.127 (normalized: 92)."
-        },
-        "information_capture": {
-          "score": 80,
-          "confidence": "moderate",
-          "trend": "unknown",
-          "sources": [
-            "vdem_freedom_of_expression",
-            "vdem_alternative_info_sources"
-          ],
-          "justification": "Auto-scored from V-Dem. Freedom of Expression: 0.234 (normalized: 77); Alternative Info Sources: 0.162 (normalized: 84)."
-        },
-        "institutional_gatekeeping": {
-          "score": 68,
-          "confidence": "low",
-          "trend": "unknown",
-          "sources": [
-            "vdem_rule_of_law"
-          ],
-          "justification": "Auto-scored from V-Dem. Rule of Law: 0.328 (normalized: 68)."
-        }
-      },
-      "composite_score": 73,
-      "overall_confidence": "low",
-      "overall_trend": "unknown",
-      "notes": "Auto-scored from V-Dem (3/7 domains covered)."
-    },
-    "SML": {
-      "name": "SML",
-      "domains": {
-        "political_capture": {
-          "score": 52,
-          "confidence": "high",
-          "trend": "unknown",
-          "sources": [
-            "vdem_political_corruption",
-            "vdem_clientelism",
-            "vdem_electoral_democracy",
-            "vdem_physical_violence"
-          ],
-          "justification": "Auto-scored from V-Dem. Political Corruption: 0.559 (normalized: 58); Clientelism: 0.600 (normalized: 62); Electoral Democracy: 0.445 (normalized: 52); Physical Violence: 0.651 (normalized: 36)."
-        },
-        "information_capture": {
-          "score": 32,
-          "confidence": "moderate",
-          "trend": "unknown",
-          "sources": [
-            "vdem_freedom_of_expression",
-            "vdem_alternative_info_sources"
-          ],
-          "justification": "Auto-scored from V-Dem. Freedom of Expression: 0.653 (normalized: 34); Alternative Info Sources: 0.668 (normalized: 31)."
-        },
-        "institutional_gatekeeping": {
-          "score": 57,
-          "confidence": "low",
-          "trend": "unknown",
-          "sources": [
-            "vdem_rule_of_law"
-          ],
-          "justification": "Auto-scored from V-Dem. Rule of Law: 0.437 (normalized: 57)."
-        }
-      },
-      "composite_score": 47,
-      "overall_confidence": "low",
-      "overall_trend": "unknown",
-      "notes": "Auto-scored from V-Dem (3/7 domains covered)."
-    },
     "XKX": {
-      "name": "XKX",
+      "name": "Kosovo",
       "domains": {
-        "political_capture": {
-          "score": 31,
-          "confidence": "high",
-          "trend": "unknown",
-          "sources": [
-            "vdem_political_corruption",
-            "vdem_clientelism",
-            "vdem_electoral_democracy",
-            "vdem_physical_violence"
-          ],
-          "justification": "Auto-scored from V-Dem. Political Corruption: 0.348 (normalized: 36); Clientelism: 0.502 (normalized: 52); Electoral Democracy: 0.631 (normalized: 31); Physical Violence: 0.933 (normalized: 6)."
-        },
-        "information_capture": {
-          "score": 25,
-          "confidence": "moderate",
-          "trend": "unknown",
-          "sources": [
-            "vdem_freedom_of_expression",
-            "vdem_alternative_info_sources"
-          ],
-          "justification": "Auto-scored from V-Dem. Freedom of Expression: 0.766 (normalized: 22); Alternative Info Sources: 0.702 (normalized: 28)."
-        },
-        "institutional_gatekeeping": {
-          "score": 34,
+        "transnational_facilitation": {
+          "score": 69,
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "vdem_rule_of_law"
+            "tjn_fsi"
           ],
-          "justification": "Auto-scored from V-Dem. Rule of Law: 0.662 (normalized: 34)."
+          "justification": "Auto-scored from Tax Justice Network FSI. Raw score: 64.4 (normalized: 69)."
         }
       },
-      "composite_score": 30,
+      "composite_score": 69,
       "overall_confidence": "low",
       "overall_trend": "unknown",
-      "notes": "Auto-scored from V-Dem (3/7 domains covered)."
-    },
-    "ZZB": {
-      "name": "ZZB",
-      "domains": {
-        "political_capture": {
-          "score": 48,
-          "confidence": "high",
-          "trend": "unknown",
-          "sources": [
-            "vdem_political_corruption",
-            "vdem_clientelism",
-            "vdem_electoral_democracy",
-            "vdem_physical_violence"
-          ],
-          "justification": "Auto-scored from V-Dem. Political Corruption: 0.524 (normalized: 54); Clientelism: 0.422 (normalized: 43); Electoral Democracy: 0.309 (normalized: 67); Physical Violence: 0.730 (normalized: 28)."
-        },
-        "information_capture": {
-          "score": 39,
-          "confidence": "moderate",
-          "trend": "unknown",
-          "sources": [
-            "vdem_freedom_of_expression",
-            "vdem_alternative_info_sources"
-          ],
-          "justification": "Auto-scored from V-Dem. Freedom of Expression: 0.540 (normalized: 46); Alternative Info Sources: 0.661 (normalized: 32)."
-        },
-        "institutional_gatekeeping": {
-          "score": 51,
-          "confidence": "low",
-          "trend": "unknown",
-          "sources": [
-            "vdem_rule_of_law"
-          ],
-          "justification": "Auto-scored from V-Dem. Rule of Law: 0.488 (normalized: 51)."
-        }
-      },
-      "composite_score": 46,
-      "overall_confidence": "low",
-      "overall_trend": "unknown",
-      "notes": "Auto-scored from V-Dem (3/7 domains covered)."
+      "notes": "Auto-scored from TJN (1/7 domains covered)."
     }
   }
 }

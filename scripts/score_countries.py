@@ -70,6 +70,50 @@ COUNTRY_NAME_OVERRIDES = {
     'BRN': 'Brunei',
     'GBR': 'United Kingdom',
     'USA': 'United States',
+    'AIA': 'Anguilla',
+    'COK': 'Cook Islands',
+    'GGY': 'Guernsey',
+    'GIB': 'Gibraltar',
+    'JEY': 'Jersey',
+    'MSR': 'Montserrat',
+    'VGB': 'British Virgin Islands',
+    'TWN': 'Taiwan',
+    'XKX': 'Kosovo',
+    'IMN': 'Isle of Man',
+    'CYM': 'Cayman Islands',
+    'LIE': 'Liechtenstein',
+    'MCO': 'Monaco',
+    'SMR': 'San Marino',
+    'MAC': 'Macao',
+    'HKG': 'Hong Kong',
+    'SYC': 'Seychelles',
+    'MUS': 'Mauritius',
+    'MDV': 'Maldives',
+    'GRD': 'Grenada',
+    'KNA': 'Saint Kitts and Nevis',
+    'LCA': 'Saint Lucia',
+    'DMA': 'Dominica',
+    'VCT': 'Saint Vincent and the Grenadines',
+    'ATG': 'Antigua and Barbuda',
+    'BRB': 'Barbados',
+    'NRU': 'Nauru',
+    'PLW': 'Palau',
+    'MHL': 'Marshall Islands',
+    'TON': 'Tonga',
+    'WSM': 'Samoa',
+    'TCA': 'Turks and Caicos Islands',
+    'BHS': 'Bahamas',
+    'BMU': 'Bermuda',
+    'ABW': 'Aruba',
+    'CUW': 'Curaçao',
+    'GUM': 'Guam',
+    'ASM': 'American Samoa',
+    'VIR': 'US Virgin Islands',
+    'PRI': 'Puerto Rico',
+    'MNP': 'Northern Mariana Islands',
+    'GNB': 'Guinea-Bissau',
+    'GNQ': 'Equatorial Guinea',
+    'TLS': 'Timor-Leste',
 }
 
 # Aggregates and regions to exclude (World Bank includes these as "countries")
@@ -80,6 +124,13 @@ EXCLUDE_CODES = {
     'NAC', 'OED', 'OSS', 'PRE', 'PSS', 'PST', 'SAS', 'SSA', 'SSF', 'SST',
     'TEA', 'TEC', 'TLA', 'TMN', 'TSA', 'TSS', 'UMC', 'WLD',
     'EUU', 'SXZ', 'XKX',
+    # Non-standard codes from RSF/V-Dem that aren't real ISO alpha-3
+    'CS-KM',  # RSF's code for Kosovo (use XKX mapping instead)
+    'CTU',    # RSF: Northern Cyprus (not a recognized country)
+    'XCD',    # RSF: OECS (Organisation of Eastern Caribbean States — not a country)
+    'PSG',    # V-Dem: Palestine/Gaza (use PSE instead)
+    'SML',    # V-Dem: Somaliland (unrecognized territory)
+    'ZZB',    # V-Dem: Zanzibar (part of Tanzania)
 }
 
 
@@ -116,8 +167,13 @@ ALPHA2_TO_ALPHA3 = {
     'US': 'USA', 'UY': 'URY', 'UZ': 'UZB', 'VC': 'VCT', 'VE': 'VEN', 'VG': 'VGB',
     'VI': 'VIR', 'VN': 'VNM', 'VU': 'VUT', 'WS': 'WSM', 'ZA': 'ZAF', 'ZM': 'ZMB',
     'ZW': 'ZWE',
+    'EE': 'EST', 'FJ': 'FJI', 'XK': 'XKX',
 }
 
+
+RSF_CODE_REMAP = {
+    'SEY': 'SYC',  # Seychelles
+}
 
 def load_rsf_data():
     """Load RSF press freedom scores. Returns dict of {alpha3: score}."""
@@ -127,6 +183,9 @@ def load_rsf_data():
     df = pd.read_csv(csv_path)
     if df.empty or 'score' not in df.columns:
         return {}
+    df['country_code'] = df['country_code'].replace(RSF_CODE_REMAP)
+    # Filter out excluded codes
+    df = df[~df['country_code'].isin(EXCLUDE_CODES)]
     return dict(zip(df['country_code'], df['score']))
 
 
@@ -158,6 +217,8 @@ def load_vdem_data():
     df = pd.read_csv(csv_path)
     if df.empty:
         return {}
+    # Filter out excluded codes
+    df = df[~df['country_text_id'].isin(EXCLUDE_CODES)]
     # Take most recent year per country
     df = df.sort_values('year', ascending=False).drop_duplicates('country_text_id', keep='first')
     result = {}
