@@ -86,17 +86,35 @@ def score_to_label(score):
         return 'Very high'
 
 
+# Indicators whose questions ask about something positive (freedom, democracy, etc.)
+# For these, the label should be flipped: a low extraction score means "High" freedom.
+POSITIVE_QUESTION_INDICATORS = {
+    'wb_wgi_corruption',    # "How well is corruption controlled?" — well = good
+    'wb_reg_quality',       # "How well do government regulations protect people?"
+    'wb_wgi_gov_eff',       # "How effective is the government?"
+    'vdem_electoral_democracy',      # "How democratic are elections?"
+    'vdem_freedom_of_expression',    # "How free is public expression?"
+    'vdem_alternative_info_sources', # "How available are independent information sources?"
+    'vdem_rule_of_law',              # "How strong is the rule of law?"
+}
+
+
 def build_human_justification(indicators_info):
     """Build a human-readable justification from a list of indicator dicts.
 
     Each dict should have: 'source_key', 'normalized' (0-100 score).
-    Returns a string like: "How corrupt is the political system? Very low. ..."
+    For indicators in POSITIVE_QUESTION_INDICATORS, the label is flipped
+    so the answer matches the question (e.g. low extraction → "High" freedom).
     """
     parts = []
     for ind in indicators_info:
         key = ind['source_key']
         question = INDICATOR_QUESTIONS.get(key, key)
-        label = score_to_label(ind['normalized'])
+        score = ind['normalized']
+        if key in POSITIVE_QUESTION_INDICATORS:
+            label = score_to_label(100 - score)
+        else:
+            label = score_to_label(score)
         parts.append(f'{question} {label}.')
     return ' '.join(parts)
 
