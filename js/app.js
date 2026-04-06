@@ -1,0 +1,474 @@
+const DOMAIN_LABELS = {
+  political_capture: 'Political Capture',
+  economic_concentration: 'Economic Concentration',
+  financial_extraction: 'Financial Extraction',
+  institutional_gatekeeping: 'Institutional Gatekeeping',
+  information_capture: 'Information & Media Capture',
+  resource_labor_extraction: 'Resource & Labor Extraction',
+  transnational_facilitation: 'Transnational Facilitation'
+};
+
+const DOMAIN_KEYS = Object.keys(DOMAIN_LABELS);
+
+const CONFIDENCE_OPACITY = { high: 1.0, moderate: 0.75, low: 0.5, very_low: 0.3 };
+const TREND_ARROWS = { rising: '↑', falling: '↓', stable: '→', unknown: '?' };
+
+// Color scale: blue-teal (low) → amber (mid) → crimson (high)
+const extractionColor = d3.scaleLinear()
+  .domain([0, 25, 50, 75, 100])
+  .range(['#1a9e78', '#6ec8db', '#d4a84e', '#e07842', '#c43545'])
+  .clamp(true);
+
+let scoreData = null;
+let currentWeights = {};
+let selectedCountryCode = null;
+
+// -- Load data --
+async function init() {
+  const [world, scores] = await Promise.all([
+    d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
+    d3.json('data/scores.json')
+  ]);
+
+  scoreData = scores;
+
+  // Initialize equal weights
+  DOMAIN_KEYS.forEach(k => {
+    currentWeights[k] = scores.metadata.default_weights[k] || (1 / DOMAIN_KEYS.length);
+  });
+
+  drawMap(world);
+  drawLegendGradient();
+  setupWeightControls();
+}
+
+// -- ISO numeric → alpha-3 mapping (subset for sample data; extend as needed) --
+const numericToAlpha3 = {};
+const NUMERIC_MAP = {
+  '840': 'USA', '208': 'DNK', '702': 'SGP', '566': 'NGA',
+  '408': 'PRK', '442': 'LUX', '643': 'RUS', '578': 'NOR',
+  // Extended set for common countries
+  '004': 'AFG', '008': 'ALB', '012': 'DZA', '024': 'AGO', '032': 'ARG',
+  '036': 'AUS', '040': 'AUT', '050': 'BGD', '056': 'BEL', '068': 'BOL',
+  '076': 'BRA', '100': 'BGR', '104': 'MMR', '116': 'KHM', '120': 'CMR',
+  '124': 'CAN', '144': 'LKA', '152': 'CHL', '156': 'CHN', '170': 'COL',
+  '178': 'COG', '180': 'COD', '188': 'CRI', '191': 'HRV', '192': 'CUB',
+  '196': 'CYP', '203': 'CZE', '214': 'DOM', '218': 'ECU', '818': 'EGY',
+  '222': 'SLV', '231': 'ETH', '233': 'EST', '246': 'FIN', '250': 'FRA',
+  '266': 'GAB', '268': 'GEO', '276': 'DEU', '288': 'GHA', '300': 'GRC',
+  '320': 'GTM', '324': 'GIN', '332': 'HTI', '340': 'HND', '348': 'HUN',
+  '352': 'ISL', '356': 'IND', '360': 'IDN', '364': 'IRN', '368': 'IRQ',
+  '372': 'IRL', '376': 'ISR', '380': 'ITA', '384': 'CIV', '388': 'JAM',
+  '392': 'JPN', '398': 'KAZ', '400': 'JOR', '404': 'KEN', '410': 'KOR',
+  '414': 'KWT', '418': 'LAO', '422': 'LBN', '430': 'LBR', '434': 'LBY',
+  '440': 'LTU', '428': 'LVA', '450': 'MDG', '454': 'MWI', '458': 'MYS',
+  '466': 'MLI', '478': 'MRT', '484': 'MEX', '496': 'MNG', '504': 'MAR',
+  '508': 'MOZ', '512': 'OMN', '516': 'NAM', '524': 'NPL', '528': 'NLD',
+  '540': 'NCL', '554': 'NZL', '558': 'NIC', '562': 'NER', '586': 'PAK',
+  '591': 'PAN', '598': 'PNG', '600': 'PRY', '604': 'PER', '608': 'PHL',
+  '616': 'POL', '620': 'PRT', '630': 'PRI', '634': 'QAT', '642': 'ROU',
+  '646': 'RWA', '682': 'SAU', '686': 'SEN', '688': 'SRB', '694': 'SLE',
+  '699': 'IND', '704': 'VNM', '706': 'SOM', '710': 'ZAF', '716': 'ZWE',
+  '724': 'ESP', '728': 'SSD', '729': 'SDN', '740': 'SUR', '748': 'SWZ',
+  '752': 'SWE', '756': 'CHE', '760': 'SYR', '762': 'TJK', '764': 'THA',
+  '768': 'TGO', '780': 'TTO', '784': 'ARE', '788': 'TUN', '792': 'TUR',
+  '795': 'TKM', '800': 'UGA', '804': 'UKR', '807': 'MKD', '826': 'GBR',
+  '834': 'TZA', '854': 'BFA', '858': 'URY', '860': 'UZB', '862': 'VEN',
+  '887': 'YEM', '894': 'ZMB'
+};
+Object.assign(numericToAlpha3, NUMERIC_MAP);
+
+function getCountryAlpha3(numericId) {
+  return numericToAlpha3[String(numericId)] || null;
+}
+
+function getCountryData(alpha3) {
+  return scoreData?.countries?.[alpha3] || null;
+}
+
+function computeComposite(domains) {
+  let sum = 0, wsum = 0;
+  DOMAIN_KEYS.forEach(k => {
+    if (domains[k]) {
+      sum += domains[k].score * (currentWeights[k] || 0);
+      wsum += currentWeights[k] || 0;
+    }
+  });
+  return wsum > 0 ? Math.round(sum / wsum) : null;
+}
+
+// -- Map --
+function drawMap(world) {
+  const svg = d3.select('#map-svg');
+  const container = document.querySelector('.map-container');
+  const width = container.clientWidth;
+  const height = container.clientHeight;
+  svg.attr('viewBox', `0 0 ${width} ${height}`);
+
+  const projection = d3.geoNaturalEarth1()
+    .fitSize([width - 20, height - 20], topojson.feature(world, world.objects.countries))
+    .translate([width / 2, height / 2]);
+
+  const path = d3.geoPath(projection);
+  const countries = topojson.feature(world, world.objects.countries).features;
+
+  const tooltip = d3.select('#tooltip');
+
+  svg.selectAll('.country-path')
+    .data(countries)
+    .join('path')
+    .attr('class', d => {
+      const a3 = getCountryAlpha3(d.id);
+      const cd = getCountryData(a3);
+      let cls = 'country-path';
+      if (cd?.disputed) cls += ' disputed';
+      return cls;
+    })
+    .attr('d', path)
+    .attr('fill', d => countryFill(d.id))
+    .attr('opacity', d => countryOpacity(d.id))
+    .on('mousemove', (event, d) => {
+      const a3 = getCountryAlpha3(d.id);
+      const cd = getCountryData(a3);
+      const name = cd?.name || a3 || `#${d.id}`;
+      const score = cd ? computeComposite(cd.domains) : null;
+      tooltip.html(
+        `<strong>${name}</strong>` +
+        (score !== null ? `<span class="tooltip-score">${score}</span>` : ' <span style="color:var(--text-muted)">No data</span>')
+      );
+      tooltip.classed('visible', true)
+        .style('left', (event.offsetX + 14) + 'px')
+        .style('top', (event.offsetY - 10) + 'px');
+    })
+    .on('mouseleave', () => tooltip.classed('visible', false))
+    .on('click', (event, d) => {
+      const a3 = getCountryAlpha3(d.id);
+      selectCountry(a3, d.id);
+    });
+}
+
+function countryFill(numericId) {
+  const a3 = getCountryAlpha3(numericId);
+  const cd = getCountryData(a3);
+  if (!cd) return getComputedStyle(document.documentElement).getPropertyValue('--no-data-fill').trim();
+  const score = computeComposite(cd.domains);
+  return extractionColor(score);
+}
+
+function countryOpacity(numericId) {
+  const a3 = getCountryAlpha3(numericId);
+  const cd = getCountryData(a3);
+  if (!cd) return 0.35;
+  return CONFIDENCE_OPACITY[cd.overall_confidence] || 0.5;
+}
+
+function refreshMapColors() {
+  d3.selectAll('.country-path')
+    .transition().duration(400)
+    .attr('fill', d => countryFill(d.id))
+    .attr('opacity', d => countryOpacity(d.id));
+}
+
+// -- Legend gradient --
+function drawLegendGradient() {
+  const canvas = document.getElementById('legend-gradient');
+  const ctx = canvas.getContext('2d');
+  for (let x = 0; x < 180; x++) {
+    const score = (x / 179) * 100;
+    ctx.fillStyle = extractionColor(score);
+    ctx.fillRect(x, 0, 1, 12);
+  }
+}
+
+// -- Country selection --
+function selectCountry(alpha3, numericId) {
+  d3.selectAll('.country-path').classed('selected', false);
+  if (numericId != null) {
+    d3.selectAll('.country-path')
+      .filter(d => d.id === numericId)
+      .classed('selected', true);
+  }
+
+  const cd = getCountryData(alpha3);
+  const empty = document.getElementById('panel-empty');
+  const content = document.getElementById('panel-content');
+
+  if (!cd) {
+    empty.style.display = 'flex';
+    content.style.display = 'none';
+    empty.querySelector('h3').textContent = alpha3 ? `No data for ${alpha3}` : 'Select a country';
+    return;
+  }
+
+  selectedCountryCode = alpha3;
+  empty.style.display = 'none';
+  content.style.display = 'block';
+
+  const composite = computeComposite(cd.domains);
+  document.getElementById('country-name').textContent = cd.name;
+  const scoreEl = document.getElementById('composite-score');
+  scoreEl.textContent = composite;
+  scoreEl.style.color = extractionColor(composite);
+
+  document.getElementById('overall-confidence').textContent = `Confidence: ${cd.overall_confidence.replace('_', ' ')}`;
+
+  const trendEl = document.getElementById('overall-trend');
+  trendEl.className = `trend-badge ${cd.overall_trend}`;
+  trendEl.textContent = `${TREND_ARROWS[cd.overall_trend]} ${cd.overall_trend}`;
+
+  const notesEl = document.getElementById('country-notes');
+  notesEl.textContent = cd.notes || '';
+  notesEl.style.display = cd.notes ? 'block' : 'none';
+
+  drawRadar(cd.domains);
+  drawDomainList(cd.domains);
+}
+
+// -- Radar chart --
+function drawRadar(domains) {
+  const svg = d3.select('#radar-svg');
+  svg.selectAll('*').remove();
+
+  const cx = 170, cy = 155, maxR = 120;
+  const n = DOMAIN_KEYS.length;
+  const angleSlice = (2 * Math.PI) / n;
+
+  // Concentric rings
+  [25, 50, 75, 100].forEach(level => {
+    const r = (level / 100) * maxR;
+    svg.append('circle')
+      .attr('cx', cx).attr('cy', cy).attr('r', r)
+      .attr('fill', 'none')
+      .attr('stroke', 'var(--overlay-subtle)')
+      .attr('stroke-width', 0.5);
+    if (level < 100) {
+      svg.append('text')
+        .attr('x', cx + 3).attr('y', cy - r + 2)
+        .attr('fill', 'var(--overlay-medium)')
+        .attr('font-size', '9px')
+        .text(level);
+    }
+  });
+
+  // Axis lines and labels
+  DOMAIN_KEYS.forEach((k, i) => {
+    const angle = (i * angleSlice) - Math.PI / 2;
+    const x2 = cx + maxR * Math.cos(angle);
+    const y2 = cy + maxR * Math.sin(angle);
+
+    svg.append('line')
+      .attr('x1', cx).attr('y1', cy)
+      .attr('x2', x2).attr('y2', y2)
+      .attr('stroke', 'var(--overlay-subtle)')
+      .attr('stroke-width', 0.5);
+
+    // Label
+    const lx = cx + (maxR + 18) * Math.cos(angle);
+    const ly = cy + (maxR + 18) * Math.sin(angle);
+    const label = DOMAIN_LABELS[k].replace('& ', '&\n');
+    const lines = label.split('\n');
+    const textAnchor = Math.abs(Math.cos(angle)) < 0.1 ? 'middle' :
+                        Math.cos(angle) > 0 ? 'start' : 'end';
+
+    const g = svg.append('text')
+      .attr('x', lx).attr('y', ly)
+      .attr('text-anchor', textAnchor)
+      .attr('dominant-baseline', 'middle')
+      .attr('fill', 'var(--text-secondary)')
+      .attr('font-size', '9.5px');
+
+    lines.forEach((line, li) => {
+      g.append('tspan')
+        .attr('x', lx)
+        .attr('dy', li === 0 ? 0 : '1.1em')
+        .text(line);
+    });
+  });
+
+  // Data polygon
+  const points = DOMAIN_KEYS.map((k, i) => {
+    const angle = (i * angleSlice) - Math.PI / 2;
+    const r = ((domains[k]?.score || 0) / 100) * maxR;
+    return [cx + r * Math.cos(angle), cy + r * Math.sin(angle)];
+  });
+
+  // Confidence band (lighter fill)
+  svg.append('polygon')
+    .attr('points', points.map(p => p.join(',')).join(' '))
+    .attr('fill', 'var(--radar-accent)')
+    .attr('stroke', 'var(--radar-accent-stroke)')
+    .attr('stroke-width', 1.5);
+
+  // Data points
+  DOMAIN_KEYS.forEach((k, i) => {
+    const angle = (i * angleSlice) - Math.PI / 2;
+    const r = ((domains[k]?.score || 0) / 100) * maxR;
+    const conf = CONFIDENCE_OPACITY[domains[k]?.confidence] || 0.3;
+
+    svg.append('circle')
+      .attr('cx', cx + r * Math.cos(angle))
+      .attr('cy', cy + r * Math.sin(angle))
+      .attr('r', 4)
+      .attr('fill', extractionColor(domains[k]?.score || 0))
+      .attr('opacity', conf)
+      .attr('stroke', 'var(--radar-dot-fill)')
+      .attr('stroke-width', 0.5)
+      .attr('stroke-opacity', 0.5);
+  });
+}
+
+// -- Domain list --
+function drawDomainList(domains) {
+  const container = document.getElementById('domain-list');
+  container.innerHTML = '';
+
+  DOMAIN_KEYS.forEach(k => {
+    const d = domains[k];
+    if (!d) return;
+
+    const div = document.createElement('div');
+    div.className = 'domain-item';
+
+    const color = extractionColor(d.score);
+    const trend = d.trend || 'unknown';
+    const conf = d.confidence || 'low';
+
+    div.innerHTML = `
+      <div class="domain-item-header">
+        <span class="domain-name">${DOMAIN_LABELS[k]}</span>
+        <span class="trend-badge ${trend}" style="font-size:0.7rem">${TREND_ARROWS[trend]} ${trend}</span>
+      </div>
+      <div class="domain-score-row">
+        <span class="domain-score-value" style="color:${color}">${d.score}</span>
+        <div class="domain-bar-track">
+          <div class="domain-bar-fill" style="width:${d.score}%; background:${color}; opacity:${CONFIDENCE_OPACITY[conf]}"></div>
+        </div>
+      </div>
+      ${d.justification ? `<div class="domain-justification">${d.justification}</div>` : ''}
+      <div class="domain-meta">
+        <span class="confidence-badge">Confidence: ${conf.replace('_', ' ')}</span>
+      </div>
+      ${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.join(', ')}</div>` : ''}
+    `;
+    container.appendChild(div);
+  });
+}
+
+// -- Weight controls --
+function setupWeightControls() {
+  const toggle = document.getElementById('weights-toggle');
+  const controls = document.getElementById('weights-controls');
+  const sliderContainer = document.getElementById('weight-sliders');
+
+  toggle.addEventListener('click', () => {
+    controls.classList.toggle('open');
+    toggle.textContent = controls.classList.contains('open') ? 'Hide Weights' : 'Adjust Weights';
+  });
+
+  DOMAIN_KEYS.forEach(k => {
+    const row = document.createElement('div');
+    row.className = 'weight-row';
+    row.innerHTML = `
+      <label title="${DOMAIN_LABELS[k]}">${DOMAIN_LABELS[k]}</label>
+      <input type="range" min="0" max="100" value="${Math.round(currentWeights[k] * 100)}" data-key="${k}">
+      <span class="weight-value">${Math.round(currentWeights[k] * 100)}%</span>
+    `;
+    sliderContainer.appendChild(row);
+
+    const slider = row.querySelector('input');
+    const display = row.querySelector('.weight-value');
+    slider.addEventListener('input', () => {
+      const rawWeights = {};
+      sliderContainer.querySelectorAll('input[type="range"]').forEach(s => {
+        rawWeights[s.dataset.key] = parseInt(s.value);
+      });
+      const total = Object.values(rawWeights).reduce((a, b) => a + b, 0) || 1;
+      DOMAIN_KEYS.forEach(dk => {
+        currentWeights[dk] = rawWeights[dk] / total;
+      });
+      sliderContainer.querySelectorAll('.weight-row').forEach(r => {
+        const inp = r.querySelector('input');
+        r.querySelector('.weight-value').textContent = Math.round(currentWeights[inp.dataset.key] * 100) + '%';
+      });
+      refreshMapColors();
+      if (selectedCountryCode) {
+        const cd = getCountryData(selectedCountryCode);
+        if (cd) {
+          const composite = computeComposite(cd.domains);
+          const scoreEl = document.getElementById('composite-score');
+          scoreEl.textContent = composite;
+          scoreEl.style.color = extractionColor(composite);
+        }
+      }
+    });
+  });
+
+  document.getElementById('reset-weights').addEventListener('click', () => {
+    const eq = 1 / DOMAIN_KEYS.length;
+    DOMAIN_KEYS.forEach(k => currentWeights[k] = eq);
+    sliderContainer.querySelectorAll('input[type="range"]').forEach(s => {
+      s.value = Math.round(eq * 100);
+    });
+    sliderContainer.querySelectorAll('.weight-value').forEach(v => {
+      v.textContent = Math.round(eq * 100) + '%';
+    });
+    refreshMapColors();
+    if (selectedCountryCode) {
+      const cd = getCountryData(selectedCountryCode);
+      if (cd) {
+        const composite = computeComposite(cd.domains);
+        document.getElementById('composite-score').textContent = composite;
+        document.getElementById('composite-score').style.color = extractionColor(composite);
+      }
+    }
+  });
+}
+
+// -- Resize handler --
+window.addEventListener('resize', () => {
+  // Simple: reload on resize for projection recalculation
+  // A production version would debounce and redraw
+});
+
+// -- Theme toggle --
+(function initTheme() {
+  const root = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+  const stored = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function apply(theme) {
+    if (theme === 'light') {
+      root.setAttribute('data-theme', 'light');
+      btn.textContent = '☾';
+      btn.setAttribute('aria-label', 'Switch to dark mode');
+    } else {
+      root.removeAttribute('data-theme');
+      btn.textContent = '☀';
+      btn.setAttribute('aria-label', 'Switch to light mode');
+    }
+    refreshMapColors();
+  }
+
+  // Initial theme: stored preference > OS preference > dark
+  const initial = stored || (prefersDark.matches ? 'dark' : 'light');
+  apply(initial);
+
+  btn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    const next = current === 'light' ? 'dark' : 'light';
+    localStorage.setItem('theme', next);
+    apply(next);
+  });
+
+  prefersDark.addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      apply(e.matches ? 'dark' : 'light');
+    }
+  });
+})();
+
+init().catch(err => {
+  console.error('Failed to initialize:', err);
+  document.querySelector('.no-data-note').textContent = 'Error loading data. See console.';
+});
