@@ -78,8 +78,45 @@ const NUMERIC_MAP = {
 };
 Object.assign(numericToAlpha3, NUMERIC_MAP);
 
+const COUNTRY_NAMES = {
+  AFG: 'Afghanistan', ALB: 'Albania', DZA: 'Algeria', AGO: 'Angola', ARG: 'Argentina',
+  AUS: 'Australia', AUT: 'Austria', BGD: 'Bangladesh', BEL: 'Belgium', BOL: 'Bolivia',
+  BRA: 'Brazil', BGR: 'Bulgaria', MMR: 'Myanmar', KHM: 'Cambodia', CMR: 'Cameroon',
+  CAN: 'Canada', LKA: 'Sri Lanka', CHL: 'Chile', CHN: 'China', COL: 'Colombia',
+  COG: 'Congo', COD: 'DR Congo', CRI: 'Costa Rica', HRV: 'Croatia', CUB: 'Cuba',
+  CYP: 'Cyprus', CZE: 'Czechia', DNK: 'Denmark', DOM: 'Dominican Republic', ECU: 'Ecuador',
+  EGY: 'Egypt', SLV: 'El Salvador', ETH: 'Ethiopia', EST: 'Estonia', FIN: 'Finland',
+  FRA: 'France', GAB: 'Gabon', GEO: 'Georgia', DEU: 'Germany', GHA: 'Ghana',
+  GRC: 'Greece', GTM: 'Guatemala', GIN: 'Guinea', HTI: 'Haiti', HND: 'Honduras',
+  HUN: 'Hungary', ISL: 'Iceland', IND: 'India', IDN: 'Indonesia', IRN: 'Iran',
+  IRQ: 'Iraq', IRL: 'Ireland', ISR: 'Israel', ITA: 'Italy', CIV: 'Ivory Coast',
+  JAM: 'Jamaica', JPN: 'Japan', KAZ: 'Kazakhstan', JOR: 'Jordan', KEN: 'Kenya',
+  KOR: 'South Korea', KWT: 'Kuwait', LAO: 'Laos', LBN: 'Lebanon', LBR: 'Liberia',
+  LBY: 'Libya', LTU: 'Lithuania', LVA: 'Latvia', LUX: 'Luxembourg', MDG: 'Madagascar',
+  MWI: 'Malawi', MYS: 'Malaysia', MLI: 'Mali', MRT: 'Mauritania', MEX: 'Mexico',
+  MNG: 'Mongolia', MAR: 'Morocco', MOZ: 'Mozambique', OMN: 'Oman', NAM: 'Namibia',
+  NPL: 'Nepal', NLD: 'Netherlands', NCL: 'New Caledonia', NZL: 'New Zealand',
+  NIC: 'Nicaragua', NER: 'Niger', NGA: 'Nigeria', NOR: 'Norway', PAK: 'Pakistan',
+  PAN: 'Panama', PNG: 'Papua New Guinea', PRY: 'Paraguay', PER: 'Peru', PHL: 'Philippines',
+  POL: 'Poland', PRT: 'Portugal', PRI: 'Puerto Rico', QAT: 'Qatar', ROU: 'Romania',
+  RUS: 'Russia', RWA: 'Rwanda', SAU: 'Saudi Arabia', SEN: 'Senegal', SRB: 'Serbia',
+  SLE: 'Sierra Leone', SGP: 'Singapore', VNM: 'Vietnam', SOM: 'Somalia',
+  ZAF: 'South Africa', ZWE: 'Zimbabwe', ESP: 'Spain', SSD: 'South Sudan', SDN: 'Sudan',
+  SUR: 'Suriname', SWZ: 'Eswatini', SWE: 'Sweden', CHE: 'Switzerland', SYR: 'Syria',
+  TJK: 'Tajikistan', THA: 'Thailand', TGO: 'Togo', TTO: 'Trinidad and Tobago',
+  ARE: 'United Arab Emirates', TUN: 'Tunisia', TUR: 'Turkey', TKM: 'Turkmenistan',
+  UGA: 'Uganda', UKR: 'Ukraine', MKD: 'North Macedonia', GBR: 'United Kingdom',
+  TZA: 'Tanzania', USA: 'United States', BFA: 'Burkina Faso', URY: 'Uruguay',
+  UZB: 'Uzbekistan', VEN: 'Venezuela', YEM: 'Yemen', ZMB: 'Zambia', PRK: 'North Korea'
+};
+
 function getCountryAlpha3(numericId) {
   return numericToAlpha3[String(numericId)] || null;
+}
+
+function getCountryName(alpha3) {
+  const cd = getCountryData(alpha3);
+  return cd?.name || COUNTRY_NAMES[alpha3] || alpha3;
 }
 
 function getCountryData(alpha3) {
@@ -130,7 +167,7 @@ function drawMap(world) {
     .on('mousemove', (event, d) => {
       const a3 = getCountryAlpha3(d.id);
       const cd = getCountryData(a3);
-      const name = cd?.name || a3 || `#${d.id}`;
+      const name = getCountryName(a3) || `#${d.id}`;
       const score = cd ? computeComposite(cd.domains) : null;
       tooltip.html(
         `<strong>${name}</strong>` +
@@ -196,7 +233,7 @@ function selectCountry(alpha3, numericId) {
   if (!cd) {
     empty.style.display = 'flex';
     content.style.display = 'none';
-    empty.querySelector('h3').textContent = alpha3 ? `No data for ${alpha3}` : 'Select a country';
+    empty.querySelector('h3').textContent = alpha3 ? `No data for ${getCountryName(alpha3)}` : 'Select a country';
     return;
   }
 
