@@ -99,25 +99,6 @@ POSITIVE_QUESTION_INDICATORS = {
 }
 
 
-def build_human_justification(indicators_info):
-    """Build a human-readable justification from a list of indicator dicts.
-
-    Each dict should have: 'source_key', 'normalized' (0-100 score).
-    For indicators in POSITIVE_QUESTION_INDICATORS, the label is flipped
-    so the answer matches the question (e.g. low extraction → "High" freedom).
-    """
-    parts = []
-    for ind in indicators_info:
-        key = ind['source_key']
-        question = INDICATOR_QUESTIONS.get(key, key)
-        score = ind['normalized']
-        if key in POSITIVE_QUESTION_INDICATORS:
-            label = score_to_label(100 - score)
-        else:
-            label = score_to_label(score)
-        parts.append(f'{question} {label}.')
-    return ' '.join(parts)
-
 
 def build_technical_justification(source_label, indicators_info):
     """Build the technical detail string (raw values + normalized scores).
@@ -238,6 +219,28 @@ def generate_context_facts(source_key, raw_value, normalized_score, country_code
         facts.append(best_comparison)
 
     return facts
+
+
+def build_indicator_entry(source_key, raw_value, normalized_score, country_code,
+                          all_indicator_raw):
+    """Build a structured indicator entry with question, label, and context facts.
+
+    Returns dict: {key, question, label, facts}
+    """
+    question = INDICATOR_QUESTIONS.get(source_key, source_key)
+    if source_key in POSITIVE_QUESTION_INDICATORS:
+        label = score_to_label(100 - normalized_score)
+    else:
+        label = score_to_label(normalized_score)
+    facts = generate_context_facts(
+        source_key, raw_value, normalized_score, country_code,
+        all_indicator_raw.get(source_key, {}))
+    return {
+        'key': source_key,
+        'question': question,
+        'label': label,
+        'facts': facts,
+    }
 
 
 # Country name overrides for codes where World Bank names are awkward
@@ -756,6 +759,31 @@ def build_country_scores():
     else:
         vdem_normalized = {}
 
+    # Build per-indicator raw value lookup for peer comparisons
+    all_indicator_raw = {}  # {source_key: {country_code: raw_value}}
+    for cfg in INDICATOR_CONFIG:
+        key = cfg['source_key']
+        if cfg['file'] in indicators:
+            df = indicators[cfg['file']]
+            all_indicator_raw[key] = dict(zip(df['country_code'], df['value']))
+    if rsf_scores:
+        all_indicator_raw['rsf_press'] = dict(rsf_scores)
+    if fsi_scores:
+        all_indicator_raw['tjn_fsi'] = dict(fsi_scores)
+    vdem_source_key_map = {
+        'v2x_corr': 'vdem_political_corruption',
+        'v2xnp_client': 'vdem_clientelism',
+        'v2x_polyarchy': 'vdem_electoral_democracy',
+        'v2x_clphy': 'vdem_physical_violence',
+        'v2x_freexp_altinf': 'vdem_freedom_of_expression',
+        'v2xme_altinf': 'vdem_alternative_info_sources',
+        'v2x_rule': 'vdem_rule_of_law',
+    }
+    for var, source_key in vdem_source_key_map.items():
+        values = {code: vals[var] for code, vals in vdem_raw.items() if var in vals}
+        if values:
+            all_indicator_raw[source_key] = values
+
     if not indicators and not rsf_map and not fsi_map and not vdem_normalized:
         print('No indicator data found!')
         return {}
@@ -806,15 +834,18 @@ def build_country_scores():
                 else:
                     trend = 'unknown'
 
+                ind_entries = []
                 ind_info = []
                 for _, row in group.iterrows():
+                    entry = build_indicator_entry(
+                        row['source_key'], row['value'], int(row['normalized']),
+                        code, all_indicator_raw)
+                    ind_entries.append(entry)
                     ind_info.append({
-                        'source_key': row['source_key'],
                         'name': row['indicator_name'],
                         'raw': row['value'],
                         'normalized': int(row['normalized']),
                     })
-                justification = build_human_justification(ind_info)
                 justification_detail = build_technical_justification('World Bank data', ind_info)
 
                 domains[domain] = {
@@ -822,7 +853,7 @@ def build_country_scores():
                     'confidence': confidence,
                     'trend': trend,
                     'sources': sources,
-                    'justification': justification,
+                    'indicators': ind_entries,
                     'justification_detail': justification_detail,
                     '_n_indicators': n_indicators,
                     '_n_sources': 1,
@@ -835,13 +866,14 @@ def build_country_scores():
             raw_score = rsf_scores[code]
             rsf_confidence = assess_domain_confidence(1, 1, 2025)
             rsf_norm = int(rsf_map[code])
-            rsf_ind = [{'source_key': 'rsf_press', 'name': 'Press Freedom Index', 'raw': raw_score, 'normalized': rsf_norm}]
+            rsf_entry = build_indicator_entry('rsf_press', raw_score, rsf_norm, code, all_indicator_raw)
+            rsf_ind = [{'name': 'Press Freedom Index', 'raw': raw_score, 'normalized': rsf_norm}]
             domains['information_capture'] = {
                 'score': rsf_norm,
                 'confidence': rsf_confidence,
                 'trend': 'unknown',
                 'sources': ['rsf_press'],
-                'justification': build_human_justification(rsf_ind),
+                'indicators': [rsf_entry],
                 'justification_detail': build_technical_justification('RSF Press Freedom Index', rsf_ind),
                 '_n_indicators': 1,
                 '_n_sources': 1,
@@ -854,13 +886,14 @@ def build_country_scores():
             raw_score = fsi_scores[code]
             fsi_confidence = assess_domain_confidence(1, 1, 2025)
             fsi_norm = int(fsi_map[code])
-            fsi_ind = [{'source_key': 'tjn_fsi', 'name': 'Financial Secrecy Index', 'raw': raw_score, 'normalized': fsi_norm}]
+            fsi_entry = build_indicator_entry('tjn_fsi', raw_score, fsi_norm, code, all_indicator_raw)
+            fsi_ind = [{'name': 'Financial Secrecy Index', 'raw': raw_score, 'normalized': fsi_norm}]
             domains['transnational_facilitation'] = {
                 'score': fsi_norm,
                 'confidence': fsi_confidence,
                 'trend': 'unknown',
                 'sources': ['tjn_fsi'],
-                'justification': build_human_justification(fsi_ind),
+                'indicators': [fsi_entry],
                 'justification_detail': build_technical_justification('Tax Justice Network FSI', fsi_ind),
                 '_n_indicators': 1,
                 '_n_sources': 1,
@@ -884,16 +917,18 @@ def build_country_scores():
                 vdem_sources = ['vdem_' + i['name'].lower().replace(' ', '_') for i in indicators_list]
                 n_vdem = len(indicators_list)
 
+                vdem_ind_entries = []
                 vdem_ind_info = []
                 for i in indicators_list:
                     src_key = 'vdem_' + i['name'].lower().replace(' ', '_')
+                    entry = build_indicator_entry(src_key, i['raw'], i['score'], code, all_indicator_raw)
+                    vdem_ind_entries.append(entry)
                     vdem_ind_info.append({
                         'source_key': src_key,
                         'name': i['name'],
                         'raw': i['raw'],
                         'normalized': i['score'],
                     })
-                vdem_justification = build_human_justification(vdem_ind_info)
                 vdem_detail = build_technical_justification('V-Dem', vdem_ind_info)
 
                 if domain in domains:
@@ -908,7 +943,7 @@ def build_country_scores():
                         'confidence': assess_domain_confidence(merged_n, merged_sources, merged_year),
                         'trend': existing['trend'] if existing['trend'] != 'unknown' else 'unknown',
                         'sources': existing['sources'] + vdem_sources,
-                        'justification': f'{existing["justification"]} {vdem_justification}',
+                        'indicators': existing.get('indicators', []) + vdem_ind_entries,
                         'justification_detail': f'{existing.get("justification_detail", "")} {vdem_detail}'.strip(),
                         '_n_indicators': merged_n,
                         '_n_sources': merged_sources,
@@ -921,7 +956,7 @@ def build_country_scores():
                         'confidence': vdem_confidence,
                         'trend': 'unknown',
                         'sources': vdem_sources,
-                        'justification': vdem_justification,
+                        'indicators': vdem_ind_entries,
                         'justification_detail': vdem_detail,
                         '_n_indicators': n_vdem,
                         '_n_sources': 1,
@@ -946,9 +981,22 @@ def build_country_scores():
             composite_resource = round(raw_resource * inst_weakness / 100)
             domains['resource_capture']['score'] = composite_resource
             domains['resource_capture']['sources'] = domains['resource_capture']['sources'] + ['wb_wgi_corruption', 'wb_reg_quality', 'wb_wgi_gov_eff']
-            domains['resource_capture']['justification'] = (
-                f'How vulnerable is resource wealth to elite capture? {score_to_label(composite_resource)}.'
-            )
+            # Rebuild indicators for the composite
+            resource_rents_facts = []
+            for ind in domains['resource_capture'].get('indicators', []):
+                if ind['key'] == 'wb_natural_rents':
+                    resource_rents_facts = ind['facts']
+                    break
+            domains['resource_capture']['indicators'] = [{
+                'key': 'resource_capture_composite',
+                'question': 'How vulnerable is resource wealth to elite capture?',
+                'label': score_to_label(composite_resource),
+                'facts': resource_rents_facts + [
+                    f'Moderated by institutional strength (score: {100 - inst_weakness}/100)'
+                ] if resource_rents_facts else [
+                    f'Resource rents score: {raw_resource}, institutional strength: {100 - inst_weakness}/100'
+                ],
+            }]
             domains['resource_capture']['justification_detail'] = (
                 f'{domains["resource_capture"]["justification_detail"]} '
                 f'Composite: resource rents ({raw_resource}) × institutional weakness ({inst_weakness}) / 100 = {composite_resource}.'
@@ -956,10 +1004,18 @@ def build_country_scores():
         elif 'resource_capture' in domains:
             # No institutional data to weight against — mark low confidence
             domains['resource_capture']['confidence'] = 'low'
-            domains['resource_capture']['justification'] = (
-                f'How dependent is the economy on natural resources? {score_to_label(domains["resource_capture"]["score"])}. '
-                f'(No institutional data available to assess who benefits.)'
-            )
+            score_val = domains['resource_capture']['score']
+            resource_facts = []
+            for ind in domains['resource_capture'].get('indicators', []):
+                if ind['key'] == 'wb_natural_rents':
+                    resource_facts = ind['facts']
+                    break
+            domains['resource_capture']['indicators'] = [{
+                'key': 'resource_capture_composite',
+                'question': 'How dependent is the economy on natural resources?',
+                'label': score_to_label(score_val),
+                'facts': resource_facts + ['No institutional data available to assess who benefits'],
+            }]
 
         # Compute overall confidence from totals across all domains
         total_indicators = sum(d.get('_n_indicators', 1) for d in domains.values())
