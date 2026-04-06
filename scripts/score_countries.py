@@ -396,8 +396,12 @@ def normalize_minmax(series, inverted=False):
     return normalized.round(0).astype(int)
 
 
-def estimate_trend(df_full, country_code, indicator_file):
-    """Estimate trend by comparing recent vs older values."""
+def estimate_trend(df_full, country_code, indicator_file, inverted=False):
+    """Estimate trend by comparing recent vs older values.
+
+    For inverted indicators (higher raw value = less extraction), a falling
+    raw value means extraction is rising, so we flip the direction.
+    """
     filepath = WB_DIR / indicator_file
     if not filepath.exists():
         return 'unknown'
@@ -410,6 +414,8 @@ def estimate_trend(df_full, country_code, indicator_file):
     if pd.isna(recent) or pd.isna(older) or older == 0:
         return 'unknown'
     change = (recent - older) / abs(older)
+    if inverted:
+        change = -change  # Falling raw value = rising extraction
     if abs(change) < 0.05:
         return 'stable'
     return 'rising' if change > 0 else 'falling'
@@ -521,8 +527,18 @@ def build_country_scores():
 
                 confidence = assess_domain_confidence(n_indicators, 1, most_recent)
 
-                first_file = group['indicator_file'].iloc[0]
-                trend = estimate_trend(all_data, code, first_file)
+                # Estimate trend using majority vote across all indicators in domain
+                trend_votes = []
+                for _, row in group.iterrows():
+                    cfg = next((c for c in INDICATOR_CONFIG if c['file'] == row['indicator_file']), None)
+                    inv = cfg['inverted'] if cfg else False
+                    t = estimate_trend(all_data, code, row['indicator_file'], inverted=inv)
+                    if t != 'unknown':
+                        trend_votes.append(t)
+                if trend_votes:
+                    trend = Counter(trend_votes).most_common(1)[0][0]
+                else:
+                    trend = 'unknown'
 
                 ind_info = []
                 for _, row in group.iterrows():
