@@ -154,23 +154,34 @@ function computeComposite(domains) {
 }
 
 // -- Map --
+let mapZoom = null;
+let mapSvg = null;
+let mapG = null;
+let mapProjection = null;
+let mapPath = null;
+let mapWidth = 0;
+let mapHeight = 0;
+
 function drawMap(world) {
-  const svg = d3.select('#map-svg');
+  mapSvg = d3.select('#map-svg');
   const container = document.querySelector('.map-container');
-  const width = container.clientWidth;
-  const height = container.clientHeight;
-  svg.attr('viewBox', `0 0 ${width} ${height}`);
+  mapWidth = container.clientWidth;
+  mapHeight = container.clientHeight;
+  mapSvg.attr('viewBox', `0 0 ${mapWidth} ${mapHeight}`);
 
-  const projection = d3.geoNaturalEarth1()
-    .fitSize([width - 20, height - 20], topojson.feature(world, world.objects.countries))
-    .translate([width / 2, height / 2]);
+  mapProjection = d3.geoNaturalEarth1()
+    .fitSize([mapWidth - 20, mapHeight - 20], topojson.feature(world, world.objects.countries))
+    .translate([mapWidth / 2, mapHeight / 2]);
 
-  const path = d3.geoPath(projection);
+  mapPath = d3.geoPath(mapProjection);
   const countries = topojson.feature(world, world.objects.countries).features;
 
   const tooltip = d3.select('#tooltip');
 
-  svg.selectAll('.country-path')
+  // Create a group for all country paths (zoom transforms this group)
+  mapG = mapSvg.append('g').attr('class', 'countries-group');
+
+  mapG.selectAll('.country-path')
     .data(countries)
     .join('path')
     .attr('class', d => {
@@ -180,7 +191,7 @@ function drawMap(world) {
       if (cd?.disputed) cls += ' disputed';
       return cls;
     })
-    .attr('d', path)
+    .attr('d', mapPath)
     .attr('fill', d => countryFill(d.id))
     .attr('opacity', d => countryOpacity(d.id))
     .on('mousemove', (event, d) => {
@@ -201,6 +212,20 @@ function drawMap(world) {
       const a3 = getCountryAlpha3(d.id);
       selectCountry(a3, d.id);
     });
+
+  // Zoom behavior
+  mapZoom = d3.zoom()
+    .scaleExtent([1, 8])
+    .on('zoom', (event) => {
+      mapG.attr('transform', event.transform);
+    });
+
+  mapSvg.call(mapZoom);
+
+  // Zoom controls
+  d3.select('#zoom-in').on('click', () => mapSvg.transition().duration(300).call(mapZoom.scaleBy, 1.5));
+  d3.select('#zoom-out').on('click', () => mapSvg.transition().duration(300).call(mapZoom.scaleBy, 1 / 1.5));
+  d3.select('#zoom-reset').on('click', () => mapSvg.transition().duration(500).call(mapZoom.transform, d3.zoomIdentity));
 }
 
 function countryFill(numericId) {
@@ -240,10 +265,24 @@ function drawLegendGradient() {
 function selectCountry(alpha3, numericId) {
   d3.selectAll('.country-path').classed('selected', false);
   if (numericId != null) {
-    d3.selectAll('.country-path')
-      .filter(d => String(d.id) === String(numericId))
-      .classed('selected', true)
-      .raise();
+    const sel = d3.selectAll('.country-path')
+      .filter(d => String(d.id) === String(numericId));
+    sel.classed('selected', true).raise();
+
+    // Center map on selected country
+    if (mapZoom && mapSvg && sel.size() > 0) {
+      const bounds = mapPath.bounds(sel.datum());
+      const dx = bounds[1][0] - bounds[0][0];
+      const dy = bounds[1][1] - bounds[0][1];
+      const cx = (bounds[0][0] + bounds[1][0]) / 2;
+      const cy = (bounds[0][1] + bounds[1][1]) / 2;
+      const scale = Math.min(8, 0.7 / Math.max(dx / mapWidth, dy / mapHeight));
+      const translate = [mapWidth / 2 - scale * cx, mapHeight / 2 - scale * cy];
+      mapSvg.transition().duration(750).call(
+        mapZoom.transform,
+        d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
+      );
+    }
   }
 
   const cd = getCountryData(alpha3);
