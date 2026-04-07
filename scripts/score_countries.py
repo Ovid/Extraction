@@ -1384,6 +1384,69 @@ def estimate_trend(df_full, country_code, indicator_file, inverted=False):
     return estimate_trend_from_data(df, inverted=inverted)
 
 
+def apply_resource_moderation(domains, raw_polyarchy):
+    """Moderate resource_capture score by democratic accountability.
+
+    High resource rents + low democracy = high extraction.
+    High resource rents + high democracy = low extraction.
+
+    Mutates domains["resource_capture"] in-place. No-op if key absent.
+    """
+    if "resource_capture" not in domains:
+        return
+
+    raw_resource = domains["resource_capture"]["score"]
+
+    # Extract resource rents facts before rebuilding indicators
+    resource_rents_facts = []
+    for ind in domains["resource_capture"].get("indicators", []):
+        if ind["key"] == "wb_natural_rents":
+            resource_rents_facts = ind["facts"]
+            break
+
+    if raw_polyarchy is not None:
+        accountability = round(raw_polyarchy * 100)
+        composite_resource = compute_resource_capture(raw_resource, raw_polyarchy)
+        moderation_fact = f"Moderated by democratic accountability (V-Dem polyarchy: {raw_polyarchy:.2f})"
+        domains["resource_capture"]["score"] = composite_resource
+        domains["resource_capture"]["sources"] = domains["resource_capture"]["sources"] + [
+            "vdem_electoral_democracy"
+        ]
+        domains["resource_capture"]["indicators"] = [
+            {
+                "key": "resource_capture_composite",
+                "question": "How vulnerable is resource wealth to elite capture?",
+                "label": score_to_label(composite_resource),
+                "facts": (resource_rents_facts + [moderation_fact])
+                if resource_rents_facts
+                else [f"Resource rents score: {raw_resource}, democratic accountability: {accountability}/100"],
+            }
+        ]
+        domains["resource_capture"]["justification_detail"] = (
+            f"{domains['resource_capture']['justification_detail']} "
+            f"Composite: resource rents ({raw_resource}) x (100 - accountability ({accountability})) / 100 = {composite_resource}."
+        )
+    else:
+        conf_rank = {"very_low": 0, "low": 1, "moderate": 2, "high": 3}
+        current_conf = domains["resource_capture"]["confidence"]
+        if conf_rank.get(current_conf, 0) > conf_rank.get("low", 1):
+            domains["resource_capture"]["confidence"] = "low"
+        score_val = domains["resource_capture"]["score"]
+        domains["resource_capture"]["indicators"] = [
+            {
+                "key": "resource_capture_composite",
+                "question": "How dependent is the economy on natural resources?",
+                "label": score_to_label(score_val),
+                "facts": resource_rents_facts
+                + ["No democratic accountability data available to assess who benefits"],
+            }
+        ]
+        domains["resource_capture"]["justification_detail"] = (
+            f"{domains['resource_capture']['justification_detail']} "
+            f"No V-Dem data available — score reflects unmoderated resource rents ({score_val})."
+        )
+
+
 def build_country_scores():
     """Build normalized scores for all countries from World Bank data."""
     # Load and normalize each indicator
@@ -1680,65 +1743,8 @@ def build_country_scores():
             continue
 
         # Resource capture: resource rents moderated by democratic accountability
-        # High resource rents + low democracy = high extraction (elites capture resources)
-        # High resource rents + high democracy = low extraction (citizens hold resource management accountable)
-        # Uses raw V-Dem polyarchy (0-1) directly, NOT min-max normalized, because the
-        # raw scale has inherent meaning and normalization would distort absolute levels.
-        if "resource_capture" in domains:
-            raw_resource = domains["resource_capture"]["score"]
-            raw_polyarchy = vdem_raw.get(code, {}).get("v2x_polyarchy")
-
-            # Extract resource rents facts before rebuilding indicators
-            resource_rents_facts = []
-            for ind in domains["resource_capture"].get("indicators", []):
-                if ind["key"] == "wb_natural_rents":
-                    resource_rents_facts = ind["facts"]
-                    break
-
-            if raw_polyarchy is not None:
-                # Convert raw 0-1 polyarchy to 0-100 accountability score
-                accountability = round(raw_polyarchy * 100)
-                composite_resource = compute_resource_capture(raw_resource, raw_polyarchy)
-                moderation_fact = f"Moderated by democratic accountability (V-Dem polyarchy: {raw_polyarchy:.2f})"
-                domains["resource_capture"]["score"] = composite_resource
-                domains["resource_capture"]["sources"] = domains["resource_capture"]["sources"] + [
-                    "vdem_electoral_democracy"
-                ]
-                # Rebuild indicators for the composite
-                domains["resource_capture"]["indicators"] = [
-                    {
-                        "key": "resource_capture_composite",
-                        "question": "How vulnerable is resource wealth to elite capture?",
-                        "label": score_to_label(composite_resource),
-                        "facts": (resource_rents_facts + [moderation_fact])
-                        if resource_rents_facts
-                        else [f"Resource rents score: {raw_resource}, democratic accountability: {accountability}/100"],
-                    }
-                ]
-                domains["resource_capture"]["justification_detail"] = (
-                    f"{domains['resource_capture']['justification_detail']} "
-                    f"Composite: resource rents ({raw_resource}) x (100 - accountability ({accountability})) / 100 = {composite_resource}."
-                )
-            else:
-                # No V-Dem data — use raw rents unmoderated, cap confidence at low
-                conf_rank = {"very_low": 0, "low": 1, "moderate": 2, "high": 3}
-                current_conf = domains["resource_capture"]["confidence"]
-                if conf_rank.get(current_conf, 0) > conf_rank.get("low", 1):
-                    domains["resource_capture"]["confidence"] = "low"
-                score_val = domains["resource_capture"]["score"]
-                domains["resource_capture"]["indicators"] = [
-                    {
-                        "key": "resource_capture_composite",
-                        "question": "How dependent is the economy on natural resources?",
-                        "label": score_to_label(score_val),
-                        "facts": resource_rents_facts
-                        + ["No democratic accountability data available to assess who benefits"],
-                    }
-                ]
-                domains["resource_capture"]["justification_detail"] = (
-                    f"{domains['resource_capture']['justification_detail']} "
-                    f"No V-Dem data available — score reflects unmoderated resource rents ({score_val})."
-                )
+        raw_polyarchy = vdem_raw.get(code, {}).get("v2x_polyarchy")
+        apply_resource_moderation(domains, raw_polyarchy)
 
         countries[code] = assemble_country_entry(name, domains, source_names)
 
