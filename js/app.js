@@ -109,10 +109,6 @@ function getCountryAlpha3FromFeature(d) {
   return NAME_TO_ALPHA3[d.properties?.name] || null;
 }
 
-function getCountryAlpha3(numericId) {
-  return numericToAlpha3[String(numericId).padStart(3, '0')] || null;
-}
-
 function getCountryName(alpha3) {
   const cd = getCountryData(alpha3);
   return cd?.name || COUNTRY_NAMES[alpha3] || alpha3;
@@ -527,7 +523,6 @@ function setupWeightControls() {
     sliderContainer.appendChild(row);
 
     const slider = row.querySelector('input');
-    const display = row.querySelector('.weight-value');
     slider.addEventListener('input', () => {
       const rawWeights = {};
       sliderContainer.querySelectorAll('input[type="range"]').forEach((s) => {

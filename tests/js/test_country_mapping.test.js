@@ -4,7 +4,7 @@ import { NUMERIC_MAP, COUNTRY_NAMES } from '../../js/lib.js';
 
 describe('NUMERIC_MAP', () => {
   it('all values are valid 3-letter alpha-3 codes', () => {
-    for (const [numId, alpha3] of Object.entries(NUMERIC_MAP)) {
+    for (const alpha3 of Object.values(NUMERIC_MAP)) {
       expect(alpha3).toMatch(/^[A-Z]{3}$/);
     }
   });
