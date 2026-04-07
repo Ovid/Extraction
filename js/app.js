@@ -27,6 +27,8 @@ const SOURCE_URLS = {
   vdem_freedom_of_expression: 'https://www.v-dem.net/',
   vdem_alternative_info_sources: 'https://www.v-dem.net/',
   vdem_rule_of_law: 'https://www.v-dem.net/',
+  vdem_egalitarian: 'https://www.v-dem.net/',
+  vdem_participatory_democracy: 'https://www.v-dem.net/',
 };
 
 const CONFIDENCE_OPACITY = { high: 1.0, moderate: 0.75, low: 0.5, very_low: 0.3 };

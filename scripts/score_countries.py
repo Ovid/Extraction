@@ -744,7 +744,7 @@ def build_country_scores():
         # political_capture indicators: v2x_corr (direct), v2xnp_client (direct),
         #   v2x_polyarchy (inverted), v2x_clphy (inverted)
         # information_capture: v2x_freexp_altinf (inverted), v2xme_altinf (inverted)
-        # institutional_gatekeeping: v2x_rule (inverted)
+        # institutional_gatekeeping: v2x_rule (inverted), v2x_egal (inverted), v2x_partipdem (inverted)
         vdem_vars_config = {
             'v2x_corr':          {'domain': 'political_capture',       'inverted': False, 'name': 'Political Corruption'},
             'v2xnp_client':      {'domain': 'political_capture',       'inverted': False, 'name': 'Clientelism'},
@@ -767,7 +767,7 @@ def build_country_scores():
             for code, score in normed.items():
                 if code not in vdem_normalized:
                     vdem_normalized[code] = {}
-                vdem_normalized[code][var] = {'score': int(score), 'raw': values[code], 'name': cfg['name'], 'domain': cfg['domain']}
+                vdem_normalized[code][var] = {'score': int(score), 'raw': values[code], 'name': cfg['name'], 'domain': cfg['domain'], 'var': var}
     else:
         vdem_normalized = {}
 
@@ -928,13 +928,13 @@ def build_country_scores():
 
             for domain, indicators_list in vdem_by_domain.items():
                 vdem_score = round(sum(i['score'] for i in indicators_list) / len(indicators_list))
-                vdem_sources = ['vdem_' + i['name'].lower().replace(' ', '_') for i in indicators_list]
+                vdem_sources = [vdem_source_key_map[i['var']] for i in indicators_list]
                 n_vdem = len(indicators_list)
 
                 vdem_ind_entries = []
                 vdem_ind_info = []
                 for i in indicators_list:
-                    src_key = 'vdem_' + i['name'].lower().replace(' ', '_')
+                    src_key = vdem_source_key_map[i['var']]
                     entry = build_indicator_entry(src_key, i['raw'], i['score'], code, all_indicator_raw)
                     vdem_ind_entries.append(entry)
                     vdem_ind_info.append({
@@ -1010,7 +1010,7 @@ def build_country_scores():
                     'key': 'resource_capture_composite',
                     'question': 'How vulnerable is resource wealth to elite capture?',
                     'label': score_to_label(composite_resource),
-                    'facts': resource_rents_facts + [moderation_fact] if resource_rents_facts else [
+                    'facts': (resource_rents_facts + [moderation_fact]) if resource_rents_facts else [
                         f'Resource rents score: {raw_resource}, democratic accountability: {accountability}/100'
                     ],
                 }]
@@ -1019,8 +1019,11 @@ def build_country_scores():
                     f'Composite: resource rents ({raw_resource}) x (100 - accountability ({accountability})) / 100 = {composite_resource}.'
                 )
             else:
-                # No V-Dem data — use raw rents unmoderated, mark low confidence
-                domains['resource_capture']['confidence'] = 'low'
+                # No V-Dem data — use raw rents unmoderated, cap confidence at low
+                conf_rank = {'very_low': 0, 'low': 1, 'moderate': 2, 'high': 3}
+                current_conf = domains['resource_capture']['confidence']
+                if conf_rank.get(current_conf, 0) > conf_rank.get('low', 1):
+                    domains['resource_capture']['confidence'] = 'low'
                 score_val = domains['resource_capture']['score']
                 resource_facts = []
                 for ind in domains['resource_capture'].get('indicators', []):
@@ -1033,6 +1036,10 @@ def build_country_scores():
                     'label': score_to_label(score_val),
                     'facts': resource_facts + ['No democratic accountability data available to assess who benefits'],
                 }]
+                domains['resource_capture']['justification_detail'] = (
+                    f'{domains["resource_capture"]["justification_detail"]} '
+                    f'No V-Dem data available — score reflects unmoderated resource rents ({score_val}).'
+                )
 
         # Compute overall confidence from totals across all domains
         total_indicators = sum(d.get('_n_indicators', 1) for d in domains.values())

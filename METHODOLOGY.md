@@ -222,7 +222,7 @@ Whichever comparison produces the larger divergence is shown. If fewer than 3 pe
 
 At extremes, comparisons use natural language appropriate to the indicator — e.g., "Strongest rule of law among high-income countries" rather than generic "Highest among."
 
-For the resource capture domain, context facts reflect the composite calculation (resource rents moderated by institutional strength) rather than raw resource rents alone.
+For the resource capture domain, context facts reflect the composite calculation (resource rents moderated by democratic accountability) rather than raw resource rents alone.
 
 ## Data Sources
 
@@ -247,7 +247,7 @@ See `sources.md` for the complete source registry including URLs, coverage detai
 
 5. **Normalization is relative.** Min-max scaling means scores reflect a country's position relative to the global range, not an absolute standard. If all countries became more extractive simultaneously, individual scores might not change.
 
-6. **Resource capture depends on institutional data.** Countries without institutional gatekeeping data get a raw resource rents score with reduced confidence, which may misrepresent their actual extraction dynamics.
+6. **Resource capture depends on democratic accountability data.** Countries without V-Dem democratic accountability data get a raw resource rents score with reduced confidence, which may misrepresent their actual extraction dynamics.
 
 ## Replication
 
