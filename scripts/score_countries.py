@@ -984,52 +984,55 @@ def build_country_scores():
         if not domains:
             continue
 
-        # Resource capture: composite of resource rents × institutional weakness
-        # High resource rents + weak institutions = high extraction risk
-        # High resource rents + strong institutions (e.g. Norway) = low extraction risk
-        if 'resource_capture' in domains and 'institutional_gatekeeping' in domains:
+        # Resource capture: resource rents moderated by democratic accountability
+        # High resource rents + low democracy = high extraction (elites capture resources)
+        # High resource rents + high democracy = low extraction (citizens hold resource management accountable)
+        # Uses raw V-Dem polyarchy (0-1) directly, NOT min-max normalized, because the
+        # raw scale has inherent meaning and normalization would distort absolute levels.
+        if 'resource_capture' in domains:
             raw_resource = domains['resource_capture']['score']
-            inst_weakness = domains['institutional_gatekeeping']['score']
-            # Multiply resource dependence by institutional weakness (both 0-100)
-            # Scale back to 0-100
-            composite_resource = round(raw_resource * inst_weakness / 100)
-            domains['resource_capture']['score'] = composite_resource
-            domains['resource_capture']['sources'] = domains['resource_capture']['sources'] + ['wb_wgi_corruption', 'wb_reg_quality', 'wb_wgi_gov_eff']
-            # Rebuild indicators for the composite
-            resource_rents_facts = []
-            for ind in domains['resource_capture'].get('indicators', []):
-                if ind['key'] == 'wb_natural_rents':
-                    resource_rents_facts = ind['facts']
-                    break
-            domains['resource_capture']['indicators'] = [{
-                'key': 'resource_capture_composite',
-                'question': 'How vulnerable is resource wealth to elite capture?',
-                'label': score_to_label(composite_resource),
-                'facts': resource_rents_facts + [
-                    f'Moderated by institutional strength (score: {100 - inst_weakness}/100)'
-                ] if resource_rents_facts else [
-                    f'Resource rents score: {raw_resource}, institutional strength: {100 - inst_weakness}/100'
-                ],
-            }]
-            domains['resource_capture']['justification_detail'] = (
-                f'{domains["resource_capture"]["justification_detail"]} '
-                f'Composite: resource rents ({raw_resource}) × institutional weakness ({inst_weakness}) / 100 = {composite_resource}.'
-            )
-        elif 'resource_capture' in domains:
-            # No institutional data to weight against — mark low confidence
-            domains['resource_capture']['confidence'] = 'low'
-            score_val = domains['resource_capture']['score']
-            resource_facts = []
-            for ind in domains['resource_capture'].get('indicators', []):
-                if ind['key'] == 'wb_natural_rents':
-                    resource_facts = ind['facts']
-                    break
-            domains['resource_capture']['indicators'] = [{
-                'key': 'resource_capture_composite',
-                'question': 'How dependent is the economy on natural resources?',
-                'label': score_to_label(score_val),
-                'facts': resource_facts + ['No institutional data available to assess who benefits'],
-            }]
+            raw_polyarchy = vdem_raw.get(code, {}).get('v2x_polyarchy')
+
+            if raw_polyarchy is not None:
+                # Convert raw 0-1 polyarchy to 0-100 accountability score
+                accountability = round(raw_polyarchy * 100)
+                composite_resource = round(raw_resource * (100 - accountability) / 100)
+                moderation_fact = f'Moderated by democratic accountability (V-Dem polyarchy: {raw_polyarchy:.2f})'
+                domains['resource_capture']['score'] = composite_resource
+                domains['resource_capture']['sources'] = domains['resource_capture']['sources'] + ['vdem_electoral_democracy']
+                # Rebuild indicators for the composite
+                resource_rents_facts = []
+                for ind in domains['resource_capture'].get('indicators', []):
+                    if ind['key'] == 'wb_natural_rents':
+                        resource_rents_facts = ind['facts']
+                        break
+                domains['resource_capture']['indicators'] = [{
+                    'key': 'resource_capture_composite',
+                    'question': 'How vulnerable is resource wealth to elite capture?',
+                    'label': score_to_label(composite_resource),
+                    'facts': resource_rents_facts + [moderation_fact] if resource_rents_facts else [
+                        f'Resource rents score: {raw_resource}, democratic accountability: {accountability}/100'
+                    ],
+                }]
+                domains['resource_capture']['justification_detail'] = (
+                    f'{domains["resource_capture"]["justification_detail"]} '
+                    f'Composite: resource rents ({raw_resource}) x (100 - accountability ({accountability})) / 100 = {composite_resource}.'
+                )
+            else:
+                # No V-Dem data — use raw rents unmoderated, mark low confidence
+                domains['resource_capture']['confidence'] = 'low'
+                score_val = domains['resource_capture']['score']
+                resource_facts = []
+                for ind in domains['resource_capture'].get('indicators', []):
+                    if ind['key'] == 'wb_natural_rents':
+                        resource_facts = ind['facts']
+                        break
+                domains['resource_capture']['indicators'] = [{
+                    'key': 'resource_capture_composite',
+                    'question': 'How dependent is the economy on natural resources?',
+                    'label': score_to_label(score_val),
+                    'facts': resource_facts + ['No democratic accountability data available to assess who benefits'],
+                }]
 
         # Compute overall confidence from totals across all domains
         total_indicators = sum(d.get('_n_indicators', 1) for d in domains.values())
