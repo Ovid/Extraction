@@ -96,6 +96,7 @@ POSITIVE_QUESTION_INDICATORS = {
     'vdem_freedom_of_expression',    # "How free is public expression?"
     'vdem_alternative_info_sources', # "How available are independent information sources?"
     'vdem_rule_of_law',              # "How strong is the rule of law?"
+    'rsf_press',                     # "How free is the press?" — free = good
 }
 
 
@@ -141,7 +142,7 @@ INDICATOR_DISPLAY = {
     'vdem_rule_of_law':           {'label': 'Rule of law index', 'format': '{:.2f}', 'unit': '(scale: 0-1)',
                                    'comparison_label': ['Strongest rule of law among', 'Weakest rule of law among']},
     'rsf_press':            {'label': 'Press freedom score', 'format': '{:.1f}', 'unit': 'out of 100',
-                             'comparison_label': ['Least free press among', 'Freest press among']},
+                             'comparison_label': ['Freest press among', 'Least free press among']},
     'tjn_fsi':              {'label': 'Financial Secrecy Index score', 'format': '{:.0f}', 'unit': '',
                              'comparison_label': ['Most secretive among', 'Least secretive among']},
 }
