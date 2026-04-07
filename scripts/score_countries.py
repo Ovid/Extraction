@@ -718,17 +718,15 @@ def normalize_minmax(series, inverted=False):
     return normalized.round(0).astype(int)
 
 
-def estimate_trend(df_full, country_code, indicator_file, inverted=False):
+def estimate_trend_from_data(df, inverted=False):
     """Estimate trend by comparing recent vs older values.
 
-    For inverted indicators (higher raw value = less extraction), a falling
-    raw value means extraction is rising, so we flip the direction.
+    Args:
+        df: DataFrame with 'year' and 'value' columns for a single country/indicator.
+        inverted: If True, falling raw value means extraction is rising.
+
+    Returns: 'rising', 'falling', 'stable', or 'unknown'.
     """
-    filepath = WB_DIR / indicator_file
-    if not filepath.exists():
-        return 'unknown'
-    df = pd.read_csv(filepath)
-    df = df[df['country_code'] == country_code].sort_values('year')
     if len(df) < 2:
         return 'unknown'
     recent = df[df['year'] >= 2018]['value'].mean()
@@ -738,9 +736,22 @@ def estimate_trend(df_full, country_code, indicator_file, inverted=False):
     change = (recent - older) / abs(older)
     if inverted:
         change = -change  # Falling raw value = rising extraction
-    if abs(change) < 0.10:
+    if abs(change) <= 0.10:
         return 'stable'
     return 'rising' if change > 0 else 'falling'
+
+
+def estimate_trend(df_full, country_code, indicator_file, inverted=False):
+    """Estimate trend for a country/indicator by reading from disk.
+
+    Thin wrapper around estimate_trend_from_data that handles file loading.
+    """
+    filepath = WB_DIR / indicator_file
+    if not filepath.exists():
+        return 'unknown'
+    df = pd.read_csv(filepath)
+    df = df[df['country_code'] == country_code].sort_values('year')
+    return estimate_trend_from_data(df, inverted=inverted)
 
 
 def build_country_scores():
