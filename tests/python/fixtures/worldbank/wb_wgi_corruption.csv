@@ -1,0 +1,6 @@
+country_code,country_name,year,value,indicator
+USA,United States,2022,1.25,CC.EST
+DNK,Denmark,2022,2.22,CC.EST
+ZAF,South Africa,2022,-0.07,CC.EST
+BRA,Brazil,2022,-0.32,CC.EST
+NGA,Nigeria,2022,-1.03,CC.EST
