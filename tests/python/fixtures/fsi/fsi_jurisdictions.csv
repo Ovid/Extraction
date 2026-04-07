@@ -1,7 +1,7 @@
 jurisdiction_id,jurisdiction,methodology_id,index_score,secrecy_score,global_scale_weight
+US,United States,fsi2022,62.89,59,21.50
 US,United States,fsi2024,63.12,60,22.35
 CH,Switzerland,fsi2024,76.45,77,4.12
 KY,Cayman Islands,fsi2024,71.33,73,3.87
 SG,Singapore,fsi2024,67.89,68,5.01
 GB,United Kingdom,fsi2024,59.21,56,15.42
-US,United States,fsi2022,62.89,59,21.50
