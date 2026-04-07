@@ -2,7 +2,6 @@
 
 from score_countries import normalize_vdem_indicators
 
-
 VDEM_VARS_CONFIG = {
     "v2x_corr": {"domain": "political_capture", "inverted": False, "name": "Political Corruption"},
     "v2x_polyarchy": {"domain": "political_capture", "inverted": True, "name": "Electoral Democracy"},

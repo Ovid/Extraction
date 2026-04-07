@@ -10,17 +10,19 @@ def _make_wb_group():
 
     Single indicator for institutional_gatekeeping, as if from groupby('domain').
     """
-    return pd.DataFrame({
-        "country_code": ["USA"],
-        "country_name": ["United States"],
-        "year": [2022],
-        "value": [-0.5],
-        "normalized": [60],
-        "domain": ["institutional_gatekeeping"],
-        "source_key": ["wb_wgi_corruption"],
-        "indicator_name": ["WGI Control of Corruption"],
-        "indicator_file": ["wb_wgi_corruption.csv"],
-    })
+    return pd.DataFrame(
+        {
+            "country_code": ["USA"],
+            "country_name": ["United States"],
+            "year": [2022],
+            "value": [-0.5],
+            "normalized": [60],
+            "domain": ["institutional_gatekeeping"],
+            "source_key": ["wb_wgi_corruption"],
+            "indicator_name": ["WGI Control of Corruption"],
+            "indicator_file": ["wb_wgi_corruption.csv"],
+        }
+    )
 
 
 class TestBuildWbDomain:
@@ -34,8 +36,17 @@ class TestBuildWbDomain:
         group = _make_wb_group()
         all_indicator_raw = {}
         result = build_wb_domain(group, "USA", all_indicator_raw)
-        for key in ["score", "confidence", "trend", "sources", "indicators",
-                     "justification_detail", "_n_indicators", "_n_sources", "_most_recent_year"]:
+        for key in [
+            "score",
+            "confidence",
+            "trend",
+            "sources",
+            "indicators",
+            "justification_detail",
+            "_n_indicators",
+            "_n_sources",
+            "_most_recent_year",
+        ]:
             assert key in result, f"Missing key: {key}"
 
     def test_n_indicators_matches_group_size(self):
@@ -54,17 +65,19 @@ class TestBuildWbDomain:
         assert result["_most_recent_year"] == 2022
 
     def test_single_indicator(self):
-        group = pd.DataFrame({
-            "country_code": ["USA"],
-            "country_name": ["United States"],
-            "year": [2023],
-            "value": [41.5],
-            "normalized": [72],
-            "domain": ["economic_concentration"],
-            "source_key": ["wb_gini"],
-            "indicator_name": ["Gini Index"],
-            "indicator_file": ["wb_gini.csv"],
-        })
+        group = pd.DataFrame(
+            {
+                "country_code": ["USA"],
+                "country_name": ["United States"],
+                "year": [2023],
+                "value": [41.5],
+                "normalized": [72],
+                "domain": ["economic_concentration"],
+                "source_key": ["wb_gini"],
+                "indicator_name": ["Gini Index"],
+                "indicator_file": ["wb_gini.csv"],
+            }
+        )
         result = build_wb_domain(group, "USA", {})
         assert result["score"] == 72
         assert result["_n_indicators"] == 1

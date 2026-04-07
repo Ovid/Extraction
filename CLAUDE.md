@@ -112,6 +112,10 @@ python score_countries.py --country USA    # Single country
 - **Transnational axis matters.** Without it, Luxembourg looks like Denmark.
 - **Legibility paradox.** The most extractive regimes produce the worst data.
 
+## Definition of Done
+
+**No task is finished until `make all` passes with zero errors.** This is non-negotiable. Before declaring any work complete — whether a bug fix, feature, refactor, or data change — run `make all` and confirm it exits cleanly. If it fails, fix the failures before moving on. Do not commit, create PRs, or claim completion with a failing `make all`.
+
 ## Style & Tone
 
 Extraction is a structural pattern, not a moral failing. Tone is analytical, not polemical. Justifications should read like concise research notes, not advocacy.

@@ -1392,9 +1392,7 @@ def apply_resource_moderation(domains, raw_polyarchy):
         composite_resource = compute_resource_capture(raw_resource, raw_polyarchy)
         moderation_fact = f"Moderated by democratic accountability (V-Dem polyarchy: {raw_polyarchy:.2f})"
         domains["resource_capture"]["score"] = composite_resource
-        domains["resource_capture"]["sources"] = domains["resource_capture"]["sources"] + [
-            "vdem_electoral_democracy"
-        ]
+        domains["resource_capture"]["sources"] = domains["resource_capture"]["sources"] + ["vdem_electoral_democracy"]
         domains["resource_capture"]["indicators"] = [
             {
                 "key": "resource_capture_composite",
@@ -1420,8 +1418,7 @@ def apply_resource_moderation(domains, raw_polyarchy):
                 "key": "resource_capture_composite",
                 "question": "How dependent is the economy on natural resources?",
                 "label": score_to_label(score_val),
-                "facts": resource_rents_facts
-                + ["No democratic accountability data available to assess who benefits"],
+                "facts": resource_rents_facts + ["No democratic accountability data available to assess who benefits"],
             }
         ]
         domains["resource_capture"]["justification_detail"] = (
@@ -1496,9 +1493,7 @@ def build_wb_domain(group, code, all_indicator_raw):
     ind_entries = []
     ind_info = []
     for _, row in group.iterrows():
-        entry = build_indicator_entry(
-            row["source_key"], row["value"], int(row["normalized"]), code, all_indicator_raw
-        )
+        entry = build_indicator_entry(row["source_key"], row["value"], int(row["normalized"]), code, all_indicator_raw)
         ind_entries.append(entry)
         ind_info.append(
             {
