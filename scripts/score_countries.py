@@ -650,6 +650,18 @@ def assess_domain_confidence(n_indicators, n_sources, most_recent_year):
         return 'very_low'
 
 
+def compute_resource_capture(normalized_resource_score, raw_polyarchy):
+    """Compute resource capture composite: resource rents moderated by democracy.
+
+    Uses raw V-Dem polyarchy (0-1) directly, NOT min-max normalized.
+    Formula: normalized_resource * (100 - accountability) / 100
+    """
+    if raw_polyarchy is None:
+        return normalized_resource_score
+    accountability = round(raw_polyarchy * 100)
+    return round(normalized_resource_score * (100 - accountability) / 100)
+
+
 def load_indicator(filepath):
     """Load a World Bank indicator CSV and return most recent value per country."""
     if not filepath.exists():
@@ -1003,7 +1015,7 @@ def build_country_scores():
             if raw_polyarchy is not None:
                 # Convert raw 0-1 polyarchy to 0-100 accountability score
                 accountability = round(raw_polyarchy * 100)
-                composite_resource = round(raw_resource * (100 - accountability) / 100)
+                composite_resource = compute_resource_capture(raw_resource, raw_polyarchy)
                 moderation_fact = f'Moderated by democratic accountability (V-Dem polyarchy: {raw_polyarchy:.2f})'
                 domains['resource_capture']['score'] = composite_resource
                 domains['resource_capture']['sources'] = domains['resource_capture']['sources'] + ['vdem_electoral_democracy']
