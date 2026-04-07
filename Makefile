@@ -1,4 +1,4 @@
-.PHONY: all test test-python test-js cover lint lint-fix format format-check loc fetch score serve help
+.PHONY: all test test-python test-js cover coverall lint lint-fix format format-check loc fetch score serve help
 
 all: lint format test ## Lint, format, and test
 
@@ -12,6 +12,9 @@ test-js: ## Run JavaScript tests (Vitest)
 
 cover: ## Generate Python unit test coverage report
 	source .venv/bin/activate && pytest tests/python/unit/ --cov=score_countries --cov-report=term-missing --tb=short -q
+
+coverall: ## Generate Python coverage report (all tests: unit + integration)
+	source .venv/bin/activate && pytest tests/python/ --cov=score_countries --cov-report=term-missing --tb=short -q
 
 lint: ## Lint Python (ruff) and JavaScript (eslint)
 	source .venv/bin/activate && ruff check scripts/ tests/python/
