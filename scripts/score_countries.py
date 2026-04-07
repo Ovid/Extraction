@@ -662,6 +662,37 @@ def compute_resource_capture(normalized_resource_score, raw_polyarchy):
     return round(normalized_resource_score * (100 - accountability) / 100)
 
 
+def merge_domain_scores(existing, new_domain):
+    """Merge two domain entries from different sources by averaging scores.
+
+    Combines indicators, sources, and recalculates confidence from totals.
+    Preserves known trend from either source (prefers existing if known).
+    """
+    merged_score = round((existing['score'] + new_domain['score']) / 2)
+    merged_n = existing.get('_n_indicators', 1) + new_domain.get('_n_indicators', 1)
+    merged_sources_count = existing.get('_n_sources', 1) + new_domain.get('_n_sources', 1)
+    merged_year = max(existing.get('_most_recent_year') or 0,
+                      new_domain.get('_most_recent_year') or 0)
+
+    # Prefer known trend
+    if existing.get('trend', 'unknown') != 'unknown':
+        trend = existing['trend']
+    else:
+        trend = new_domain.get('trend', 'unknown')
+
+    return {
+        'score': merged_score,
+        'confidence': assess_domain_confidence(merged_n, merged_sources_count, merged_year),
+        'trend': trend,
+        'sources': existing.get('sources', []) + new_domain.get('sources', []),
+        'indicators': existing.get('indicators', []) + new_domain.get('indicators', []),
+        'justification_detail': f'{existing.get("justification_detail", "")} {new_domain.get("justification_detail", "")}'.strip(),
+        '_n_indicators': merged_n,
+        '_n_sources': merged_sources_count,
+        '_most_recent_year': merged_year,
+    }
+
+
 def load_indicator(filepath):
     """Load a World Bank indicator CSV and return most recent value per country."""
     if not filepath.exists():
@@ -958,23 +989,18 @@ def build_country_scores():
                 vdem_detail = build_technical_justification('V-Dem', vdem_ind_info)
 
                 if domain in domains:
-                    # Merge with existing domain score (average of WB/RSF and V-Dem)
-                    existing = domains[domain]
-                    merged_score = round((existing['score'] + vdem_score) / 2)
-                    merged_n = existing.get('_n_indicators', 1) + n_vdem
-                    merged_sources = existing.get('_n_sources', 1) + 1
-                    merged_year = max(existing.get('_most_recent_year') or 0, 2024)
-                    domains[domain] = {
-                        'score': merged_score,
-                        'confidence': assess_domain_confidence(merged_n, merged_sources, merged_year),
-                        'trend': existing['trend'] if existing['trend'] != 'unknown' else 'unknown',
-                        'sources': existing['sources'] + vdem_sources,
-                        'indicators': existing.get('indicators', []) + vdem_ind_entries,
-                        'justification_detail': f'{existing.get("justification_detail", "")} {vdem_detail}'.strip(),
-                        '_n_indicators': merged_n,
-                        '_n_sources': merged_sources,
-                        '_most_recent_year': merged_year,
+                    vdem_domain_entry = {
+                        'score': vdem_score,
+                        'confidence': assess_domain_confidence(n_vdem, 1, 2024),
+                        'trend': 'unknown',
+                        'sources': vdem_sources,
+                        'indicators': vdem_ind_entries,
+                        'justification_detail': vdem_detail,
+                        '_n_indicators': n_vdem,
+                        '_n_sources': 1,
+                        '_most_recent_year': 2024,
                     }
+                    domains[domain] = merge_domain_scores(domains[domain], vdem_domain_entry)
                 else:
                     vdem_confidence = assess_domain_confidence(n_vdem, 1, 2024)
                     domains[domain] = {
