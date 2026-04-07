@@ -1447,6 +1447,36 @@ def apply_resource_moderation(domains, raw_polyarchy):
         )
 
 
+def normalize_vdem_indicators(vdem_raw, vdem_vars_config):
+    """Normalize raw V-Dem indicators across all countries.
+
+    Args:
+        vdem_raw: {country_code: {var_name: raw_value}}
+        vdem_vars_config: {var_name: {"domain": str, "inverted": bool, "name": str}}
+
+    Returns:
+        {country_code: {var_name: {"score": int, "raw": float, "name": str, "domain": str, "var": str}}}
+    """
+    vdem_normalized = {}
+    for var, cfg in vdem_vars_config.items():
+        values = {code: vals[var] for code, vals in vdem_raw.items() if var in vals}
+        if not values:
+            continue
+        series = pd.Series(values)
+        normed = normalize_minmax(series, inverted=cfg["inverted"])
+        for code, score in normed.items():
+            if code not in vdem_normalized:
+                vdem_normalized[code] = {}
+            vdem_normalized[code][var] = {
+                "score": int(score),
+                "raw": values[code],
+                "name": cfg["name"],
+                "domain": cfg["domain"],
+                "var": var,
+            }
+    return vdem_normalized
+
+
 def build_country_scores():
     """Build normalized scores for all countries from World Bank data."""
     # Load and normalize each indicator
@@ -1509,24 +1539,7 @@ def build_country_scores():
                 "name": "Participatory Democracy",
             },
         }
-        # Build per-variable series for normalization
-        vdem_normalized = {}  # {country: {var: normalized_score}}
-        for var, cfg in vdem_vars_config.items():
-            values = {code: vals[var] for code, vals in vdem_raw.items() if var in vals}
-            if not values:
-                continue
-            series = pd.Series(values)
-            normed = normalize_minmax(series, inverted=cfg["inverted"])
-            for code, score in normed.items():
-                if code not in vdem_normalized:
-                    vdem_normalized[code] = {}
-                vdem_normalized[code][var] = {
-                    "score": int(score),
-                    "raw": values[code],
-                    "name": cfg["name"],
-                    "domain": cfg["domain"],
-                    "var": var,
-                }
+        vdem_normalized = normalize_vdem_indicators(vdem_raw, vdem_vars_config)
     else:
         vdem_normalized = {}
 
