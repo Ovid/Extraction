@@ -48,18 +48,18 @@ Domain score = normalized indicator score.
 
 ### 4. Institutional Gatekeeping
 
-Whether institutions serve the broad population or narrow interests. This domain balances two dimensions: bureaucratic competence (can the state deliver?) and democratic accountability (who does it deliver for?).
+Whether institutions serve the broad population or narrow interests.
 
 | Indicator | Source | Variable | Direction |
 |-----------|--------|----------|-----------|
 | Control of Corruption | World Bank (WGI) | CC.EST | Inverted |
-| Regulatory Quality | World Bank (WGI) | RQ.EST | Inverted |
-| Government Effectiveness | World Bank (WGI) | GE.EST | Inverted |
 | Rule of Law | V-Dem | v2x_rule | Inverted |
 | Egalitarian Component | V-Dem | v2x_egal | Inverted |
 | Participatory Democracy | V-Dem | v2x_partipdem | Inverted |
 
-The World Bank WGI indicators measure state capacity — how effectively a government controls corruption, regulates, and delivers services. The V-Dem indicators measure democratic accountability — how equally power and resources are distributed and how much citizens participate in governance. Both dimensions matter: a competent autocracy scores well on WGI but poorly on V-Dem accountability metrics, resulting in a higher extraction score than the WGI alone would suggest.
+The World Bank WGI Control of Corruption indicator measures the extent to which public power is exercised for private gain, including capture of the state by elites — directly relevant to institutional gatekeeping. The V-Dem indicators measure how equally power and resources are distributed and how much citizens can participate in governance.
+
+**Why Government Effectiveness and Regulatory Quality are excluded:** These WGI indicators measure state capacity (bureaucratic competence, pro-business regulatory environment) rather than who institutions serve. An efficient autocracy scores well on both — high government effectiveness and strong regulatory quality — without its institutions serving broad interests. Including them would systematically understate extraction in competent autocracies.
 
 When both World Bank and V-Dem data are available for this domain, the domain score is the average of the World Bank group score and the V-Dem group score.
 
@@ -80,12 +80,14 @@ When both RSF and V-Dem data are available, scores are merged by averaging.
 How vulnerable resource wealth is to elite capture. This is a **composite score**:
 
 ```
-resource_capture = resource_rents × (100 - democratic_accountability) / 100
+resource_capture = log_normalized_resource_rents × (100 - democratic_accountability) / 100
 ```
 
 Where:
-- `resource_rents` = normalized World Bank natural resource rents (% GDP), indicator NY.GDP.TOTL.RT.ZS
+- `log_normalized_resource_rents` = World Bank natural resource rents (% GDP), indicator NY.GDP.TOTL.RT.ZS, log-transformed then min-max normalized to 0-100
 - `democratic_accountability` = raw V-Dem electoral democracy index (v2x_polyarchy) × 100
+
+Resource rents are log-transformed before min-max normalization because the raw distribution is heavily right-skewed (a few countries exceed 50% of GDP while most are under 5%). Without log transformation, linear min-max normalization compresses most countries into the lower range, understating resource capture vulnerability. Log transformation of right-skewed economic data is standard practice in economics research.
 
 This formula uses the **raw** V-Dem polyarchy value (0-1 scale), not a min-max normalized score. Min-max normalization is relative to the dataset and would distort absolute levels — a country with polyarchy 0.50 (a hybrid regime) would appear to have majority accountability under normalization, when in reality 0.50 indicates genuinely weak democratic checks.
 
@@ -124,6 +126,16 @@ normalized = 100 - normalized
 ```
 
 This ensures all scores follow the convention: **0 = no extraction, 100 = extreme extraction**.
+
+### Log-Transformed Normalization
+
+For indicators with extreme right skew (currently: natural resource rents), a log transform is applied before min-max scaling:
+
+```
+log_normalized = (log(1 + value) - log(1 + min)) / (log(1 + max) - log(1 + min)) × 100
+```
+
+This spreads the compressed middle of the distribution while preserving the 0-100 range and relative ordering. The choice of which indicators receive log transformation is based on distributional analysis — resource rents has a skewness that compresses most countries below the 50th percentile under linear scaling.
 
 ## Composite Score
 
