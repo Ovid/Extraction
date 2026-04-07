@@ -55,12 +55,8 @@ class TestAlpha2ToAlpha3:
             assert len(val) == 3, f"Value '{val}' is not 3 letters"
 
     def test_no_excluded_codes_in_values(self):
-        """Alpha-3 mapping should not map to excluded codes (except known exceptions)."""
-        # XKX (Kosovo) is excluded from scoring but kept in alpha2 mapping
-        known_exceptions = {'XKX'}
+        """Alpha-3 mapping should not map to excluded codes."""
         for a2, a3 in ALPHA2_TO_ALPHA3.items():
-            if a3 in known_exceptions:
-                continue
             assert a3 not in EXCLUDE_CODES, f"{a2} maps to excluded code {a3}"
 
 

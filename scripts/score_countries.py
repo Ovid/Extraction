@@ -482,7 +482,7 @@ EXCLUDE_CODES = {
     'LAC', 'LCN', 'LDC', 'LIC', 'LMC', 'LMY', 'LTE', 'MEA', 'MIC', 'MNA',
     'NAC', 'OED', 'OSS', 'PRE', 'PSS', 'PST', 'SAS', 'SSA', 'SSF', 'SST',
     'TEA', 'TEC', 'TLA', 'TMN', 'TSA', 'TSS', 'UMC', 'WLD',
-    'EUU', 'SXZ', 'XKX',
+    'EUU', 'SXZ',
     # Non-standard codes from RSF/V-Dem that aren't real ISO alpha-3
     'CS-KM',  # RSF's code for Kosovo (use XKX mapping instead)
     'CTU',    # RSF: Northern Cyprus (not a recognized country)
