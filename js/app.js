@@ -1,14 +1,4 @@
-const DOMAIN_LABELS = {
-  political_capture: 'Political Capture',
-  economic_concentration: 'Economic Concentration',
-  financial_extraction: 'Financial Extraction',
-  institutional_gatekeeping: 'Institutional Gatekeeping',
-  information_capture: 'Information & Media Capture',
-  resource_capture: 'Resource Capture',
-  transnational_facilitation: 'Transnational Facilitation'
-};
-
-const DOMAIN_KEYS = Object.keys(DOMAIN_LABELS);
+import { DOMAIN_LABELS, DOMAIN_KEYS, NUMERIC_MAP, COUNTRY_NAMES, computeComposite, normalizeWeights } from './lib.js';
 
 const SOURCE_URLS = {
   wb_gini: 'https://data.worldbank.org/indicator/SI.POV.GINI',
@@ -88,91 +78,9 @@ async function init() {
   populateCountrySelect('alpha');
 }
 
-// -- ISO numeric → alpha-3 mapping (subset for sample data; extend as needed) --
+// -- ISO numeric → alpha-3 mapping --
 const numericToAlpha3 = {};
-const NUMERIC_MAP = {
-  '840': 'USA', '208': 'DNK', '702': 'SGP', '566': 'NGA',
-  '408': 'PRK', '442': 'LUX', '643': 'RUS', '578': 'NOR',
-  // Extended set for common countries
-  '004': 'AFG', '008': 'ALB', '012': 'DZA', '024': 'AGO', '032': 'ARG',
-  '036': 'AUS', '040': 'AUT', '050': 'BGD', '056': 'BEL', '068': 'BOL',
-  '076': 'BRA', '100': 'BGR', '104': 'MMR', '116': 'KHM', '120': 'CMR',
-  '124': 'CAN', '144': 'LKA', '152': 'CHL', '156': 'CHN', '170': 'COL',
-  '178': 'COG', '180': 'COD', '188': 'CRI', '191': 'HRV', '192': 'CUB',
-  '196': 'CYP', '203': 'CZE', '214': 'DOM', '218': 'ECU', '818': 'EGY',
-  '222': 'SLV', '231': 'ETH', '233': 'EST', '246': 'FIN', '250': 'FRA',
-  '266': 'GAB', '268': 'GEO', '276': 'DEU', '288': 'GHA', '300': 'GRC',
-  '320': 'GTM', '324': 'GIN', '332': 'HTI', '340': 'HND', '348': 'HUN',
-  '352': 'ISL', '356': 'IND', '360': 'IDN', '364': 'IRN', '368': 'IRQ',
-  '372': 'IRL', '376': 'ISR', '380': 'ITA', '384': 'CIV', '388': 'JAM',
-  '392': 'JPN', '398': 'KAZ', '400': 'JOR', '404': 'KEN', '410': 'KOR',
-  '414': 'KWT', '418': 'LAO', '422': 'LBN', '430': 'LBR', '434': 'LBY',
-  '440': 'LTU', '428': 'LVA', '450': 'MDG', '454': 'MWI', '458': 'MYS',
-  '466': 'MLI', '478': 'MRT', '484': 'MEX', '496': 'MNG', '504': 'MAR',
-  '508': 'MOZ', '512': 'OMN', '516': 'NAM', '524': 'NPL', '528': 'NLD',
-  '540': 'NCL', '554': 'NZL', '558': 'NIC', '562': 'NER', '586': 'PAK',
-  '591': 'PAN', '598': 'PNG', '600': 'PRY', '604': 'PER', '608': 'PHL',
-  '616': 'POL', '620': 'PRT', '630': 'PRI', '634': 'QAT', '642': 'ROU',
-  '646': 'RWA', '682': 'SAU', '686': 'SEN', '688': 'SRB', '694': 'SLE',
-  '699': 'IND', '704': 'VNM', '706': 'SOM', '710': 'ZAF', '716': 'ZWE',
-  '724': 'ESP', '728': 'SSD', '729': 'SDN', '740': 'SUR', '748': 'SWZ',
-  '752': 'SWE', '756': 'CHE', '760': 'SYR', '762': 'TJK', '764': 'THA',
-  '768': 'TGO', '780': 'TTO', '784': 'ARE', '788': 'TUN', '792': 'TUR',
-  '795': 'TKM', '800': 'UGA', '804': 'UKR', '807': 'MKD', '826': 'GBR',
-  '834': 'TZA', '854': 'BFA', '858': 'URY', '860': 'UZB', '862': 'VEN',
-  '887': 'YEM', '894': 'ZMB',
-  // Additional mappings for TopoJSON coverage
-  '010': 'ATA', '031': 'AZE', '044': 'BHS', '051': 'ARM', '064': 'BTN',
-  '070': 'BIH', '072': 'BWA', '084': 'BLZ', '090': 'SLB', '096': 'BRN',
-  '108': 'BDI', '112': 'BLR', '140': 'CAF', '148': 'TCD', '158': 'TWN',
-  '204': 'BEN', '226': 'GNQ', '232': 'ERI', '238': 'FLK', '242': 'FJI',
-  '260': 'ATF', '262': 'DJI', '270': 'GMB', '275': 'PSE', '304': 'GRL',
-  '328': 'GUY', '417': 'KGZ', '426': 'LSO', '498': 'MDA', '499': 'MNE',
-  '548': 'VUT', '624': 'GNB', '626': 'TLS', '703': 'SVK', '705': 'SVN',
-  '732': 'ESH'
-};
 Object.assign(numericToAlpha3, NUMERIC_MAP);
-
-const COUNTRY_NAMES = {
-  AFG: 'Afghanistan', ALB: 'Albania', DZA: 'Algeria', AGO: 'Angola', ARG: 'Argentina',
-  AUS: 'Australia', AUT: 'Austria', BGD: 'Bangladesh', BEL: 'Belgium', BOL: 'Bolivia',
-  BRA: 'Brazil', BGR: 'Bulgaria', MMR: 'Myanmar', KHM: 'Cambodia', CMR: 'Cameroon',
-  CAN: 'Canada', LKA: 'Sri Lanka', CHL: 'Chile', CHN: 'China', COL: 'Colombia',
-  COG: 'Congo', COD: 'DR Congo', CRI: 'Costa Rica', HRV: 'Croatia', CUB: 'Cuba',
-  CYP: 'Cyprus', CZE: 'Czechia', DNK: 'Denmark', DOM: 'Dominican Republic', ECU: 'Ecuador',
-  EGY: 'Egypt', SLV: 'El Salvador', ETH: 'Ethiopia', EST: 'Estonia', FIN: 'Finland',
-  FRA: 'France', GAB: 'Gabon', GEO: 'Georgia', DEU: 'Germany', GHA: 'Ghana',
-  GRC: 'Greece', GTM: 'Guatemala', GIN: 'Guinea', HTI: 'Haiti', HND: 'Honduras',
-  HUN: 'Hungary', ISL: 'Iceland', IND: 'India', IDN: 'Indonesia', IRN: 'Iran',
-  IRQ: 'Iraq', IRL: 'Ireland', ISR: 'Israel', ITA: 'Italy', CIV: 'Ivory Coast',
-  JAM: 'Jamaica', JPN: 'Japan', KAZ: 'Kazakhstan', JOR: 'Jordan', KEN: 'Kenya',
-  KOR: 'South Korea', KWT: 'Kuwait', LAO: 'Laos', LBN: 'Lebanon', LBR: 'Liberia',
-  LBY: 'Libya', LTU: 'Lithuania', LVA: 'Latvia', LUX: 'Luxembourg', MDG: 'Madagascar',
-  MWI: 'Malawi', MYS: 'Malaysia', MLI: 'Mali', MRT: 'Mauritania', MEX: 'Mexico',
-  MNG: 'Mongolia', MAR: 'Morocco', MOZ: 'Mozambique', OMN: 'Oman', NAM: 'Namibia',
-  NPL: 'Nepal', NLD: 'Netherlands', NCL: 'New Caledonia', NZL: 'New Zealand',
-  NIC: 'Nicaragua', NER: 'Niger', NGA: 'Nigeria', NOR: 'Norway', PAK: 'Pakistan',
-  PAN: 'Panama', PNG: 'Papua New Guinea', PRY: 'Paraguay', PER: 'Peru', PHL: 'Philippines',
-  POL: 'Poland', PRT: 'Portugal', PRI: 'Puerto Rico', QAT: 'Qatar', ROU: 'Romania',
-  RUS: 'Russia', RWA: 'Rwanda', SAU: 'Saudi Arabia', SEN: 'Senegal', SRB: 'Serbia',
-  SLE: 'Sierra Leone', SGP: 'Singapore', VNM: 'Vietnam', SOM: 'Somalia',
-  ZAF: 'South Africa', ZWE: 'Zimbabwe', ESP: 'Spain', SSD: 'South Sudan', SDN: 'Sudan',
-  SUR: 'Suriname', SWZ: 'Eswatini', SWE: 'Sweden', CHE: 'Switzerland', SYR: 'Syria',
-  TJK: 'Tajikistan', THA: 'Thailand', TGO: 'Togo', TTO: 'Trinidad and Tobago',
-  ARE: 'United Arab Emirates', TUN: 'Tunisia', TUR: 'Turkey', TKM: 'Turkmenistan',
-  UGA: 'Uganda', UKR: 'Ukraine', MKD: 'North Macedonia', GBR: 'United Kingdom',
-  TZA: 'Tanzania', USA: 'United States', BFA: 'Burkina Faso', URY: 'Uruguay',
-  UZB: 'Uzbekistan', VEN: 'Venezuela', YEM: 'Yemen', ZMB: 'Zambia', PRK: 'North Korea',
-  ATA: 'Antarctica', AZE: 'Azerbaijan', BHS: 'Bahamas', ARM: 'Armenia', BTN: 'Bhutan',
-  BIH: 'Bosnia and Herzegovina', BWA: 'Botswana', BLZ: 'Belize', SLB: 'Solomon Islands',
-  BDI: 'Burundi', BLR: 'Belarus', CAF: 'Central African Republic', TCD: 'Chad',
-  TWN: 'Taiwan', GNQ: 'Equatorial Guinea', ERI: 'Eritrea', FLK: 'Falkland Islands',
-  FJI: 'Fiji', ATF: 'French Southern Lands', DJI: 'Djibouti', GMB: 'Gambia',
-  PSE: 'Palestine', GRL: 'Greenland', GUY: 'Guyana', KGZ: 'Kyrgyzstan',
-  LSO: 'Lesotho', MDA: 'Moldova', MNE: 'Montenegro', VUT: 'Vanuatu',
-  GNB: 'Guinea-Bissau', TLS: 'Timor-Leste', SVK: 'Slovakia', SVN: 'Slovenia',
-  ESH: 'Western Sahara', XKX: 'Kosovo', SML: 'Somaliland', NCY: 'Northern Cyprus'
-};
 
 // TopoJSON geometries with no numeric id — map properties.name → alpha3
 const NAME_TO_ALPHA3 = {
@@ -197,17 +105,6 @@ function getCountryName(alpha3) {
 
 function getCountryData(alpha3) {
   return scoreData?.countries?.[alpha3] || null;
-}
-
-function computeComposite(domains) {
-  let sum = 0, wsum = 0;
-  DOMAIN_KEYS.forEach(k => {
-    if (domains[k]) {
-      sum += domains[k].score * (currentWeights[k] || 0);
-      wsum += currentWeights[k] || 0;
-    }
-  });
-  return wsum > 0 ? Math.round(sum / wsum) : null;
 }
 
 // -- Map --
@@ -255,7 +152,7 @@ function drawMap(world) {
       const a3 = getCountryAlpha3FromFeature(d);
       const cd = getCountryData(a3);
       const name = getCountryName(a3) || d.properties?.name || `#${d.id}`;
-      const score = cd ? computeComposite(cd.domains) : null;
+      const score = cd ? computeComposite(cd.domains, currentWeights, DOMAIN_KEYS) : null;
       tooltip.html(
         `<strong>${name}</strong>` +
         (score !== null ? `<span class="tooltip-score">${score}</span>` : ' <span style="color:var(--text-muted)">No data</span>')
@@ -289,7 +186,7 @@ function countryFill(d) {
   const a3 = getCountryAlpha3FromFeature(d);
   const cd = getCountryData(a3);
   if (!cd) return getComputedStyle(document.documentElement).getPropertyValue('--no-data-fill').trim();
-  const score = computeComposite(cd.domains);
+  const score = computeComposite(cd.domains, currentWeights, DOMAIN_KEYS);
   return extractionColor(score);
 }
 
@@ -370,7 +267,7 @@ function selectCountry(alpha3, numericId) {
   const pickerBtn = document.getElementById('picker-button');
   if (pickerBtn && cd) pickerBtn.textContent = cd.name;
 
-  const composite = computeComposite(cd.domains);
+  const composite = computeComposite(cd.domains, currentWeights, DOMAIN_KEYS);
   document.getElementById('country-name').textContent = cd.name;
   const scoreEl = document.getElementById('composite-score');
   scoreEl.textContent = composite;
@@ -579,9 +476,9 @@ function setupWeightControls() {
       sliderContainer.querySelectorAll('input[type="range"]').forEach(s => {
         rawWeights[s.dataset.key] = parseInt(s.value);
       });
-      const total = Object.values(rawWeights).reduce((a, b) => a + b, 0) || 1;
+      const normalized = normalizeWeights(rawWeights);
       DOMAIN_KEYS.forEach(dk => {
-        currentWeights[dk] = rawWeights[dk] / total;
+        currentWeights[dk] = normalized[dk];
       });
       sliderContainer.querySelectorAll('.weight-row').forEach(r => {
         const inp = r.querySelector('input');
@@ -591,7 +488,7 @@ function setupWeightControls() {
       if (selectedCountryCode) {
         const cd = getCountryData(selectedCountryCode);
         if (cd) {
-          const composite = computeComposite(cd.domains);
+          const composite = computeComposite(cd.domains, currentWeights, DOMAIN_KEYS);
           const scoreEl = document.getElementById('composite-score');
           scoreEl.textContent = composite;
           scoreEl.style.color = extractionColor(composite);
@@ -613,7 +510,7 @@ function setupWeightControls() {
     if (selectedCountryCode) {
       const cd = getCountryData(selectedCountryCode);
       if (cd) {
-        const composite = computeComposite(cd.domains);
+        const composite = computeComposite(cd.domains, currentWeights, DOMAIN_KEYS);
         document.getElementById('composite-score').textContent = composite;
         document.getElementById('composite-score').style.color = extractionColor(composite);
       }
