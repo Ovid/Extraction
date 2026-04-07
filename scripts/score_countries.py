@@ -1249,6 +1249,50 @@ def cap_confidence_by_coverage(confidence, n_domains):
     return confidence
 
 
+def assemble_country_entry(name, domains, source_names):
+    """Assemble the final country dict from scored domains.
+
+    Computes composite score (average), overall confidence (with domain-coverage cap),
+    overall trend (majority vote), cleans internal tracking fields, and builds notes.
+    """
+    # Compute overall confidence from totals across all domains
+    total_indicators = sum(d.get("_n_indicators", 1) for d in domains.values())
+    total_sources = len(set(source_names))
+    all_years = [d.get("_most_recent_year") for d in domains.values() if d.get("_most_recent_year")]
+    overall_most_recent = max(all_years) if all_years else None
+    overall_confidence = assess_domain_confidence(total_indicators, total_sources, overall_most_recent)
+
+    # Cap confidence by domain coverage
+    overall_confidence = cap_confidence_by_coverage(overall_confidence, len(domains))
+
+    # Clean internal tracking fields from domain entries
+    for d in domains.values():
+        d.pop("_n_indicators", None)
+        d.pop("_n_sources", None)
+        d.pop("_most_recent_year", None)
+
+    # Composite: average of available domains
+    scores = [d["score"] for d in domains.values()]
+    composite = round(sum(scores) / len(scores))
+
+    # Overall trend: majority vote
+    trends = [d["trend"] for d in domains.values() if d["trend"] != "unknown"]
+    if trends:
+        overall_trend = Counter(trends).most_common(1)[0][0]
+    else:
+        overall_trend = "unknown"
+
+    unique_sources = sorted(set(source_names))
+    return {
+        "name": name,
+        "domains": domains,
+        "composite_score": composite,
+        "overall_confidence": overall_confidence,
+        "overall_trend": overall_trend,
+        "notes": f"Auto-scored from {', '.join(unique_sources)} ({len(domains)}/7 domains covered).",
+    }
+
+
 def merge_domain_scores(existing, new_domain):
     """Merge two domain entries from different sources by averaging scores.
 
@@ -1696,42 +1740,7 @@ def build_country_scores():
                     f"No V-Dem data available — score reflects unmoderated resource rents ({score_val})."
                 )
 
-        # Compute overall confidence from totals across all domains
-        total_indicators = sum(d.get("_n_indicators", 1) for d in domains.values())
-        total_sources = len(set(source_names))
-        all_years = [d.get("_most_recent_year") for d in domains.values() if d.get("_most_recent_year")]
-        overall_most_recent = max(all_years) if all_years else None
-        overall_confidence = assess_domain_confidence(total_indicators, total_sources, overall_most_recent)
-
-        # Downgrade overall confidence based on domain coverage
-        overall_confidence = cap_confidence_by_coverage(overall_confidence, len(domains))
-
-        # Clean internal tracking fields from domain entries
-        for d in domains.values():
-            d.pop("_n_indicators", None)
-            d.pop("_n_sources", None)
-            d.pop("_most_recent_year", None)
-
-        # Composite: average of available domains
-        scores = [d["score"] for d in domains.values()]
-        composite = round(sum(scores) / len(scores))
-
-        # Overall trend: majority vote
-        trends = [d["trend"] for d in domains.values() if d["trend"] != "unknown"]
-        if trends:
-            overall_trend = Counter(trends).most_common(1)[0][0]
-        else:
-            overall_trend = "unknown"
-
-        unique_sources = sorted(set(source_names))
-        countries[code] = {
-            "name": name,
-            "domains": domains,
-            "composite_score": composite,
-            "overall_confidence": overall_confidence,
-            "overall_trend": overall_trend,
-            "notes": f"Auto-scored from {', '.join(unique_sources)} ({len(domains)}/7 domains covered).",
-        }
+        countries[code] = assemble_country_entry(name, domains, source_names)
 
     return countries
 
