@@ -19,6 +19,8 @@ Key variables we need:
   - v2x_freexp_altinf   Freedom of Expression Index       → information_capture (inverted)
   - v2xme_altinf        Alternative Sources of Info Index → information_capture (inverted)
   - v2x_clphy           Physical Violence Index           → political_capture
+  - v2x_egal              Egalitarian Component Index        → institutional_gatekeeping (inverted)
+  - v2x_partipdem         Participatory Democracy Index      → institutional_gatekeeping (inverted)
 """
 
 import json
@@ -44,6 +46,8 @@ VARIABLES = [
     'v2xme_altinf',      # Alternative Sources of Information (0–1, higher = more free)
     'v2x_clphy',         # Physical Violence Index (0–1, higher = less violence)
     'v2x_rule',          # Rule of Law Index (0–1, higher = stronger rule of law)
+    'v2x_egal',          # Egalitarian Component Index (0–1, higher = more egalitarian)
+    'v2x_partipdem',     # Participatory Democracy Index (0–1, higher = more participatory)
 ]
 
 # V-Dem uses its own country codes; this maps common ones to ISO alpha-3
@@ -125,6 +129,8 @@ def fetch(raw_data_dir: Path) -> list[str]:
             {'name': 'v2xme_altinf',     'domain': 'information_capture', 'inverted': True,  'desc': 'Alternative Sources of Information (0-1)'},
             {'name': 'v2x_clphy',        'domain': 'political_capture',  'inverted': True,  'desc': 'Physical Violence Index (0-1)'},
             {'name': 'v2x_rule',         'domain': 'institutional_gatekeeping', 'inverted': True, 'desc': 'Rule of Law Index (0-1)'},
+            {'name': 'v2x_egal',      'domain': 'institutional_gatekeeping', 'inverted': True, 'desc': 'Egalitarian Component Index (0-1)'},
+            {'name': 'v2x_partipdem', 'domain': 'institutional_gatekeeping', 'inverted': True, 'desc': 'Participatory Democracy Index (0-1)'},
         ],
         'note': 'inverted=True means higher raw value = less extraction; flip when scoring. V-Dem country_text_id is usually ISO alpha-3 but check the codebook for exceptions.'
     }
