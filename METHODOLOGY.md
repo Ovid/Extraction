@@ -48,7 +48,7 @@ Domain score = normalized indicator score.
 
 ### 4. Institutional Gatekeeping
 
-Whether institutions serve the broad population or narrow interests.
+Whether institutions serve the broad population or narrow interests. This domain balances two dimensions: bureaucratic competence (can the state deliver?) and democratic accountability (who does it deliver for?).
 
 | Indicator | Source | Variable | Direction |
 |-----------|--------|----------|-----------|
@@ -56,8 +56,12 @@ Whether institutions serve the broad population or narrow interests.
 | Regulatory Quality | World Bank (WGI) | RQ.EST | Inverted |
 | Government Effectiveness | World Bank (WGI) | GE.EST | Inverted |
 | Rule of Law | V-Dem | v2x_rule | Inverted |
+| Egalitarian Component | V-Dem | v2x_egal | Inverted |
+| Participatory Democracy | V-Dem | v2x_partipdem | Inverted |
 
-When both World Bank and V-Dem data are available for this domain, the domain score is the average of the World Bank group score and the V-Dem score.
+The World Bank WGI indicators measure state capacity — how effectively a government controls corruption, regulates, and delivers services. The V-Dem indicators measure democratic accountability — how equally power and resources are distributed and how much citizens participate in governance. Both dimensions matter: a competent autocracy scores well on WGI but poorly on V-Dem accountability metrics, resulting in a higher extraction score than the WGI alone would suggest.
+
+When both World Bank and V-Dem data are available for this domain, the domain score is the average of the World Bank group score and the V-Dem group score.
 
 ### 5. Information & Media Capture
 
@@ -76,16 +80,24 @@ When both RSF and V-Dem data are available, scores are merged by averaging.
 How vulnerable resource wealth is to elite capture. This is a **composite score**:
 
 ```
-resource_capture = resource_rents × institutional_weakness / 100
+resource_capture = resource_rents × (100 - democratic_accountability) / 100
 ```
 
 Where:
 - `resource_rents` = normalized World Bank natural resource rents (% GDP), indicator NY.GDP.TOTL.RT.ZS
-- `institutional_weakness` = the institutional_gatekeeping domain score (0-100)
+- `democratic_accountability` = raw V-Dem electoral democracy index (v2x_polyarchy) × 100
 
-This means high resource dependence only produces a high score when institutions are too weak to prevent elite capture. For example, Norway has significant resource rents but strong institutions, resulting in a very low resource capture score (1/100). DR Congo has moderate resource rents and very weak institutions, resulting in a high score (56/100).
+This formula uses the **raw** V-Dem polyarchy value (0-1 scale), not a min-max normalized score. Min-max normalization is relative to the dataset and would distort absolute levels — a country with polyarchy 0.50 (a hybrid regime) would appear to have majority accountability under normalization, when in reality 0.50 indicates genuinely weak democratic checks.
 
-When institutional data is unavailable to weight against, the raw resource rents score is used with confidence capped at "low."
+The justification is a first-principles argument supported by the resource curse literature (Ross 2012, Karl 1997): resource wealth is captured by elites to the extent that democratic accountability is absent. In a full autocracy, elites face no check on resource capture. In a full democracy, citizens can hold resource management accountable, reducing elite capture.
+
+**Important limitations of this approach:**
+- V-Dem polyarchy measures *electoral* democracy specifically, not all forms of accountability. Some non-electoral accountability mechanisms (tribal councils, traditional authority structures, religious checks on power) are not captured.
+- The raw 0-1 scale assumes equal intervals — moving from 0.4 to 0.5 is treated as equivalent to moving from 0.8 to 0.9 — which may not reflect political reality.
+- A country's formal democratic institutions may not reflect actual power dynamics. Elections can coexist with elite resource capture.
+- Raw scores are guidelines. They cannot always explain reality.
+
+When V-Dem data is unavailable, the raw resource rents score is used unmoderated, with confidence capped at "low" and a note that democratic accountability data is unavailable.
 
 ### 7. Transnational Facilitation
 
