@@ -1,4 +1,4 @@
-.PHONY: all test test-python test-js cover lint format loc fetch score serve help
+.PHONY: all test test-python test-js cover lint lint-fix format format-check loc fetch score serve help
 
 all: lint format test ## Lint, format, and test
 
@@ -13,11 +13,21 @@ test-js: ## Run JavaScript tests (Vitest)
 cover: ## Generate Python unit test coverage report
 	source .venv/bin/activate && pytest tests/python/unit/ --cov=score_countries --cov-report=term-missing --tb=short -q
 
-lint: ## Lint (placeholder — no linter configured yet)
-	@echo "No linter configured. Add ruff or eslint to enable."
+lint: ## Lint Python (ruff) and JavaScript (eslint)
+	source .venv/bin/activate && ruff check scripts/ tests/python/
+	npx eslint js/ tests/js/
 
-format: ## Format (placeholder — no formatter configured yet)
-	@echo "No formatter configured. Add ruff or prettier to enable."
+lint-fix: ## Lint and autofix Python (ruff) and JavaScript (eslint)
+	source .venv/bin/activate && ruff check --fix scripts/ tests/python/
+	npx eslint --fix js/ tests/js/
+
+format: ## Format Python (ruff) and JavaScript (prettier)
+	source .venv/bin/activate && ruff format scripts/ tests/python/
+	npx prettier --write js/ tests/js/
+
+format-check: ## Check formatting without modifying files
+	source .venv/bin/activate && ruff format --check scripts/ tests/python/
+	npx prettier --check js/ tests/js/
 
 loc: ## Count lines of our own code (excludes dependencies)
 	cloc --exclude-dir=node_modules,.venv,raw_data --exclude-ext=json js/ css/ scripts/ tests/ index.html
