@@ -1,0 +1,4 @@
+node_modules/
+.venv/
+raw_data/
+data/scores.json

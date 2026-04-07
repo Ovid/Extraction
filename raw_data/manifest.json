@@ -116,6 +116,16 @@
       ],
       "status": "success",
       "note": ""
+    },
+    {
+      "source": "vdem",
+      "timestamp": "2026-04-07T11:40:10.035924+00:00",
+      "files": [
+        "vdem/vdem_extract.csv",
+        "vdem/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
     }
   ]
 }

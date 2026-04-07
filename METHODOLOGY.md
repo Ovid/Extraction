@@ -53,11 +53,15 @@ Whether institutions serve the broad population or narrow interests.
 | Indicator | Source | Variable | Direction |
 |-----------|--------|----------|-----------|
 | Control of Corruption | World Bank (WGI) | CC.EST | Inverted |
-| Regulatory Quality | World Bank (WGI) | RQ.EST | Inverted |
-| Government Effectiveness | World Bank (WGI) | GE.EST | Inverted |
 | Rule of Law | V-Dem | v2x_rule | Inverted |
+| Egalitarian Component | V-Dem | v2x_egal | Inverted |
+| Participatory Democracy | V-Dem | v2x_partipdem | Inverted |
 
-When both World Bank and V-Dem data are available for this domain, the domain score is the average of the World Bank group score and the V-Dem score.
+The World Bank WGI Control of Corruption indicator measures the extent to which public power is exercised for private gain, including capture of the state by elites — directly relevant to institutional gatekeeping. The V-Dem indicators measure how equally power and resources are distributed and how much citizens can participate in governance.
+
+**Why Government Effectiveness and Regulatory Quality are excluded:** These WGI indicators measure state capacity (bureaucratic competence, pro-business regulatory environment) rather than who institutions serve. An efficient autocracy scores well on both — high government effectiveness and strong regulatory quality — without its institutions serving broad interests. Including them would systematically understate extraction in competent autocracies.
+
+When both World Bank and V-Dem data are available for this domain, the domain score is the average of the World Bank group score and the V-Dem group score.
 
 ### 5. Information & Media Capture
 
@@ -76,16 +80,26 @@ When both RSF and V-Dem data are available, scores are merged by averaging.
 How vulnerable resource wealth is to elite capture. This is a **composite score**:
 
 ```
-resource_capture = resource_rents × institutional_weakness / 100
+resource_capture = log_normalized_resource_rents × (100 - democratic_accountability) / 100
 ```
 
 Where:
-- `resource_rents` = normalized World Bank natural resource rents (% GDP), indicator NY.GDP.TOTL.RT.ZS
-- `institutional_weakness` = the institutional_gatekeeping domain score (0-100)
+- `log_normalized_resource_rents` = World Bank natural resource rents (% GDP), indicator NY.GDP.TOTL.RT.ZS, log-transformed then min-max normalized to 0-100
+- `democratic_accountability` = raw V-Dem electoral democracy index (v2x_polyarchy) × 100
 
-This means high resource dependence only produces a high score when institutions are too weak to prevent elite capture. For example, Norway has significant resource rents but strong institutions, resulting in a very low resource capture score (1/100). DR Congo has moderate resource rents and very weak institutions, resulting in a high score (56/100).
+Resource rents are log-transformed before min-max normalization because the raw distribution is heavily right-skewed (a few countries exceed 50% of GDP while most are under 5%). Without log transformation, linear min-max normalization compresses most countries into the lower range, understating resource capture vulnerability. Log transformation of right-skewed economic data is standard practice in economics research.
 
-When institutional data is unavailable to weight against, the raw resource rents score is used with confidence capped at "low."
+This formula uses the **raw** V-Dem polyarchy value (0-1 scale), not a min-max normalized score. Min-max normalization is relative to the dataset and would distort absolute levels — a country with polyarchy 0.50 (a hybrid regime) would appear to have majority accountability under normalization, when in reality 0.50 indicates genuinely weak democratic checks.
+
+The justification is a first-principles argument supported by the resource curse literature (Ross 2012, Karl 1997): resource wealth is captured by elites to the extent that democratic accountability is absent. In a full autocracy, elites face no check on resource capture. In a full democracy, citizens can hold resource management accountable, reducing elite capture.
+
+**Important limitations of this approach:**
+- V-Dem polyarchy measures *electoral* democracy specifically, not all forms of accountability. Some non-electoral accountability mechanisms (tribal councils, traditional authority structures, religious checks on power) are not captured.
+- The raw 0-1 scale assumes equal intervals — moving from 0.4 to 0.5 is treated as equivalent to moving from 0.8 to 0.9 — which may not reflect political reality.
+- A country's formal democratic institutions may not reflect actual power dynamics. Elections can coexist with elite resource capture.
+- Raw scores are guidelines. They cannot always explain reality.
+
+When V-Dem data is unavailable, the raw resource rents score is used unmoderated, with confidence capped at "low" and a note that democratic accountability data is unavailable.
 
 ### 7. Transnational Facilitation
 
@@ -112,6 +126,16 @@ normalized = 100 - normalized
 ```
 
 This ensures all scores follow the convention: **0 = no extraction, 100 = extreme extraction**.
+
+### Log-Transformed Normalization
+
+For indicators with extreme right skew (currently: natural resource rents), a log transform is applied before min-max scaling:
+
+```
+log_normalized = (log(1 + value) - log(1 + min)) / (log(1 + max) - log(1 + min)) × 100
+```
+
+This spreads the compressed middle of the distribution while preserving the 0-100 range and relative ordering. The choice of which indicators receive log transformation is based on distributional analysis — resource rents has a skewness that compresses most countries below the 50th percentile under linear scaling.
 
 ## Composite Score
 
@@ -210,14 +234,14 @@ Whichever comparison produces the larger divergence is shown. If fewer than 3 pe
 
 At extremes, comparisons use natural language appropriate to the indicator — e.g., "Strongest rule of law among high-income countries" rather than generic "Highest among."
 
-For the resource capture domain, context facts reflect the composite calculation (resource rents moderated by institutional strength) rather than raw resource rents alone.
+For the resource capture domain, context facts reflect the composite calculation (resource rents moderated by democratic accountability) rather than raw resource rents alone.
 
 ## Data Sources
 
 | Source | Type | Domains | Coverage |
 |--------|------|---------|----------|
 | [World Bank](https://data.worldbank.org/) | API (automatic) | Economic concentration, financial extraction, institutional gatekeeping, resource capture | 190+ countries |
-| [V-Dem](https://www.v-dem.net/) | Manual download (CAPTCHA-protected) | Political capture, information capture, institutional gatekeeping | 202 countries |
+| [V-Dem](https://www.v-dem.net/) | Manual download (form required) | Political capture, information capture, institutional gatekeeping | 202 countries |
 | [RSF Press Freedom Index](https://rsf.org/) | Web scrape (automatic) | Information capture | 180 countries |
 | [Tax Justice Network FSI](https://fsi.taxjustice.net/) | API with public token (automatic) | Transnational facilitation | 141 jurisdictions |
 
@@ -235,7 +259,7 @@ See `sources.md` for the complete source registry including URLs, coverage detai
 
 5. **Normalization is relative.** Min-max scaling means scores reflect a country's position relative to the global range, not an absolute standard. If all countries became more extractive simultaneously, individual scores might not change.
 
-6. **Resource capture depends on institutional data.** Countries without institutional gatekeeping data get a raw resource rents score with reduced confidence, which may misrepresent their actual extraction dynamics.
+6. **Resource capture depends on democratic accountability data.** Countries without V-Dem democratic accountability data get a raw resource rents score with reduced confidence, which may misrepresent their actual extraction dynamics.
 
 ## Replication
 
@@ -262,7 +286,7 @@ python fetch_all.py --source tjn
 python fetch_all.py --list
 ```
 
-**V-Dem requires manual download:** Visit https://www.v-dem.net/data/the-v-dem-dataset/, download "Country-Year: V-Dem Core" (CSV), and extract to `raw_data/vdem/vdem_core_full.csv`. The download is CAPTCHA-protected.
+**V-Dem requires manual download:** Visit https://www.v-dem.net/data/the-v-dem-dataset/, download "Country-Year: V-Dem Core" (CSV), and extract to `raw_data/vdem/vdem_core_full.csv`. The download requires filling out a form.
 
 Raw data is stored in `raw_data/` (gitignored). A manifest at `raw_data/manifest.json` tracks what was fetched, when, and from where.
 

@@ -1,0 +1,11 @@
+country_code,country_name,year,value,indicator
+USA,United States,2020,41.5,SI.POV.GINI
+USA,United States,2018,41.4,SI.POV.GINI
+USA,United States,2013,41.1,SI.POV.GINI
+DNK,Denmark,2021,28.2,SI.POV.GINI
+DNK,Denmark,2014,27.7,SI.POV.GINI
+ZAF,South Africa,2022,63.0,SI.POV.GINI
+ZAF,South Africa,2012,63.4,SI.POV.GINI
+BRA,Brazil,2021,53.4,SI.POV.GINI
+BRA,Brazil,2013,52.9,SI.POV.GINI
+WLD,World,2020,50.0,SI.POV.GINI

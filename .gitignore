@@ -15,11 +15,15 @@ __pycache__/
 *.egg-info/
 venv/
 .venv/
+.coverage
 
 # Raw data (large files; reproducible via scripts/)
 raw_data/*
 !raw_data/manifest.json
 !raw_data/.gitkeep
+
+# Node
+node_modules/
 
 # Scaffolding
 scratch/
