@@ -1230,6 +1230,25 @@ def compute_resource_capture(normalized_resource_score, raw_polyarchy):
     return round(normalized_resource_score * (100 - accountability) / 100)
 
 
+def cap_confidence_by_coverage(confidence, n_domains):
+    """Cap overall confidence based on how many of the 7 domains have data.
+
+    <=3 domains: cap at 'low'
+    <=5 domains: cap at 'moderate'
+    6+  domains: cap at 'high' (no effective cap)
+    """
+    if n_domains <= 3:
+        conf_cap = "low"
+    elif n_domains <= 5:
+        conf_cap = "moderate"
+    else:
+        conf_cap = "high"
+    conf_rank = {"very_low": 0, "low": 1, "moderate": 2, "high": 3}
+    if conf_rank[confidence] > conf_rank[conf_cap]:
+        return conf_cap
+    return confidence
+
+
 def merge_domain_scores(existing, new_domain):
     """Merge two domain entries from different sources by averaging scores.
 
@@ -1685,17 +1704,7 @@ def build_country_scores():
         overall_confidence = assess_domain_confidence(total_indicators, total_sources, overall_most_recent)
 
         # Downgrade overall confidence based on domain coverage
-        n_domains = len(domains)
-        if n_domains <= 3:
-            # Cap at 'low' if less than half domains covered
-            conf_cap = "low"
-        elif n_domains <= 5:
-            conf_cap = "moderate"
-        else:
-            conf_cap = "high"
-        conf_rank = {"very_low": 0, "low": 1, "moderate": 2, "high": 3}
-        if conf_rank[overall_confidence] > conf_rank[conf_cap]:
-            overall_confidence = conf_cap
+        overall_confidence = cap_confidence_by_coverage(overall_confidence, len(domains))
 
         # Clean internal tracking fields from domain entries
         for d in domains.values():
