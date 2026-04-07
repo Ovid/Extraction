@@ -65,7 +65,7 @@ Control over the flow of information and media freedom.
 
 | Indicator | Source | Variable | Direction |
 |-----------|--------|----------|-----------|
-| Press Freedom Index | RSF | (composite score) | Direct (higher RSF score = less free) |
+| Press Freedom Index | RSF | (composite score) | Inverted (higher RSF score = more free, post-2022 methodology) |
 | Freedom of Expression | V-Dem | v2x_freexp_altinf | Inverted |
 | Alternative Info Sources | V-Dem | v2xme_altinf | Inverted |
 

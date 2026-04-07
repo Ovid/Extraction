@@ -711,7 +711,7 @@ def build_country_scores():
     if rsf_scores:
         print(f'  RSF: {len(rsf_scores)} countries')
         rsf_series = pd.Series(rsf_scores)
-        rsf_normalized = normalize_minmax(rsf_series, inverted=False)  # Higher RSF = less free = more extraction
+        rsf_normalized = normalize_minmax(rsf_series, inverted=True)  # Higher RSF = more free = less extraction (post-2022 methodology)
         rsf_map = dict(zip(rsf_series.index, rsf_normalized))
     else:
         rsf_map = {}
