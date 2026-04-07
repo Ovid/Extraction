@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-from score_countries import normalize_minmax
+from score_countries import normalize_minmax, normalize_minmax_log
 
 
 class TestNormalizeMinmax:
@@ -51,3 +51,38 @@ class TestNormalizeMinmax:
         s = pd.Series([0, 33, 100])
         result = normalize_minmax(s)
         assert all(isinstance(v, (int,)) for v in result)
+
+
+class TestNormalizeMinmaxLog:
+    def test_spreads_compressed_distribution(self):
+        """Log transform gives middle values higher scores than linear."""
+        s = pd.Series([0.0, 25.0, 61.0])
+        linear = normalize_minmax(s)
+        log = normalize_minmax_log(s)
+        assert log.iloc[1] > linear.iloc[1]
+
+    def test_extremes_unchanged(self):
+        """Min still maps to 0, max still maps to 100."""
+        s = pd.Series([0.0, 25.0, 61.0])
+        result = normalize_minmax_log(s)
+        assert result.iloc[0] == 0
+        assert result.iloc[2] == 100
+
+    def test_inverted(self):
+        """Inverted log normalization flips correctly."""
+        s = pd.Series([0.0, 25.0, 61.0])
+        result = normalize_minmax_log(s, inverted=True)
+        assert result.iloc[0] == 100
+        assert result.iloc[2] == 0
+
+    def test_all_identical_returns_50(self):
+        """All same values -> all 50."""
+        s = pd.Series([42.0, 42.0, 42.0])
+        result = normalize_minmax_log(s)
+        assert list(result) == [50, 50, 50]
+
+    def test_all_zeros_returns_50(self):
+        """All zeros -> log(1)=0 for all -> all 50."""
+        s = pd.Series([0.0, 0.0, 0.0])
+        result = normalize_minmax_log(s)
+        assert list(result) == [50, 50, 50]

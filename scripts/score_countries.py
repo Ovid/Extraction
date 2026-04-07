@@ -24,6 +24,7 @@ from collections import Counter
 from datetime import date
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -64,6 +65,7 @@ INDICATOR_CONFIG = [
         "inverted": False,
         "source_key": "wb_natural_rents",
         "name": "Natural resource rents",
+        "log_transform": True,
     },
     {
         "file": "wb_wgi_corruption.csv",
@@ -1348,6 +1350,17 @@ def normalize_minmax(series, inverted=False):
     return normalized.round(0).astype(int)
 
 
+def normalize_minmax_log(series, inverted=False):
+    """Normalize using log transform then min-max scaling.
+
+    Use for right-skewed indicators (e.g., resource rents)
+    where extreme outliers compress the rest of the distribution.
+    Log transform is standard for right-skewed economic data.
+    """
+    log_series = np.log1p(series)
+    return normalize_minmax(log_series, inverted=inverted)
+
+
 def estimate_trend_from_data(df, inverted=False):
     """Estimate trend by comparing recent vs older values.
 
@@ -1548,7 +1561,10 @@ def build_country_scores():
         df = load_indicator(filepath)
         if df.empty:
             continue
-        df["normalized"] = normalize_minmax(df["value"], inverted=cfg["inverted"])
+        if cfg.get("log_transform"):
+            df["normalized"] = normalize_minmax_log(df["value"], inverted=cfg["inverted"])
+        else:
+            df["normalized"] = normalize_minmax(df["value"], inverted=cfg["inverted"])
         df["domain"] = cfg["domain"]
         df["source_key"] = cfg["source_key"]
         df["indicator_name"] = cfg["name"]
