@@ -14,14 +14,14 @@ describe('computeComposite', () => {
 
   it('computes weighted average with equal weights', () => {
     const weights = {};
-    DOMAIN_KEYS.forEach(k => weights[k] = 1 / 7);
+    DOMAIN_KEYS.forEach((k) => (weights[k] = 1 / 7));
     const result = computeComposite(allDomains, weights, DOMAIN_KEYS);
     expect(result).toBe(50);
   });
 
   it('handles custom weights with some zeroed', () => {
     const weights = {};
-    DOMAIN_KEYS.forEach(k => weights[k] = 0);
+    DOMAIN_KEYS.forEach((k) => (weights[k] = 0));
     weights.political_capture = 0.5;
     weights.economic_concentration = 0.5;
     const result = computeComposite(allDomains, weights, DOMAIN_KEYS);
@@ -34,21 +34,21 @@ describe('computeComposite', () => {
       economic_concentration: { score: 60 },
     };
     const weights = {};
-    DOMAIN_KEYS.forEach(k => weights[k] = 1 / 7);
+    DOMAIN_KEYS.forEach((k) => (weights[k] = 1 / 7));
     const result = computeComposite(partial, weights, DOMAIN_KEYS);
     expect(result).toBe(50);
   });
 
   it('returns null when all domains missing', () => {
     const weights = {};
-    DOMAIN_KEYS.forEach(k => weights[k] = 1 / 7);
+    DOMAIN_KEYS.forEach((k) => (weights[k] = 1 / 7));
     const result = computeComposite({}, weights, DOMAIN_KEYS);
     expect(result).toBeNull();
   });
 
   it('returns null when all weights are zero', () => {
     const weights = {};
-    DOMAIN_KEYS.forEach(k => weights[k] = 0);
+    DOMAIN_KEYS.forEach((k) => (weights[k] = 0));
     const result = computeComposite(allDomains, weights, DOMAIN_KEYS);
     expect(result).toBeNull();
   });
@@ -56,7 +56,7 @@ describe('computeComposite', () => {
   it('single domain equals that score', () => {
     const single = { political_capture: { score: 73 } };
     const weights = {};
-    DOMAIN_KEYS.forEach(k => weights[k] = 1 / 7);
+    DOMAIN_KEYS.forEach((k) => (weights[k] = 1 / 7));
     const result = computeComposite(single, weights, DOMAIN_KEYS);
     expect(result).toBe(73);
   });

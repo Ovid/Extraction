@@ -1,6 +1,7 @@
 """Tests for min-max normalization."""
 
 import pandas as pd
+
 from score_countries import normalize_minmax
 
 

@@ -1,36 +1,38 @@
 """Tests for country code handling, exclusions, and mappings."""
 
 from score_countries import (
-    EXCLUDE_CODES, COUNTRY_NAME_OVERRIDES, ALPHA2_TO_ALPHA3,
+    ALPHA2_TO_ALPHA3,
+    COUNTRY_NAME_OVERRIDES,
+    EXCLUDE_CODES,
     RSF_CODE_REMAP,
 )
 
 
 class TestExcludeCodes:
     def test_excludes_world_aggregate(self):
-        assert 'WLD' in EXCLUDE_CODES
+        assert "WLD" in EXCLUDE_CODES
 
     def test_excludes_income_groups(self):
-        for code in ['HIC', 'LIC', 'LMC', 'UMC', 'MIC']:
+        for code in ["HIC", "LIC", "LMC", "UMC", "MIC"]:
             assert code in EXCLUDE_CODES
 
     def test_excludes_regional_aggregates(self):
-        for code in ['EAS', 'ECS', 'LAC', 'MEA', 'NAC', 'SAS', 'SSF']:
+        for code in ["EAS", "ECS", "LAC", "MEA", "NAC", "SAS", "SSF"]:
             assert code in EXCLUDE_CODES
 
     def test_no_real_country_excluded(self):
         """Spot check that real countries aren't accidentally excluded."""
-        real_countries = ['USA', 'GBR', 'CHN', 'IND', 'BRA', 'NGA', 'AUS']
+        real_countries = ["USA", "GBR", "CHN", "IND", "BRA", "NGA", "AUS"]
         for code in real_countries:
             assert code not in EXCLUDE_CODES
 
 
 class TestCountryNameOverrides:
     def test_usa_override(self):
-        assert COUNTRY_NAME_OVERRIDES['USA'] == 'United States'
+        assert COUNTRY_NAME_OVERRIDES["USA"] == "United States"
 
     def test_kor_override(self):
-        assert COUNTRY_NAME_OVERRIDES['KOR'] == 'South Korea'
+        assert COUNTRY_NAME_OVERRIDES["KOR"] == "South Korea"
 
     def test_all_overrides_are_three_letter(self):
         """All override keys must be 3-letter codes."""
@@ -41,10 +43,10 @@ class TestCountryNameOverrides:
 
 class TestAlpha2ToAlpha3:
     def test_us_to_usa(self):
-        assert ALPHA2_TO_ALPHA3['US'] == 'USA'
+        assert ALPHA2_TO_ALPHA3["US"] == "USA"
 
     def test_gb_to_gbr(self):
-        assert ALPHA2_TO_ALPHA3['GB'] == 'GBR'
+        assert ALPHA2_TO_ALPHA3["GB"] == "GBR"
 
     def test_all_keys_are_two_letter(self):
         for key in ALPHA2_TO_ALPHA3:
@@ -62,4 +64,4 @@ class TestAlpha2ToAlpha3:
 
 class TestRsfCodeRemap:
     def test_seychelles_remap(self):
-        assert RSF_CODE_REMAP['SEY'] == 'SYC'
+        assert RSF_CODE_REMAP["SEY"] == "SYC"

@@ -34,20 +34,35 @@ const TREND_TIPS = {
 // See: Crameri et al. (2020) "The misuse of colour in science communication"
 // https://www.nature.com/articles/s41467-020-19160-7
 // Domain is recalibrated from actual data in init() via updateColorScale()
-const LAJOLLA_COLORS = ['#FFFFCC', '#FBE69C', '#F6D869', '#EEB655', '#E89652',
-                         '#E1744F', '#CE534C', '#A04543', '#702E2E', '#402716', '#1A1A00'];
-let extractionColor = d3.scaleLinear()
-  .domain(LAJOLLA_COLORS.map((_, i) => i / (LAJOLLA_COLORS.length - 1) * 100))
+const LAJOLLA_COLORS = [
+  '#FFFFCC',
+  '#FBE69C',
+  '#F6D869',
+  '#EEB655',
+  '#E89652',
+  '#E1744F',
+  '#CE534C',
+  '#A04543',
+  '#702E2E',
+  '#402716',
+  '#1A1A00',
+];
+let extractionColor = d3
+  .scaleLinear()
+  .domain(LAJOLLA_COLORS.map((_, i) => (i / (LAJOLLA_COLORS.length - 1)) * 100))
   .range(LAJOLLA_COLORS)
   .clamp(true);
 
 function updateColorScale() {
   const countries = scoreData?.countries || {};
-  const scores = Object.values(countries).map(c => c.composite_score ?? 0).sort((a, b) => a - b);
+  const scores = Object.values(countries)
+    .map((c) => c.composite_score ?? 0)
+    .sort((a, b) => a - b);
   if (scores.length < 3) return;
   const lo = scores[0];
   const hi = scores[scores.length - 1];
-  extractionColor = d3.scaleLinear()
+  extractionColor = d3
+    .scaleLinear()
     .domain(LAJOLLA_COLORS.map((_, i) => lo + (i / (LAJOLLA_COLORS.length - 1)) * (hi - lo)))
     .range(LAJOLLA_COLORS)
     .clamp(true);
@@ -61,14 +76,14 @@ let selectedCountryCode = null;
 async function init() {
   const [world, scores] = await Promise.all([
     d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
-    d3.json('data/scores.json')
+    d3.json('data/scores.json'),
   ]);
 
   scoreData = scores;
 
   // Initialize equal weights
-  DOMAIN_KEYS.forEach(k => {
-    currentWeights[k] = scores.metadata.default_weights[k] || (1 / DOMAIN_KEYS.length);
+  DOMAIN_KEYS.forEach((k) => {
+    currentWeights[k] = scores.metadata.default_weights[k] || 1 / DOMAIN_KEYS.length;
   });
 
   updateColorScale();
@@ -84,8 +99,8 @@ Object.assign(numericToAlpha3, NUMERIC_MAP);
 
 // TopoJSON geometries with no numeric id — map properties.name → alpha3
 const NAME_TO_ALPHA3 = {
-  'Kosovo': 'XKX',
-  'Somaliland': 'SML',
+  Kosovo: 'XKX',
+  Somaliland: 'SML',
   'N. Cyprus': 'NCY',
 };
 
@@ -123,7 +138,8 @@ function drawMap(world) {
   mapHeight = container.clientHeight;
   mapSvg.attr('viewBox', `0 0 ${mapWidth} ${mapHeight}`);
 
-  mapProjection = d3.geoNaturalEarth1()
+  mapProjection = d3
+    .geoNaturalEarth1()
     .fitSize([mapWidth - 20, mapHeight - 20], topojson.feature(world, world.objects.countries))
     .translate([mapWidth / 2, mapHeight / 2]);
 
@@ -135,10 +151,11 @@ function drawMap(world) {
   // Create a group for all country paths (zoom transforms this group)
   mapG = mapSvg.append('g').attr('class', 'countries-group');
 
-  mapG.selectAll('.country-path')
+  mapG
+    .selectAll('.country-path')
     .data(countries)
     .join('path')
-    .attr('class', d => {
+    .attr('class', (d) => {
       const a3 = getCountryAlpha3FromFeature(d);
       const cd = getCountryData(a3);
       let cls = 'country-path';
@@ -146,8 +163,8 @@ function drawMap(world) {
       return cls;
     })
     .attr('d', mapPath)
-    .attr('fill', d => countryFill(d))
-    .attr('opacity', d => countryOpacity(d))
+    .attr('fill', (d) => countryFill(d))
+    .attr('opacity', (d) => countryOpacity(d))
     .on('mousemove', (event, d) => {
       const a3 = getCountryAlpha3FromFeature(d);
       const cd = getCountryData(a3);
@@ -155,11 +172,14 @@ function drawMap(world) {
       const score = cd ? computeComposite(cd.domains, currentWeights, DOMAIN_KEYS) : null;
       tooltip.html(
         `<strong>${name}</strong>` +
-        (score !== null ? `<span class="tooltip-score">${score}</span>` : ' <span style="color:var(--text-muted)">No data</span>')
+          (score !== null
+            ? `<span class="tooltip-score">${score}</span>`
+            : ' <span style="color:var(--text-muted)">No data</span>'),
       );
-      tooltip.classed('visible', true)
-        .style('left', (event.offsetX + 14) + 'px')
-        .style('top', (event.offsetY - 10) + 'px');
+      tooltip
+        .classed('visible', true)
+        .style('left', event.offsetX + 14 + 'px')
+        .style('top', event.offsetY - 10 + 'px');
     })
     .on('mouseleave', () => tooltip.classed('visible', false))
     .on('click', (event, d) => {
@@ -168,7 +188,8 @@ function drawMap(world) {
     });
 
   // Zoom behavior
-  mapZoom = d3.zoom()
+  mapZoom = d3
+    .zoom()
     .scaleExtent([1, 8])
     .on('zoom', (event) => {
       mapG.attr('transform', event.transform);
@@ -178,8 +199,15 @@ function drawMap(world) {
 
   // Zoom controls
   d3.select('#zoom-in').on('click', () => mapSvg.transition().duration(300).call(mapZoom.scaleBy, 1.5));
-  d3.select('#zoom-out').on('click', () => mapSvg.transition().duration(300).call(mapZoom.scaleBy, 1 / 1.5));
-  d3.select('#zoom-reset').on('click', () => mapSvg.transition().duration(500).call(mapZoom.transform, d3.zoomIdentity));
+  d3.select('#zoom-out').on('click', () =>
+    mapSvg
+      .transition()
+      .duration(300)
+      .call(mapZoom.scaleBy, 1 / 1.5),
+  );
+  d3.select('#zoom-reset').on('click', () =>
+    mapSvg.transition().duration(500).call(mapZoom.transform, d3.zoomIdentity),
+  );
 }
 
 function countryFill(d) {
@@ -199,9 +227,10 @@ function countryOpacity(d) {
 
 function refreshMapColors() {
   d3.selectAll('.country-path')
-    .transition().duration(400)
-    .attr('fill', d => countryFill(d))
-    .attr('opacity', d => countryOpacity(d));
+    .transition()
+    .duration(400)
+    .attr('fill', (d) => countryFill(d))
+    .attr('opacity', (d) => countryOpacity(d));
 }
 
 // -- Legend gradient --
@@ -209,7 +238,8 @@ function drawLegendGradient() {
   const canvas = document.getElementById('legend-gradient');
   const ctx = canvas.getContext('2d');
   const domain = extractionColor.domain();
-  const lo = domain[0], hi = domain[domain.length - 1];
+  const lo = domain[0],
+    hi = domain[domain.length - 1];
   for (let x = 0; x < 180; x++) {
     const score = lo + (x / 179) * (hi - lo);
     ctx.fillStyle = extractionColor(score);
@@ -226,10 +256,11 @@ function drawLegendGradient() {
 function selectCountry(alpha3, numericId) {
   d3.selectAll('.country-path').classed('selected', false);
   if (numericId != null || alpha3) {
-    const sel = d3.selectAll('.country-path')
-      .filter(d => numericId != null
-        ? String(d.id) === String(numericId)
-        : getCountryAlpha3FromFeature(d) === alpha3);
+    const sel = d3
+      .selectAll('.country-path')
+      .filter((d) =>
+        numericId != null ? String(d.id) === String(numericId) : getCountryAlpha3FromFeature(d) === alpha3,
+      );
     sel.classed('selected', true).raise();
 
     // Center map on selected country
@@ -241,10 +272,10 @@ function selectCountry(alpha3, numericId) {
       const cy = (bounds[0][1] + bounds[1][1]) / 2;
       const scale = Math.min(8, 0.7 / Math.max(dx / mapWidth, dy / mapHeight));
       const translate = [mapWidth / 2 - scale * cx, mapHeight / 2 - scale * cy];
-      mapSvg.transition().duration(750).call(
-        mapZoom.transform,
-        d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
-      );
+      mapSvg
+        .transition()
+        .duration(750)
+        .call(mapZoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
     }
   }
 
@@ -285,10 +316,11 @@ function selectCountry(alpha3, numericId) {
 
   // Data advisories
   const advisories = [];
-  const sel = d3.selectAll('.country-path').filter(d =>
-    numericId != null
-      ? String(d.id) === String(numericId)
-      : getCountryAlpha3FromFeature(d) === alpha3);
+  const sel = d3
+    .selectAll('.country-path')
+    .filter((d) =>
+      numericId != null ? String(d.id) === String(numericId) : getCountryAlpha3FromFeature(d) === alpha3,
+    );
   if (sel.size() === 0) {
     advisories.push('This territory is too small to display on the world map.');
   }
@@ -308,21 +340,28 @@ function drawRadar(domains) {
   const svg = d3.select('#radar-svg');
   svg.selectAll('*').remove();
 
-  const cx = 230, cy = 165, maxR = 120;
+  const cx = 230,
+    cy = 165,
+    maxR = 120;
   const n = DOMAIN_KEYS.length;
   const angleSlice = (2 * Math.PI) / n;
 
   // Concentric rings
-  [25, 50, 75, 100].forEach(level => {
+  [25, 50, 75, 100].forEach((level) => {
     const r = (level / 100) * maxR;
-    svg.append('circle')
-      .attr('cx', cx).attr('cy', cy).attr('r', r)
+    svg
+      .append('circle')
+      .attr('cx', cx)
+      .attr('cy', cy)
+      .attr('r', r)
       .attr('fill', 'none')
       .attr('stroke', 'var(--overlay-subtle)')
       .attr('stroke-width', 0.5);
     if (level < 100) {
-      svg.append('text')
-        .attr('x', cx + 3).attr('y', cy - r + 2)
+      svg
+        .append('text')
+        .attr('x', cx + 3)
+        .attr('y', cy - r + 2)
         .attr('fill', 'var(--overlay-medium)')
         .attr('font-size', '9px')
         .text(level);
@@ -331,13 +370,16 @@ function drawRadar(domains) {
 
   // Axis lines and labels
   DOMAIN_KEYS.forEach((k, i) => {
-    const angle = (i * angleSlice) - Math.PI / 2;
+    const angle = i * angleSlice - Math.PI / 2;
     const x2 = cx + maxR * Math.cos(angle);
     const y2 = cy + maxR * Math.sin(angle);
 
-    svg.append('line')
-      .attr('x1', cx).attr('y1', cy)
-      .attr('x2', x2).attr('y2', y2)
+    svg
+      .append('line')
+      .attr('x1', cx)
+      .attr('y1', cy)
+      .attr('x2', x2)
+      .attr('y2', y2)
       .attr('stroke', 'var(--overlay-subtle)')
       .attr('stroke-width', 0.5);
 
@@ -346,11 +388,12 @@ function drawRadar(domains) {
     const ly = cy + (maxR + 18) * Math.sin(angle);
     const label = DOMAIN_LABELS[k].replace('& ', '&\n');
     const lines = label.split('\n');
-    const textAnchor = Math.abs(Math.cos(angle)) < 0.1 ? 'middle' :
-                        Math.cos(angle) > 0 ? 'start' : 'end';
+    const textAnchor = Math.abs(Math.cos(angle)) < 0.1 ? 'middle' : Math.cos(angle) > 0 ? 'start' : 'end';
 
-    const g = svg.append('text')
-      .attr('x', lx).attr('y', ly)
+    const g = svg
+      .append('text')
+      .attr('x', lx)
+      .attr('y', ly)
       .attr('text-anchor', textAnchor)
       .attr('dominant-baseline', 'middle')
       .attr('fill', 'var(--text-secondary)')
@@ -366,25 +409,27 @@ function drawRadar(domains) {
 
   // Data polygon
   const points = DOMAIN_KEYS.map((k, i) => {
-    const angle = (i * angleSlice) - Math.PI / 2;
+    const angle = i * angleSlice - Math.PI / 2;
     const r = ((domains[k]?.score || 0) / 100) * maxR;
     return [cx + r * Math.cos(angle), cy + r * Math.sin(angle)];
   });
 
   // Confidence band (lighter fill)
-  svg.append('polygon')
-    .attr('points', points.map(p => p.join(',')).join(' '))
+  svg
+    .append('polygon')
+    .attr('points', points.map((p) => p.join(',')).join(' '))
     .attr('fill', 'var(--radar-accent)')
     .attr('stroke', 'var(--radar-accent-stroke)')
     .attr('stroke-width', 1.5);
 
   // Data points
   DOMAIN_KEYS.forEach((k, i) => {
-    const angle = (i * angleSlice) - Math.PI / 2;
+    const angle = i * angleSlice - Math.PI / 2;
     const r = ((domains[k]?.score || 0) / 100) * maxR;
     const conf = CONFIDENCE_OPACITY[domains[k]?.confidence] || 0.3;
 
-    svg.append('circle')
+    svg
+      .append('circle')
       .attr('cx', cx + r * Math.cos(angle))
       .attr('cy', cy + r * Math.sin(angle))
       .attr('r', 4)
@@ -401,7 +446,7 @@ function drawDomainList(domains) {
   const container = document.getElementById('domain-list');
   container.innerHTML = '';
 
-  DOMAIN_KEYS.forEach(k => {
+  DOMAIN_KEYS.forEach((k) => {
     const d = domains[k];
     if (!d) return;
 
@@ -423,11 +468,23 @@ function drawDomainList(domains) {
           <div class="domain-bar-fill" style="width:${d.score}%; background:${color}; opacity:${CONFIDENCE_OPACITY[conf]}"></div>
         </div>
       </div>
-      ${d.indicators?.length ? `<ul class="domain-justification">${d.indicators.map(ind => {
-        const factsHtml = (ind.facts || []).map(f => `<span class="context-fact">${f}</span>`).join('');
-        return `<li>${ind.question} ${ind.label}${factsHtml}</li>`;
-      }).join('')}</ul>` : (d.justification ? `<ul class="domain-justification">${d.justification.split(/(?<=\.)\s+/).filter(s => s.trim()).map(s => `<li>${s.replace(/\.$/, '')}</li>`).join('')}</ul>` : '')}
-      ${d.justification_detail ? `<a class="raw-data-toggle" href="#">Show raw data &#9656;</a><div class="raw-data-detail" style="display:none"><div class="domain-justification">${d.justification_detail}</div>${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.map(s => SOURCE_URLS[s] ? `<a href="${SOURCE_URLS[s]}" target="_blank" rel="noopener">${s}</a>` : s).join(', ')}</div>` : ''}</div>` : ''}
+      ${
+        d.indicators?.length
+          ? `<ul class="domain-justification">${d.indicators
+              .map((ind) => {
+                const factsHtml = (ind.facts || []).map((f) => `<span class="context-fact">${f}</span>`).join('');
+                return `<li>${ind.question} ${ind.label}${factsHtml}</li>`;
+              })
+              .join('')}</ul>`
+          : d.justification
+            ? `<ul class="domain-justification">${d.justification
+                .split(/(?<=\.)\s+/)
+                .filter((s) => s.trim())
+                .map((s) => `<li>${s.replace(/\.$/, '')}</li>`)
+                .join('')}</ul>`
+            : ''
+      }
+      ${d.justification_detail ? `<a class="raw-data-toggle" href="#">Show raw data &#9656;</a><div class="raw-data-detail" style="display:none"><div class="domain-justification">${d.justification_detail}</div>${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.map((s) => (SOURCE_URLS[s] ? `<a href="${SOURCE_URLS[s]}" target="_blank" rel="noopener">${s}</a>` : s)).join(', ')}</div>` : ''}</div>` : ''}
       <div class="domain-meta">
         <span class="confidence-badge">Confidence: ${conf.replace('_', ' ')}</span>
       </div>
@@ -459,7 +516,7 @@ function setupWeightControls() {
     toggle.textContent = controls.classList.contains('open') ? 'Hide Weights' : 'Adjust Weights';
   });
 
-  DOMAIN_KEYS.forEach(k => {
+  DOMAIN_KEYS.forEach((k) => {
     const row = document.createElement('div');
     row.className = 'weight-row';
     row.innerHTML = `
@@ -473,14 +530,14 @@ function setupWeightControls() {
     const display = row.querySelector('.weight-value');
     slider.addEventListener('input', () => {
       const rawWeights = {};
-      sliderContainer.querySelectorAll('input[type="range"]').forEach(s => {
+      sliderContainer.querySelectorAll('input[type="range"]').forEach((s) => {
         rawWeights[s.dataset.key] = parseInt(s.value);
       });
       const normalized = normalizeWeights(rawWeights);
-      DOMAIN_KEYS.forEach(dk => {
+      DOMAIN_KEYS.forEach((dk) => {
         currentWeights[dk] = normalized[dk];
       });
-      sliderContainer.querySelectorAll('.weight-row').forEach(r => {
+      sliderContainer.querySelectorAll('.weight-row').forEach((r) => {
         const inp = r.querySelector('input');
         r.querySelector('.weight-value').textContent = Math.round(currentWeights[inp.dataset.key] * 100) + '%';
       });
@@ -499,11 +556,11 @@ function setupWeightControls() {
 
   document.getElementById('reset-weights').addEventListener('click', () => {
     const eq = 1 / DOMAIN_KEYS.length;
-    DOMAIN_KEYS.forEach(k => currentWeights[k] = eq);
-    sliderContainer.querySelectorAll('input[type="range"]').forEach(s => {
+    DOMAIN_KEYS.forEach((k) => (currentWeights[k] = eq));
+    sliderContainer.querySelectorAll('input[type="range"]').forEach((s) => {
       s.value = Math.round(eq * 100);
     });
-    sliderContainer.querySelectorAll('.weight-value').forEach(v => {
+    sliderContainer.querySelectorAll('.weight-value').forEach((v) => {
       v.textContent = Math.round(eq * 100) + '%';
     });
     refreshMapColors();
@@ -609,9 +666,7 @@ function populateCountrySelect(sortBy) {
     const div = document.createElement('div');
     div.className = 'picker-item' + (code === selectedCountryCode ? ' selected' : '');
     div.dataset.code = code;
-    div.textContent = countrySortMode === 'score'
-      ? `${rank}. ${name} (${composite})`
-      : `${name} (#${rank})`;
+    div.textContent = countrySortMode === 'score' ? `${rank}. ${name} (${composite})` : `${name} (#${rank})`;
     list.appendChild(div);
   });
 }
@@ -687,7 +742,7 @@ function populateCountrySelect(sortBy) {
   });
 })();
 
-init().catch(err => {
+init().catch((err) => {
   console.error('Failed to initialize:', err);
   document.querySelector('.no-data-note').textContent = 'Error loading data. See console.';
 });
