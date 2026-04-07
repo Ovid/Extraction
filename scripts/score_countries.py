@@ -65,6 +65,8 @@ INDICATOR_QUESTIONS = {
     'vdem_freedom_of_expression': 'How free is public expression?',
     'vdem_alternative_info_sources': 'How available are independent information sources?',
     'vdem_rule_of_law':           'How strong is the rule of law?',
+    'vdem_egalitarian':           'How equally are political power and resources distributed?',
+    'vdem_participatory_democracy': 'How much can citizens participate in governance?',
     # RSF
     'rsf_press':            'How free is the press?',
     # TJN FSI
@@ -96,6 +98,8 @@ POSITIVE_QUESTION_INDICATORS = {
     'vdem_freedom_of_expression',    # "How free is public expression?"
     'vdem_alternative_info_sources', # "How available are independent information sources?"
     'vdem_rule_of_law',              # "How strong is the rule of law?"
+    'vdem_egalitarian',                  # "How equally are...?" — equal = good
+    'vdem_participatory_democracy',      # "How much can citizens...?" — participation = good
     'rsf_press',                     # "How free is the press?" — free = good
 }
 
@@ -141,6 +145,10 @@ INDICATOR_DISPLAY = {
                                       'comparison_label': ['Most independent media among', 'Least independent media among']},
     'vdem_rule_of_law':           {'label': 'Rule of law index', 'format': '{:.2f}', 'unit': '(scale: 0-1)',
                                    'comparison_label': ['Strongest rule of law among', 'Weakest rule of law among']},
+    'vdem_egalitarian':           {'label': 'Egalitarian component index', 'format': '{:.2f}', 'unit': '(scale: 0-1)',
+                                   'comparison_label': ['Most egalitarian among', 'Least egalitarian among']},
+    'vdem_participatory_democracy': {'label': 'Participatory democracy index', 'format': '{:.2f}', 'unit': '(scale: 0-1)',
+                                      'comparison_label': ['Most participatory among', 'Least participatory among']},
     'rsf_press':            {'label': 'Press freedom score', 'format': '{:.1f}', 'unit': 'out of 100',
                              'comparison_label': ['Freest press among', 'Least free press among']},
     'tjn_fsi':              {'label': 'Financial Secrecy Index score', 'format': '{:.0f}', 'unit': '',
@@ -574,7 +582,8 @@ def load_vdem_data():
     df = df.sort_values('year', ascending=False).drop_duplicates('country_text_id', keep='first')
     result = {}
     vdem_vars = ['v2x_polyarchy', 'v2x_corr', 'v2xnp_client',
-                 'v2x_freexp_altinf', 'v2xme_altinf', 'v2x_clphy', 'v2x_rule']
+                 'v2x_freexp_altinf', 'v2xme_altinf', 'v2x_clphy', 'v2x_rule',
+                 'v2x_egal', 'v2x_partipdem']
     for _, row in df.iterrows():
         code = row['country_text_id']
         vals = {}
@@ -744,6 +753,8 @@ def build_country_scores():
             'v2x_freexp_altinf': {'domain': 'information_capture',     'inverted': True,  'name': 'Freedom of Expression'},
             'v2xme_altinf':      {'domain': 'information_capture',     'inverted': True,  'name': 'Alternative Info Sources'},
             'v2x_rule':          {'domain': 'institutional_gatekeeping', 'inverted': True, 'name': 'Rule of Law'},
+            'v2x_egal':      {'domain': 'institutional_gatekeeping', 'inverted': True, 'name': 'Egalitarian Component'},
+            'v2x_partipdem': {'domain': 'institutional_gatekeeping', 'inverted': True, 'name': 'Participatory Democracy'},
         }
         # Build per-variable series for normalization
         vdem_normalized = {}  # {country: {var: normalized_score}}
@@ -779,6 +790,8 @@ def build_country_scores():
         'v2x_freexp_altinf': 'vdem_freedom_of_expression',
         'v2xme_altinf': 'vdem_alternative_info_sources',
         'v2x_rule': 'vdem_rule_of_law',
+        'v2x_egal': 'vdem_egalitarian',
+        'v2x_partipdem': 'vdem_participatory_democracy',
     }
     for var, source_key in vdem_source_key_map.items():
         values = {code: vals[var] for code, vals in vdem_raw.items() if var in vals}
