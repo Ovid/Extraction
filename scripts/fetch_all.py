@@ -28,7 +28,7 @@ MANIFEST_PATH = RAW_DATA_DIR / "manifest.json"
 FETCHER_REGISTRY = {
     "worldbank": {
         "module": "worldbank",
-        "description": "World Bank Development Indicators (Gini, labor share, domestic credit, natural resource rents, regulatory quality)",
+        "description": "World Bank Development Indicators (Gini, labor share, domestic credit, natural resource rents, corruption control)",
         "type": "api",
     },
     "vdem": {

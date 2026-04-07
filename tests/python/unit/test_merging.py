@@ -21,16 +21,15 @@ class TestMergeDomainScores:
         """Source lists are concatenated."""
         merged = merge_domain_scores(sample_domain_a, sample_domain_b)
         assert "wb_wgi_corruption" in merged["sources"]
-        assert "wb_reg_quality" in merged["sources"]
         assert "vdem_rule_of_law" in merged["sources"]
 
     def test_confidence_recalculated(self, sample_domain_a, sample_domain_b):
         """Confidence recalculated from combined n_indicators, n_sources, most_recent_year."""
         merged = merge_domain_scores(sample_domain_a, sample_domain_b)
-        # Combined: 3 indicators, 2 sources, year 2024
-        # completeness=2 (3 indicators), diversity=2 (2 sources), recency=3 (2024)
-        # total=7 -> 'high'
-        assert merged["confidence"] == "high"
+        # Combined: 2 indicators, 2 sources, year 2024
+        # completeness=1 (2 indicators), diversity=2 (2 sources), recency=3 (2024)
+        # total=6 -> 'moderate'
+        assert merged["confidence"] == "moderate"
 
     def test_trend_preserves_known(self, sample_domain_a, sample_domain_b):
         """Known trend from source A preserved when B is unknown."""

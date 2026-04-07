@@ -74,20 +74,6 @@ INDICATOR_CONFIG = [
         "source_key": "wb_wgi_corruption",
         "name": "WGI Control of Corruption",
     },
-    {
-        "file": "wb_wgi_reg_quality.csv",
-        "domain": "institutional_gatekeeping",
-        "inverted": True,
-        "source_key": "wb_reg_quality",
-        "name": "WGI Regulatory Quality",
-    },
-    {
-        "file": "wb_wgi_gov_effectiveness.csv",
-        "domain": "institutional_gatekeeping",
-        "inverted": True,
-        "source_key": "wb_wgi_gov_eff",
-        "name": "WGI Government Effectiveness",
-    },
 ]
 
 # Human-readable questions for each indicator (used in justifications)
@@ -98,8 +84,6 @@ INDICATOR_QUESTIONS = {
     "wb_domestic_credit": "How much wealth is extracted through debt and financial fees?",
     "wb_natural_rents": "How dependent is the economy on natural resources?",
     "wb_wgi_corruption": "How well is corruption controlled?",
-    "wb_reg_quality": "How well do government regulations protect people?",
-    "wb_wgi_gov_eff": "How effective is the government?",
     # V-Dem indicators
     "vdem_political_corruption": "How corrupt is the political system?",
     "vdem_clientelism": "How common is vote-buying and patronage?",
@@ -135,8 +119,6 @@ def score_to_label(score):
 # For these, the label should be flipped: a low extraction score means "High" freedom.
 POSITIVE_QUESTION_INDICATORS = {
     "wb_wgi_corruption",  # "How well is corruption controlled?" — well = good
-    "wb_reg_quality",  # "How well do government regulations protect people?"
-    "wb_wgi_gov_eff",  # "How effective is the government?"
     "vdem_electoral_democracy",  # "How democratic are elections?"
     "vdem_freedom_of_expression",  # "How free is public expression?"
     "vdem_alternative_info_sources",  # "How available are independent information sources?"
@@ -188,18 +170,6 @@ INDICATOR_DISPLAY = {
         "format": "{:.2f}",
         "unit": "(scale: -2.5 to 2.5)",
         "comparison_label": ["Strongest corruption control among", "Weakest corruption control among"],
-    },
-    "wb_reg_quality": {
-        "label": "Regulatory quality index",
-        "format": "{:.2f}",
-        "unit": "(scale: -2.5 to 2.5)",
-        "comparison_label": ["Strongest regulatory quality among", "Weakest regulatory quality among"],
-    },
-    "wb_wgi_gov_eff": {
-        "label": "Government effectiveness index",
-        "format": "{:.2f}",
-        "unit": "(scale: -2.5 to 2.5)",
-        "comparison_label": ["Most effective government among", "Least effective government among"],
     },
     "vdem_political_corruption": {
         "label": "Political corruption index",

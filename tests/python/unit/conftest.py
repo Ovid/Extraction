@@ -10,7 +10,7 @@ def sample_domain_a():
         "score": 60,
         "confidence": "moderate",
         "trend": "rising",
-        "sources": ["wb_wgi_corruption", "wb_reg_quality"],
+        "sources": ["wb_wgi_corruption"],
         "indicators": [
             {
                 "key": "wb_wgi_corruption",
@@ -20,7 +20,7 @@ def sample_domain_a():
             },
         ],
         "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.500 (normalized: 60).",
-        "_n_indicators": 2,
+        "_n_indicators": 1,
         "_n_sources": 1,
         "_most_recent_year": 2022,
     }
