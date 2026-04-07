@@ -19,8 +19,9 @@ Key variables we need:
   - v2x_freexp_altinf   Freedom of Expression Index       → information_capture (inverted)
   - v2xme_altinf        Alternative Sources of Info Index → information_capture (inverted)
   - v2x_clphy           Physical Violence Index           → political_capture
-  - v2x_egal              Egalitarian Component Index        → institutional_gatekeeping (inverted)
-  - v2x_partipdem         Participatory Democracy Index      → institutional_gatekeeping (inverted)
+  - v2x_rule             Rule of Law Index                 → institutional_gatekeeping (inverted)
+  - v2x_egal             Egalitarian Component Index       → institutional_gatekeeping (inverted)
+  - v2x_partipdem        Participatory Democracy Index     → institutional_gatekeeping (inverted)
 """
 
 import json
