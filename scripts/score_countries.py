@@ -1477,6 +1477,68 @@ def normalize_vdem_indicators(vdem_raw, vdem_vars_config):
     return vdem_normalized
 
 
+def build_wb_domain(group, code, all_indicator_raw):
+    """Build a domain entry from a World Bank indicator group.
+
+    Args:
+        group: pandas DataFrame — rows for one country+domain from groupby('domain').
+            Must have columns: normalized, source_key, year, indicator_file, value, indicator_name.
+        code: ISO alpha-3 country code.
+        all_indicator_raw: {source_key: {country_code: raw_value}} for peer comparisons.
+
+    Returns:
+        Domain dict with score, confidence, trend, sources, indicators, justification_detail,
+        and internal tracking fields (_n_indicators, _n_sources, _most_recent_year).
+    """
+    score = int(group["normalized"].mean().round(0))
+    sources = group["source_key"].tolist()
+    n_indicators = len(group)
+    most_recent = int(group["year"].max())
+
+    confidence = assess_domain_confidence(n_indicators, 1, most_recent)
+
+    # Estimate trend using majority vote across all indicators in domain
+    trend_votes = []
+    for _, row in group.iterrows():
+        cfg = next((c for c in INDICATOR_CONFIG if c["file"] == row["indicator_file"]), None)
+        inv = cfg["inverted"] if cfg else False
+        t = estimate_trend(None, code, row["indicator_file"], inverted=inv)
+        if t != "unknown":
+            trend_votes.append(t)
+    if trend_votes:
+        trend = Counter(trend_votes).most_common(1)[0][0]
+    else:
+        trend = "unknown"
+
+    ind_entries = []
+    ind_info = []
+    for _, row in group.iterrows():
+        entry = build_indicator_entry(
+            row["source_key"], row["value"], int(row["normalized"]), code, all_indicator_raw
+        )
+        ind_entries.append(entry)
+        ind_info.append(
+            {
+                "name": row["indicator_name"],
+                "raw": row["value"],
+                "normalized": int(row["normalized"]),
+            }
+        )
+    justification_detail = build_technical_justification("World Bank data", ind_info)
+
+    return {
+        "score": score,
+        "confidence": confidence,
+        "trend": trend,
+        "sources": sources,
+        "indicators": ind_entries,
+        "justification_detail": justification_detail,
+        "_n_indicators": n_indicators,
+        "_n_sources": 1,
+        "_most_recent_year": most_recent,
+    }
+
+
 def build_country_scores():
     """Build normalized scores for all countries from World Bank data."""
     # Load and normalize each indicator
@@ -1600,53 +1662,7 @@ def build_country_scores():
         source_names = []
         if not country_data.empty:
             for domain, group in country_data.groupby("domain"):
-                score = int(group["normalized"].mean().round(0))
-                sources = group["source_key"].tolist()
-                n_indicators = len(group)
-                most_recent = int(group["year"].max())
-
-                confidence = assess_domain_confidence(n_indicators, 1, most_recent)
-
-                # Estimate trend using majority vote across all indicators in domain
-                trend_votes = []
-                for _, row in group.iterrows():
-                    cfg = next((c for c in INDICATOR_CONFIG if c["file"] == row["indicator_file"]), None)
-                    inv = cfg["inverted"] if cfg else False
-                    t = estimate_trend(all_data, code, row["indicator_file"], inverted=inv)
-                    if t != "unknown":
-                        trend_votes.append(t)
-                if trend_votes:
-                    trend = Counter(trend_votes).most_common(1)[0][0]
-                else:
-                    trend = "unknown"
-
-                ind_entries = []
-                ind_info = []
-                for _, row in group.iterrows():
-                    entry = build_indicator_entry(
-                        row["source_key"], row["value"], int(row["normalized"]), code, all_indicator_raw
-                    )
-                    ind_entries.append(entry)
-                    ind_info.append(
-                        {
-                            "name": row["indicator_name"],
-                            "raw": row["value"],
-                            "normalized": int(row["normalized"]),
-                        }
-                    )
-                justification_detail = build_technical_justification("World Bank data", ind_info)
-
-                domains[domain] = {
-                    "score": score,
-                    "confidence": confidence,
-                    "trend": trend,
-                    "sources": sources,
-                    "indicators": ind_entries,
-                    "justification_detail": justification_detail,
-                    "_n_indicators": n_indicators,
-                    "_n_sources": 1,
-                    "_most_recent_year": most_recent,
-                }
+                domains[domain] = build_wb_domain(group, code, all_indicator_raw)
             source_names.append("World Bank")
 
         # Add RSF (information_capture) — RSF 2025 data
