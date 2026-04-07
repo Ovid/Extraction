@@ -21,6 +21,9 @@ raw_data/*
 !raw_data/manifest.json
 !raw_data/.gitkeep
 
+# Node
+node_modules/
+
 # Scaffolding
 scratch/
 
