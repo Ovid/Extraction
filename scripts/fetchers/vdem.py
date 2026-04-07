@@ -5,9 +5,8 @@ V-Dem publishes the most comprehensive democracy dataset globally.
 It covers political capture, clientelism, corruption, and media freedom
 in a single dataset — making it the richest single source for this project.
 
-IMPORTANT: V-Dem requires accepting terms of use. The direct download URL
-changes with each version release. This fetcher attempts to download the
-current version but may need the URL updated manually.
+IMPORTANT: V-Dem requires filling out a form before downloading.
+The dataset cannot be fetched automatically.
 
 Data home: https://www.v-dem.net/data/the-v-dem-dataset/
 Codebook:  https://www.v-dem.net/documents/38/V-Dem_Codebook_v14.pdf
@@ -27,13 +26,7 @@ Key variables we need:
 import json
 from pathlib import Path
 
-import requests
 import pandas as pd
-
-# V-Dem Country-Year Core dataset — this URL points to the latest version.
-# If it breaks, check https://www.v-dem.net/data/the-v-dem-dataset/ for updated links.
-# The full dataset is ~300MB; the "core" version is smaller and sufficient.
-VDEM_CSV_URL = 'https://v-dem.net/media/datasets/V-Dem-CY-Core-v14.csv'
 
 # Variables to extract (keeps the download manageable if we filter)
 VARIABLES = [
@@ -67,29 +60,21 @@ def fetch(raw_data_dir: Path) -> list[str]:
     csv_path = output_dir / 'vdem_core_full.csv'
     extract_path = output_dir / 'vdem_extract.csv'
 
-    # Download if not already cached (file is ~50MB for core)
+    # The full V-Dem Core CSV is large (~200MB) and not committed to the repo.
+    # It must be downloaded manually (requires filling out a form on the V-Dem site).
     if not csv_path.exists():
-        print('    Downloading V-Dem Core dataset (this may take a minute)...')
-        try:
-            resp = requests.get(VDEM_CSV_URL, timeout=120, stream=True)
-            resp.raise_for_status()
-            with open(csv_path, 'wb') as f:
-                for chunk in resp.iter_content(chunk_size=8192):
-                    f.write(chunk)
-            print(f'      → Downloaded {csv_path.stat().st_size / 1_000_000:.1f} MB')
-        except requests.exceptions.RequestException as e:
-            # If download fails, write instructions for manual download
-            instructions_path = output_dir / 'DOWNLOAD_INSTRUCTIONS.md'
-            instructions_path.write_text(
-                '# V-Dem Manual Download\n\n'
-                f'Automatic download failed: {e}\n\n'
-                '1. Go to https://www.v-dem.net/data/the-v-dem-dataset/\n'
-                '2. Download "V-Dem-CY-Core" (CSV format)\n'
-                f'3. Save as: {csv_path}\n'
-                '4. Re-run this fetcher\n'
-            )
-            print(f'      ✗ Download failed. See {instructions_path}')
-            return [str(instructions_path.relative_to(raw_data_dir))]
+        print()
+        print('    ✗ V-Dem Core dataset not found.')
+        print()
+        print('      This file must be downloaded manually (requires filling out a form):')
+        print()
+        print('      1. Go to https://www.v-dem.net/data/the-v-dem-dataset/')
+        print('      2. Select "Country-Year: V-Dem Core" (CSV format)')
+        print('      3. Fill out the required form and download')
+        print(f'      4. Extract the CSV to: {csv_path}')
+        print('      5. Re-run this fetcher')
+        print()
+        return []
     else:
         print(f'    Using cached V-Dem data ({csv_path.stat().st_size / 1_000_000:.1f} MB)')
 

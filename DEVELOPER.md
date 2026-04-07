@@ -55,7 +55,7 @@ python fetch_all.py --list               # Show available sources
 
 Raw data lands in `raw_data/` (gitignored — large files). The manifest tracks provenance.
 
-Some sources require manual download (noted in fetcher output). V-Dem requires downloading "Country-Year: V-Dem Core" (CSV) from https://www.v-dem.net/data/the-v-dem-dataset/ and extracting to `raw_data/vdem/vdem_core_full.csv`.
+Some sources require manual download (noted in fetcher output). V-Dem requires filling out a form at https://www.v-dem.net/data/the-v-dem-dataset/ to download "Country-Year: V-Dem Core" (CSV), then extracting to `raw_data/vdem/vdem_core_full.csv`.
 
 ### 2. Generate scores
 

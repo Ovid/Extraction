@@ -229,7 +229,7 @@ For the resource capture domain, context facts reflect the composite calculation
 | Source | Type | Domains | Coverage |
 |--------|------|---------|----------|
 | [World Bank](https://data.worldbank.org/) | API (automatic) | Economic concentration, financial extraction, institutional gatekeeping, resource capture | 190+ countries |
-| [V-Dem](https://www.v-dem.net/) | Manual download (CAPTCHA-protected) | Political capture, information capture, institutional gatekeeping | 202 countries |
+| [V-Dem](https://www.v-dem.net/) | Manual download (form required) | Political capture, information capture, institutional gatekeeping | 202 countries |
 | [RSF Press Freedom Index](https://rsf.org/) | Web scrape (automatic) | Information capture | 180 countries |
 | [Tax Justice Network FSI](https://fsi.taxjustice.net/) | API with public token (automatic) | Transnational facilitation | 141 jurisdictions |
 
@@ -274,7 +274,7 @@ python fetch_all.py --source tjn
 python fetch_all.py --list
 ```
 
-**V-Dem requires manual download:** Visit https://www.v-dem.net/data/the-v-dem-dataset/, download "Country-Year: V-Dem Core" (CSV), and extract to `raw_data/vdem/vdem_core_full.csv`. The download is CAPTCHA-protected.
+**V-Dem requires manual download:** Visit https://www.v-dem.net/data/the-v-dem-dataset/, download "Country-Year: V-Dem Core" (CSV), and extract to `raw_data/vdem/vdem_core_full.csv`. The download requires filling out a form.
 
 Raw data is stored in `raw_data/` (gitignored). A manifest at `raw_data/manifest.json` tracks what was fetched, when, and from where.
 
