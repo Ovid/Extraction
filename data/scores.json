@@ -76,7 +76,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -116,10 +116,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.57 (scale: 0-1)",
+                "28% below high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -328,7 +331,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -369,10 +372,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.97 (scale: 0-1)",
+                "Most egalitarian among high income countries (avg: 0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -575,7 +581,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -616,10 +622,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.79 (scale: 0-1)",
+                "Most egalitarian among South-eastern Asia (avg: 0.43)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -832,7 +841,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -873,10 +882,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.56 (scale: 0-1)",
+                "16% above lower middle income countries average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -1039,7 +1051,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -1080,10 +1092,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.34 (scale: 0-1)",
+                "54% below Eastern Asia average (0.73)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -1255,7 +1270,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -1296,10 +1311,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.95 (scale: 0-1)",
+                "20% above high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -1512,7 +1530,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -1553,10 +1571,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.41 (scale: 0-1)",
+                "Least egalitarian among Eastern Europe (avg: 0.75)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -1770,7 +1791,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -1811,10 +1832,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.96 (scale: 0-1)",
+                "23% above high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -2042,7 +2066,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.002 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.002 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 75,
@@ -2121,7 +2145,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -2162,10 +2186,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very low",
+              "facts": [
+                "Egalitarian component index: 0.05 (scale: 0-1)",
+                "Least egalitarian among Southern Asia (avg: 0.53)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -2358,7 +2385,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -2399,10 +2426,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.24 (scale: 0-1)",
+                "51% below lower middle income countries average (0.49)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -2615,7 +2645,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -2656,10 +2686,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.67 (scale: 0-1)",
+                "16% above upper middle income countries average (0.57)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -2873,7 +2906,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "information_capture": {
           "score": 36,
@@ -2982,7 +3015,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -3023,10 +3056,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.44 (scale: 0-1)",
+                "44% below high income countries average (0.80)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -3239,7 +3275,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -3279,10 +3315,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.69 (scale: 0-1)",
+                "26% above South America average (0.55)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -3495,7 +3534,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -3535,10 +3574,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.78 (scale: 0-1)",
+                "53% above Western Asia average (0.51)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -3728,7 +3770,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 78,
@@ -3837,7 +3879,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 100,
@@ -3926,7 +3968,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -3967,10 +4009,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.85 (scale: 0-1)",
+                "Most egalitarian among Oceania (avg: 0.66)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -4181,7 +4226,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -4221,10 +4266,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.86 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -4426,7 +4473,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -4467,10 +4514,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.39 (scale: 0-1)",
+                "34% below upper middle income countries average (0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -4663,7 +4713,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -4704,10 +4754,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.28 (scale: 0-1)",
+                "43% below Eastern Africa average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -4900,7 +4953,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -4941,10 +4994,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.93 (scale: 0-1)",
+                "18% above high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -5156,7 +5212,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -5197,10 +5253,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.74 (scale: 0-1)",
+                "57% above lower middle income countries average (0.47)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -5393,7 +5452,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -5434,10 +5493,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.54 (scale: 0-1)",
+                "41% above low income countries average (0.38)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -5631,7 +5693,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -5672,10 +5734,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.33 (scale: 0-1)",
+                "32% below Southern Asia average (0.49)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -5887,7 +5952,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -5928,10 +5993,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.71 (scale: 0-1)",
+                "24% above upper middle income countries average (0.57)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -6135,7 +6203,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -6176,10 +6244,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.43 (scale: 0-1)",
+                "46% below high income countries average (0.80)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -6433,7 +6504,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.015 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.015 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 90,
@@ -6522,7 +6593,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -6563,10 +6634,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.67 (scale: 0-1)",
+                "16% above upper middle income countries average (0.57)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -6760,7 +6834,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -6801,10 +6875,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.77 (scale: 0-1)",
+                "34% above upper middle income countries average (0.57)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -7048,7 +7125,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.523 (normalized: 1)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.523 (normalized: 1). No V-Dem data available \u2014 score reflects unmoderated resource rents (1)."
         },
         "information_capture": {
           "score": 30,
@@ -7153,7 +7230,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 82,
@@ -7241,7 +7318,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -7282,10 +7359,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.59 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -7497,7 +7576,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -7538,10 +7617,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.64 (scale: 0-1)",
+                "15% above South America average (0.55)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -7755,7 +7837,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -7796,10 +7878,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.85 (scale: 0-1)",
+                "Most egalitarian among Caribbean (avg: 0.60)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -8043,7 +8128,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 24.280 (normalized: 40)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 24.280 (normalized: 40). No V-Dem data available \u2014 score reflects unmoderated resource rents (40)."
         },
         "information_capture": {
           "score": 48,
@@ -8153,7 +8238,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -8194,10 +8279,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.81 (scale: 0-1)",
+                "Most egalitarian among Southern Asia (avg: 0.43)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -8391,7 +8479,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -8432,10 +8520,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.69 (scale: 0-1)",
+                "33% above Southern Africa average (0.52)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -8649,7 +8740,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -8690,10 +8781,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.24 (scale: 0-1)",
+                "39% below low income countries average (0.39)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -8864,7 +8958,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -8905,10 +8999,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.70 (scale: 0-1)",
+                "12% below high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -9120,7 +9217,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -9161,10 +9258,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.94 (scale: 0-1)",
+                "19% above high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -9377,7 +9477,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -9418,10 +9518,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.73 (scale: 0-1)",
+                "33% above South America average (0.55)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -9635,7 +9738,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -9676,10 +9779,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.29 (scale: 0-1)",
+                "Least egalitarian among Eastern Asia (avg: 0.74)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -9892,7 +9998,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -9933,10 +10039,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.49 (scale: 0-1)",
+                "16% below Western Africa average (0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -10127,7 +10236,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -10168,10 +10277,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.48 (scale: 0-1)",
+                "49% above Middle Africa average (0.32)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -10383,7 +10495,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -10424,10 +10536,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.36 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -10621,7 +10735,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -10662,10 +10776,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.26 (scale: 0-1)",
+                "46% below lower middle income countries average (0.49)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -10858,7 +10975,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -10899,10 +11016,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.53 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -11116,7 +11235,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -11157,10 +11276,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.58 (scale: 0-1)",
+                "24% above Eastern Africa average (0.47)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -11353,7 +11475,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -11394,10 +11516,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.72 (scale: 0-1)",
+                "52% above lower middle income countries average (0.47)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -11590,7 +11715,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -11631,10 +11756,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.88 (scale: 0-1)",
+                "Most egalitarian among Central America (avg: 0.40)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -11797,7 +11925,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -11838,10 +11966,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.74 (scale: 0-1)",
+                "29% above upper middle income countries average (0.57)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -11993,7 +12124,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 96,
@@ -12078,7 +12209,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 86,
@@ -12166,7 +12297,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -12207,10 +12338,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.90 (scale: 0-1)",
+                "Most egalitarian among Western Asia (avg: 0.51)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -12423,7 +12557,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -12464,10 +12598,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.91 (scale: 0-1)",
+                "Most egalitarian among Eastern Europe (avg: 0.69)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -12680,7 +12817,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -12721,10 +12858,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.94 (scale: 0-1)",
+                "20% above high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -12936,7 +13076,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -12977,10 +13117,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.54 (scale: 0-1)",
+                "15% above Eastern Africa average (0.47)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -13194,7 +13337,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.033 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.033 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 59,
@@ -13282,7 +13425,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -13323,10 +13466,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.46 (scale: 0-1)",
+                "33% below Caribbean average (0.68)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -13540,7 +13686,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -13581,10 +13727,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.57 (scale: 0-1)",
+                "28% above Northern Africa average (0.44)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -13797,7 +13946,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -13838,10 +13987,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.33 (scale: 0-1)",
+                "44% below South America average (0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -14054,7 +14206,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -14095,10 +14247,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.31 (scale: 0-1)",
+                "38% below Northern Africa average (0.50)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -14281,7 +14436,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -14322,10 +14477,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.41 (scale: 0-1)",
+                "14% below Eastern Africa average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -14518,7 +14676,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -14559,10 +14717,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.83 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -14774,7 +14934,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -14815,10 +14975,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.92 (scale: 0-1)",
+                "16% above high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -15011,7 +15174,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -15052,10 +15215,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.43 (scale: 0-1)",
+                "10% below Eastern Africa average (0.47)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -15248,7 +15414,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -15289,10 +15455,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.81 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -15504,7 +15672,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -15543,10 +15711,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.68 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -15756,7 +15926,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -15797,10 +15967,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.81 (scale: 0-1)",
+                "Least egalitarian among Western Europe (avg: 0.92)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -15972,7 +16145,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         }
       },
       "composite_score": 0,
@@ -16076,7 +16249,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.018 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.018 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         }
       },
       "composite_score": 25,
@@ -16146,7 +16319,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -16187,10 +16360,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.64 (scale: 0-1)",
+                "Most egalitarian among Middle Africa (avg: 0.30)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -16383,7 +16559,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -16424,10 +16600,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.78 (scale: 0-1)",
+                "Least egalitarian among Northern Europe (avg: 0.90)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -16640,7 +16819,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -16681,10 +16860,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.69 (scale: 0-1)",
+                "34% above Western Asia average (0.52)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -16878,7 +17060,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -16919,10 +17101,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.64 (scale: 0-1)",
+                "35% above lower middle income countries average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -17135,7 +17320,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -17176,10 +17361,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.46 (scale: 0-1)",
+                "21% below Western Africa average (0.59)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -17372,7 +17560,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -17413,10 +17601,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.67 (scale: 0-1)",
+                "Most egalitarian among low income countries (avg: 0.38)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -17630,7 +17821,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -17671,10 +17862,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.47 (scale: 0-1)",
+                "21% above low income countries average (0.39)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -17867,7 +18061,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -17908,10 +18102,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.33 (scale: 0-1)",
+                "43% below upper middle income countries average (0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -18104,7 +18301,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -18145,10 +18342,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.87 (scale: 0-1)",
+                "14% above Southern Europe average (0.77)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -18400,7 +18600,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 69,
@@ -18485,7 +18685,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         }
       },
       "composite_score": 14,
@@ -18555,7 +18755,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -18596,10 +18796,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.43 (scale: 0-1)",
+                "25% below upper middle income countries average (0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -18808,7 +19011,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 80,
@@ -18887,7 +19090,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -18928,10 +19131,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.70 (scale: 0-1)",
+                "27% above South America average (0.55)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -19114,7 +19320,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -19155,10 +19361,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.75 (scale: 0-1)",
+                "13% above Eastern Asia average (0.67)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -19372,7 +19581,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -19413,10 +19622,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.40 (scale: 0-1)",
+                "17% below lower middle income countries average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -19609,7 +19821,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -19650,10 +19862,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.78 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -19861,7 +20075,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -19902,10 +20116,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very low",
+              "facts": [
+                "Egalitarian component index: 0.17 (scale: 0-1)",
+                "Least egalitarian among Caribbean (avg: 0.74)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -20098,7 +20315,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -20139,10 +20356,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.62 (scale: 0-1)",
+                "22% below high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -20355,7 +20575,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -20396,10 +20616,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.45 (scale: 0-1)",
+                "22% below upper middle income countries average (0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -20572,7 +20795,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 76,
@@ -20661,7 +20884,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -20702,10 +20925,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.41 (scale: 0-1)",
+                "15% below lower middle income countries average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -20915,7 +21141,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -20956,10 +21182,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.87 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -21172,7 +21400,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -21213,10 +21441,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.50 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -21410,7 +21640,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -21451,10 +21681,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.41 (scale: 0-1)",
+                "30% below upper middle income countries average (0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -21648,7 +21881,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -21689,10 +21922,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.92 (scale: 0-1)",
+                "16% above high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -21904,7 +22140,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -21945,10 +22181,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.78 (scale: 0-1)",
+                "52% above Western Asia average (0.51)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -22160,7 +22399,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -22201,10 +22440,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.89 (scale: 0-1)",
+                "16% above Southern Europe average (0.77)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -22414,7 +22656,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -22455,10 +22697,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.81 (scale: 0-1)",
+                "41% above upper middle income countries average (0.57)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -22652,7 +22897,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -22693,10 +22938,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.56 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -22908,7 +23155,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -22949,10 +23196,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.94 (scale: 0-1)",
+                "Most egalitarian among Eastern Asia (avg: 0.63)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -23165,7 +23415,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -23206,10 +23456,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.56 (scale: 0-1)",
+                "53% above Central Asia average (0.37)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -23421,7 +23674,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -23462,10 +23715,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.55 (scale: 0-1)",
+                "19% above Eastern Africa average (0.47)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -23677,7 +23933,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -23718,10 +23974,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.59 (scale: 0-1)",
+                "Most egalitarian among Central Asia (avg: 0.36)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -23905,7 +24164,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -23946,10 +24205,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.23 (scale: 0-1)",
+                "52% below South-eastern Asia average (0.49)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -24158,7 +24420,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.044 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.044 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         }
       },
       "composite_score": 20,
@@ -24248,7 +24510,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 96,
@@ -24337,7 +24599,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -24378,10 +24640,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.87 (scale: 0-1)",
+                "35% above Eastern Asia average (0.64)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -24585,7 +24850,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -24626,10 +24891,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.59 (scale: 0-1)",
+                "26% below high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -24843,7 +25111,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -24884,10 +25152,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.38 (scale: 0-1)",
+                "21% below lower middle income countries average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -25080,7 +25351,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -25121,10 +25392,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.51 (scale: 0-1)",
+                "13% below upper middle income countries average (0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -25336,7 +25610,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -25377,10 +25651,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.59 (scale: 0-1)",
+                "23% above lower middle income countries average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -25584,7 +25861,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -25625,10 +25902,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.36 (scale: 0-1)",
+                "37% below upper middle income countries average (0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -25872,7 +26152,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.013 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.013 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 82,
@@ -25962,7 +26242,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.001 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.001 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "information_capture": {
           "score": 11,
@@ -26072,7 +26352,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -26113,10 +26393,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.71 (scale: 0-1)",
+                "61% above Southern Asia average (0.44)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -26330,7 +26613,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -26371,10 +26654,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.71 (scale: 0-1)",
+                "51% above lower middle income countries average (0.47)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -26568,7 +26854,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -26608,10 +26894,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.88 (scale: 0-1)",
+                "12% above high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -26824,7 +27113,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -26865,10 +27154,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.87 (scale: 0-1)",
+                "11% above high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -27121,7 +27413,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.001 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.001 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 73,
@@ -27153,7 +27445,7 @@
       "domains": {
         "resource_capture": {
           "score": 0,
-          "confidence": "low",
+          "confidence": "very_low",
           "trend": "unknown",
           "sources": [
             "wb_natural_rents"
@@ -27169,7 +27461,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         }
       },
       "composite_score": 0,
@@ -27239,7 +27531,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -27280,10 +27572,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.56 (scale: 0-1)",
+                "26% above Northern Africa average (0.45)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -27494,7 +27789,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 85,
@@ -27584,7 +27879,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -27625,10 +27920,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.77 (scale: 0-1)",
+                "35% above upper middle income countries average (0.57)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -27821,7 +28119,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -27862,10 +28160,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.34 (scale: 0-1)",
+                "29% below Eastern Africa average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -28059,7 +28360,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -28100,10 +28401,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.61 (scale: 0-1)",
+                "34% above Southern Asia average (0.46)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -28316,7 +28620,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -28357,10 +28661,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.47 (scale: 0-1)",
+                "18% below upper middle income countries average (0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -28591,7 +28898,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 71,
@@ -28679,7 +28986,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -28720,10 +29027,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.61 (scale: 0-1)",
+                "Least egalitarian among Southern Europe (avg: 0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -28936,7 +29246,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -28977,10 +29287,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.56 (scale: 0-1)",
+                "47% above low income countries average (0.38)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -29173,7 +29486,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -29214,10 +29527,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.90 (scale: 0-1)",
+                "Most egalitarian among Southern Europe (avg: 0.76)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -29429,7 +29745,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -29470,10 +29786,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.20 (scale: 0-1)",
+                "Least egalitarian among South-eastern Asia (avg: 0.50)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -29667,7 +29986,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -29708,10 +30027,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.78 (scale: 0-1)",
+                "36% above upper middle income countries average (0.57)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -29924,7 +30246,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -29965,10 +30287,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.67 (scale: 0-1)",
+                "40% above lower middle income countries average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -30121,7 +30446,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         }
       },
       "composite_score": 0,
@@ -30191,7 +30516,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -30232,10 +30557,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.49 (scale: 0-1)",
+                "27% above low income countries average (0.38)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -30428,7 +30756,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -30469,10 +30797,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.29 (scale: 0-1)",
+                "Least egalitarian among Western Africa (avg: 0.60)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -30666,7 +30997,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -30707,10 +31038,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.76 (scale: 0-1)",
+                "68% above Eastern Africa average (0.45)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -30923,7 +31257,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -30964,10 +31298,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.49 (scale: 0-1)",
+                "28% above low income countries average (0.38)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -31161,7 +31498,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -31202,10 +31539,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.71 (scale: 0-1)",
+                "60% above South-eastern Asia average (0.44)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -31419,7 +31759,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -31460,10 +31800,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.46 (scale: 0-1)",
+                "21% below upper middle income countries average (0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -31616,7 +31959,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 16.792 (normalized: 28)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 16.792 (normalized: 28). No V-Dem data available \u2014 score reflects unmoderated resource rents (28)."
         }
       },
       "composite_score": 28,
@@ -31686,7 +32029,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -31727,10 +32070,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.64 (scale: 0-1)",
+                "68% above low income countries average (0.38)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -31924,7 +32270,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -31965,10 +32311,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.26 (scale: 0-1)",
+                "47% below Central America average (0.50)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -32162,7 +32511,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -32203,10 +32552,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.89 (scale: 0-1)",
+                "13% above high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -32418,7 +32770,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -32459,10 +32811,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.58 (scale: 0-1)",
+                "26% above Southern Asia average (0.46)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -32675,7 +33030,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 47,
@@ -32755,7 +33110,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -32796,10 +33151,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.85 (scale: 0-1)",
+                "30% above Oceania average (0.66)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -33002,7 +33360,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -33043,10 +33401,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.56 (scale: 0-1)",
+                "29% below high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -33260,7 +33621,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -33301,10 +33662,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.26 (scale: 0-1)",
+                "48% below Southern Asia average (0.50)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -33516,7 +33880,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -33557,10 +33921,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.55 (scale: 0-1)",
+                "30% below high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -33774,7 +34141,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -33815,10 +34182,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.50 (scale: 0-1)",
+                "13% below upper middle income countries average (0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -34032,7 +34402,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -34073,10 +34443,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.31 (scale: 0-1)",
+                "37% below South-eastern Asia average (0.49)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -34290,7 +34663,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         }
       },
       "composite_score": 20,
@@ -34350,7 +34723,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -34391,10 +34764,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.43 (scale: 0-1)",
+                "Least egalitarian among Oceania (avg: 0.74)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -34588,7 +34964,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -34629,10 +35005,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.89 (scale: 0-1)",
+                "27% above Eastern Europe average (0.70)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -34866,7 +35245,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 91,
@@ -34954,7 +35333,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -34995,10 +35374,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.70 (scale: 0-1)",
+                "11% below high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -35211,7 +35593,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -35252,10 +35634,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.29 (scale: 0-1)",
+                "50% below South America average (0.59)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -35466,7 +35851,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -35507,10 +35892,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.56 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -35661,7 +36048,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.004 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.004 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         }
       },
       "composite_score": 0,
@@ -35730,7 +36117,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -35771,10 +36158,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.39 (scale: 0-1)",
+                "Least egalitarian among high income countries (avg: 0.80)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -35987,7 +36377,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -36028,10 +36418,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.66 (scale: 0-1)",
+                "16% below high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -36243,7 +36636,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -36284,10 +36677,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.51 (scale: 0-1)",
+                "34% above low income countries average (0.38)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -36491,7 +36887,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -36532,10 +36928,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.45 (scale: 0-1)",
+                "43% below high income countries average (0.80)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -36749,7 +37148,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -36790,10 +37189,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.25 (scale: 0-1)",
+                "Least egalitarian among Northern Africa (avg: 0.51)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -36985,7 +37387,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -37026,10 +37428,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.69 (scale: 0-1)",
+                "45% above lower middle income countries average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -37223,7 +37628,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -37264,10 +37669,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.57 (scale: 0-1)",
+                "20% below Oceania average (0.71)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -37445,7 +37853,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -37486,10 +37894,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.65 (scale: 0-1)",
+                "71% above low income countries average (0.38)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -37683,7 +38094,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -37724,10 +38135,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.25 (scale: 0-1)",
+                "Least egalitarian among Central America (avg: 0.50)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -37939,7 +38353,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 63,
@@ -38019,7 +38433,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -38060,10 +38474,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.30 (scale: 0-1)",
+                "37% below Eastern Africa average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -38257,7 +38674,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -38298,10 +38715,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.73 (scale: 0-1)",
+                "28% above upper middle income countries average (0.57)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -38505,7 +38925,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -38546,10 +38966,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very low",
+              "facts": [
+                "Egalitarian component index: 0.08 (scale: 0-1)",
+                "Least egalitarian among Eastern Africa (avg: 0.49)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -38740,7 +39163,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -38777,10 +39200,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.67 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -38956,7 +39381,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -38997,10 +39422,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.74 (scale: 0-1)",
+                "36% above South America average (0.54)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -39193,7 +39621,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -39234,10 +39662,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.75 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -39451,7 +39881,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -39492,10 +39922,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.88 (scale: 0-1)",
+                "15% above Southern Europe average (0.77)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -39704,7 +40137,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -39745,10 +40178,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.90 (scale: 0-1)",
+                "15% above high income countries average (0.79)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -39961,7 +40397,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -40002,10 +40438,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.25 (scale: 0-1)",
+                "Least egalitarian among Southern Africa (avg: 0.63)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -40142,7 +40581,7 @@
       "domains": {
         "resource_capture": {
           "score": 0,
-          "confidence": "low",
+          "confidence": "very_low",
           "trend": "unknown",
           "sources": [
             "wb_natural_rents"
@@ -40158,7 +40597,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         }
       },
       "composite_score": 0,
@@ -40218,7 +40657,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -40259,10 +40698,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.83 (scale: 0-1)",
+                "Most egalitarian among Eastern Africa (avg: 0.45)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -40476,7 +40918,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -40517,10 +40959,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.43 (scale: 0-1)",
+                "19% below Western Asia average (0.53)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -40673,7 +41118,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.003 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.003 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 93,
@@ -40762,7 +41207,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -40802,10 +41247,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very low",
+              "facts": [
+                "Egalitarian component index: 0.18 (scale: 0-1)",
+                "53% below low income countries average (0.40)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -40998,7 +41446,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -41039,10 +41487,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.56 (scale: 0-1)",
+                "46% above low income countries average (0.38)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -41236,7 +41687,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -41277,10 +41728,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.49 (scale: 0-1)",
+                "16% below upper middle income countries average (0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -41492,7 +41946,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -41533,10 +41987,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very low",
+              "facts": [
+                "Egalitarian component index: 0.17 (scale: 0-1)",
+                "66% below lower middle income countries average (0.49)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -41700,7 +42157,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -41741,10 +42198,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.27 (scale: 0-1)",
+                "Least egalitarian among upper middle income countries (avg: 0.58)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -41938,7 +42398,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -41979,10 +42439,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Moderate",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.58 (scale: 0-1)",
+                "26% above South-eastern Asia average (0.46)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -42226,7 +42689,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.041 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.041 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "information_capture": {
           "score": 30,
@@ -42305,7 +42768,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -42346,10 +42809,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.84 (scale: 0-1)",
+                "39% above Caribbean average (0.60)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -42562,7 +43028,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -42603,10 +43069,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.73 (scale: 0-1)",
+                "Most egalitarian among Northern Africa (avg: 0.41)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -42820,7 +43289,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -42861,10 +43330,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.54 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -43093,7 +43564,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.000 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         }
       },
       "composite_score": 30,
@@ -43162,7 +43633,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -43203,10 +43674,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.76 (scale: 0-1)",
+                "68% above Eastern Africa average (0.45)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -43417,7 +43891,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -43458,10 +43932,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.36 (scale: 0-1)",
+                "26% below Eastern Africa average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -43654,7 +44131,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -43695,10 +44172,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.68 (scale: 0-1)",
+                "42% above lower middle income countries average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -43912,7 +44392,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -43953,10 +44433,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.77 (scale: 0-1)",
+                "Most egalitarian among South America (avg: 0.54)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -44169,7 +44652,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -44210,10 +44693,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.44 (scale: 0-1)",
+                "11% above Central Asia average (0.40)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -44447,7 +44933,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.019 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.019 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 70,
@@ -44506,7 +44992,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -44547,10 +45033,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.23 (scale: 0-1)",
+                "Least egalitarian among South America (avg: 0.59)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -44779,7 +45268,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.205 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.205 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "transnational_facilitation": {
           "score": 80,
@@ -44867,7 +45356,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -44908,10 +45397,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
               "label": "Moderate",
-              "facts": []
+              "facts": [
+                "Egalitarian component index: 0.55 (scale: 0-1)",
+                "20% above South-eastern Asia average (0.46)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -45123,7 +45615,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -45163,10 +45655,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.75 (scale: 0-1)",
+                "11% above Oceania average (0.68)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -45413,7 +45908,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.280 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.280 (normalized: 0). No V-Dem data available \u2014 score reflects unmoderated resource rents (0)."
         },
         "information_capture": {
           "score": 28,
@@ -45512,7 +46007,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -45553,10 +46048,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very high",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very low",
+              "facts": [
+                "Egalitarian component index: 0.09 (scale: 0-1)",
+                "Least egalitarian among Western Asia (avg: 0.55)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -45750,7 +46248,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -45790,10 +46288,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.65 (scale: 0-1)",
+                "24% above Southern Africa average (0.53)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -46006,7 +46507,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -46047,10 +46548,12 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Moderate",
+              "facts": [
+                "Egalitarian component index: 0.44 (scale: 0-1)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -46244,7 +46747,7 @@
             "wb_reg_quality",
             "wb_wgi_gov_eff",
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -46285,10 +46788,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "High",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Low",
+              "facts": [
+                "Egalitarian component index: 0.33 (scale: 0-1)",
+                "31% below Eastern Africa average (0.48)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
@@ -46706,7 +47212,7 @@
           "trend": "unknown",
           "sources": [
             "vdem_rule_of_law",
-            "vdem_egalitarian_component",
+            "vdem_egalitarian",
             "vdem_participatory_democracy"
           ],
           "indicators": [
@@ -46720,10 +47226,13 @@
               ]
             },
             {
-              "key": "vdem_egalitarian_component",
-              "question": "vdem_egalitarian_component",
-              "label": "Very low",
-              "facts": []
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "Very high",
+              "facts": [
+                "Egalitarian component index: 0.88 (scale: 0-1)",
+                "37% above Eastern Asia average (0.64)"
+              ]
             },
             {
               "key": "vdem_participatory_democracy",
