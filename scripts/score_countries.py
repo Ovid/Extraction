@@ -60,6 +60,13 @@ INDICATOR_CONFIG = [
         "name": "Domestic credit to private sector",
     },
     {
+        "file": "wb_net_interest_margin.csv",
+        "domain": "financial_extraction",
+        "inverted": False,
+        "source_key": "wb_net_interest_margin",
+        "name": "Bank net interest margin",
+    },
+    {
         "file": "wb_natural_rents.csv",
         "domain": "resource_capture",
         "inverted": False,
@@ -81,7 +88,8 @@ INDICATOR_QUESTIONS = {
     # World Bank indicators
     "wb_gini": "How unequal is income distribution?",
     "wb_labor_share": "How little do workers get paid relative to what they produce?",
-    "wb_domestic_credit": "How much wealth is extracted through debt and financial fees?",
+    "wb_domestic_credit": "How large is the financial sector's credit exposure?",
+    "wb_net_interest_margin": "How much do banks extract per dollar intermediated?",
     "wb_natural_rents": "How dependent is the economy on natural resources?",
     "wb_wgi_corruption": "How well is corruption controlled?",
     # V-Dem indicators
@@ -158,6 +166,12 @@ INDICATOR_DISPLAY = {
         "format": "{:.1f}",
         "unit": "% of GDP",
         "comparison_label": ["Most financialized among", "Least financialized among"],
+    },
+    "wb_net_interest_margin": {
+        "label": "Bank net interest margin",
+        "format": "{:.2f}",
+        "unit": "%",
+        "comparison_label": ["Highest bank margins among", "Lowest bank margins among"],
     },
     "wb_natural_rents": {
         "label": "Natural resource rents",
