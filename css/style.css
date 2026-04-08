@@ -172,10 +172,10 @@ header p {
   stroke-width: 1.5;
 }
 .country-path.selected {
-  stroke: #ffff00;
+  stroke: #00e5ff;
   stroke-width: 3;
   paint-order: fill stroke;
-  filter: drop-shadow(0 0 4px rgba(255, 255, 0, 0.9));
+  filter: drop-shadow(0 0 4px rgba(0, 229, 255, 0.9));
 }
 :root[data-theme="light"] .country-path.selected {
   stroke: #0000ff;
