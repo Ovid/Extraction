@@ -30,6 +30,7 @@ Each source is assigned a key used in the per-country data files.
 | `tjn_fsi` | Tax Justice Network Financial Secrecy Index | https://fsi.taxjustice.net/ | 141 jurisdictions | Biennial |
 | `bis_finance` | BIS Financial Sector Statistics | https://www.bis.org/ | 60+ countries | Quarterly |
 | `wb_domestic_credit` | World Bank Domestic Credit to Private Sector (% GDP) | https://data.worldbank.org/ | 180+ countries | Annual |
+| `wb_net_interest_margin` | World Bank Bank Net Interest Margin (%) (GFDD) | https://data.worldbank.org/ | 167 countries | Annual (2-3 year lag) |
 
 ### Institutional Gatekeeping
 

@@ -6,7 +6,7 @@ Docs: https://datahelpdesk.worldbank.org/knowledgebase/articles/889392
 
 Covers domains:
   - economic_concentration: Gini, labor share
-  - financial_extraction: domestic credit to private sector
+  - financial_extraction: domestic credit to private sector, bank net interest margin
   - institutional_gatekeeping: regulatory quality (WGI), control of corruption (WGI)
   - resource_capture: total natural resource rents
 """
@@ -35,6 +35,13 @@ INDICATORS = [
         "FS.AST.PRVT.GD.ZS",
         "wb_domestic_credit.csv",
         "Domestic credit to private sector (% GDP)",
+        "financial_extraction",
+        False,
+    ),
+    (
+        "GFDD.EI.01",
+        "wb_net_interest_margin.csv",
+        "Bank net interest margin (%)",
         "financial_extraction",
         False,
     ),

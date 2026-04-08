@@ -38,13 +38,28 @@ Domain score = mean of normalized indicator scores.
 
 ### 3. Financial Extraction
 
-How much wealth is extracted through debt, financial fees, and financialization.
+The cost of financial intermediation — how much the financial sector extracts as its cut when mediating between savers and borrowers. A large financial sector is not inherently extractive; what matters is whether intermediation is priced competitively or used as a rent-seeking mechanism.
 
 | Indicator | Source | Variable | Direction |
 |-----------|--------|----------|-----------|
 | Domestic credit to private sector (% GDP) | World Bank | FS.AST.PRVT.GD.ZS | Direct |
+| Bank net interest margin (%) | World Bank (GFDD) | GFDD.EI.01 | Direct |
 
-Domain score = normalized indicator score.
+Domain score = mean of normalized indicator scores.
+
+**Why these indicators:**
+
+- **Domestic credit (% GDP)** measures the scale of financial exposure. Higher credit volumes create more surface area for extraction, though high credit alone is not sufficient evidence of extraction — it must be interpreted alongside the net interest margin.
+- **Bank net interest margin** directly measures the price of intermediation — the difference between what banks earn on loans and what they pay on deposits, as a share of assets. Countries with competitive, well-regulated financial markets (e.g., Scandinavia) have low margins even when credit volumes are high, while countries where banks extract more rent per dollar intermediated (e.g., the United States) have higher margins.
+
+**Why equal weighting:** Each indicator contributes equally to the domain score, consistent with all other multi-indicator domains in the index. Domestic credit's influence is reduced from 100% to 50% — not through arbitrary downweighting, but as a structural consequence of measuring the concept more completely. The principle is that each theoretically justified indicator gets one vote.
+
+**Limitations:**
+
+- **Credit volume is ambiguous.** High domestic credit can reflect either productive financialization (e.g., Scandinavian mortgage markets where homeownership builds household wealth) or extractive financialization (e.g., US medical and student debt). The net interest margin partially disambiguates this, but cannot fully distinguish wealth-building credit from extractive credit.
+- **Net interest margins reflect business model, not just extraction.** Banks with high fee income may show low margins while still extracting heavily through non-interest charges. Conversely, banks in developing economies may have high margins that partly reflect legitimate credit risk rather than rent-seeking.
+- **Household-level data is unavailable.** The World Bank does not provide cross-country household debt-to-income ratios, household net wealth, or mortgage-specific default rates. These would better capture whether financial activity builds or destroys household wealth, but would require BIS, OECD, or IMF data sources not yet integrated into the pipeline.
+- **NIM data lags.** The most recent World Bank GFDD data is typically 2-3 years behind the current year.
 
 ### 4. Institutional Gatekeeping
 
@@ -251,7 +266,7 @@ See `sources.md` for the complete source registry including URLs, coverage detai
 
 1. **Three of seven domains have no trend data.** Political capture, information capture (V-Dem portion), and transnational facilitation lack time-series trend analysis because the trend function only processes World Bank data.
 
-2. **Financial extraction relies on a single indicator** (domestic credit to private sector). This is a crude proxy — it captures the scale of financialization but not the distributional consequences.
+2. **Financial extraction remains under-measured.** The domain uses two indicators (domestic credit and bank net interest margin), which better capture the cost of financial intermediation than credit volume alone. However, both are macro-level proxies that cannot distinguish household-level outcomes — whether a given level of credit builds wealth (as in Scandinavian mortgage markets) or destroys it (as in US medical debt). Fully resolving this would require household-level data not available from the World Bank.
 
 3. **The legibility paradox.** The most extractive regimes produce the worst data. Countries like North Korea and Eritrea have very few indicators, and their scores may understate actual extraction.
 
