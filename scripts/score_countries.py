@@ -1163,25 +1163,37 @@ UK_RELATED_JURISDICTION_IDS = ["GG", "JE", "IM", "AI", "BM", "GI", "KY", "MS", "
 def _load_fsi_csv():
     """Load and filter FSI CSV to the most recent methodology edition.
 
-    Returns the filtered DataFrame, or an empty DataFrame if unavailable.
+    Returns (filtered_df, data_year) where data_year is the integer year
+    of the data (e.g. 2024), or None if unavailable.
     Uses scoring_timestamp (if present) for robust ordering; falls back
     to sorted methodology_id.
     """
     csv_path = TJN_DIR / "fsi_jurisdictions.csv"
     if not csv_path.exists():
-        return pd.DataFrame()
+        return pd.DataFrame(), None
     df = pd.read_csv(csv_path)
     if df.empty:
-        return pd.DataFrame()
+        return pd.DataFrame(), None
+    data_year = None
     if "scoring_timestamp" in df.columns:
         ts = df.dropna(subset=["scoring_timestamp"]).sort_values("scoring_timestamp")
         if not ts.empty:
             latest_scoring = ts.iloc[-1]["methodology_id"]
+            # Extract year from timestamp: "2024-09-15T12:00:00.000Z" → 2024
+            try:
+                data_year = int(str(ts.iloc[-1]["scoring_timestamp"])[:4])
+            except (ValueError, IndexError):
+                pass
         else:
             latest_scoring = sorted(df["methodology_id"].unique())[-1]
     else:
         latest_scoring = sorted(df["methodology_id"].unique())[-1]
-    return df[df["methodology_id"] == latest_scoring]
+    # Fallback: extract year from methodology_id (e.g. "fsi2024" → 2024)
+    if data_year is None:
+        digits = "".join(c for c in str(latest_scoring) if c.isdigit())
+        if len(digits) == 4:
+            data_year = int(digits)
+    return df[df["methodology_id"] == latest_scoring], data_year
 
 
 def load_fsi_related_jurisdictions():
@@ -1189,7 +1201,7 @@ def load_fsi_related_jurisdictions():
 
     Returns list of dicts with name, code, secrecy_score, and fsi_share_pct.
     """
-    df = _load_fsi_csv()
+    df, _ = _load_fsi_csv()
     if df.empty:
         return []
     result = []
@@ -1210,7 +1222,10 @@ def load_fsi_related_jurisdictions():
 
 
 def load_fsi_data():
-    """Load FSI data. Returns dict of {alpha3: {'value': fsi_value, 'secrecy': secrecy_score_or_None}}.
+    """Load FSI data. Returns (data_dict, data_year).
+
+    data_dict is {alpha3: {'value': fsi_value, 'secrecy': secrecy_score_or_None}}.
+    data_year is the integer year of the FSI edition (e.g. 2024), or None.
 
     Every entry always has both 'value' and 'secrecy' keys. 'secrecy' is None
     when index_score is missing/NaN in the source data.
@@ -1219,9 +1234,9 @@ def load_fsi_data():
     (no min-max normalization) as the TF domain score. The FSI Value (index_value)
     is retained as a displayed context fact only.
     """
-    df = _load_fsi_csv()
+    df, data_year = _load_fsi_csv()
     if df.empty:
-        return {}
+        return {}, None
     # Map alpha-2 to alpha-3
     result = {}
     for _, row in df.iterrows():
@@ -1235,7 +1250,7 @@ def load_fsi_data():
         elif secrecy is not None:
             # Fallback for older data or fixtures without index_value
             result[a3] = {"value": None, "secrecy": secrecy}
-    return result
+    return result, data_year
 
 
 def load_vdem_data():
@@ -1762,15 +1777,16 @@ def build_country_scores():
         rsf_map = {}
 
     # Load FSI data (transnational_facilitation) — uses secrecy score (raw, not normalized)
-    fsi_data = load_fsi_data()
+    fsi_data, fsi_year = load_fsi_data()
     if fsi_data:
-        print(f"  FSI: {len(fsi_data)} countries")
+        print(f"  FSI: {len(fsi_data)} countries (data year: {fsi_year})")
         fsi_secrecy = {k: v["secrecy"] for k, v in fsi_data.items() if v.get("secrecy") is not None}
         fsi_related = load_fsi_related_jurisdictions()
     else:
         fsi_data = {}
         fsi_secrecy = {}
         fsi_related = []
+        fsi_year = None
 
     # Load V-Dem data (political_capture + information_capture)
     vdem_raw, vdem_df_full = load_vdem_data()
@@ -1899,7 +1915,7 @@ def build_country_scores():
         secrecy = fsi_secrecy.get(code)
         if secrecy is not None:
             secrecy_rounded = int(round(secrecy))
-            fsi_confidence = assess_domain_confidence(1, 1, 2025)
+            fsi_confidence = assess_domain_confidence(1, 1, fsi_year)
             # Primary indicator: secrecy score (used for domain score)
             secrecy_entry = build_indicator_entry("tjn_fsi_secrecy", secrecy, secrecy_rounded, code, all_indicator_raw)
             # Context fact: FSI Value (secrecy × volume) for analysts
@@ -1916,7 +1932,7 @@ def build_country_scores():
                 "justification_detail": build_technical_justification("Tax Justice Network FSI", fsi_ind),
                 "_n_indicators": 1,
                 "_n_sources": 1,
-                "_most_recent_year": 2025,
+                "_most_recent_year": fsi_year,
             }
             source_names.append("TJN")
 

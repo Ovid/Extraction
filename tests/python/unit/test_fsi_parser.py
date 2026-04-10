@@ -11,38 +11,40 @@ FIXTURES = Path(__file__).parent.parent / "fixtures"
 class TestLoadFsiData:
     def test_loads_scores(self):
         with patch("score_countries.TJN_DIR", FIXTURES / "fsi"):
-            result = load_fsi_data()
+            result, year = load_fsi_data()
         assert isinstance(result, dict)
         assert "USA" in result
         assert "value" in result["USA"]
+        assert year == 2024
 
     def test_returns_fsi_value(self):
         with patch("score_countries.TJN_DIR", FIXTURES / "fsi"):
-            result = load_fsi_data()
+            result, _ = load_fsi_data()
         # Should use index_value, not index_score
         assert result["USA"]["value"] == 1900.2  # fsi2024 index_value
 
     def test_includes_secrecy_score(self):
         with patch("score_countries.TJN_DIR", FIXTURES / "fsi"):
-            result = load_fsi_data()
+            result, _ = load_fsi_data()
         assert result["USA"]["secrecy"] == 63.12
 
     def test_alpha2_to_alpha3_conversion(self):
         with patch("score_countries.TJN_DIR", FIXTURES / "fsi"):
-            result = load_fsi_data()
+            result, _ = load_fsi_data()
         assert "CHE" in result  # CH -> CHE
         assert "CYM" in result  # KY -> CYM
         assert "SGP" in result  # SG -> SGP
 
     def test_uses_latest_methodology(self):
         with patch("score_countries.TJN_DIR", FIXTURES / "fsi"):
-            result = load_fsi_data()
+            result, _ = load_fsi_data()
         assert result["USA"]["value"] == 1900.2  # fsi2024, not fsi2022
 
     def test_missing_file_returns_empty(self):
         with patch("score_countries.TJN_DIR", FIXTURES / "nonexistent"):
-            result = load_fsi_data()
+            result, year = load_fsi_data()
         assert result == {}
+        assert year is None
 
 
 class TestFsiSecrecyScoring:
@@ -51,7 +53,7 @@ class TestFsiSecrecyScoring:
     def test_all_countries_have_secrecy_score(self):
         """Every country returned by load_fsi_data must include a secrecy score."""
         with patch("score_countries.TJN_DIR", FIXTURES / "fsi"):
-            result = load_fsi_data()
+            result, _ = load_fsi_data()
         for code in result:
             assert "secrecy" in result[code], f"{code} missing secrecy score"
 
@@ -63,7 +65,7 @@ class TestFsiSecrecyScoring:
         (highest in the dataset). If it correctly uses raw secrecy, it will be 63.
         """
         with patch("score_countries.TJN_DIR", FIXTURES / "fsi"):
-            fsi_data = load_fsi_data()
+            fsi_data, _ = load_fsi_data()
 
         # Build secrecy map the same way the scoring pipeline does
         fsi_secrecy = {k: v.get("secrecy") for k, v in fsi_data.items()}
