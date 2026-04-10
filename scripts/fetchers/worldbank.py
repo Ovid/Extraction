@@ -41,8 +41,6 @@ INDICATORS = [
     ("NY.GDP.TOTL.RT.ZS", "wb_natural_rents.csv", "Total natural resources rents (% GDP)", "resource_capture", False),
     ("SI.DST.10TH.10", "wb_top10_income.csv", "Income share held by highest 10%", "economic_concentration", False),
     ("CC.EST", "wb_wgi_corruption.csv", "WGI Control of Corruption", "institutional_gatekeeping", True),
-    ("RQ.EST", "wb_wgi_reg_quality.csv", "WGI Regulatory Quality", "institutional_gatekeeping", True),
-    ("GE.EST", "wb_wgi_gov_effectiveness.csv", "WGI Government Effectiveness", "institutional_gatekeeping", True),
 ]
 
 # Fetch the most recent 15 years to allow trend computation
