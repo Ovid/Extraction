@@ -17,6 +17,10 @@ These changes require no new data fetches. The raw data is already on disk in `r
 
 ### 1.1 Transnational Facilitation: Use FSI Value Instead of FSI Score
 
+> **Status: Evaluated and rejected.** After analysis, the implementation chose to use the raw **secrecy score** (`index_score`) instead of `index_value`. FSI Value is extremely right-skewed (USA=2018, median ~161), and min-max normalization gave the US a perfect 100 while compressing traditional tax havens to ~25. The secrecy score measures policy choice on a 0-100 scale and is used raw (no normalization). FSI Value is retained as a displayed context fact. See `docs/plans/2026-04-10-tf-scoring-fix-design.md` for the full rationale.
+
+**Original proposal (below) is retained for context.**
+
 **Problem:** The domain currently uses the TJN Financial Secrecy Index *score* (`index_score`), which measures only how secretive a jurisdiction's laws are. It ignores *volume* — how much offshore finance actually flows through the jurisdiction. This produces anomalies: Norway (secrecy score 54.6) appears to be a significant enabler of global extraction, when in reality it handles a negligible 0.35% of global offshore financial services.
 
 **The fix:** Switch to TJN's own composite measure, `index_value`, which combines secrecy laws with the Global Scale Weight (the jurisdiction's share of global offshore financial services). This is the number TJN itself uses for its headline rankings.
