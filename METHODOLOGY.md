@@ -25,6 +25,10 @@ Elite monopolization of political power. Measured through:
 
 Domain score = mean of normalized indicator scores.
 
+**Known limitations:**
+
+- V-Dem measures formal democratic quality well but systematically underweights legal capture mechanisms — campaign finance deregulation (e.g., Citizens United in the US), lobbying industry scale, and revolving door dynamics — that are the primary mode of political capture in advanced democracies. Countries with strong electoral democracy but weak regulation of money in politics may have understated scores.
+
 ### 2. Economic Concentration
 
 Wealth inequality and the share of economic output captured by workers.
@@ -127,9 +131,28 @@ Enabling extraction elsewhere through financial secrecy, tax havens, and profit 
 
 | Indicator | Source | Variable | Direction |
 |-----------|--------|----------|-----------|
-| Financial Secrecy Index | Tax Justice Network | (composite score) | Direct |
+| Financial Secrecy Score | Tax Justice Network | index_score | Direct (raw, not min-max normalized) |
 
-Domain score = normalized indicator score.
+Domain score = raw secrecy score (TJN's 0-100 scale, used without min-max normalization).
+
+**Why the secrecy score, not the FSI Value:**
+
+The TJN Financial Secrecy Index publishes two measures per jurisdiction:
+
+- **Secrecy score** (0-100): how much secrecy a jurisdiction's laws and regulations enable, based on ~20 indicators of financial transparency. Measures *policy choice*.
+- **FSI Value** (secrecy × global scale weight): how much total global financial secrecy this jurisdiction facilitates, accounting for the size of its financial sector. Measures *total impact*.
+
+Earlier versions of this index used FSI Value with min-max normalization. This produced distorted results: the United States scored 100 (the maximum) while the Cayman Islands scored 25 and Panama scored 29. The distortion arose because FSI Value conflates economic scale with secrecy policy — the US has the world's largest financial sector, so even moderate secrecy laws produce a large FSI Value. Min-max normalization then mapped this outlier to 100, compressing all other countries.
+
+The secrecy score measures what the extraction index cares about: structural choices that enable financial secrecy. It is used raw (without min-max normalization) because it is already on a 0-100 scale consistent with the index's convention, and because its empirical range (29-80) reflects TJN's considered assessment that no jurisdiction is at either extreme.
+
+The FSI Value is retained as a displayed context fact for each country, so analysts can still see the scale-adjusted impact measure.
+
+**Limitations:**
+
+- **Scale is not captured in the score.** The US facilitates more total secrecy than Bermuda by virtue of its financial sector size, but this is not reflected in the domain score. The FSI Value context fact partially compensates.
+- **Single-source dependency.** This domain relies entirely on TJN's Financial Secrecy Index. Adding complementary indicators (e.g., FATF compliance, beneficial ownership transparency, tax treaty network quality) would improve construct validity.
+- **Secrecy score range is narrow.** TJN's secrecy scores cluster between 50-75 for most countries, limiting the domain's ability to discriminate in the middle of the distribution.
 
 ## Normalization
 
