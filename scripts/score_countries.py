@@ -1910,10 +1910,15 @@ def build_country_scores():
                 if related:
                     domains["transnational_facilitation"]["related_jurisdictions"] = related
                     total_share = sum(r.get("fsi_share_pct", 0) for r in related)
+                    if total_share > 0:
+                        share_text = (
+                            f" that collectively account for {total_share:.1f}% of global financial secrecy value"
+                        )
+                    else:
+                        share_text = ""
                     domains["transnational_facilitation"]["related_jurisdictions_note"] = (
                         f"The UK retains constitutional authority over Crown Dependencies and "
-                        f"Overseas Territories that collectively account for "
-                        f"{total_share:.1f}% of global financial secrecy value."
+                        f"Overseas Territories{share_text}."
                     )
 
         # Add V-Dem indicators (political_capture, information_capture, institutional_gatekeeping)
