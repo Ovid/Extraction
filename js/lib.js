@@ -370,6 +370,12 @@ export const COUNTRY_NAMES = {
   NCY: 'Northern Cyprus',
 };
 
+export function filterEntries(entries, query) {
+  if (!query) return entries;
+  const q = query.toLowerCase();
+  return entries.filter((e) => e.name.toLowerCase().includes(q));
+}
+
 export function computeComposite(domains, weights, domainKeys) {
   let sum = 0,
     wsum = 0;

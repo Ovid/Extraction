@@ -1,4 +1,12 @@
-import { DOMAIN_LABELS, DOMAIN_KEYS, NUMERIC_MAP, COUNTRY_NAMES, computeComposite, normalizeWeights } from './lib.js';
+import {
+  DOMAIN_LABELS,
+  DOMAIN_KEYS,
+  NUMERIC_MAP,
+  COUNTRY_NAMES,
+  computeComposite,
+  normalizeWeights,
+  filterEntries,
+} from './lib.js';
 
 const SOURCE_URLS = {
   wb_gini: 'https://data.worldbank.org/indicator/SI.POV.GINI',
@@ -648,7 +656,7 @@ window.addEventListener('resize', () => {
 // -- Country picker --
 let countrySortMode = 'alpha';
 
-function populateCountrySelect(sortBy) {
+function populateCountrySelect(sortBy, query) {
   countrySortMode = sortBy || countrySortMode;
   const list = document.getElementById('picker-list');
   const toggle = document.getElementById('picker-sort-toggle');
@@ -668,10 +676,12 @@ function populateCountrySelect(sortBy) {
   }
 
   const sortLabel = countrySortMode === 'score' ? 'Score' : 'Name';
-  toggle.textContent = `\u21C5 Sort by: ${sortLabel}`;
+  toggle.textContent = `Sort by: ${sortLabel}`;
+
+  const visible = filterEntries(entries, query || '');
 
   list.innerHTML = '';
-  entries.forEach(({ code, name, composite }) => {
+  visible.forEach(({ code, name, composite }) => {
     const rank = rankMap.get(code);
     const div = document.createElement('div');
     div.className = 'picker-item' + (code === selectedCountryCode ? ' selected' : '');
@@ -687,9 +697,16 @@ function populateCountrySelect(sortBy) {
   const dropdown = document.getElementById('picker-dropdown');
   const toggle = document.getElementById('picker-sort-toggle');
   const list = document.getElementById('picker-list');
+  const search = document.getElementById('picker-search');
 
   button.addEventListener('click', () => {
+    const opening = !dropdown.classList.contains('open');
     dropdown.classList.toggle('open');
+    if (opening) {
+      search.value = '';
+      populateCountrySelect(undefined, '');
+      search.focus();
+    }
   });
 
   // Close when clicking outside
@@ -699,10 +716,15 @@ function populateCountrySelect(sortBy) {
     }
   });
 
-  // Sort toggle — stays open
+  // Filter as user types
+  search.addEventListener('input', () => {
+    populateCountrySelect(undefined, search.value);
+  });
+
+  // Sort toggle — stays open, preserves filter
   toggle.addEventListener('click', () => {
     countrySortMode = countrySortMode === 'alpha' ? 'score' : 'alpha';
-    populateCountrySelect();
+    populateCountrySelect(undefined, search.value);
   });
 
   // Country selection — closes dropdown
