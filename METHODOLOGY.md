@@ -210,7 +210,7 @@ A change of **10% or more** is required to register as "rising" or "falling." Ch
 
 Each domain's trend is determined by majority vote across its indicators. The overall country trend is a majority vote across domains, excluding domains with "unknown" trends.
 
-Domains sourced exclusively from V-Dem, RSF, or TJN currently report "unknown" trends because the trend function only analyzes World Bank time-series data.
+World Bank and V-Dem domains estimate trends from their respective time-series data. V-Dem domain trends are computed by majority vote across the domain's indicators. RSF and TJN domains currently report "unknown" trends because they lack multi-year time-series data in the pipeline.
 
 ## Confidence Model
 
@@ -293,7 +293,7 @@ See `sources.md` for the complete source registry including URLs, coverage detai
 
 ## Known Limitations
 
-1. **Three of seven domains have no trend data.** Political capture, information capture (V-Dem portion), and transnational facilitation lack time-series trend analysis because the trend function only processes World Bank data.
+1. **Two of seven domains have no trend data.** Information capture (RSF portion) and transnational facilitation lack time-series trend analysis. V-Dem domains now estimate trends from their time-series data.
 
 2. **Financial extraction remains under-measured.** The domain uses two indicators (domestic credit and bank net interest margin), which better capture the cost of financial intermediation than credit volume alone. However, both are macro-level proxies that cannot distinguish household-level outcomes — whether a given level of credit builds wealth (as in Scandinavian mortgage markets) or destroys it (as in US medical debt). Fully resolving this would require household-level data not available from the World Bank.
 
