@@ -37,7 +37,7 @@ class TestEstimateTrendFromData:
         assert estimate_trend_from_data(data, inverted=False) == "stable"
 
     def test_boundary_exactly_10_percent(self):
-        """Exactly 10% change -> stable (< 0.10, not <=)."""
+        """Exactly 10% change -> stable (<= 0.10 threshold)."""
         data = pd.DataFrame(
             {
                 "year": [2012, 2013, 2019, 2020],
