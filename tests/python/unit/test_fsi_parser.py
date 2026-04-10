@@ -3,7 +3,7 @@
 from pathlib import Path
 from unittest.mock import patch
 
-from score_countries import load_fsi_data
+from score_countries import load_fsi_data, load_fsi_related_jurisdictions
 
 FIXTURES = Path(__file__).parent.parent / "fixtures"
 
@@ -75,3 +75,44 @@ class TestFsiSecrecyScoring:
         # Verify it's NOT the FSI Value (which would normalize to ~100)
         assert fsi_data["USA"]["value"] == 1900.2  # FSI Value is much higher
         assert int(round(fsi_secrecy["USA"])) < 70  # Secrecy score is moderate
+
+
+class TestLoadFsiRelatedJurisdictions:
+    """Tests for UK Crown Dependencies and Overseas Territories loading."""
+
+    def test_returns_only_related_jurisdictions(self):
+        with patch("score_countries.TJN_DIR", FIXTURES / "fsi"):
+            result = load_fsi_related_jurisdictions()
+        codes = [r["code"] for r in result]
+        # Fixture has GG (Guernsey), VG (BVI), and KY (Cayman) as UK-related
+        assert "GGY" in codes  # GG -> GGY
+        assert "VGB" in codes  # VG -> VGB
+        assert "CYM" in codes  # KY -> CYM (UK Overseas Territory)
+        # Non-UK jurisdictions excluded
+        assert not any(c in codes for c in ["USA", "CHE", "SGP"])
+
+    def test_includes_secrecy_score(self):
+        with patch("score_countries.TJN_DIR", FIXTURES / "fsi"):
+            result = load_fsi_related_jurisdictions()
+        for entry in result:
+            assert "secrecy_score" in entry
+            assert entry["secrecy_score"] is not None
+
+    def test_includes_fsi_share_pct(self):
+        with patch("score_countries.TJN_DIR", FIXTURES / "fsi"):
+            result = load_fsi_related_jurisdictions()
+        for entry in result:
+            assert "fsi_share_pct" in entry
+            assert entry["fsi_share_pct"] > 0
+
+    def test_missing_file_returns_empty(self):
+        with patch("score_countries.TJN_DIR", FIXTURES / "nonexistent"):
+            result = load_fsi_related_jurisdictions()
+        assert result == []
+
+    def test_uses_latest_methodology(self):
+        """Should use fsi2024 (latest by timestamp), not fsi2022."""
+        with patch("score_countries.TJN_DIR", FIXTURES / "fsi"):
+            result = load_fsi_related_jurisdictions()
+        # GG and VG only exist in fsi2024, so getting results proves correct methodology
+        assert len(result) > 0
