@@ -1190,9 +1190,9 @@ def load_fsi_related_jurisdictions():
 def load_fsi_data():
     """Load FSI data. Returns dict of {alpha3: {'value': fsi_value, 'secrecy': secrecy_score}}.
 
-    Uses index_value (TJN's composite of secrecy laws × offshore finance volume)
-    as the primary scoring indicator. Also returns index_score (secrecy-only)
-    for display as a context fact.
+    The secrecy score (index_score) is the primary scoring indicator — used raw
+    (no min-max normalization) as the TF domain score. The FSI Value (index_value)
+    is retained as a displayed context fact only.
     """
     csv_path = TJN_DIR / "fsi_jurisdictions.csv"
     if not csv_path.exists():
@@ -1732,17 +1732,13 @@ def build_country_scores():
     else:
         rsf_map = {}
 
-    # Load FSI data (transnational_facilitation) — uses FSI Value (secrecy × volume)
+    # Load FSI data (transnational_facilitation) — uses secrecy score (raw, not normalized)
     fsi_data = load_fsi_data()
     if fsi_data:
         print(f"  FSI: {len(fsi_data)} countries")
-        fsi_value_series = pd.Series({k: v["value"] for k, v in fsi_data.items()})
-        fsi_normalized = normalize_minmax(fsi_value_series, inverted=False)  # Linear, no log
-        fsi_map = dict(zip(fsi_value_series.index, fsi_normalized))
         fsi_secrecy = {k: v.get("secrecy") for k, v in fsi_data.items()}
     else:
         fsi_data = {}
-        fsi_map = {}
         fsi_secrecy = {}
 
     # Load V-Dem data (political_capture + information_capture)
@@ -1785,6 +1781,7 @@ def build_country_scores():
         all_indicator_raw["rsf_press"] = dict(rsf_scores)
     if fsi_data:
         all_indicator_raw["tjn_fsi"] = {k: v["value"] for k, v in fsi_data.items()}
+        all_indicator_raw["tjn_fsi_secrecy"] = {k: v["secrecy"] for k, v in fsi_data.items() if v.get("secrecy") is not None}
     vdem_source_key_map = {
         "v2x_corr": "vdem_political_corruption",
         "v2xnp_client": "vdem_clientelism",
@@ -1802,7 +1799,7 @@ def build_country_scores():
         if values:
             all_indicator_raw[source_key] = values
 
-    if not indicators and not rsf_map and not fsi_map and not vdem_normalized:
+    if not indicators and not rsf_map and not fsi_secrecy and not vdem_normalized:
         print("No indicator data found!")
         return {}
 
@@ -1818,7 +1815,7 @@ def build_country_scores():
     if not all_data.empty:
         country_codes.update(all_data["country_code"].unique())
     country_codes.update(rsf_map.keys())
-    country_codes.update(fsi_map.keys())
+    country_codes.update(fsi_secrecy.keys())
     country_codes.update(vdem_normalized.keys())
 
     countries = {}
@@ -1863,23 +1860,26 @@ def build_country_scores():
             }
             source_names.append("RSF")
 
-        # Add FSI (transnational_facilitation) — FSI Value (secrecy × volume)
-        if code in fsi_map:
-            raw_value = fsi_data[code]["value"]
+        # Add FSI (transnational_facilitation) — secrecy score (raw, no normalization)
+        secrecy = fsi_secrecy.get(code)
+        if secrecy is not None:
+            secrecy_rounded = int(round(secrecy))
             fsi_confidence = assess_domain_confidence(1, 1, 2025)
-            fsi_norm = int(fsi_map[code])
-            fsi_entry = build_indicator_entry("tjn_fsi", raw_value, fsi_norm, code, all_indicator_raw)
-            # Add secrecy score as an extra context fact
-            secrecy = fsi_secrecy.get(code)
-            if secrecy is not None and fsi_entry.get("facts") is not None:
-                fsi_entry["facts"].append(f"Financial secrecy score: {secrecy:.0f} out of 100")
-            fsi_ind = [{"name": "FSI Value", "raw": raw_value, "normalized": fsi_norm}]
+            # Primary indicator: secrecy score (used for domain score)
+            secrecy_entry = build_indicator_entry(
+                "tjn_fsi_secrecy", secrecy, secrecy_rounded, code, all_indicator_raw
+            )
+            # Context fact: FSI Value (secrecy × volume) for analysts
+            fsi_value = fsi_data[code].get("value")
+            if fsi_value is not None and secrecy_entry.get("facts") is not None:
+                secrecy_entry["facts"].append(f"FSI Value (secrecy × scale): {fsi_value:.0f}")
+            fsi_ind = [{"name": "Financial secrecy score", "raw": secrecy, "normalized": secrecy_rounded}]
             domains["transnational_facilitation"] = {
-                "score": fsi_norm,
+                "score": secrecy_rounded,
                 "confidence": fsi_confidence,
                 "trend": "unknown",
                 "sources": ["tjn_fsi"],
-                "indicators": [fsi_entry],
+                "indicators": [secrecy_entry],
                 "justification_detail": build_technical_justification("Tax Justice Network FSI", fsi_ind),
                 "_n_indicators": 1,
                 "_n_sources": 1,
