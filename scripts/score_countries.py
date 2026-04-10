@@ -268,7 +268,7 @@ INDICATOR_DISPLAY = {
         "label": "Legislative corruption index",
         "format": "{:.2f}",
         "unit": "(scale: -3 to 3.5)",
-        "comparison_label": ["Most corrupt legislature among", "Least corrupt legislature among"],
+        "comparison_label": ["Least corrupt legislature among", "Most corrupt legislature among"],
     },
     "rsf_press": {
         "label": "Press freedom score",
