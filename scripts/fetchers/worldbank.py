@@ -5,7 +5,7 @@ Uses the World Bank API v2 to fetch country-level indicators.
 Docs: https://datahelpdesk.worldbank.org/knowledgebase/articles/889392
 
 Covers domains:
-  - economic_concentration: Gini, labor share
+  - economic_concentration: Gini
   - financial_extraction: domestic credit to private sector, bank net interest margin
   - institutional_gatekeeping: regulatory quality (WGI), control of corruption (WGI)
   - resource_capture: total natural resource rents
@@ -24,13 +24,6 @@ API_BASE = "https://api.worldbank.org/v2"
 # inverted=True means higher values = LESS extraction (need to flip for scoring)
 INDICATORS = [
     ("SI.POV.GINI", "wb_gini.csv", "Gini Index", "economic_concentration", False),
-    (
-        "SL.GDP.PCAP.EM.KD",
-        "wb_gdp_per_worker.csv",
-        "GDP per person employed (constant 2017 $)",
-        "economic_concentration",
-        False,
-    ),
     (
         "FS.AST.PRVT.GD.ZS",
         "wb_domestic_credit.csv",
