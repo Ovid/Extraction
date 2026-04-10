@@ -22,6 +22,7 @@ Elite monopolization of political power. Measured through:
 | Clientelism | V-Dem | v2xnp_client | Direct |
 | Electoral Democracy | V-Dem | v2x_polyarchy | Inverted (higher = less extraction) |
 | Political Violence | V-Dem | v2x_clphy | Inverted |
+| Legislative Corruption | V-Dem | v2lgcrrpt | Inverted (higher raw = less extraction) |
 
 Domain score = mean of normalized indicator scores.
 
@@ -37,6 +38,7 @@ Wealth inequality and the share of economic output captured by workers.
 |-----------|--------|----------|-----------|
 | Gini Index | World Bank | SI.POV.GINI | Direct |
 | Labour income share of GDP | ILO (ILOSTAT) | LAP_2GDP_NOC_RT | Inverted (higher = less extraction) |
+| Income share of top 10% | World Bank | SI.DST.10TH.10 | Direct |
 
 Domain score = mean of normalized indicator scores.
 
