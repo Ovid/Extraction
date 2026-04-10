@@ -1160,19 +1160,34 @@ def load_rsf_data():
 UK_RELATED_JURISDICTION_IDS = ["GG", "JE", "IM", "AI", "BM", "GI", "KY", "MS", "TC", "VG"]
 
 
+def _load_fsi_csv():
+    """Load and filter FSI CSV to the most recent methodology edition.
+
+    Returns the filtered DataFrame, or an empty DataFrame if unavailable.
+    Uses scoring_timestamp (if present) for robust ordering; falls back
+    to sorted methodology_id.
+    """
+    csv_path = TJN_DIR / "fsi_jurisdictions.csv"
+    if not csv_path.exists():
+        return pd.DataFrame()
+    df = pd.read_csv(csv_path)
+    if df.empty:
+        return pd.DataFrame()
+    if "scoring_timestamp" in df.columns:
+        latest_scoring = df.sort_values("scoring_timestamp").iloc[-1]["methodology_id"]
+    else:
+        latest_scoring = sorted(df["methodology_id"].unique())[-1]
+    return df[df["methodology_id"] == latest_scoring]
+
+
 def load_fsi_related_jurisdictions():
     """Load FSI data for UK Crown Dependencies and Overseas Territories.
 
     Returns list of dicts with name, code, secrecy_score, and fsi_share_pct.
     """
-    csv_path = TJN_DIR / "fsi_jurisdictions.csv"
-    if not csv_path.exists():
-        return []
-    df = pd.read_csv(csv_path)
+    df = _load_fsi_csv()
     if df.empty:
         return []
-    latest_scoring = df["methodology_id"].unique()[-1]
-    df = df[df["methodology_id"] == latest_scoring]
     result = []
     for _, row in df.iterrows():
         if row["jurisdiction_id"] in UK_RELATED_JURISDICTION_IDS:
@@ -1194,15 +1209,9 @@ def load_fsi_data():
     (no min-max normalization) as the TF domain score. The FSI Value (index_value)
     is retained as a displayed context fact only.
     """
-    csv_path = TJN_DIR / "fsi_jurisdictions.csv"
-    if not csv_path.exists():
-        return {}
-    df = pd.read_csv(csv_path)
+    df = _load_fsi_csv()
     if df.empty:
         return {}
-    # Take most recent edition
-    latest_scoring = df["methodology_id"].unique()[-1]
-    df = df[df["methodology_id"] == latest_scoring]
     # Map alpha-2 to alpha-3
     result = {}
     for _, row in df.iterrows():
