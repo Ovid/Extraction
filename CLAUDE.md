@@ -119,3 +119,18 @@ python score_countries.py --country USA    # Single country
 ## Style & Tone
 
 Extraction is a structural pattern, not a moral failing. Tone is analytical, not polemical. Justifications should read like concise research notes, not advocacy.
+
+## Commit messages
+
+Commit messages must ALWAYS be bare strings. NO EXCEPTIONS.
+
+Bad:
+
+   git commit -m "$(cat <<'EOF'
+      refactor: register ILO fetcher, remove GDP per worker from World Bank
+    EOF
+    )"
+
+Good:
+
+    git commit -m "refactor: register ILO fetcher, remove GDP per worker from World Bank"
