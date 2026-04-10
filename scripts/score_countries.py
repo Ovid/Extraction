@@ -1209,7 +1209,7 @@ def load_fsi_data():
         a3 = ALPHA2_TO_ALPHA3.get(row["jurisdiction_id"])
         if not a3:
             continue
-        # Prefer index_value (secrecy × volume); fall back to index_score
+        # Load both index_value (for context fact) and index_score (secrecy, for scoring)
         if "index_value" in row and pd.notna(row.get("index_value")):
             entry = {"value": float(row["index_value"])}
             if pd.notna(row.get("index_score")):
@@ -1736,7 +1736,7 @@ def build_country_scores():
     fsi_data = load_fsi_data()
     if fsi_data:
         print(f"  FSI: {len(fsi_data)} countries")
-        fsi_secrecy = {k: v.get("secrecy") for k, v in fsi_data.items()}
+        fsi_secrecy = {k: v["secrecy"] for k, v in fsi_data.items() if v.get("secrecy") is not None}
     else:
         fsi_data = {}
         fsi_secrecy = {}
