@@ -11,12 +11,15 @@ Covers domains:
 import csv
 import io
 import json
+from datetime import date
 from pathlib import Path
 
 import pandas as pd
 import requests
 
-ILO_API_URL = "https://sdmx.ilo.org/rest/data/ILO,DF_LAP_2GDP_NOC_RT/.A.?startPeriod=2010&endPeriod=2025"
+ILO_API_URL = (
+    f"https://sdmx.ilo.org/rest/data/ILO,DF_LAP_2GDP_NOC_RT/.A.?startPeriod=2010&endPeriod={date.today().year}"
+)
 
 COUNTRY_CODE_OVERRIDES = {}
 
@@ -69,10 +72,14 @@ def fetch(raw_data_dir: Path) -> list[str]:
         df = df[["country_code", "country_name", "year", "value", "indicator"]]
 
     output_path = output_dir / "ilo_labor_share.csv"
+    files = []
     if not df.empty:
         df.to_csv(output_path, index=False)
+        files.append(str(output_path.relative_to(raw_data_dir)))
     else:
         print("      WARNING: No records returned from ILO API")
+        if output_path.exists():
+            output_path.unlink()
 
     meta = {
         "source": "International Labour Organization (ILO) — ILOSTAT",
@@ -84,9 +91,6 @@ def fetch(raw_data_dir: Path) -> list[str]:
     meta_path = output_dir / "_metadata.json"
     with open(meta_path, "w") as f:
         json.dump(meta, f, indent=2)
+    files.append(str(meta_path.relative_to(raw_data_dir)))
 
-    files = [
-        str(output_path.relative_to(raw_data_dir)),
-        str(meta_path.relative_to(raw_data_dir)),
-    ]
     return files

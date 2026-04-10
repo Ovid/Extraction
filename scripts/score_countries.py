@@ -833,7 +833,8 @@ INCOME_GROUP_MAP = {
 }
 
 # Aggregates and regions to exclude (World Bank includes these as "countries")
-# Also includes ILO non-country codes (CHA = Channel Islands, ESH = Western Sahara)
+# CHA = Channel Islands (not a real ISO alpha-3 code, ILO grouping)
+# ESH = Western Sahara (valid ISO code but disputed territory with no governance data)
 EXCLUDE_CODES = {
     "AFE",
     "AFW",
@@ -1327,9 +1328,11 @@ def load_indicator(filepath):
     df = pd.read_csv(filepath)
     # Filter out aggregates
     df = df[~df["country_code"].isin(EXCLUDE_CODES)]
-    # Filter to valid 3-letter ISO codes (excludes ILO aggregate codes like X01-X99)
+    # Filter to valid 3-letter ISO codes
     df = df[df["country_code"].str.len() == 3]
-    df = df[~df["country_code"].str.match(r"^X[0-9A-Z]")]
+    # Exclude ILO aggregate codes (X01-X99, XA1) without hitting real ISO codes like XKX (Kosovo)
+    df = df[~df["country_code"].str.match(r"^X[0-9]", na=False)]
+    df = df[~df["country_code"].isin({"XA1"})]
     # Take most recent year per country
     df = df.sort_values("year", ascending=False).drop_duplicates("country_code", keep="first")
     return df[["country_code", "country_name", "year", "value"]].copy()

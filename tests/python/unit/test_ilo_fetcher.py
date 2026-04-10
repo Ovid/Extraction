@@ -56,7 +56,9 @@ class TestFetch:
             mock_get.return_value.status_code = 200
             mock_get.return_value.text = empty_csv
             mock_get.return_value.raise_for_status = lambda: None
-            fetch(tmp_path)
+            files = fetch(tmp_path)
 
         output_file = tmp_path / "ilo" / "ilo_labor_share.csv"
         assert not output_file.exists()
+        assert "ilo/ilo_labor_share.csv" not in files
+        assert any("_metadata.json" in f for f in files)
