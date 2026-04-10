@@ -49,3 +49,14 @@ class TestFetch:
             reader = csv.DictReader(f)
             row = next(reader)
             assert set(row.keys()) == {"country_code", "country_name", "year", "value", "indicator"}
+
+    def test_empty_response_does_not_write_csv(self, tmp_path):
+        empty_csv = f"{HEADER}\n"
+        with patch("fetchers.ilo.requests.get") as mock_get:
+            mock_get.return_value.status_code = 200
+            mock_get.return_value.text = empty_csv
+            mock_get.return_value.raise_for_status = lambda: None
+            files = fetch(tmp_path)
+
+        output_file = tmp_path / "ilo" / "ilo_labor_share.csv"
+        assert not output_file.exists()

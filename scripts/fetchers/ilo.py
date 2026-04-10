@@ -69,7 +69,10 @@ def fetch(raw_data_dir: Path) -> list[str]:
         df = df[["country_code", "country_name", "year", "value", "indicator"]]
 
     output_path = output_dir / "ilo_labor_share.csv"
-    df.to_csv(output_path, index=False)
+    if not df.empty:
+        df.to_csv(output_path, index=False)
+    else:
+        print("      WARNING: No records returned from ILO API")
 
     meta = {
         "source": "International Labour Organization (ILO) — ILOSTAT",
