@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "0.1.0",
-    "last_updated": "2026-04-10",
+    "last_updated": "2026-04-11",
     "methodology_url": "https://github.com/Ovid/extraction",
     "default_weights": {
       "political_capture": 0.143,
@@ -132,7 +132,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.123 (normalized: 29). Auto-scored from V-Dem. Rule of Law: 0.924 (normalized: 7); Egalitarian Component: 0.574 (normalized: 43); Participatory Democracy: 0.510 (normalized: 35)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.123 (normalized: 29). Auto-scored from V-Dem. Rule of Law: 0.924 (normalized: 7); Egalitarian Component: 0.574 (normalized: 43); Participatory Democracy: 0.510 (normalized: 35). Restructured: quality (18) = avg(corruption control, rule of law); purpose (39) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 28."
         },
         "resource_capture": {
           "score": 5,
@@ -399,7 +399,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.376 (normalized: 0). Auto-scored from V-Dem. Rule of Law: 0.997 (normalized: 0); Egalitarian Component: 0.971 (normalized: 0); Participatory Democracy: 0.700 (normalized: 11)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.376 (normalized: 0). Auto-scored from V-Dem. Rule of Law: 0.997 (normalized: 0); Egalitarian Component: 0.971 (normalized: 0); Participatory Democracy: 0.700 (normalized: 11). Restructured: quality (0) = avg(corruption control, rule of law); purpose (6) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 3."
         },
         "resource_capture": {
           "score": 1,
@@ -650,7 +650,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.040 (normalized: 8). Auto-scored from V-Dem. Rule of Law: 0.974 (normalized: 2); Egalitarian Component: 0.794 (normalized: 19); Participatory Democracy: 0.121 (normalized: 85)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.040 (normalized: 8). Auto-scored from V-Dem. Rule of Law: 0.974 (normalized: 2); Egalitarian Component: 0.794 (normalized: 19); Participatory Democracy: 0.121 (normalized: 85). Restructured: quality (5) = avg(corruption control, rule of law); purpose (52) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 28."
         },
         "resource_capture": {
           "score": 0,
@@ -789,7 +789,7 @@
               "label": "Very low",
               "facts": [
                 "Legislative corruption index: 2.86 (scale: -3 to 3.5)",
-                "Most corrupt legislature among South-eastern Asia (avg: -0.78)"
+                "Least corrupt legislature among South-eastern Asia (avg: -0.78)"
               ]
             }
           ],
@@ -920,7 +920,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.041 (normalized: 79). Auto-scored from V-Dem. Rule of Law: 0.289 (normalized: 72); Egalitarian Component: 0.555 (normalized: 45); Participatory Democracy: 0.323 (normalized: 59)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.041 (normalized: 79). Auto-scored from V-Dem. Rule of Law: 0.289 (normalized: 72); Egalitarian Component: 0.555 (normalized: 45); Participatory Democracy: 0.323 (normalized: 59). Restructured: quality (76) = avg(corruption control, rule of law); purpose (52) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 64."
         },
         "resource_capture": {
           "score": 28,
@@ -1142,7 +1142,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.584 (normalized: 91). Auto-scored from V-Dem. Rule of Law: 0.033 (normalized: 97); Egalitarian Component: 0.339 (normalized: 68); Participatory Democracy: 0.044 (normalized: 95)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.584 (normalized: 91). Auto-scored from V-Dem. Rule of Law: 0.033 (normalized: 97); Egalitarian Component: 0.339 (normalized: 68); Participatory Democracy: 0.044 (normalized: 95). Restructured: quality (94) = avg(corruption control, rule of law); purpose (82) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 88."
         },
         "information_capture": {
           "score": 99,
@@ -1371,7 +1371,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.927 (normalized: 10). Auto-scored from V-Dem. Rule of Law: 0.979 (normalized: 2); Egalitarian Component: 0.947 (normalized: 3); Participatory Democracy: 0.556 (normalized: 29)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.927 (normalized: 10). Auto-scored from V-Dem. Rule of Law: 0.979 (normalized: 2); Egalitarian Component: 0.947 (normalized: 3); Participatory Democracy: 0.556 (normalized: 29). Restructured: quality (6) = avg(corruption control, rule of law); purpose (16) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 11."
         },
         "resource_capture": {
           "score": 0,
@@ -1509,7 +1509,7 @@
               "label": "Very low",
               "facts": [
                 "Legislative corruption index: 3.50 (scale: -3 to 3.5)",
-                "Most corrupt legislature among high income countries (avg: 1.31)"
+                "Least corrupt legislature among high income countries (avg: 1.31)"
               ]
             }
           ],
@@ -1642,7 +1642,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.105 (normalized: 80). Auto-scored from V-Dem. Rule of Law: 0.121 (normalized: 89); Egalitarian Component: 0.409 (normalized: 61); Participatory Democracy: 0.124 (normalized: 85)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.105 (normalized: 80). Auto-scored from V-Dem. Rule of Law: 0.121 (normalized: 89); Egalitarian Component: 0.409 (normalized: 61); Participatory Democracy: 0.124 (normalized: 85). Restructured: quality (84) = avg(corruption control, rule of law); purpose (73) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 79."
         },
         "resource_capture": {
           "score": 60,
@@ -1781,7 +1781,7 @@
               "label": "Very high",
               "facts": [
                 "Legislative corruption index: -1.38 (scale: -3 to 3.5)",
-                "Least corrupt legislature among Eastern Europe (avg: 0.03)"
+                "Most corrupt legislature among Eastern Europe (avg: 0.03)"
               ]
             }
           ],
@@ -1914,7 +1914,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.114 (normalized: 6). Auto-scored from V-Dem. Rule of Law: 0.986 (normalized: 1); Egalitarian Component: 0.963 (normalized: 1); Participatory Democracy: 0.638 (normalized: 19)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.114 (normalized: 6). Auto-scored from V-Dem. Rule of Law: 0.986 (normalized: 1); Egalitarian Component: 0.963 (normalized: 1); Participatory Democracy: 0.638 (normalized: 19). Restructured: quality (4) = avg(corruption control, rule of law); purpose (10) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 7."
         },
         "resource_capture": {
           "score": 6,
@@ -2252,7 +2252,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.155 (normalized: 81). Auto-scored from V-Dem. Rule of Law: 0.084 (normalized: 92); Egalitarian Component: 0.048 (normalized: 100); Participatory Democracy: 0.051 (normalized: 94)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.155 (normalized: 81). Auto-scored from V-Dem. Rule of Law: 0.084 (normalized: 92); Egalitarian Component: 0.048 (normalized: 100); Participatory Democracy: 0.051 (normalized: 94). Restructured: quality (86) = avg(corruption control, rule of law); purpose (97) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 92."
         },
         "resource_capture": {
           "score": 8,
@@ -2493,7 +2493,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.610 (normalized: 69). Auto-scored from V-Dem. Rule of Law: 0.381 (normalized: 62); Egalitarian Component: 0.237 (normalized: 80); Participatory Democracy: 0.103 (normalized: 88)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.610 (normalized: 69). Auto-scored from V-Dem. Rule of Law: 0.381 (normalized: 62); Egalitarian Component: 0.237 (normalized: 80); Participatory Democracy: 0.103 (normalized: 88). Restructured: quality (66) = avg(corruption control, rule of law); purpose (84) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 75."
         },
         "resource_capture": {
           "score": 55,
@@ -2631,7 +2631,7 @@
               "label": "High",
               "facts": [
                 "Legislative corruption index: -0.49 (scale: -3 to 3.5)",
-                "Most corrupt legislature among Middle Africa (avg: -1.66)"
+                "Least corrupt legislature among Middle Africa (avg: -1.66)"
               ]
             }
           ],
@@ -2764,7 +2764,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.332 (normalized: 62). Auto-scored from V-Dem. Rule of Law: 0.592 (normalized: 41); Egalitarian Component: 0.666 (normalized: 33); Participatory Democracy: 0.290 (normalized: 64)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.332 (normalized: 62). Auto-scored from V-Dem. Rule of Law: 0.592 (normalized: 41); Egalitarian Component: 0.666 (normalized: 33); Participatory Democracy: 0.290 (normalized: 64). Restructured: quality (52) = avg(corruption control, rule of law); purpose (48) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 50."
         },
         "resource_capture": {
           "score": 11,
@@ -3146,7 +3146,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.074 (normalized: 30). Auto-scored from V-Dem. Rule of Law: 0.638 (normalized: 36); Egalitarian Component: 0.444 (normalized: 57); Participatory Democracy: 0.031 (normalized: 97)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.074 (normalized: 30). Auto-scored from V-Dem. Rule of Law: 0.638 (normalized: 36); Egalitarian Component: 0.444 (normalized: 57); Participatory Democracy: 0.031 (normalized: 97). Restructured: quality (33) = avg(corruption control, rule of law); purpose (77) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 55."
         },
         "resource_capture": {
           "score": 64,
@@ -3285,7 +3285,7 @@
               "label": "Low",
               "facts": [
                 "Legislative corruption index: 2.37 (scale: -3 to 3.5)",
-                "Most corrupt legislature among Western Asia (avg: -0.42)"
+                "Least corrupt legislature among Western Asia (avg: -0.42)"
               ]
             }
           ],
@@ -3414,7 +3414,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.361 (normalized: 63). Auto-scored from V-Dem. Rule of Law: 0.577 (normalized: 42); Egalitarian Component: 0.690 (normalized: 30); Participatory Democracy: 0.429 (normalized: 46)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.361 (normalized: 63). Auto-scored from V-Dem. Rule of Law: 0.577 (normalized: 42); Egalitarian Component: 0.690 (normalized: 30); Participatory Democracy: 0.429 (normalized: 46). Restructured: quality (52) = avg(corruption control, rule of law); purpose (38) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 45."
         },
         "resource_capture": {
           "score": 10,
@@ -3684,7 +3684,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.058 (normalized: 53). Auto-scored from V-Dem. Rule of Law: 0.453 (normalized: 55); Egalitarian Component: 0.784 (normalized: 20); Participatory Democracy: 0.319 (normalized: 60)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.058 (normalized: 53). Auto-scored from V-Dem. Rule of Law: 0.453 (normalized: 55); Egalitarian Component: 0.784 (normalized: 20); Participatory Democracy: 0.319 (normalized: 60). Restructured: quality (54) = avg(corruption control, rule of law); purpose (40) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 47."
         },
         "resource_capture": {
           "score": 20,
@@ -4092,7 +4092,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.781 (normalized: 14). Auto-scored from V-Dem. Rule of Law: 0.990 (normalized: 1); Egalitarian Component: 0.853 (normalized: 13); Participatory Democracy: 0.648 (normalized: 18)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.781 (normalized: 14). Auto-scored from V-Dem. Rule of Law: 0.990 (normalized: 1); Egalitarian Component: 0.853 (normalized: 13); Participatory Democracy: 0.648 (normalized: 18). Restructured: quality (8) = avg(corruption control, rule of law); purpose (16) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 12."
         },
         "resource_capture": {
           "score": 10,
@@ -4358,7 +4358,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.134 (normalized: 29). Auto-scored from V-Dem. Rule of Law: 0.932 (normalized: 7); Egalitarian Component: 0.859 (normalized: 12); Participatory Democracy: 0.582 (normalized: 26)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.134 (normalized: 29). Auto-scored from V-Dem. Rule of Law: 0.932 (normalized: 7); Egalitarian Component: 0.859 (normalized: 12); Participatory Democracy: 0.582 (normalized: 26). Restructured: quality (18) = avg(corruption control, rule of law); purpose (19) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 18."
         },
         "resource_capture": {
           "score": 0,
@@ -4608,7 +4608,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.195 (normalized: 82). Auto-scored from V-Dem. Rule of Law: 0.053 (normalized: 95); Egalitarian Component: 0.386 (normalized: 63); Participatory Democracy: 0.043 (normalized: 95)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.195 (normalized: 82). Auto-scored from V-Dem. Rule of Law: 0.053 (normalized: 95); Egalitarian Component: 0.386 (normalized: 63); Participatory Democracy: 0.043 (normalized: 95). Restructured: quality (88) = avg(corruption control, rule of law); purpose (79) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 84."
         },
         "resource_capture": {
           "score": 69,
@@ -4726,7 +4726,7 @@
               "label": "Very high",
               "facts": [
                 "Legislative corruption index: -2.29 (scale: -3 to 3.5)",
-                "Least corrupt legislature among Western Asia (avg: -0.08)"
+                "Most corrupt legislature among Western Asia (avg: -0.08)"
               ]
             }
           ],
@@ -4856,7 +4856,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.556 (normalized: 90). Auto-scored from V-Dem. Rule of Law: 0.083 (normalized: 92); Egalitarian Component: 0.277 (normalized: 75); Participatory Democracy: 0.142 (normalized: 83)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.556 (normalized: 90). Auto-scored from V-Dem. Rule of Law: 0.083 (normalized: 92); Egalitarian Component: 0.277 (normalized: 75); Participatory Democracy: 0.142 (normalized: 83). Restructured: quality (91) = avg(corruption control, rule of law); purpose (79) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 85."
         },
         "resource_capture": {
           "score": 54,
@@ -5106,7 +5106,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.337 (normalized: 24). Auto-scored from V-Dem. Rule of Law: 0.964 (normalized: 3); Egalitarian Component: 0.929 (normalized: 5); Participatory Democracy: 0.633 (normalized: 20)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.337 (normalized: 24). Auto-scored from V-Dem. Rule of Law: 0.964 (normalized: 3); Egalitarian Component: 0.929 (normalized: 5); Participatory Democracy: 0.633 (normalized: 20). Restructured: quality (14) = avg(corruption control, rule of law); purpose (12) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 13."
         },
         "resource_capture": {
           "score": 0,
@@ -5374,7 +5374,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.050 (normalized: 56). Auto-scored from V-Dem. Rule of Law: 0.770 (normalized: 23); Egalitarian Component: 0.743 (normalized: 25); Participatory Democracy: 0.280 (normalized: 65)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.050 (normalized: 56). Auto-scored from V-Dem. Rule of Law: 0.770 (normalized: 23); Egalitarian Component: 0.743 (normalized: 25); Participatory Democracy: 0.280 (normalized: 65). Restructured: quality (40) = avg(corruption control, rule of law); purpose (45) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 42."
         },
         "resource_capture": {
           "score": 15,
@@ -5623,7 +5623,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.170 (normalized: 59). Auto-scored from V-Dem. Rule of Law: 0.482 (normalized: 52); Egalitarian Component: 0.540 (normalized: 47); Participatory Democracy: 0.104 (normalized: 88)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.170 (normalized: 59). Auto-scored from V-Dem. Rule of Law: 0.482 (normalized: 52); Egalitarian Component: 0.540 (normalized: 47); Participatory Democracy: 0.104 (normalized: 88). Restructured: quality (56) = avg(corruption control, rule of law); purpose (68) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 62."
         },
         "resource_capture": {
           "score": 64,
@@ -5741,7 +5741,7 @@
               "label": "Low",
               "facts": [
                 "Legislative corruption index: 1.73 (scale: -3 to 3.5)",
-                "Most corrupt legislature among Western Africa (avg: -0.07)"
+                "Least corrupt legislature among Western Africa (avg: -0.07)"
               ]
             }
           ],
@@ -5874,7 +5874,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.121 (normalized: 80). Auto-scored from V-Dem. Rule of Law: 0.311 (normalized: 69); Egalitarian Component: 0.334 (normalized: 69); Participatory Democracy: 0.099 (normalized: 88)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.121 (normalized: 80). Auto-scored from V-Dem. Rule of Law: 0.311 (normalized: 69); Egalitarian Component: 0.334 (normalized: 69); Participatory Democracy: 0.099 (normalized: 88). Restructured: quality (74) = avg(corruption control, rule of law); purpose (78) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 76."
         },
         "resource_capture": {
           "score": 10,
@@ -6133,7 +6133,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.138 (normalized: 58). Auto-scored from V-Dem. Rule of Law: 0.560 (normalized: 44); Egalitarian Component: 0.712 (normalized: 28); Participatory Democracy: 0.397 (normalized: 50)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.138 (normalized: 58). Auto-scored from V-Dem. Rule of Law: 0.560 (normalized: 44); Egalitarian Component: 0.712 (normalized: 28); Participatory Democracy: 0.397 (normalized: 50). Restructured: quality (51) = avg(corruption control, rule of law); purpose (39) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 45."
         },
         "resource_capture": {
           "score": 6,
@@ -6385,7 +6385,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.178 (normalized: 51). Auto-scored from V-Dem. Rule of Law: 0.245 (normalized: 76); Egalitarian Component: 0.429 (normalized: 59); Participatory Democracy: 0.054 (normalized: 94)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.178 (normalized: 51). Auto-scored from V-Dem. Rule of Law: 0.245 (normalized: 76); Egalitarian Component: 0.429 (normalized: 59); Participatory Democracy: 0.054 (normalized: 94). Restructured: quality (64) = avg(corruption control, rule of law); purpose (76) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 70."
         },
         "resource_capture": {
           "score": 60,
@@ -6777,7 +6777,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.582 (normalized: 68). Auto-scored from V-Dem. Rule of Law: 0.462 (normalized: 54); Egalitarian Component: 0.665 (normalized: 33); Participatory Democracy: 0.298 (normalized: 63)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.582 (normalized: 68). Auto-scored from V-Dem. Rule of Law: 0.462 (normalized: 54); Egalitarian Component: 0.665 (normalized: 33); Participatory Democracy: 0.298 (normalized: 63). Restructured: quality (61) = avg(corruption control, rule of law); purpose (48) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 54."
         },
         "resource_capture": {
           "score": 7,
@@ -7028,7 +7028,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.665 (normalized: 70). Auto-scored from V-Dem. Rule of Law: 0.116 (normalized: 89); Egalitarian Component: 0.766 (normalized: 22); Participatory Democracy: 0.054 (normalized: 94)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.665 (normalized: 70). Auto-scored from V-Dem. Rule of Law: 0.116 (normalized: 89); Egalitarian Component: 0.766 (normalized: 22); Participatory Democracy: 0.054 (normalized: 94). Restructured: quality (80) = avg(corruption control, rule of law); purpose (58) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 69."
         },
         "resource_capture": {
           "score": 21,
@@ -7523,7 +7523,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.838 (normalized: 74). Auto-scored from V-Dem. Rule of Law: 0.281 (normalized: 72); Egalitarian Component: 0.595 (normalized: 41); Participatory Democracy: 0.414 (normalized: 48)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.838 (normalized: 74). Auto-scored from V-Dem. Rule of Law: 0.281 (normalized: 72); Egalitarian Component: 0.595 (normalized: 41); Participatory Democracy: 0.414 (normalized: 48). Restructured: quality (73) = avg(corruption control, rule of law); purpose (44) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 59."
         },
         "resource_capture": {
           "score": 23,
@@ -7793,7 +7793,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.504 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.862 (normalized: 14); Egalitarian Component: 0.637 (normalized: 36); Participatory Democracy: 0.528 (normalized: 33)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.504 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.862 (normalized: 14); Egalitarian Component: 0.637 (normalized: 36); Participatory Democracy: 0.528 (normalized: 33). Restructured: quality (40) = avg(corruption control, rule of law); purpose (34) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 37."
         },
         "resource_capture": {
           "score": 12,
@@ -8065,7 +8065,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.345 (normalized: 24). Auto-scored from V-Dem. Rule of Law: 0.927 (normalized: 7); Egalitarian Component: 0.848 (normalized: 13); Participatory Democracy: 0.347 (normalized: 56)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.345 (normalized: 24). Auto-scored from V-Dem. Rule of Law: 0.927 (normalized: 7); Egalitarian Component: 0.848 (normalized: 13); Participatory Democracy: 0.347 (normalized: 56). Restructured: quality (16) = avg(corruption control, rule of law); purpose (34) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 25."
         },
         "resource_capture": {
           "score": 1,
@@ -8164,7 +8164,7 @@
               "label": "Low",
               "facts": [
                 "Legislative corruption index: 1.67 (scale: -3 to 3.5)",
-                "Most corrupt legislature among Caribbean (avg: 0.08)"
+                "Least corrupt legislature among Caribbean (avg: 0.08)"
               ]
             }
           ],
@@ -8458,7 +8458,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.531 (normalized: 19). Auto-scored from V-Dem. Rule of Law: 0.871 (normalized: 13); Egalitarian Component: 0.807 (normalized: 18); Participatory Democracy: 0.349 (normalized: 56)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.531 (normalized: 19). Auto-scored from V-Dem. Rule of Law: 0.871 (normalized: 13); Egalitarian Component: 0.807 (normalized: 18); Participatory Democracy: 0.349 (normalized: 56). Restructured: quality (16) = avg(corruption control, rule of law); purpose (37) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 26."
         },
         "resource_capture": {
           "score": 14,
@@ -8576,7 +8576,7 @@
               "label": "Low",
               "facts": [
                 "Legislative corruption index: 1.66 (scale: -3 to 3.5)",
-                "Most corrupt legislature among Southern Asia (avg: -0.68)"
+                "Least corrupt legislature among Southern Asia (avg: -0.68)"
               ]
             }
           ],
@@ -8709,7 +8709,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.686 (normalized: 39). Auto-scored from V-Dem. Rule of Law: 0.822 (normalized: 18); Egalitarian Component: 0.688 (normalized: 31); Participatory Democracy: 0.369 (normalized: 54)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.686 (normalized: 39). Auto-scored from V-Dem. Rule of Law: 0.822 (normalized: 18); Egalitarian Component: 0.688 (normalized: 31); Participatory Democracy: 0.369 (normalized: 54). Restructured: quality (28) = avg(corruption control, rule of law); purpose (42) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 36."
         },
         "resource_capture": {
           "score": 6,
@@ -8970,7 +8970,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.311 (normalized: 85). Auto-scored from V-Dem. Rule of Law: 0.118 (normalized: 89); Egalitarian Component: 0.241 (normalized: 79); Participatory Democracy: 0.130 (normalized: 84)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.311 (normalized: 85). Auto-scored from V-Dem. Rule of Law: 0.118 (normalized: 89); Egalitarian Component: 0.241 (normalized: 79); Participatory Democracy: 0.130 (normalized: 84). Restructured: quality (87) = avg(corruption control, rule of law); purpose (82) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 84."
         },
         "resource_capture": {
           "score": 42,
@@ -9208,7 +9208,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.672 (normalized: 16). Auto-scored from V-Dem. Rule of Law: 0.963 (normalized: 3); Egalitarian Component: 0.697 (normalized: 30); Participatory Democracy: 0.589 (normalized: 25)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.672 (normalized: 16). Auto-scored from V-Dem. Rule of Law: 0.963 (normalized: 3); Egalitarian Component: 0.697 (normalized: 30); Participatory Democracy: 0.589 (normalized: 25). Restructured: quality (10) = avg(corruption control, rule of law); purpose (28) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 18."
         },
         "resource_capture": {
           "score": 7,
@@ -9478,7 +9478,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.022 (normalized: 8). Auto-scored from V-Dem. Rule of Law: 0.995 (normalized: 0); Egalitarian Component: 0.939 (normalized: 3); Participatory Democracy: 0.785 (normalized: 0)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.022 (normalized: 8). Auto-scored from V-Dem. Rule of Law: 0.995 (normalized: 0); Egalitarian Component: 0.939 (normalized: 3); Participatory Democracy: 0.785 (normalized: 0). Restructured: quality (4) = avg(corruption control, rule of law); purpose (2) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 3."
         },
         "resource_capture": {
           "score": 0,
@@ -9748,7 +9748,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.969 (normalized: 32). Auto-scored from V-Dem. Rule of Law: 0.951 (normalized: 5); Egalitarian Component: 0.727 (normalized: 26); Participatory Democracy: 0.574 (normalized: 27)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.969 (normalized: 32). Auto-scored from V-Dem. Rule of Law: 0.951 (normalized: 5); Egalitarian Component: 0.727 (normalized: 26); Participatory Democracy: 0.574 (normalized: 27). Restructured: quality (18) = avg(corruption control, rule of law); purpose (26) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 22."
         },
         "resource_capture": {
           "score": 11,
@@ -10020,7 +10020,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.005 (normalized: 55). Auto-scored from V-Dem. Rule of Law: 0.209 (normalized: 80); Egalitarian Component: 0.287 (normalized: 74); Participatory Democracy: 0.036 (normalized: 96)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.005 (normalized: 55). Auto-scored from V-Dem. Rule of Law: 0.209 (normalized: 80); Egalitarian Component: 0.287 (normalized: 74); Participatory Democracy: 0.036 (normalized: 96). Restructured: quality (68) = avg(corruption control, rule of law); purpose (85) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 76."
         },
         "resource_capture": {
           "score": 22,
@@ -10290,7 +10290,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.313 (normalized: 62). Auto-scored from V-Dem. Rule of Law: 0.395 (normalized: 61); Egalitarian Component: 0.492 (normalized: 52); Participatory Democracy: 0.262 (normalized: 67)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.313 (normalized: 62). Auto-scored from V-Dem. Rule of Law: 0.395 (normalized: 61); Egalitarian Component: 0.492 (normalized: 52); Participatory Democracy: 0.262 (normalized: 67). Restructured: quality (62) = avg(corruption control, rule of law); purpose (60) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 60."
         },
         "resource_capture": {
           "score": 26,
@@ -10537,7 +10537,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.163 (normalized: 81). Auto-scored from V-Dem. Rule of Law: 0.086 (normalized: 92); Egalitarian Component: 0.478 (normalized: 53); Participatory Democracy: 0.093 (normalized: 89)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.163 (normalized: 81). Auto-scored from V-Dem. Rule of Law: 0.086 (normalized: 92); Egalitarian Component: 0.478 (normalized: 53); Participatory Democracy: 0.093 (normalized: 89). Restructured: quality (86) = avg(corruption control, rule of law); purpose (71) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 79."
         },
         "resource_capture": {
           "score": 33,
@@ -10795,7 +10795,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.481 (normalized: 89). Auto-scored from V-Dem. Rule of Law: 0.108 (normalized: 90); Egalitarian Component: 0.357 (normalized: 67); Participatory Democracy: 0.200 (normalized: 75)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.481 (normalized: 89). Auto-scored from V-Dem. Rule of Law: 0.108 (normalized: 90); Egalitarian Component: 0.357 (normalized: 67); Participatory Democracy: 0.200 (normalized: 75). Restructured: quality (90) = avg(corruption control, rule of law); purpose (71) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 80."
         },
         "resource_capture": {
           "score": 61,
@@ -11036,7 +11036,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.345 (normalized: 86). Auto-scored from V-Dem. Rule of Law: 0.182 (normalized: 82); Egalitarian Component: 0.264 (normalized: 77); Participatory Democracy: 0.188 (normalized: 77)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.345 (normalized: 86). Auto-scored from V-Dem. Rule of Law: 0.182 (normalized: 82); Egalitarian Component: 0.264 (normalized: 77); Participatory Democracy: 0.188 (normalized: 77). Restructured: quality (84) = avg(corruption control, rule of law); purpose (77) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 80."
         },
         "resource_capture": {
           "score": 68,
@@ -11284,7 +11284,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.309 (normalized: 62). Auto-scored from V-Dem. Rule of Law: 0.749 (normalized: 25); Egalitarian Component: 0.525 (normalized: 48); Participatory Democracy: 0.467 (normalized: 41)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.309 (normalized: 62). Auto-scored from V-Dem. Rule of Law: 0.749 (normalized: 25); Egalitarian Component: 0.525 (normalized: 48); Participatory Democracy: 0.467 (normalized: 41). Restructured: quality (44) = avg(corruption control, rule of law); purpose (44) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 44."
         },
         "resource_capture": {
           "score": 14,
@@ -11545,7 +11545,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.990 (normalized: 77). Auto-scored from V-Dem. Rule of Law: 0.175 (normalized: 83); Egalitarian Component: 0.576 (normalized: 43); Participatory Democracy: 0.200 (normalized: 75)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.990 (normalized: 77). Auto-scored from V-Dem. Rule of Law: 0.175 (normalized: 83); Egalitarian Component: 0.576 (normalized: 43); Participatory Democracy: 0.200 (normalized: 75). Restructured: quality (80) = avg(corruption control, rule of law); purpose (59) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 70."
         },
         "resource_capture": {
           "score": 16,
@@ -11794,7 +11794,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.985 (normalized: 32). Auto-scored from V-Dem. Rule of Law: 0.798 (normalized: 20); Egalitarian Component: 0.720 (normalized: 27); Participatory Democracy: 0.458 (normalized: 42)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.985 (normalized: 32). Auto-scored from V-Dem. Rule of Law: 0.798 (normalized: 20); Egalitarian Component: 0.720 (normalized: 27); Participatory Democracy: 0.458 (normalized: 42). Restructured: quality (26) = avg(corruption control, rule of law); purpose (34) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 30."
         },
         "resource_capture": {
           "score": 18,
@@ -12044,7 +12044,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.654 (normalized: 40). Auto-scored from V-Dem. Rule of Law: 0.935 (normalized: 6); Egalitarian Component: 0.883 (normalized: 10); Participatory Democracy: 0.606 (normalized: 23)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.654 (normalized: 40). Auto-scored from V-Dem. Rule of Law: 0.935 (normalized: 6); Egalitarian Component: 0.883 (normalized: 10); Participatory Democracy: 0.606 (normalized: 23). Restructured: quality (23) = avg(corruption control, rule of law); purpose (16) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 20."
         },
         "resource_capture": {
           "score": 2,
@@ -12285,7 +12285,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.055 (normalized: 56). Auto-scored from V-Dem. Rule of Law: 0.123 (normalized: 88); Egalitarian Component: 0.737 (normalized: 25); Participatory Democracy: 0.054 (normalized: 94)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.055 (normalized: 56). Auto-scored from V-Dem. Rule of Law: 0.123 (normalized: 88); Egalitarian Component: 0.737 (normalized: 25); Participatory Democracy: 0.054 (normalized: 94). Restructured: quality (72) = avg(corruption control, rule of law); purpose (60) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 66."
         },
         "resource_capture": {
           "score": 9,
@@ -12688,7 +12688,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.333 (normalized: 47). Auto-scored from V-Dem. Rule of Law: 0.880 (normalized: 12); Egalitarian Component: 0.898 (normalized: 8); Participatory Democracy: 0.490 (normalized: 38)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.333 (normalized: 47). Auto-scored from V-Dem. Rule of Law: 0.880 (normalized: 12); Egalitarian Component: 0.898 (normalized: 8); Participatory Democracy: 0.490 (normalized: 38). Restructured: quality (30) = avg(corruption control, rule of law); purpose (23) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 26."
         },
         "resource_capture": {
           "score": 0,
@@ -12958,7 +12958,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.768 (normalized: 37). Auto-scored from V-Dem. Rule of Law: 0.945 (normalized: 5); Egalitarian Component: 0.914 (normalized: 6); Participatory Democracy: 0.562 (normalized: 29)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.768 (normalized: 37). Auto-scored from V-Dem. Rule of Law: 0.945 (normalized: 5); Egalitarian Component: 0.914 (normalized: 6); Participatory Democracy: 0.562 (normalized: 29). Restructured: quality (21) = avg(corruption control, rule of law); purpose (18) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 19."
         },
         "resource_capture": {
           "score": 1,
@@ -13229,7 +13229,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.664 (normalized: 16). Auto-scored from V-Dem. Rule of Law: 0.991 (normalized: 1); Egalitarian Component: 0.943 (normalized: 3); Participatory Democracy: 0.593 (normalized: 25)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.664 (normalized: 16). Auto-scored from V-Dem. Rule of Law: 0.991 (normalized: 1); Egalitarian Component: 0.943 (normalized: 3); Participatory Democracy: 0.593 (normalized: 25). Restructured: quality (8) = avg(corruption control, rule of law); purpose (14) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 11."
         },
         "resource_capture": {
           "score": 0,
@@ -13498,7 +13498,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.781 (normalized: 73). Auto-scored from V-Dem. Rule of Law: 0.295 (normalized: 71); Egalitarian Component: 0.539 (normalized: 47); Participatory Democracy: 0.142 (normalized: 83)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.781 (normalized: 73). Auto-scored from V-Dem. Rule of Law: 0.295 (normalized: 71); Egalitarian Component: 0.539 (normalized: 47); Participatory Democracy: 0.142 (normalized: 83). Restructured: quality (72) = avg(corruption control, rule of law); purpose (65) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 68."
         },
         "resource_capture": {
           "score": 4,
@@ -13837,7 +13837,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.449 (normalized: 65). Auto-scored from V-Dem. Rule of Law: 0.564 (normalized: 44); Egalitarian Component: 0.456 (normalized: 56); Participatory Democracy: 0.475 (normalized: 40)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.449 (normalized: 65). Auto-scored from V-Dem. Rule of Law: 0.564 (normalized: 44); Egalitarian Component: 0.456 (normalized: 56); Participatory Democracy: 0.475 (normalized: 40). Restructured: quality (54) = avg(corruption control, rule of law); purpose (48) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 51."
         },
         "resource_capture": {
           "score": 7,
@@ -13976,7 +13976,7 @@
               "label": "Very high",
               "facts": [
                 "Legislative corruption index: -1.12 (scale: -3 to 3.5)",
-                "Least corrupt legislature among Caribbean (avg: 0.77)"
+                "Most corrupt legislature among Caribbean (avg: 0.77)"
               ]
             }
           ],
@@ -14109,7 +14109,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.589 (normalized: 68). Auto-scored from V-Dem. Rule of Law: 0.250 (normalized: 76); Egalitarian Component: 0.568 (normalized: 44); Participatory Democracy: 0.095 (normalized: 89)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.589 (normalized: 68). Auto-scored from V-Dem. Rule of Law: 0.250 (normalized: 76); Egalitarian Component: 0.568 (normalized: 44); Participatory Democracy: 0.095 (normalized: 89). Restructured: quality (72) = avg(corruption control, rule of law); purpose (66) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 69."
         },
         "resource_capture": {
           "score": 57,
@@ -14380,7 +14380,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.647 (normalized: 70). Auto-scored from V-Dem. Rule of Law: 0.372 (normalized: 63); Egalitarian Component: 0.327 (normalized: 70); Participatory Democracy: 0.462 (normalized: 42)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.647 (normalized: 70). Auto-scored from V-Dem. Rule of Law: 0.372 (normalized: 63); Egalitarian Component: 0.327 (normalized: 70); Participatory Democracy: 0.462 (normalized: 42). Restructured: quality (66) = avg(corruption control, rule of law); purpose (56) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 61."
         },
         "resource_capture": {
           "score": 19,
@@ -14651,7 +14651,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.748 (normalized: 72). Auto-scored from V-Dem. Rule of Law: 0.321 (normalized: 68); Egalitarian Component: 0.309 (normalized: 72); Participatory Democracy: 0.076 (normalized: 91)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.748 (normalized: 72). Auto-scored from V-Dem. Rule of Law: 0.321 (normalized: 68); Egalitarian Component: 0.309 (normalized: 72); Participatory Democracy: 0.076 (normalized: 91). Restructured: quality (70) = avg(corruption control, rule of law); purpose (82) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 76."
         },
         "resource_capture": {
           "score": 36,
@@ -14892,7 +14892,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.475 (normalized: 89). Auto-scored from V-Dem. Rule of Law: 0.064 (normalized: 94); Egalitarian Component: 0.408 (normalized: 61); Participatory Democracy: 0.008 (normalized: 100)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.475 (normalized: 89). Auto-scored from V-Dem. Rule of Law: 0.064 (normalized: 94); Egalitarian Component: 0.408 (normalized: 61); Participatory Democracy: 0.008 (normalized: 100). Restructured: quality (92) = avg(corruption control, rule of law); purpose (80) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 86."
         },
         "resource_capture": {
           "score": 75,
@@ -15130,7 +15130,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.629 (normalized: 40). Auto-scored from V-Dem. Rule of Law: 0.947 (normalized: 5); Egalitarian Component: 0.835 (normalized: 15); Participatory Democracy: 0.572 (normalized: 27)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.629 (normalized: 40). Auto-scored from V-Dem. Rule of Law: 0.947 (normalized: 5); Egalitarian Component: 0.835 (normalized: 15); Participatory Democracy: 0.572 (normalized: 27). Restructured: quality (22) = avg(corruption control, rule of law); purpose (21) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 22."
         },
         "resource_capture": {
           "score": 1,
@@ -15399,7 +15399,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.538 (normalized: 19). Auto-scored from V-Dem. Rule of Law: 0.985 (normalized: 1); Egalitarian Component: 0.915 (normalized: 6); Participatory Democracy: 0.621 (normalized: 21)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.538 (normalized: 19). Auto-scored from V-Dem. Rule of Law: 0.985 (normalized: 1); Egalitarian Component: 0.915 (normalized: 6); Participatory Democracy: 0.621 (normalized: 21). Restructured: quality (10) = avg(corruption control, rule of law); purpose (14) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 12."
         },
         "resource_capture": {
           "score": 3,
@@ -15659,7 +15659,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.465 (normalized: 65). Auto-scored from V-Dem. Rule of Law: 0.315 (normalized: 69); Egalitarian Component: 0.426 (normalized: 59); Participatory Democracy: 0.128 (normalized: 85)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.465 (normalized: 65). Auto-scored from V-Dem. Rule of Law: 0.315 (normalized: 69); Egalitarian Component: 0.426 (normalized: 59); Participatory Democracy: 0.128 (normalized: 85). Restructured: quality (67) = avg(corruption control, rule of law); purpose (72) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 70."
         },
         "resource_capture": {
           "score": 35,
@@ -15909,7 +15909,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.222 (normalized: 4). Auto-scored from V-Dem. Rule of Law: 0.985 (normalized: 1); Egalitarian Component: 0.811 (normalized: 17); Participatory Democracy: 0.597 (normalized: 24)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.222 (normalized: 4). Auto-scored from V-Dem. Rule of Law: 0.985 (normalized: 1); Egalitarian Component: 0.811 (normalized: 17); Participatory Democracy: 0.597 (normalized: 24). Restructured: quality (2) = avg(corruption control, rule of law); purpose (20) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 12."
         },
         "resource_capture": {
           "score": 1,
@@ -16175,7 +16175,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.506 (normalized: 43). Auto-scored from V-Dem. Rule of Law: 0.749 (normalized: 25); Egalitarian Component: 0.680 (normalized: 32); Participatory Democracy: 0.265 (normalized: 67)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.506 (normalized: 43). Auto-scored from V-Dem. Rule of Law: 0.749 (normalized: 25); Egalitarian Component: 0.680 (normalized: 32); Participatory Democracy: 0.265 (normalized: 67). Restructured: quality (34) = avg(corruption control, rule of law); purpose (50) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 42."
         },
         "resource_capture": {
           "score": 14,
@@ -16442,7 +16442,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.185 (normalized: 27). Auto-scored from V-Dem. Rule of Law: 0.967 (normalized: 3); Egalitarian Component: 0.813 (normalized: 17); Participatory Democracy: 0.597 (normalized: 24)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.185 (normalized: 27). Auto-scored from V-Dem. Rule of Law: 0.967 (normalized: 3); Egalitarian Component: 0.813 (normalized: 17); Participatory Democracy: 0.597 (normalized: 24). Restructured: quality (15) = avg(corruption control, rule of law); purpose (20) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 18."
         },
         "resource_capture": {
           "score": 0,
@@ -16580,7 +16580,7 @@
               "label": "Moderate",
               "facts": [
                 "Legislative corruption index: 1.31 (scale: -3 to 3.5)",
-                "Least corrupt legislature among Western Europe (avg: 2.05)"
+                "Most corrupt legislature among Western Europe (avg: 2.05)"
               ]
             }
           ],
@@ -16837,7 +16837,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.016 (normalized: 78). Auto-scored from V-Dem. Rule of Law: 0.416 (normalized: 59); Egalitarian Component: 0.639 (normalized: 36); Participatory Democracy: 0.240 (normalized: 70)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.016 (normalized: 78). Auto-scored from V-Dem. Rule of Law: 0.416 (normalized: 59); Egalitarian Component: 0.639 (normalized: 36); Participatory Democracy: 0.240 (normalized: 70). Restructured: quality (68) = avg(corruption control, rule of law); purpose (53) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 61."
         },
         "resource_capture": {
           "score": 50,
@@ -17086,7 +17086,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.481 (normalized: 21). Auto-scored from V-Dem. Rule of Law: 0.955 (normalized: 4); Egalitarian Component: 0.778 (normalized: 21); Participatory Democracy: 0.533 (normalized: 32)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.481 (normalized: 21). Auto-scored from V-Dem. Rule of Law: 0.955 (normalized: 4); Egalitarian Component: 0.778 (normalized: 21); Participatory Democracy: 0.533 (normalized: 32). Restructured: quality (12) = avg(corruption control, rule of law); purpose (26) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 20."
         },
         "resource_capture": {
           "score": 3,
@@ -17420,7 +17420,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.618 (normalized: 40). Auto-scored from V-Dem. Rule of Law: 0.543 (normalized: 46); Egalitarian Component: 0.693 (normalized: 30); Participatory Democracy: 0.236 (normalized: 71)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.618 (normalized: 40). Auto-scored from V-Dem. Rule of Law: 0.543 (normalized: 46); Egalitarian Component: 0.693 (normalized: 30); Participatory Democracy: 0.236 (normalized: 71). Restructured: quality (43) = avg(corruption control, rule of law); purpose (50) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 47."
         },
         "resource_capture": {
           "score": 13,
@@ -17670,7 +17670,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.099 (normalized: 57). Auto-scored from V-Dem. Rule of Law: 0.568 (normalized: 43); Egalitarian Component: 0.644 (normalized: 35); Participatory Democracy: 0.361 (normalized: 55)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.099 (normalized: 57). Auto-scored from V-Dem. Rule of Law: 0.568 (normalized: 43); Egalitarian Component: 0.644 (normalized: 35); Participatory Democracy: 0.361 (normalized: 55). Restructured: quality (50) = avg(corruption control, rule of law); purpose (45) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 48."
         },
         "resource_capture": {
           "score": 19,
@@ -17941,7 +17941,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.898 (normalized: 75). Auto-scored from V-Dem. Rule of Law: 0.106 (normalized: 90); Egalitarian Component: 0.462 (normalized: 55); Participatory Democracy: 0.120 (normalized: 86)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.898 (normalized: 75). Auto-scored from V-Dem. Rule of Law: 0.106 (normalized: 90); Egalitarian Component: 0.462 (normalized: 55); Participatory Democracy: 0.120 (normalized: 86). Restructured: quality (82) = avg(corruption control, rule of law); purpose (70) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 76."
         },
         "resource_capture": {
           "score": 33,
@@ -18189,7 +18189,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.281 (normalized: 61). Auto-scored from V-Dem. Rule of Law: 0.796 (normalized: 20); Egalitarian Component: 0.667 (normalized: 33); Participatory Democracy: 0.406 (normalized: 49)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.281 (normalized: 61). Auto-scored from V-Dem. Rule of Law: 0.796 (normalized: 20); Egalitarian Component: 0.667 (normalized: 33); Participatory Democracy: 0.406 (normalized: 49). Restructured: quality (40) = avg(corruption control, rule of law); purpose (41) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 41."
         },
         "resource_capture": {
           "score": 12,
@@ -18450,7 +18450,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.178 (normalized: 82). Auto-scored from V-Dem. Rule of Law: 0.169 (normalized: 84); Egalitarian Component: 0.468 (normalized: 54); Participatory Democracy: 0.128 (normalized: 85)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.178 (normalized: 82). Auto-scored from V-Dem. Rule of Law: 0.169 (normalized: 84); Egalitarian Component: 0.468 (normalized: 54); Participatory Democracy: 0.128 (normalized: 85). Restructured: quality (83) = avg(corruption control, rule of law); purpose (70) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 76."
         },
         "resource_capture": {
           "score": 44,
@@ -18680,7 +18680,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.570 (normalized: 91). Auto-scored from V-Dem. Rule of Law: 0.046 (normalized: 96); Egalitarian Component: 0.329 (normalized: 70); Participatory Democracy: 0.041 (normalized: 96)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.570 (normalized: 91). Auto-scored from V-Dem. Rule of Law: 0.046 (normalized: 96); Egalitarian Component: 0.329 (normalized: 70); Participatory Democracy: 0.041 (normalized: 96). Restructured: quality (94) = avg(corruption control, rule of law); purpose (83) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 88."
         },
         "resource_capture": {
           "score": 64,
@@ -18927,7 +18927,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.098 (normalized: 52). Auto-scored from V-Dem. Rule of Law: 0.808 (normalized: 19); Egalitarian Component: 0.872 (normalized: 11); Participatory Democracy: 0.493 (normalized: 38)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.098 (normalized: 52). Auto-scored from V-Dem. Rule of Law: 0.808 (normalized: 19); Egalitarian Component: 0.872 (normalized: 11); Participatory Democracy: 0.493 (normalized: 38). Restructured: quality (36) = avg(corruption control, rule of law); purpose (24) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 30."
         },
         "resource_capture": {
           "score": 1,
@@ -19364,7 +19364,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.122 (normalized: 80). Auto-scored from V-Dem. Rule of Law: 0.695 (normalized: 31); Egalitarian Component: 0.435 (normalized: 58); Participatory Democracy: 0.421 (normalized: 47)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.122 (normalized: 80). Auto-scored from V-Dem. Rule of Law: 0.695 (normalized: 31); Egalitarian Component: 0.435 (normalized: 58); Participatory Democracy: 0.421 (normalized: 47). Restructured: quality (56) = avg(corruption control, rule of law); purpose (52) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 54."
         },
         "resource_capture": {
           "score": 9,
@@ -19702,7 +19702,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.384 (normalized: 64). Auto-scored from V-Dem. Rule of Law: 0.520 (normalized: 48); Egalitarian Component: 0.697 (normalized: 30); Participatory Democracy: 0.283 (normalized: 65)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.384 (normalized: 64). Auto-scored from V-Dem. Rule of Law: 0.520 (normalized: 48); Egalitarian Component: 0.697 (normalized: 30); Participatory Democracy: 0.283 (normalized: 65). Restructured: quality (56) = avg(corruption control, rule of law); purpose (48) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 52."
         },
         "resource_capture": {
           "score": 41,
@@ -19932,7 +19932,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.625 (normalized: 17). Auto-scored from V-Dem. Rule of Law: 0.756 (normalized: 24); Egalitarian Component: 0.750 (normalized: 24); Participatory Democracy: 0.049 (normalized: 95)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.625 (normalized: 17). Auto-scored from V-Dem. Rule of Law: 0.756 (normalized: 24); Egalitarian Component: 0.750 (normalized: 24); Participatory Democracy: 0.049 (normalized: 95). Restructured: quality (20) = avg(corruption control, rule of law); purpose (60) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 40."
         },
         "resource_capture": {
           "score": 0,
@@ -20204,7 +20204,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.112 (normalized: 80). Auto-scored from V-Dem. Rule of Law: 0.526 (normalized: 48); Egalitarian Component: 0.401 (normalized: 62); Participatory Democracy: 0.320 (normalized: 60)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.112 (normalized: 80). Auto-scored from V-Dem. Rule of Law: 0.526 (normalized: 48); Egalitarian Component: 0.401 (normalized: 62); Participatory Democracy: 0.320 (normalized: 60). Restructured: quality (64) = avg(corruption control, rule of law); purpose (61) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 62."
         },
         "resource_capture": {
           "score": 9,
@@ -20451,7 +20451,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.182 (normalized: 50). Auto-scored from V-Dem. Rule of Law: 0.802 (normalized: 20); Egalitarian Component: 0.775 (normalized: 21); Participatory Democracy: 0.459 (normalized: 42)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.182 (normalized: 50). Auto-scored from V-Dem. Rule of Law: 0.802 (normalized: 20); Egalitarian Component: 0.775 (normalized: 21); Participatory Democracy: 0.459 (normalized: 42). Restructured: quality (35) = avg(corruption control, rule of law); purpose (32) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 33."
         },
         "resource_capture": {
           "score": 4,
@@ -20717,7 +20717,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.444 (normalized: 88). Auto-scored from V-Dem. Rule of Law: 0.171 (normalized: 84); Egalitarian Component: 0.166 (normalized: 87); Participatory Democracy: 0.119 (normalized: 86)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.444 (normalized: 88). Auto-scored from V-Dem. Rule of Law: 0.171 (normalized: 84); Egalitarian Component: 0.166 (normalized: 87); Participatory Democracy: 0.119 (normalized: 86). Restructured: quality (86) = avg(corruption control, rule of law); purpose (86) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 86."
         },
         "resource_capture": {
           "score": 5,
@@ -20955,7 +20955,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.000 (normalized: 55). Auto-scored from V-Dem. Rule of Law: 0.605 (normalized: 40); Egalitarian Component: 0.617 (normalized: 38); Participatory Democracy: 0.268 (normalized: 67)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.000 (normalized: 55). Auto-scored from V-Dem. Rule of Law: 0.605 (normalized: 40); Egalitarian Component: 0.617 (normalized: 38); Participatory Democracy: 0.268 (normalized: 67). Restructured: quality (48) = avg(corruption control, rule of law); purpose (52) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 50."
         },
         "resource_capture": {
           "score": 5,
@@ -21225,7 +21225,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.487 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.338 (normalized: 67); Egalitarian Component: 0.450 (normalized: 56); Participatory Democracy: 0.298 (normalized: 63)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.487 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.338 (normalized: 67); Egalitarian Component: 0.450 (normalized: 56); Participatory Democracy: 0.298 (normalized: 63). Restructured: quality (66) = avg(corruption control, rule of law); purpose (60) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 63."
         },
         "resource_capture": {
           "score": 24,
@@ -21364,7 +21364,7 @@
               "label": "Very high",
               "facts": [
                 "Legislative corruption index: -2.19 (scale: -3 to 3.5)",
-                "Least corrupt legislature among South-eastern Asia (avg: -0.14)"
+                "Most corrupt legislature among South-eastern Asia (avg: -0.14)"
               ]
             }
           ],
@@ -21545,7 +21545,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.366 (normalized: 63). Auto-scored from V-Dem. Rule of Law: 0.397 (normalized: 61); Egalitarian Component: 0.408 (normalized: 61); Participatory Democracy: 0.246 (normalized: 69)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.366 (normalized: 63). Auto-scored from V-Dem. Rule of Law: 0.397 (normalized: 61); Egalitarian Component: 0.408 (normalized: 61); Participatory Democracy: 0.246 (normalized: 69). Restructured: quality (62) = avg(corruption control, rule of law); purpose (65) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 64."
         },
         "resource_capture": {
           "score": 22,
@@ -21812,7 +21812,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.575 (normalized: 18). Auto-scored from V-Dem. Rule of Law: 0.983 (normalized: 1); Egalitarian Component: 0.866 (normalized: 11); Participatory Democracy: 0.619 (normalized: 21)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.575 (normalized: 18). Auto-scored from V-Dem. Rule of Law: 0.983 (normalized: 1); Egalitarian Component: 0.866 (normalized: 11); Participatory Democracy: 0.619 (normalized: 21). Restructured: quality (10) = avg(corruption control, rule of law); purpose (16) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 13."
         },
         "resource_capture": {
           "score": 0,
@@ -22073,7 +22073,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.232 (normalized: 83). Auto-scored from V-Dem. Rule of Law: 0.209 (normalized: 80); Egalitarian Component: 0.497 (normalized: 51); Participatory Democracy: 0.042 (normalized: 96)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.232 (normalized: 83). Auto-scored from V-Dem. Rule of Law: 0.209 (normalized: 80); Egalitarian Component: 0.497 (normalized: 51); Participatory Democracy: 0.042 (normalized: 96). Restructured: quality (82) = avg(corruption control, rule of law); purpose (74) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 78."
         },
         "resource_capture": {
           "score": 71,
@@ -22324,7 +22324,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.321 (normalized: 85). Auto-scored from V-Dem. Rule of Law: 0.199 (normalized: 81); Egalitarian Component: 0.408 (normalized: 61); Participatory Democracy: 0.224 (normalized: 72)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.321 (normalized: 85). Auto-scored from V-Dem. Rule of Law: 0.199 (normalized: 81); Egalitarian Component: 0.408 (normalized: 61); Participatory Democracy: 0.224 (normalized: 72). Restructured: quality (83) = avg(corruption control, rule of law); purpose (66) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 75."
         },
         "resource_capture": {
           "score": 58,
@@ -22575,7 +22575,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.551 (normalized: 19). Auto-scored from V-Dem. Rule of Law: 0.983 (normalized: 1); Egalitarian Component: 0.916 (normalized: 6); Participatory Democracy: 0.565 (normalized: 28)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.551 (normalized: 19). Auto-scored from V-Dem. Rule of Law: 0.983 (normalized: 1); Egalitarian Component: 0.916 (normalized: 6); Participatory Democracy: 0.565 (normalized: 28). Restructured: quality (10) = avg(corruption control, rule of law); purpose (17) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 14."
         },
         "resource_capture": {
           "score": 0,
@@ -22844,7 +22844,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.829 (normalized: 36). Auto-scored from V-Dem. Rule of Law: 0.889 (normalized: 11); Egalitarian Component: 0.778 (normalized: 21); Participatory Democracy: 0.455 (normalized: 42)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.829 (normalized: 36). Auto-scored from V-Dem. Rule of Law: 0.889 (normalized: 11); Egalitarian Component: 0.778 (normalized: 21); Participatory Democracy: 0.455 (normalized: 42). Restructured: quality (24) = avg(corruption control, rule of law); purpose (32) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 28."
         },
         "resource_capture": {
           "score": 3,
@@ -23113,7 +23113,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.550 (normalized: 42). Auto-scored from V-Dem. Rule of Law: 0.865 (normalized: 13); Egalitarian Component: 0.889 (normalized: 9); Participatory Democracy: 0.569 (normalized: 28)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.550 (normalized: 42). Auto-scored from V-Dem. Rule of Law: 0.865 (normalized: 13); Egalitarian Component: 0.889 (normalized: 9); Participatory Democracy: 0.569 (normalized: 28). Restructured: quality (28) = avg(corruption control, rule of law); purpose (18) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 23."
         },
         "resource_capture": {
           "score": 1,
@@ -23379,7 +23379,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.112 (normalized: 57). Auto-scored from V-Dem. Rule of Law: 0.847 (normalized: 15); Egalitarian Component: 0.807 (normalized: 18); Participatory Democracy: 0.524 (normalized: 34)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.112 (normalized: 57). Auto-scored from V-Dem. Rule of Law: 0.847 (normalized: 15); Egalitarian Component: 0.807 (normalized: 18); Participatory Democracy: 0.524 (normalized: 34). Restructured: quality (36) = avg(corruption control, rule of law); purpose (26) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 31."
         },
         "resource_capture": {
           "score": 2,
@@ -23628,7 +23628,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.089 (normalized: 53). Auto-scored from V-Dem. Rule of Law: 0.774 (normalized: 23); Egalitarian Component: 0.560 (normalized: 45); Participatory Democracy: 0.132 (normalized: 84)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.089 (normalized: 53). Auto-scored from V-Dem. Rule of Law: 0.774 (normalized: 23); Egalitarian Component: 0.560 (normalized: 45); Participatory Democracy: 0.132 (normalized: 84). Restructured: quality (38) = avg(corruption control, rule of law); purpose (64) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 51."
         },
         "resource_capture": {
           "score": 1,
@@ -23897,7 +23897,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.396 (normalized: 23). Auto-scored from V-Dem. Rule of Law: 0.956 (normalized: 4); Egalitarian Component: 0.944 (normalized: 3); Participatory Democracy: 0.526 (normalized: 33)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.396 (normalized: 23). Auto-scored from V-Dem. Rule of Law: 0.956 (normalized: 4); Egalitarian Component: 0.944 (normalized: 3); Participatory Democracy: 0.526 (normalized: 33). Restructured: quality (14) = avg(corruption control, rule of law); purpose (18) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 16."
         },
         "resource_capture": {
           "score": 0,
@@ -24035,7 +24035,7 @@
               "label": "Low",
               "facts": [
                 "Legislative corruption index: 1.59 (scale: -3 to 3.5)",
-                "Most corrupt legislature among Eastern Asia (avg: 0.28)"
+                "Least corrupt legislature among Eastern Asia (avg: 0.28)"
               ]
             }
           ],
@@ -24168,7 +24168,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.267 (normalized: 61). Auto-scored from V-Dem. Rule of Law: 0.217 (normalized: 79); Egalitarian Component: 0.565 (normalized: 44); Participatory Democracy: 0.107 (normalized: 87)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.267 (normalized: 61). Auto-scored from V-Dem. Rule of Law: 0.217 (normalized: 79); Egalitarian Component: 0.565 (normalized: 44); Participatory Democracy: 0.107 (normalized: 87). Restructured: quality (70) = avg(corruption control, rule of law); purpose (66) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 68."
         },
         "resource_capture": {
           "score": 60,
@@ -24306,7 +24306,7 @@
               "label": "High",
               "facts": [
                 "Legislative corruption index: -0.56 (scale: -3 to 3.5)",
-                "Most corrupt legislature among Central Asia (avg: -1.48)"
+                "Least corrupt legislature among Central Asia (avg: -1.48)"
               ]
             }
           ],
@@ -24437,7 +24437,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.771 (normalized: 72). Auto-scored from V-Dem. Rule of Law: 0.640 (normalized: 36); Egalitarian Component: 0.554 (normalized: 45); Participatory Democracy: 0.335 (normalized: 58)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.771 (normalized: 72). Auto-scored from V-Dem. Rule of Law: 0.640 (normalized: 36); Egalitarian Component: 0.554 (normalized: 45); Participatory Democracy: 0.335 (normalized: 58). Restructured: quality (54) = avg(corruption control, rule of law); purpose (52) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 53."
         },
         "resource_capture": {
           "score": 8,
@@ -24707,7 +24707,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.221 (normalized: 83). Auto-scored from V-Dem. Rule of Law: 0.353 (normalized: 65); Egalitarian Component: 0.593 (normalized: 41); Participatory Democracy: 0.163 (normalized: 80)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.221 (normalized: 83). Auto-scored from V-Dem. Rule of Law: 0.353 (normalized: 65); Egalitarian Component: 0.593 (normalized: 41); Participatory Democracy: 0.163 (normalized: 80). Restructured: quality (74) = avg(corruption control, rule of law); purpose (60) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 67."
         },
         "resource_capture": {
           "score": 42,
@@ -24937,7 +24937,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.299 (normalized: 85). Auto-scored from V-Dem. Rule of Law: 0.068 (normalized: 94); Egalitarian Component: 0.235 (normalized: 80); Participatory Democracy: 0.060 (normalized: 93)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.299 (normalized: 85). Auto-scored from V-Dem. Rule of Law: 0.068 (normalized: 94); Egalitarian Component: 0.235 (normalized: 80); Participatory Democracy: 0.060 (normalized: 93). Restructured: quality (90) = avg(corruption control, rule of law); purpose (86) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 88."
         },
         "resource_capture": {
           "score": 12,
@@ -25353,7 +25353,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.894 (normalized: 34). Auto-scored from V-Dem. Rule of Law: 0.917 (normalized: 8); Egalitarian Component: 0.872 (normalized: 11); Participatory Democracy: 0.551 (normalized: 30)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.894 (normalized: 34). Auto-scored from V-Dem. Rule of Law: 0.917 (normalized: 8); Egalitarian Component: 0.872 (normalized: 11); Participatory Democracy: 0.551 (normalized: 30). Restructured: quality (21) = avg(corruption control, rule of law); purpose (20) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 21."
         },
         "resource_capture": {
           "score": 0,
@@ -25605,7 +25605,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.207 (normalized: 50). Auto-scored from V-Dem. Rule of Law: 0.691 (normalized: 31); Egalitarian Component: 0.589 (normalized: 41); Participatory Democracy: 0.053 (normalized: 94)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.207 (normalized: 50). Auto-scored from V-Dem. Rule of Law: 0.691 (normalized: 31); Egalitarian Component: 0.589 (normalized: 41); Participatory Democracy: 0.053 (normalized: 94). Restructured: quality (40) = avg(corruption control, rule of law); purpose (68) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 54."
         },
         "resource_capture": {
           "score": 71,
@@ -25865,7 +25865,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.974 (normalized: 77). Auto-scored from V-Dem. Rule of Law: 0.346 (normalized: 66); Egalitarian Component: 0.380 (normalized: 64); Participatory Democracy: 0.118 (normalized: 86)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.974 (normalized: 77). Auto-scored from V-Dem. Rule of Law: 0.346 (normalized: 66); Egalitarian Component: 0.380 (normalized: 64); Participatory Democracy: 0.118 (normalized: 86). Restructured: quality (72) = avg(corruption control, rule of law); purpose (75) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 73."
         },
         "resource_capture": {
           "score": 39,
@@ -26115,7 +26115,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.227 (normalized: 83). Auto-scored from V-Dem. Rule of Law: 0.289 (normalized: 72); Egalitarian Component: 0.505 (normalized: 50); Participatory Democracy: 0.222 (normalized: 72)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.227 (normalized: 83). Auto-scored from V-Dem. Rule of Law: 0.289 (normalized: 72); Egalitarian Component: 0.505 (normalized: 50); Participatory Democracy: 0.222 (normalized: 72). Restructured: quality (78) = avg(corruption control, rule of law); purpose (61) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 69."
         },
         "resource_capture": {
           "score": 0,
@@ -26384,7 +26384,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.888 (normalized: 75). Auto-scored from V-Dem. Rule of Law: 0.360 (normalized: 64); Egalitarian Component: 0.586 (normalized: 42); Participatory Democracy: 0.321 (normalized: 60)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.888 (normalized: 75). Auto-scored from V-Dem. Rule of Law: 0.360 (normalized: 64); Egalitarian Component: 0.586 (normalized: 42); Participatory Democracy: 0.321 (normalized: 60). Restructured: quality (70) = avg(corruption control, rule of law); purpose (51) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 60."
         },
         "resource_capture": {
           "score": 30,
@@ -26523,7 +26523,7 @@
               "label": "Very high",
               "facts": [
                 "Legislative corruption index: -1.93 (scale: -3 to 3.5)",
-                "Least corrupt legislature among Western Africa (avg: 0.19)"
+                "Most corrupt legislature among Western Africa (avg: 0.19)"
               ]
             }
           ],
@@ -26636,7 +26636,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.525 (normalized: 90). Auto-scored from V-Dem. Rule of Law: 0.125 (normalized: 88); Egalitarian Component: 0.365 (normalized: 66); Participatory Democracy: 0.087 (normalized: 90)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.525 (normalized: 90). Auto-scored from V-Dem. Rule of Law: 0.125 (normalized: 88); Egalitarian Component: 0.365 (normalized: 66); Participatory Democracy: 0.087 (normalized: 90). Restructured: quality (89) = avg(corruption control, rule of law); purpose (78) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 84."
         },
         "resource_capture": {
           "score": 81,
@@ -26754,7 +26754,7 @@
               "label": "High",
               "facts": [
                 "Legislative corruption index: -0.87 (scale: -3 to 3.5)",
-                "Least corrupt legislature among Northern Africa (avg: -0.21)"
+                "Most corrupt legislature among Northern Africa (avg: -0.21)"
               ]
             }
           ],
@@ -27118,7 +27118,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.384 (normalized: 64). Auto-scored from V-Dem. Rule of Law: 0.829 (normalized: 17); Egalitarian Component: 0.714 (normalized: 28); Participatory Democracy: 0.520 (normalized: 34)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.384 (normalized: 64). Auto-scored from V-Dem. Rule of Law: 0.829 (normalized: 17); Egalitarian Component: 0.714 (normalized: 28); Participatory Democracy: 0.520 (normalized: 34). Restructured: quality (40) = avg(corruption control, rule of law); purpose (31) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 36."
         },
         "resource_capture": {
           "score": 0,
@@ -27389,7 +27389,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.509 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.716 (normalized: 28); Egalitarian Component: 0.715 (normalized: 28); Participatory Democracy: 0.404 (normalized: 49)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.509 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.716 (normalized: 28); Egalitarian Component: 0.715 (normalized: 28); Participatory Democracy: 0.404 (normalized: 49). Restructured: quality (47) = avg(corruption control, rule of law); purpose (38) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 43."
         },
         "resource_capture": {
           "score": 14,
@@ -27507,7 +27507,7 @@
               "label": "High",
               "facts": [
                 "Legislative corruption index: -0.80 (scale: -3 to 3.5)",
-                "Least corrupt legislature among Southern Africa (avg: 0.33)"
+                "Most corrupt legislature among Southern Africa (avg: 0.33)"
               ]
             }
           ],
@@ -27639,7 +27639,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.782 (normalized: 37). Auto-scored from V-Dem. Rule of Law: 0.920 (normalized: 8); Egalitarian Component: 0.878 (normalized: 10); Participatory Democracy: 0.560 (normalized: 29)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.782 (normalized: 37). Auto-scored from V-Dem. Rule of Law: 0.920 (normalized: 8); Egalitarian Component: 0.878 (normalized: 10); Participatory Democracy: 0.560 (normalized: 29). Restructured: quality (22) = avg(corruption control, rule of law); purpose (20) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 21."
         },
         "resource_capture": {
           "score": 1,
@@ -27777,7 +27777,7 @@
               "label": "Moderate",
               "facts": [
                 "Legislative corruption index: 1.21 (scale: -3 to 3.5)",
-                "Least corrupt legislature among Northern Europe (avg: 2.25)"
+                "Most corrupt legislature among Northern Europe (avg: 2.25)"
               ]
             }
           ],
@@ -27909,7 +27909,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.698 (normalized: 39). Auto-scored from V-Dem. Rule of Law: 0.973 (normalized: 2); Egalitarian Component: 0.873 (normalized: 11); Participatory Democracy: 0.595 (normalized: 24)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.698 (normalized: 39). Auto-scored from V-Dem. Rule of Law: 0.973 (normalized: 2); Egalitarian Component: 0.873 (normalized: 11); Participatory Democracy: 0.595 (normalized: 24). Restructured: quality (20) = avg(corruption control, rule of law); purpose (18) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 19."
         },
         "resource_capture": {
           "score": 3,
@@ -28328,7 +28328,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.536 (normalized: 67). Auto-scored from V-Dem. Rule of Law: 0.526 (normalized: 48); Egalitarian Component: 0.561 (normalized: 44); Participatory Democracy: 0.151 (normalized: 82)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.536 (normalized: 67). Auto-scored from V-Dem. Rule of Law: 0.526 (normalized: 48); Egalitarian Component: 0.561 (normalized: 44); Participatory Democracy: 0.151 (normalized: 82). Restructured: quality (58) = avg(corruption control, rule of law); purpose (63) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 60."
         },
         "resource_capture": {
           "score": 6,
@@ -28668,7 +28668,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.280 (normalized: 61). Auto-scored from V-Dem. Rule of Law: 0.789 (normalized: 21); Egalitarian Component: 0.770 (normalized: 22); Participatory Democracy: 0.389 (normalized: 51)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.280 (normalized: 61). Auto-scored from V-Dem. Rule of Law: 0.789 (normalized: 21); Egalitarian Component: 0.770 (normalized: 22); Participatory Democracy: 0.389 (normalized: 51). Restructured: quality (41) = avg(corruption control, rule of law); purpose (36) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 39."
         },
         "resource_capture": {
           "score": 2,
@@ -28785,7 +28785,7 @@
               "label": "Moderate",
               "facts": [
                 "Legislative corruption index: 0.99 (scale: -3 to 3.5)",
-                "Most corrupt legislature among Eastern Europe (avg: -0.23)"
+                "Least corrupt legislature among Eastern Europe (avg: -0.23)"
               ]
             }
           ],
@@ -28914,7 +28914,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.000 (normalized: 78). Auto-scored from V-Dem. Rule of Law: 0.148 (normalized: 86); Egalitarian Component: 0.340 (normalized: 68); Participatory Democracy: 0.217 (normalized: 73)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.000 (normalized: 78). Auto-scored from V-Dem. Rule of Law: 0.148 (normalized: 86); Egalitarian Component: 0.340 (normalized: 68); Participatory Democracy: 0.217 (normalized: 73). Restructured: quality (82) = avg(corruption control, rule of law); purpose (70) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 76."
         },
         "resource_capture": {
           "score": 29,
@@ -29032,7 +29032,7 @@
               "label": "Very high",
               "facts": [
                 "Legislative corruption index: -2.57 (scale: -3 to 3.5)",
-                "Least corrupt legislature among Eastern Africa (avg: -0.33)"
+                "Most corrupt legislature among Eastern Africa (avg: -0.33)"
               ]
             }
           ],
@@ -29165,7 +29165,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.397 (normalized: 64). Auto-scored from V-Dem. Rule of Law: 0.763 (normalized: 24); Egalitarian Component: 0.613 (normalized: 39); Participatory Democracy: 0.316 (normalized: 60)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.397 (normalized: 64). Auto-scored from V-Dem. Rule of Law: 0.763 (normalized: 24); Egalitarian Component: 0.613 (normalized: 39); Participatory Democracy: 0.316 (normalized: 60). Restructured: quality (44) = avg(corruption control, rule of law); purpose (50) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 47."
         },
         "resource_capture": {
           "score": 0,
@@ -29436,7 +29436,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.021 (normalized: 78). Auto-scored from V-Dem. Rule of Law: 0.355 (normalized: 65); Egalitarian Component: 0.472 (normalized: 54); Participatory Democracy: 0.337 (normalized: 58)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.021 (normalized: 78). Auto-scored from V-Dem. Rule of Law: 0.355 (normalized: 65); Egalitarian Component: 0.472 (normalized: 54); Participatory Democracy: 0.337 (normalized: 58). Restructured: quality (72) = avg(corruption control, rule of law); purpose (56) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 64."
         },
         "resource_capture": {
           "score": 20,
@@ -29803,7 +29803,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.349 (normalized: 63). Auto-scored from V-Dem. Rule of Law: 0.368 (normalized: 64); Egalitarian Component: 0.606 (normalized: 40); Participatory Democracy: 0.354 (normalized: 55)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.349 (normalized: 63). Auto-scored from V-Dem. Rule of Law: 0.368 (normalized: 64); Egalitarian Component: 0.606 (normalized: 40); Participatory Democracy: 0.354 (normalized: 55). Restructured: quality (64) = avg(corruption control, rule of law); purpose (48) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 56."
         },
         "resource_capture": {
           "score": 1,
@@ -30072,7 +30072,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.862 (normalized: 75). Auto-scored from V-Dem. Rule of Law: 0.421 (normalized: 58); Egalitarian Component: 0.562 (normalized: 44); Participatory Democracy: 0.164 (normalized: 80)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.862 (normalized: 75). Auto-scored from V-Dem. Rule of Law: 0.421 (normalized: 58); Egalitarian Component: 0.562 (normalized: 44); Participatory Democracy: 0.164 (normalized: 80). Restructured: quality (66) = avg(corruption control, rule of law); purpose (62) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 64."
         },
         "resource_capture": {
           "score": 60,
@@ -30320,7 +30320,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.110 (normalized: 52). Auto-scored from V-Dem. Rule of Law: 0.830 (normalized: 17); Egalitarian Component: 0.899 (normalized: 8); Participatory Democracy: 0.529 (normalized: 33)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.110 (normalized: 52). Auto-scored from V-Dem. Rule of Law: 0.830 (normalized: 17); Egalitarian Component: 0.899 (normalized: 8); Participatory Democracy: 0.529 (normalized: 33). Restructured: quality (34) = avg(corruption control, rule of law); purpose (20) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 28."
         },
         "resource_capture": {
           "score": 0,
@@ -30590,7 +30590,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.216 (normalized: 83). Auto-scored from V-Dem. Rule of Law: 0.062 (normalized: 95); Egalitarian Component: 0.200 (normalized: 84); Participatory Democracy: 0.041 (normalized: 96)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.216 (normalized: 83). Auto-scored from V-Dem. Rule of Law: 0.062 (normalized: 95); Egalitarian Component: 0.200 (normalized: 84); Participatory Democracy: 0.041 (normalized: 96). Restructured: quality (89) = avg(corruption control, rule of law); purpose (90) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 90."
         },
         "resource_capture": {
           "score": 51,
@@ -30830,7 +30830,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.079 (normalized: 57). Auto-scored from V-Dem. Rule of Law: 0.754 (normalized: 25); Egalitarian Component: 0.778 (normalized: 21); Participatory Democracy: 0.403 (normalized: 49)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.079 (normalized: 57). Auto-scored from V-Dem. Rule of Law: 0.754 (normalized: 25); Egalitarian Component: 0.778 (normalized: 21); Participatory Democracy: 0.403 (normalized: 49). Restructured: quality (41) = avg(corruption control, rule of law); purpose (35) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 38."
         },
         "resource_capture": {
           "score": 4,
@@ -30968,7 +30968,7 @@
               "label": "Very high",
               "facts": [
                 "Legislative corruption index: -1.28 (scale: -3 to 3.5)",
-                "Least corrupt legislature among Southern Europe (avg: 0.16)"
+                "Most corrupt legislature among Southern Europe (avg: 0.16)"
               ]
             }
           ],
@@ -31101,7 +31101,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.493 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.483 (normalized: 52); Egalitarian Component: 0.665 (normalized: 33); Participatory Democracy: 0.281 (normalized: 65)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.493 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.483 (normalized: 52); Egalitarian Component: 0.665 (normalized: 33); Participatory Democracy: 0.281 (normalized: 65). Restructured: quality (59) = avg(corruption control, rule of law); purpose (49) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 54."
         },
         "resource_capture": {
           "score": 40,
@@ -31219,7 +31219,7 @@
               "label": "Very high",
               "facts": [
                 "Legislative corruption index: -1.37 (scale: -3 to 3.5)",
-                "Least corrupt legislature among Eastern Asia (avg: 0.78)"
+                "Most corrupt legislature among Eastern Asia (avg: 0.78)"
               ]
             }
           ],
@@ -31381,7 +31381,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.828 (normalized: 74). Auto-scored from V-Dem. Rule of Law: 0.290 (normalized: 71); Egalitarian Component: 0.487 (normalized: 52); Participatory Democracy: 0.201 (normalized: 75)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.828 (normalized: 74). Auto-scored from V-Dem. Rule of Law: 0.290 (normalized: 71); Egalitarian Component: 0.487 (normalized: 52); Participatory Democracy: 0.201 (normalized: 75). Restructured: quality (72) = avg(corruption control, rule of law); purpose (64) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 68."
         },
         "resource_capture": {
           "score": 48,
@@ -31631,7 +31631,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.823 (normalized: 74). Auto-scored from V-Dem. Rule of Law: 0.117 (normalized: 89); Egalitarian Component: 0.292 (normalized: 74); Participatory Democracy: 0.221 (normalized: 73)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.823 (normalized: 74). Auto-scored from V-Dem. Rule of Law: 0.117 (normalized: 89); Egalitarian Component: 0.292 (normalized: 74); Participatory Democracy: 0.221 (normalized: 73). Restructured: quality (82) = avg(corruption control, rule of law); purpose (74) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 78."
         },
         "resource_capture": {
           "score": 41,
@@ -31880,7 +31880,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.453 (normalized: 44). Auto-scored from V-Dem. Rule of Law: 0.792 (normalized: 21); Egalitarian Component: 0.762 (normalized: 23); Participatory Democracy: 0.481 (normalized: 39)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.453 (normalized: 44). Auto-scored from V-Dem. Rule of Law: 0.792 (normalized: 21); Egalitarian Component: 0.762 (normalized: 23); Participatory Democracy: 0.481 (normalized: 39). Restructured: quality (32) = avg(corruption control, rule of law); purpose (31) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 32."
         },
         "resource_capture": {
           "score": 0,
@@ -32150,7 +32150,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.603 (normalized: 69). Auto-scored from V-Dem. Rule of Law: 0.567 (normalized: 43); Egalitarian Component: 0.492 (normalized: 52); Participatory Democracy: 0.366 (normalized: 54)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.603 (normalized: 69). Auto-scored from V-Dem. Rule of Law: 0.567 (normalized: 43); Egalitarian Component: 0.492 (normalized: 52); Participatory Democracy: 0.366 (normalized: 54). Restructured: quality (56) = avg(corruption control, rule of law); purpose (53) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 54."
         },
         "resource_capture": {
           "score": 18,
@@ -32401,7 +32401,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.296 (normalized: 48). Auto-scored from V-Dem. Rule of Law: 0.698 (normalized: 30); Egalitarian Component: 0.706 (normalized: 29); Participatory Democracy: 0.303 (normalized: 62)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.296 (normalized: 48). Auto-scored from V-Dem. Rule of Law: 0.698 (normalized: 30); Egalitarian Component: 0.706 (normalized: 29); Participatory Democracy: 0.303 (normalized: 62). Restructured: quality (39) = avg(corruption control, rule of law); purpose (46) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 42."
         },
         "resource_capture": {
           "score": 25,
@@ -32672,7 +32672,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.110 (normalized: 52). Auto-scored from V-Dem. Rule of Law: 0.817 (normalized: 18); Egalitarian Component: 0.455 (normalized: 56); Participatory Democracy: 0.349 (normalized: 56)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.110 (normalized: 52). Auto-scored from V-Dem. Rule of Law: 0.817 (normalized: 18); Egalitarian Component: 0.455 (normalized: 56); Participatory Democracy: 0.349 (normalized: 56). Restructured: quality (35) = avg(corruption control, rule of law); purpose (56) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 46."
         },
         "resource_capture": {
           "score": 14,
@@ -32790,7 +32790,7 @@
               "label": "Moderate",
               "facts": [
                 "Legislative corruption index: 0.89 (scale: -3 to 3.5)",
-                "Most corrupt legislature among Southern Africa (avg: -0.09)"
+                "Least corrupt legislature among Southern Africa (avg: -0.09)"
               ]
             }
           ],
@@ -32970,7 +32970,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.564 (normalized: 68). Auto-scored from V-Dem. Rule of Law: 0.578 (normalized: 42); Egalitarian Component: 0.637 (normalized: 36); Participatory Democracy: 0.189 (normalized: 77)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.564 (normalized: 68). Auto-scored from V-Dem. Rule of Law: 0.578 (normalized: 42); Egalitarian Component: 0.637 (normalized: 36); Participatory Democracy: 0.189 (normalized: 77). Restructured: quality (55) = avg(corruption control, rule of law); purpose (56) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 56."
         },
         "resource_capture": {
           "score": 38,
@@ -33220,7 +33220,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.388 (normalized: 87). Auto-scored from V-Dem. Rule of Law: 0.008 (normalized: 100); Egalitarian Component: 0.262 (normalized: 77); Participatory Democracy: 0.098 (normalized: 88)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.388 (normalized: 87). Auto-scored from V-Dem. Rule of Law: 0.008 (normalized: 100); Egalitarian Component: 0.262 (normalized: 77); Participatory Democracy: 0.098 (normalized: 88). Restructured: quality (94) = avg(corruption control, rule of law); purpose (82) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 88."
         },
         "resource_capture": {
           "score": 32,
@@ -33338,7 +33338,7 @@
               "label": "Very high",
               "facts": [
                 "Legislative corruption index: -2.35 (scale: -3 to 3.5)",
-                "Least corrupt legislature among lower middle income countries (avg: -0.59)"
+                "Most corrupt legislature among lower middle income countries (avg: -0.59)"
               ]
             }
           ],
@@ -33471,7 +33471,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.867 (normalized: 12). Auto-scored from V-Dem. Rule of Law: 0.969 (normalized: 3); Egalitarian Component: 0.893 (normalized: 8); Participatory Democracy: 0.553 (normalized: 30)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.867 (normalized: 12). Auto-scored from V-Dem. Rule of Law: 0.969 (normalized: 3); Egalitarian Component: 0.893 (normalized: 8); Participatory Democracy: 0.553 (normalized: 30). Restructured: quality (8) = avg(corruption control, rule of law); purpose (19) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 13."
         },
         "resource_capture": {
           "score": 1,
@@ -33741,7 +33741,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.508 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.662 (normalized: 34); Egalitarian Component: 0.580 (normalized: 42); Participatory Democracy: 0.435 (normalized: 45)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.508 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.662 (normalized: 34); Egalitarian Component: 0.580 (normalized: 42); Participatory Democracy: 0.435 (normalized: 45). Restructured: quality (50) = avg(corruption control, rule of law); purpose (44) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 47."
         },
         "resource_capture": {
           "score": 3,
@@ -34071,7 +34071,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.084 (normalized: 7). Auto-scored from V-Dem. Rule of Law: 0.989 (normalized: 1); Egalitarian Component: 0.850 (normalized: 13); Participatory Democracy: 0.581 (normalized: 26)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.084 (normalized: 7). Auto-scored from V-Dem. Rule of Law: 0.989 (normalized: 1); Egalitarian Component: 0.850 (normalized: 13); Participatory Democracy: 0.581 (normalized: 26). Restructured: quality (4) = avg(corruption control, rule of law); purpose (20) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 12."
         },
         "resource_capture": {
           "score": 3,
@@ -34209,7 +34209,7 @@
               "label": "Low",
               "facts": [
                 "Legislative corruption index: 1.89 (scale: -3 to 3.5)",
-                "Most corrupt legislature among Oceania (avg: -0.35)"
+                "Least corrupt legislature among Oceania (avg: -0.35)"
               ]
             }
           ],
@@ -34322,7 +34322,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.215 (normalized: 50). Auto-scored from V-Dem. Rule of Law: 0.613 (normalized: 39); Egalitarian Component: 0.562 (normalized: 44); Participatory Democracy: 0.120 (normalized: 86)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.215 (normalized: 50). Auto-scored from V-Dem. Rule of Law: 0.613 (normalized: 39); Egalitarian Component: 0.562 (normalized: 44); Participatory Democracy: 0.120 (normalized: 86). Restructured: quality (44) = avg(corruption control, rule of law); purpose (65) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 55."
         },
         "resource_capture": {
           "score": 68,
@@ -34592,7 +34592,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.999 (normalized: 78). Auto-scored from V-Dem. Rule of Law: 0.261 (normalized: 74); Egalitarian Component: 0.261 (normalized: 77); Participatory Democracy: 0.192 (normalized: 76)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.999 (normalized: 78). Auto-scored from V-Dem. Rule of Law: 0.261 (normalized: 74); Egalitarian Component: 0.261 (normalized: 77); Participatory Democracy: 0.192 (normalized: 76). Restructured: quality (76) = avg(corruption control, rule of law); purpose (76) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 76."
         },
         "resource_capture": {
           "score": 15,
@@ -34729,7 +34729,7 @@
               "label": "Very high",
               "facts": [
                 "Legislative corruption index: -1.60 (scale: -3 to 3.5)",
-                "Least corrupt legislature among Southern Asia (avg: -0.14)"
+                "Most corrupt legislature among Southern Asia (avg: -0.14)"
               ]
             }
           ],
@@ -34862,7 +34862,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.628 (normalized: 69). Auto-scored from V-Dem. Rule of Law: 0.692 (normalized: 31); Egalitarian Component: 0.554 (normalized: 45); Participatory Democracy: 0.441 (normalized: 44)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.628 (normalized: 69). Auto-scored from V-Dem. Rule of Law: 0.692 (normalized: 31); Egalitarian Component: 0.554 (normalized: 45); Participatory Democracy: 0.441 (normalized: 44). Restructured: quality (50) = avg(corruption control, rule of law); purpose (44) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 47."
         },
         "resource_capture": {
           "score": 10,
@@ -35132,7 +35132,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.721 (normalized: 71). Auto-scored from V-Dem. Rule of Law: 0.592 (normalized: 41); Egalitarian Component: 0.502 (normalized: 51); Participatory Democracy: 0.448 (normalized: 43)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.721 (normalized: 71). Auto-scored from V-Dem. Rule of Law: 0.592 (normalized: 41); Egalitarian Component: 0.502 (normalized: 51); Participatory Democracy: 0.448 (normalized: 43). Restructured: quality (56) = avg(corruption control, rule of law); purpose (47) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 52."
         },
         "resource_capture": {
           "score": 21,
@@ -35403,7 +35403,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.538 (normalized: 67). Auto-scored from V-Dem. Rule of Law: 0.386 (normalized: 62); Egalitarian Component: 0.308 (normalized: 72); Participatory Democracy: 0.261 (normalized: 67)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.538 (normalized: 67). Auto-scored from V-Dem. Rule of Law: 0.386 (normalized: 62); Egalitarian Component: 0.308 (normalized: 72); Participatory Democracy: 0.261 (normalized: 67). Restructured: quality (64) = avg(corruption control, rule of law); purpose (70) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 67."
         },
         "resource_capture": {
           "score": 16,
@@ -35705,7 +35705,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.657 (normalized: 70). Auto-scored from V-Dem. Rule of Law: 0.511 (normalized: 49); Egalitarian Component: 0.429 (normalized: 59); Participatory Democracy: 0.280 (normalized: 65)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.657 (normalized: 70). Auto-scored from V-Dem. Rule of Law: 0.511 (normalized: 49); Egalitarian Component: 0.429 (normalized: 59); Participatory Democracy: 0.280 (normalized: 65). Restructured: quality (60) = avg(corruption control, rule of law); purpose (62) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 61."
         },
         "resource_capture": {
           "score": 43,
@@ -35823,7 +35823,7 @@
               "label": "Very high",
               "facts": [
                 "Legislative corruption index: -1.92 (scale: -3 to 3.5)",
-                "Least corrupt legislature among Oceania (avg: 0.41)"
+                "Most corrupt legislature among Oceania (avg: 0.41)"
               ]
             }
           ],
@@ -35954,7 +35954,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.565 (normalized: 42). Auto-scored from V-Dem. Rule of Law: 0.879 (normalized: 12); Egalitarian Component: 0.885 (normalized: 9); Participatory Democracy: 0.519 (normalized: 34)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.565 (normalized: 42). Auto-scored from V-Dem. Rule of Law: 0.879 (normalized: 12); Egalitarian Component: 0.885 (normalized: 9); Participatory Democracy: 0.519 (normalized: 34). Restructured: quality (27) = avg(corruption control, rule of law); purpose (22) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 24."
         },
         "resource_capture": {
           "score": 4,
@@ -36315,7 +36315,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.696 (normalized: 39). Auto-scored from V-Dem. Rule of Law: 0.887 (normalized: 11); Egalitarian Component: 0.704 (normalized: 29); Participatory Democracy: 0.529 (normalized: 33)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.696 (normalized: 39). Auto-scored from V-Dem. Rule of Law: 0.887 (normalized: 11); Egalitarian Component: 0.704 (normalized: 29); Participatory Democracy: 0.529 (normalized: 33). Restructured: quality (25) = avg(corruption control, rule of law); purpose (31) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 28."
         },
         "resource_capture": {
           "score": 1,
@@ -36585,7 +36585,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.058 (normalized: 79). Auto-scored from V-Dem. Rule of Law: 0.391 (normalized: 61); Egalitarian Component: 0.294 (normalized: 73); Participatory Democracy: 0.342 (normalized: 57)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.058 (normalized: 79). Auto-scored from V-Dem. Rule of Law: 0.391 (normalized: 61); Egalitarian Component: 0.294 (normalized: 73); Participatory Democracy: 0.342 (normalized: 57). Restructured: quality (70) = avg(corruption control, rule of law); purpose (65) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 68."
         },
         "resource_capture": {
           "score": 9,
@@ -36840,7 +36840,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.676 (normalized: 70). Auto-scored from V-Dem. Rule of Law: 0.405 (normalized: 60); Egalitarian Component: 0.562 (normalized: 44); Participatory Democracy: 0.150 (normalized: 82)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.676 (normalized: 70). Auto-scored from V-Dem. Rule of Law: 0.405 (normalized: 60); Egalitarian Component: 0.562 (normalized: 44); Participatory Democracy: 0.150 (normalized: 82). Restructured: quality (65) = avg(corruption control, rule of law); purpose (63) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 64."
         },
         "resource_capture": {
           "score": 0,
@@ -37126,7 +37126,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.702 (normalized: 39). Auto-scored from V-Dem. Rule of Law: 0.573 (normalized: 43); Egalitarian Component: 0.394 (normalized: 63); Participatory Democracy: 0.034 (normalized: 97)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.702 (normalized: 39). Auto-scored from V-Dem. Rule of Law: 0.573 (normalized: 43); Egalitarian Component: 0.394 (normalized: 63); Participatory Democracy: 0.034 (normalized: 97). Restructured: quality (41) = avg(corruption control, rule of law); purpose (80) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 60."
         },
         "resource_capture": {
           "score": 79,
@@ -37397,7 +37397,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.040 (normalized: 54). Auto-scored from V-Dem. Rule of Law: 0.694 (normalized: 31); Egalitarian Component: 0.664 (normalized: 33); Participatory Democracy: 0.416 (normalized: 47)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.040 (normalized: 54). Auto-scored from V-Dem. Rule of Law: 0.694 (normalized: 31); Egalitarian Component: 0.664 (normalized: 33); Participatory Democracy: 0.416 (normalized: 47). Restructured: quality (42) = avg(corruption control, rule of law); purpose (40) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 41."
         },
         "resource_capture": {
           "score": 7,
@@ -37666,7 +37666,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.672 (normalized: 39). Auto-scored from V-Dem. Rule of Law: 0.377 (normalized: 63); Egalitarian Component: 0.514 (normalized: 50); Participatory Democracy: 0.130 (normalized: 84)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.672 (normalized: 39). Auto-scored from V-Dem. Rule of Law: 0.377 (normalized: 63); Egalitarian Component: 0.514 (normalized: 50); Participatory Democracy: 0.130 (normalized: 84). Restructured: quality (51) = avg(corruption control, rule of law); purpose (67) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 59."
         },
         "resource_capture": {
           "score": 32,
@@ -37918,7 +37918,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.536 (normalized: 42). Auto-scored from V-Dem. Rule of Law: 0.396 (normalized: 61); Egalitarian Component: 0.450 (normalized: 56); Participatory Democracy: 0.026 (normalized: 98)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.536 (normalized: 42). Auto-scored from V-Dem. Rule of Law: 0.396 (normalized: 61); Egalitarian Component: 0.450 (normalized: 56); Participatory Democracy: 0.026 (normalized: 98). Restructured: quality (52) = avg(corruption control, rule of law); purpose (77) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 64."
         },
         "resource_capture": {
           "score": 77,
@@ -38189,7 +38189,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.502 (normalized: 89). Auto-scored from V-Dem. Rule of Law: 0.174 (normalized: 83); Egalitarian Component: 0.251 (normalized: 78); Participatory Democracy: 0.051 (normalized: 94)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.502 (normalized: 89). Auto-scored from V-Dem. Rule of Law: 0.174 (normalized: 83); Egalitarian Component: 0.251 (normalized: 78); Participatory Democracy: 0.051 (normalized: 94). Restructured: quality (86) = avg(corruption control, rule of law); purpose (86) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 86."
         },
         "resource_capture": {
           "score": 55,
@@ -38426,7 +38426,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.058 (normalized: 53). Auto-scored from V-Dem. Rule of Law: 0.691 (normalized: 31); Egalitarian Component: 0.691 (normalized: 30); Participatory Democracy: 0.402 (normalized: 49)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.058 (normalized: 53). Auto-scored from V-Dem. Rule of Law: 0.691 (normalized: 31); Egalitarian Component: 0.691 (normalized: 30); Participatory Democracy: 0.402 (normalized: 49). Restructured: quality (42) = avg(corruption control, rule of law); purpose (40) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 41."
         },
         "resource_capture": {
           "score": 15,
@@ -38665,7 +38665,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.135 (normalized: 58). Auto-scored from V-Dem. Rule of Law: 0.669 (normalized: 33); Egalitarian Component: 0.567 (normalized: 44); Participatory Democracy: 0.429 (normalized: 46)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.135 (normalized: 58). Auto-scored from V-Dem. Rule of Law: 0.669 (normalized: 33); Egalitarian Component: 0.567 (normalized: 44); Participatory Democracy: 0.429 (normalized: 46). Restructured: quality (46) = avg(corruption control, rule of law); purpose (45) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 45."
         },
         "resource_capture": {
           "score": 22,
@@ -38899,7 +38899,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.575 (normalized: 68). Auto-scored from V-Dem. Rule of Law: 0.535 (normalized: 47); Egalitarian Component: 0.647 (normalized: 35); Participatory Democracy: 0.307 (normalized: 62)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.575 (normalized: 68). Auto-scored from V-Dem. Rule of Law: 0.535 (normalized: 47); Egalitarian Component: 0.647 (normalized: 35); Participatory Democracy: 0.307 (normalized: 62). Restructured: quality (58) = avg(corruption control, rule of law); purpose (48) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 53."
         },
         "resource_capture": {
           "score": 30,
@@ -39150,7 +39150,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.561 (normalized: 68). Auto-scored from V-Dem. Rule of Law: 0.082 (normalized: 93); Egalitarian Component: 0.246 (normalized: 79); Participatory Democracy: 0.159 (normalized: 81)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.561 (normalized: 68). Auto-scored from V-Dem. Rule of Law: 0.082 (normalized: 93); Egalitarian Component: 0.246 (normalized: 79); Participatory Democracy: 0.159 (normalized: 81). Restructured: quality (80) = avg(corruption control, rule of law); purpose (80) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 80."
         },
         "resource_capture": {
           "score": 7,
@@ -39479,7 +39479,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.733 (normalized: 95). Auto-scored from V-Dem. Rule of Law: 0.168 (normalized: 84); Egalitarian Component: 0.303 (normalized: 72); Participatory Democracy: 0.095 (normalized: 89)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.733 (normalized: 95). Auto-scored from V-Dem. Rule of Law: 0.168 (normalized: 84); Egalitarian Component: 0.303 (normalized: 72); Participatory Democracy: 0.095 (normalized: 89). Restructured: quality (90) = avg(corruption control, rule of law); purpose (80) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 85."
         },
         "resource_capture": {
           "score": 51,
@@ -39720,7 +39720,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.447 (normalized: 65). Auto-scored from V-Dem. Rule of Law: 0.367 (normalized: 64); Egalitarian Component: 0.734 (normalized: 26); Participatory Democracy: 0.217 (normalized: 73)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.447 (normalized: 65). Auto-scored from V-Dem. Rule of Law: 0.367 (normalized: 64); Egalitarian Component: 0.734 (normalized: 26); Participatory Democracy: 0.217 (normalized: 73). Restructured: quality (64) = avg(corruption control, rule of law); purpose (50) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 57."
         },
         "resource_capture": {
           "score": 17,
@@ -39990,7 +39990,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.970 (normalized: 100). Auto-scored from V-Dem. Rule of Law: 0.076 (normalized: 93); Egalitarian Component: 0.080 (normalized: 97); Participatory Democracy: 0.047 (normalized: 95)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.970 (normalized: 100). Auto-scored from V-Dem. Rule of Law: 0.076 (normalized: 93); Egalitarian Component: 0.080 (normalized: 97); Participatory Democracy: 0.047 (normalized: 95). Restructured: quality (96) = avg(corruption control, rule of law); purpose (96) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 96."
         },
         "resource_capture": {
           "score": 56,
@@ -40223,7 +40223,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.360 (normalized: 46). Auto-scored from V-Dem. Rule of Law: 0.742 (normalized: 26); Egalitarian Component: 0.670 (normalized: 33); Participatory Democracy: 0.391 (normalized: 51)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.360 (normalized: 46). Auto-scored from V-Dem. Rule of Law: 0.742 (normalized: 26); Egalitarian Component: 0.670 (normalized: 33); Participatory Democracy: 0.391 (normalized: 51). Restructured: quality (36) = avg(corruption control, rule of law); purpose (42) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 39."
         },
         "resource_capture": {
           "score": 10,
@@ -40455,7 +40455,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.404 (normalized: 64). Auto-scored from V-Dem. Rule of Law: 0.803 (normalized: 20); Egalitarian Component: 0.740 (normalized: 25); Participatory Democracy: 0.509 (normalized: 36)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.404 (normalized: 64). Auto-scored from V-Dem. Rule of Law: 0.803 (normalized: 20); Egalitarian Component: 0.740 (normalized: 25); Participatory Democracy: 0.509 (normalized: 36). Restructured: quality (42) = avg(corruption control, rule of law); purpose (30) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 36."
         },
         "resource_capture": {
           "score": 13,
@@ -40703,7 +40703,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.293 (normalized: 48). Auto-scored from V-Dem. Rule of Law: 0.727 (normalized: 27); Egalitarian Component: 0.748 (normalized: 24); Participatory Democracy: 0.508 (normalized: 36)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.293 (normalized: 48). Auto-scored from V-Dem. Rule of Law: 0.727 (normalized: 27); Egalitarian Component: 0.748 (normalized: 24); Participatory Democracy: 0.508 (normalized: 36). Restructured: quality (38) = avg(corruption control, rule of law); purpose (30) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 34."
         },
         "resource_capture": {
           "score": 1,
@@ -40975,7 +40975,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.777 (normalized: 37). Auto-scored from V-Dem. Rule of Law: 0.900 (normalized: 10); Egalitarian Component: 0.883 (normalized: 10); Participatory Democracy: 0.506 (normalized: 36)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 0.777 (normalized: 37). Auto-scored from V-Dem. Rule of Law: 0.900 (normalized: 10); Egalitarian Component: 0.883 (normalized: 10); Participatory Democracy: 0.506 (normalized: 36). Restructured: quality (24) = avg(corruption control, rule of law); purpose (23) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 23."
         },
         "resource_capture": {
           "score": 1,
@@ -41111,7 +41111,7 @@
               "label": "Moderate",
               "facts": [
                 "Legislative corruption index: 1.22 (scale: -3 to 3.5)",
-                "Most corrupt legislature among Southern Europe (avg: -0.07)"
+                "Least corrupt legislature among Southern Europe (avg: -0.07)"
               ]
             }
           ],
@@ -41242,7 +41242,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.028 (normalized: 8). Auto-scored from V-Dem. Rule of Law: 0.989 (normalized: 1); Egalitarian Component: 0.903 (normalized: 7); Participatory Democracy: 0.635 (normalized: 19)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 2.028 (normalized: 8). Auto-scored from V-Dem. Rule of Law: 0.989 (normalized: 1); Egalitarian Component: 0.903 (normalized: 7); Participatory Democracy: 0.635 (normalized: 19). Restructured: quality (4) = avg(corruption control, rule of law); purpose (13) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 9."
         },
         "resource_capture": {
           "score": 2,
@@ -41513,7 +41513,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.735 (normalized: 72). Auto-scored from V-Dem. Rule of Law: 0.225 (normalized: 78); Egalitarian Component: 0.249 (normalized: 78); Participatory Democracy: 0.110 (normalized: 87)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.735 (normalized: 72). Auto-scored from V-Dem. Rule of Law: 0.225 (normalized: 78); Egalitarian Component: 0.249 (normalized: 78); Participatory Democracy: 0.110 (normalized: 87). Restructured: quality (75) = avg(corruption control, rule of law); purpose (82) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 79."
         },
         "resource_capture": {
           "score": 30,
@@ -41783,7 +41783,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.629 (normalized: 17). Auto-scored from V-Dem. Rule of Law: 0.976 (normalized: 2); Egalitarian Component: 0.833 (normalized: 15); Participatory Democracy: 0.341 (normalized: 57)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.629 (normalized: 17). Auto-scored from V-Dem. Rule of Law: 0.976 (normalized: 2); Egalitarian Component: 0.833 (normalized: 15); Participatory Democracy: 0.341 (normalized: 57). Restructured: quality (10) = avg(corruption control, rule of law); purpose (36) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 23."
         },
         "resource_capture": {
           "score": 1,
@@ -41922,7 +41922,7 @@
               "label": "Low",
               "facts": [
                 "Legislative corruption index: 1.99 (scale: -3 to 3.5)",
-                "Most corrupt legislature among Eastern Africa (avg: -0.61)"
+                "Least corrupt legislature among Eastern Africa (avg: -0.61)"
               ]
             }
           ],
@@ -42055,7 +42055,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.750 (normalized: 95). Auto-scored from V-Dem. Rule of Law: 0.282 (normalized: 72); Egalitarian Component: 0.432 (normalized: 58); Participatory Democracy: 0.058 (normalized: 94)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.750 (normalized: 95). Auto-scored from V-Dem. Rule of Law: 0.282 (normalized: 72); Egalitarian Component: 0.432 (normalized: 58); Participatory Democracy: 0.058 (normalized: 94). Restructured: quality (84) = avg(corruption control, rule of law); purpose (76) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 80."
         },
         "resource_capture": {
           "score": 42,
@@ -42344,7 +42344,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.482 (normalized: 89). Auto-scored from V-Dem. Rule of Law: 0.016 (normalized: 99); Egalitarian Component: 0.185 (normalized: 85); Participatory Democracy: 0.129 (normalized: 84)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.482 (normalized: 89). Auto-scored from V-Dem. Rule of Law: 0.016 (normalized: 99); Egalitarian Component: 0.185 (normalized: 85); Participatory Democracy: 0.129 (normalized: 84). Restructured: quality (94) = avg(corruption control, rule of law); purpose (84) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 89."
         },
         "resource_capture": {
           "score": 57,
@@ -42592,7 +42592,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.619 (normalized: 69). Auto-scored from V-Dem. Rule of Law: 0.207 (normalized: 80); Egalitarian Component: 0.559 (normalized: 45); Participatory Democracy: 0.233 (normalized: 71)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.619 (normalized: 69). Auto-scored from V-Dem. Rule of Law: 0.207 (normalized: 80); Egalitarian Component: 0.559 (normalized: 45); Participatory Democracy: 0.233 (normalized: 71). Restructured: quality (74) = avg(corruption control, rule of law); purpose (58) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 66."
         },
         "resource_capture": {
           "score": 34,
@@ -42842,7 +42842,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.489 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.416 (normalized: 59); Egalitarian Component: 0.487 (normalized: 52); Participatory Democracy: 0.186 (normalized: 77)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.489 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.416 (normalized: 59); Egalitarian Component: 0.487 (normalized: 52); Participatory Democracy: 0.186 (normalized: 77). Restructured: quality (62) = avg(corruption control, rule of law); purpose (64) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 64."
         },
         "resource_capture": {
           "score": 14,
@@ -43112,7 +43112,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.379 (normalized: 86). Auto-scored from V-Dem. Rule of Law: 0.039 (normalized: 97); Egalitarian Component: 0.168 (normalized: 87); Participatory Democracy: 0.059 (normalized: 93)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.379 (normalized: 86). Auto-scored from V-Dem. Rule of Law: 0.039 (normalized: 97); Egalitarian Component: 0.168 (normalized: 87); Participatory Democracy: 0.059 (normalized: 93). Restructured: quality (92) = avg(corruption control, rule of law); purpose (90) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 91."
         },
         "resource_capture": {
           "score": 47,
@@ -43333,7 +43333,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.424 (normalized: 87). Auto-scored from V-Dem. Rule of Law: 0.053 (normalized: 95); Egalitarian Component: 0.273 (normalized: 76); Participatory Democracy: 0.033 (normalized: 97)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.424 (normalized: 87). Auto-scored from V-Dem. Rule of Law: 0.053 (normalized: 95); Egalitarian Component: 0.273 (normalized: 76); Participatory Democracy: 0.033 (normalized: 97). Restructured: quality (91) = avg(corruption control, rule of law); purpose (86) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 89."
         },
         "resource_capture": {
           "score": 55,
@@ -43574,7 +43574,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.227 (normalized: 60). Auto-scored from V-Dem. Rule of Law: 0.717 (normalized: 28); Egalitarian Component: 0.577 (normalized: 43); Participatory Democracy: 0.462 (normalized: 42)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.227 (normalized: 60). Auto-scored from V-Dem. Rule of Law: 0.717 (normalized: 28); Egalitarian Component: 0.577 (normalized: 43); Participatory Democracy: 0.462 (normalized: 42). Restructured: quality (44) = avg(corruption control, rule of law); purpose (42) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 43."
         },
         "resource_capture": {
           "score": 23,
@@ -43933,7 +43933,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.374 (normalized: 63). Auto-scored from V-Dem. Rule of Law: 0.886 (normalized: 11); Egalitarian Component: 0.839 (normalized: 14); Participatory Democracy: 0.505 (normalized: 36)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.374 (normalized: 63). Auto-scored from V-Dem. Rule of Law: 0.886 (normalized: 11); Egalitarian Component: 0.839 (normalized: 14); Participatory Democracy: 0.505 (normalized: 36). Restructured: quality (37) = avg(corruption control, rule of law); purpose (25) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 31."
         },
         "resource_capture": {
           "score": 11,
@@ -44203,7 +44203,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.342 (normalized: 63). Auto-scored from V-Dem. Rule of Law: 0.596 (normalized: 41); Egalitarian Component: 0.732 (normalized: 26); Participatory Democracy: 0.242 (normalized: 70)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.342 (normalized: 63). Auto-scored from V-Dem. Rule of Law: 0.596 (normalized: 41); Egalitarian Component: 0.732 (normalized: 26); Participatory Democracy: 0.242 (normalized: 70). Restructured: quality (52) = avg(corruption control, rule of law); purpose (48) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 50."
         },
         "resource_capture": {
           "score": 17,
@@ -44474,7 +44474,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.502 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.157 (normalized: 85); Egalitarian Component: 0.536 (normalized: 47); Participatory Democracy: 0.165 (normalized: 80)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.502 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.157 (normalized: 85); Egalitarian Component: 0.536 (normalized: 47); Participatory Democracy: 0.165 (normalized: 80). Restructured: quality (76) = avg(corruption control, rule of law); purpose (64) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 70."
         },
         "resource_capture": {
           "score": 11,
@@ -44822,7 +44822,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.320 (normalized: 62). Auto-scored from V-Dem. Rule of Law: 0.712 (normalized: 29); Egalitarian Component: 0.763 (normalized: 23); Participatory Democracy: 0.245 (normalized: 69)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.320 (normalized: 62). Auto-scored from V-Dem. Rule of Law: 0.712 (normalized: 29); Egalitarian Component: 0.763 (normalized: 23); Participatory Democracy: 0.245 (normalized: 69). Restructured: quality (46) = avg(corruption control, rule of law); purpose (46) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 46."
         },
         "resource_capture": {
           "score": 31,
@@ -45091,7 +45091,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.043 (normalized: 79). Auto-scored from V-Dem. Rule of Law: 0.214 (normalized: 79); Egalitarian Component: 0.356 (normalized: 67); Participatory Democracy: 0.156 (normalized: 81)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.043 (normalized: 79). Auto-scored from V-Dem. Rule of Law: 0.214 (normalized: 79); Egalitarian Component: 0.356 (normalized: 67); Participatory Democracy: 0.156 (normalized: 81). Restructured: quality (79) = avg(corruption control, rule of law); purpose (74) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 76."
         },
         "resource_capture": {
           "score": 39,
@@ -45341,7 +45341,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.686 (normalized: 70). Auto-scored from V-Dem. Rule of Law: 0.387 (normalized: 62); Egalitarian Component: 0.675 (normalized: 32); Participatory Democracy: 0.252 (normalized: 69)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.686 (normalized: 70). Auto-scored from V-Dem. Rule of Law: 0.387 (normalized: 62); Egalitarian Component: 0.675 (normalized: 32); Participatory Democracy: 0.252 (normalized: 69). Restructured: quality (66) = avg(corruption control, rule of law); purpose (50) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 58."
         },
         "resource_capture": {
           "score": 32,
@@ -45613,7 +45613,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.574 (normalized: 18). Auto-scored from V-Dem. Rule of Law: 0.945 (normalized: 5); Egalitarian Component: 0.773 (normalized: 21); Participatory Democracy: 0.716 (normalized: 9)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: 1.574 (normalized: 18). Auto-scored from V-Dem. Rule of Law: 0.945 (normalized: 5); Egalitarian Component: 0.773 (normalized: 21); Participatory Democracy: 0.716 (normalized: 9). Restructured: quality (12) = avg(corruption control, rule of law); purpose (15) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 13."
         },
         "resource_capture": {
           "score": 4,
@@ -45751,7 +45751,7 @@
               "label": "Low",
               "facts": [
                 "Legislative corruption index: 2.13 (scale: -3 to 3.5)",
-                "Most corrupt legislature among South America (avg: -0.47)"
+                "Least corrupt legislature among South America (avg: -0.47)"
               ]
             }
           ],
@@ -45884,7 +45884,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.808 (normalized: 73). Auto-scored from V-Dem. Rule of Law: 0.147 (normalized: 86); Egalitarian Component: 0.442 (normalized: 57); Participatory Democracy: 0.082 (normalized: 90)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.808 (normalized: 73). Auto-scored from V-Dem. Rule of Law: 0.147 (normalized: 86); Egalitarian Component: 0.442 (normalized: 57); Participatory Democracy: 0.082 (normalized: 90). Restructured: quality (80) = avg(corruption control, rule of law); purpose (74) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 76."
         },
         "resource_capture": {
           "score": 58,
@@ -46224,7 +46224,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.690 (normalized: 94). Auto-scored from V-Dem. Rule of Law: 0.009 (normalized: 100); Egalitarian Component: 0.225 (normalized: 81); Participatory Democracy: 0.148 (normalized: 82)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.690 (normalized: 94). Auto-scored from V-Dem. Rule of Law: 0.009 (normalized: 100); Egalitarian Component: 0.225 (normalized: 81); Participatory Democracy: 0.148 (normalized: 82). Restructured: quality (97) = avg(corruption control, rule of law); purpose (82) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 89."
         },
         "resource_capture": {
           "score": 51,
@@ -46363,7 +46363,7 @@
               "label": "Very high",
               "facts": [
                 "Legislative corruption index: -2.19 (scale: -3 to 3.5)",
-                "Least corrupt legislature among South America (avg: -0.08)"
+                "Most corrupt legislature among South America (avg: -0.08)"
               ]
             }
           ],
@@ -46581,7 +46581,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.416 (normalized: 64). Auto-scored from V-Dem. Rule of Law: 0.319 (normalized: 69); Egalitarian Component: 0.550 (normalized: 46); Participatory Democracy: 0.164 (normalized: 80)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.416 (normalized: 64). Auto-scored from V-Dem. Rule of Law: 0.319 (normalized: 69); Egalitarian Component: 0.550 (normalized: 46); Participatory Democracy: 0.164 (normalized: 80). Restructured: quality (66) = avg(corruption control, rule of law); purpose (63) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 65."
         },
         "resource_capture": {
           "score": 26,
@@ -46839,7 +46839,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.015 (normalized: 55). Auto-scored from V-Dem. Rule of Law: 0.822 (normalized: 18); Egalitarian Component: 0.750 (normalized: 24); Participatory Democracy: 0.323 (normalized: 59)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.015 (normalized: 55). Auto-scored from V-Dem. Rule of Law: 0.822 (normalized: 18); Egalitarian Component: 0.750 (normalized: 24); Participatory Democracy: 0.323 (normalized: 59). Restructured: quality (36) = avg(corruption control, rule of law); purpose (42) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 39."
         },
         "resource_capture": {
           "score": 3,
@@ -47234,7 +47234,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.649 (normalized: 93). Auto-scored from V-Dem. Rule of Law: 0.065 (normalized: 94); Egalitarian Component: 0.086 (normalized: 96); Participatory Democracy: 0.072 (normalized: 92)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.649 (normalized: 93). Auto-scored from V-Dem. Rule of Law: 0.065 (normalized: 94); Egalitarian Component: 0.086 (normalized: 96); Participatory Democracy: 0.072 (normalized: 92). Restructured: quality (94) = avg(corruption control, rule of law); purpose (94) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 94."
         },
         "resource_capture": {
           "score": 37,
@@ -47485,7 +47485,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.285 (normalized: 61). Auto-scored from V-Dem. Rule of Law: 0.694 (normalized: 31); Egalitarian Component: 0.652 (normalized: 35); Participatory Democracy: 0.470 (normalized: 41)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.285 (normalized: 61). Auto-scored from V-Dem. Rule of Law: 0.694 (normalized: 31); Egalitarian Component: 0.652 (normalized: 35); Participatory Democracy: 0.470 (normalized: 41). Restructured: quality (46) = avg(corruption control, rule of law); purpose (38) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 42."
         },
         "resource_capture": {
           "score": 13,
@@ -47755,7 +47755,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.478 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.654 (normalized: 35); Egalitarian Component: 0.444 (normalized: 57); Participatory Democracy: 0.348 (normalized: 56)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.478 (normalized: 66). Auto-scored from V-Dem. Rule of Law: 0.654 (normalized: 35); Egalitarian Component: 0.444 (normalized: 57); Participatory Democracy: 0.348 (normalized: 56). Restructured: quality (50) = avg(corruption control, rule of law); purpose (56) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 54."
         },
         "resource_capture": {
           "score": 44,
@@ -48006,7 +48006,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.261 (normalized: 84). Auto-scored from V-Dem. Rule of Law: 0.177 (normalized: 83); Egalitarian Component: 0.331 (normalized: 69); Participatory Democracy: 0.202 (normalized: 75)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -1.261 (normalized: 84). Auto-scored from V-Dem. Rule of Law: 0.177 (normalized: 83); Egalitarian Component: 0.331 (normalized: 69); Participatory Democracy: 0.202 (normalized: 75). Restructured: quality (84) = avg(corruption control, rule of law); purpose (72) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 78."
         },
         "resource_capture": {
           "score": 35,
@@ -48491,7 +48491,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from V-Dem. Rule of Law: 0.917 (normalized: 8); Egalitarian Component: 0.883 (normalized: 10); Participatory Democracy: 0.652 (normalized: 17)."
+          "justification_detail": "Auto-scored from V-Dem. Rule of Law: 0.917 (normalized: 8); Egalitarian Component: 0.883 (normalized: 10); Participatory Democracy: 0.652 (normalized: 17). Restructured: quality (8) = avg(corruption control, rule of law); purpose (14) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 11."
         }
       },
       "composite_score": 31,
@@ -48622,7 +48622,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.185 (normalized: 59). Auto-scored from V-Dem. Rule of Law: 0.662 (normalized: 34); Egalitarian Component: 0.692 (normalized: 30); Participatory Democracy: 0.346 (normalized: 56)."
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.185 (normalized: 59). Auto-scored from V-Dem. Rule of Law: 0.662 (normalized: 34); Egalitarian Component: 0.692 (normalized: 30); Participatory Democracy: 0.346 (normalized: 56). Restructured: quality (46) = avg(corruption control, rule of law); purpose (43) = avg(egalitarian, participatory); domain = avg(quality, purpose) = 45."
         },
         "resource_capture": {
           "score": 6,
