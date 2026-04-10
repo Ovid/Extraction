@@ -1551,7 +1551,15 @@ def restructure_institutional_gatekeeping(domains, wb_indicators, vdem_normalize
     if quality_scores and purpose_scores:
         quality_avg = sum(quality_scores) / len(quality_scores)
         purpose_avg = sum(purpose_scores) / len(purpose_scores)
-        domains["institutional_gatekeeping"]["score"] = round((quality_avg + purpose_avg) / 2)
+        restructured = round((quality_avg + purpose_avg) / 2)
+        domains["institutional_gatekeeping"]["score"] = restructured
+        existing_detail = domains["institutional_gatekeeping"].get("justification_detail", "")
+        domains["institutional_gatekeeping"]["justification_detail"] = (
+            f"{existing_detail} "
+            f"Restructured: quality ({quality_avg:.0f}) = avg(corruption control, rule of law); "
+            f"purpose ({purpose_avg:.0f}) = avg(egalitarian, participatory); "
+            f"domain = avg(quality, purpose) = {restructured}."
+        )
 
 
 def apply_resource_moderation(domains, raw_polyarchy):
