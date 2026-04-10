@@ -44,6 +44,7 @@ INDICATOR_CONFIG = [
         "inverted": False,
         "source_key": "wb_gini",
         "name": "Gini Index",
+        "source_name": "World Bank",
     },
     {
         "file": "ilo_labor_share.csv",
@@ -52,6 +53,7 @@ INDICATOR_CONFIG = [
         "source_key": "ilo_labor_share",
         "name": "Labour income share of GDP",
         "data_dir": "ilo",
+        "source_name": "ILO",
     },
     {
         "file": "wb_domestic_credit.csv",
@@ -59,6 +61,7 @@ INDICATOR_CONFIG = [
         "inverted": False,
         "source_key": "wb_domestic_credit",
         "name": "Domestic credit to private sector",
+        "source_name": "World Bank",
     },
     {
         "file": "wb_net_interest_margin.csv",
@@ -66,6 +69,7 @@ INDICATOR_CONFIG = [
         "inverted": False,
         "source_key": "wb_net_interest_margin",
         "name": "Bank net interest margin",
+        "source_name": "World Bank",
     },
     {
         "file": "wb_natural_rents.csv",
@@ -74,6 +78,7 @@ INDICATOR_CONFIG = [
         "source_key": "wb_natural_rents",
         "name": "Natural resource rents",
         "log_transform": True,
+        "source_name": "World Bank",
     },
     {
         "file": "wb_wgi_corruption.csv",
@@ -81,6 +86,7 @@ INDICATOR_CONFIG = [
         "inverted": True,
         "source_key": "wb_wgi_corruption",
         "name": "WGI Control of Corruption",
+        "source_name": "World Bank",
     },
 ]
 
@@ -1477,12 +1483,13 @@ def normalize_vdem_indicators(vdem_raw, vdem_vars_config):
     return vdem_normalized
 
 
-def build_wb_domain(group, code, all_indicator_raw):
-    """Build a domain entry from a World Bank indicator group.
+def build_indicator_domain(group, code, all_indicator_raw):
+    """Build a domain entry from an indicator group (World Bank, ILO, etc.).
 
     Args:
         group: pandas DataFrame — rows for one country+domain from groupby('domain').
-            Must have columns: normalized, source_key, year, indicator_file, value, indicator_name.
+            Must have columns: normalized, source_key, source_name, year, indicator_file,
+            value, indicator_name.
         code: ISO alpha-3 country code.
         all_indicator_raw: {source_key: {country_code: raw_value}} for peer comparisons.
 
@@ -1523,8 +1530,10 @@ def build_wb_domain(group, code, all_indicator_raw):
                 "normalized": int(row["normalized"]),
             }
         )
-    justification_detail = build_technical_justification("World Bank data", ind_info)
+    source_label = " / ".join(sorted(group["source_name"].unique())) + " data"
+    justification_detail = build_technical_justification(source_label, ind_info)
 
+    n_sources = group["source_name"].nunique()
     return {
         "score": score,
         "confidence": confidence,
@@ -1533,13 +1542,13 @@ def build_wb_domain(group, code, all_indicator_raw):
         "indicators": ind_entries,
         "justification_detail": justification_detail,
         "_n_indicators": n_indicators,
-        "_n_sources": 1,
+        "_n_sources": n_sources,
         "_most_recent_year": most_recent,
     }
 
 
 def build_country_scores():
-    """Build normalized scores for all countries from World Bank data."""
+    """Build normalized scores for all countries from indicator data (World Bank, ILO, etc.)."""
     # Load and normalize each indicator
     indicators = {}
     for cfg in INDICATOR_CONFIG:
@@ -1556,6 +1565,7 @@ def build_country_scores():
         df["source_key"] = cfg["source_key"]
         df["indicator_name"] = cfg["name"]
         df["indicator_file"] = cfg["file"]
+        df["source_name"] = cfg["source_name"]
         indicators[cfg["file"]] = df
 
     # Load RSF data (information_capture)
@@ -1664,13 +1674,13 @@ def build_country_scores():
         else:
             name = code
 
-        # Group World Bank indicators by domain
+        # Group indicators by domain
         domains = {}
         source_names = []
         if not country_data.empty:
             for domain, group in country_data.groupby("domain"):
-                domains[domain] = build_wb_domain(group, code, all_indicator_raw)
-            source_names.append("World Bank")
+                domains[domain] = build_indicator_domain(group, code, all_indicator_raw)
+            source_names.extend(sorted(country_data["source_name"].unique()))
 
         # Add RSF (information_capture) — RSF 2025 data
         if code in rsf_map:

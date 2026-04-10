@@ -44,7 +44,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 41.800 (normalized: 46); Labour income share of GDP: 55.807 (normalized: 30)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 41.800 (normalized: 46); Labour income share of GDP: 55.807 (normalized: 30)."
         },
         "financial_extraction": {
           "score": 52,
@@ -257,7 +257,7 @@
       "composite_score": 35,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "DNK": {
       "name": "Denmark",
@@ -289,7 +289,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 29.900 (normalized: 16); Labour income share of GDP: 56.172 (normalized: 29)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 29.900 (normalized: 16); Labour income share of GDP: 56.172 (normalized: 29)."
         },
         "financial_extraction": {
           "score": 34,
@@ -506,7 +506,7 @@
       "composite_score": 12,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "SGP": {
       "name": "Singapore",
@@ -529,7 +529,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 43.218 (normalized: 49)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 43.218 (normalized: 49)."
         },
         "financial_extraction": {
           "score": 32,
@@ -747,7 +747,7 @@
       "composite_score": 37,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "NGA": {
       "name": "Nigeria",
@@ -779,7 +779,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.900 (normalized: 26); Labour income share of GDP: 75.126 (normalized: 0)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.900 (normalized: 26); Labour income share of GDP: 75.126 (normalized: 0)."
         },
         "financial_extraction": {
           "score": 14,
@@ -996,7 +996,7 @@
       "composite_score": 42,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PRK": {
       "name": "North Korea",
@@ -1019,7 +1019,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 38.554 (normalized: 56)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 38.554 (normalized: 56)."
         },
         "institutional_gatekeeping": {
           "score": 89,
@@ -1165,7 +1165,7 @@
       "composite_score": 80,
       "overall_confidence": "moderate",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (4/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (4/7 domains covered)."
     },
     "LUX": {
       "name": "Luxembourg",
@@ -1198,7 +1198,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.600 (normalized: 25); Labour income share of GDP: 53.080 (normalized: 34)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.600 (normalized: 25); Labour income share of GDP: 53.080 (normalized: 34)."
         },
         "financial_extraction": {
           "score": 21,
@@ -1415,7 +1415,7 @@
       "composite_score": 17,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "RUS": {
       "name": "Russia",
@@ -1447,7 +1447,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.000 (normalized: 23); Labour income share of GDP: 48.307 (normalized: 41)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.000 (normalized: 23); Labour income share of GDP: 48.307 (normalized: 41)."
         },
         "financial_extraction": {
           "score": 13,
@@ -1665,7 +1665,7 @@
       "composite_score": 61,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "NOR": {
       "name": "Norway",
@@ -1698,7 +1698,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 26.500 (normalized: 7); Labour income share of GDP: 45.928 (normalized: 45)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 26.500 (normalized: 7); Labour income share of GDP: 45.928 (normalized: 45)."
         },
         "financial_extraction": {
           "score": 34,
@@ -1915,7 +1915,7 @@
       "composite_score": 18,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ABW": {
       "name": "Aruba",
@@ -2024,7 +2024,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 40.771 (normalized: 53)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 40.771 (normalized: 53)."
         },
         "financial_extraction": {
           "score": 6,
@@ -2222,7 +2222,7 @@
       "composite_score": 57,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "AGO": {
       "name": "Angola",
@@ -2255,7 +2255,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 51.300 (normalized: 70); Labour income share of GDP: 43.971 (normalized: 48)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 51.300 (normalized: 70); Labour income share of GDP: 43.971 (normalized: 48)."
         },
         "financial_extraction": {
           "score": 27,
@@ -2472,7 +2472,7 @@
       "composite_score": 59,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ALB": {
       "name": "Albania",
@@ -2505,7 +2505,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 29.400 (normalized: 14); Labour income share of GDP: 44.539 (normalized: 47)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 29.400 (normalized: 14); Labour income share of GDP: 44.539 (normalized: 47)."
         },
         "financial_extraction": {
           "score": 17,
@@ -2723,7 +2723,7 @@
       "composite_score": 35,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "AND": {
       "name": "Andorra",
@@ -2865,7 +2865,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 26.400 (normalized: 7); Labour income share of GDP: 36.838 (normalized: 59)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 26.400 (normalized: 7); Labour income share of GDP: 36.838 (normalized: 59)."
         },
         "financial_extraction": {
           "score": 20,
@@ -3083,7 +3083,7 @@
       "composite_score": 56,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ARG": {
       "name": "Argentina",
@@ -3114,7 +3114,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 42.400 (normalized: 47); Labour income share of GDP: 50.188 (normalized: 38)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 42.400 (normalized: 47); Labour income share of GDP: 50.188 (normalized: 38)."
         },
         "financial_extraction": {
           "score": 39,
@@ -3330,7 +3330,7 @@
       "composite_score": 36,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ARM": {
       "name": "Armenia",
@@ -3363,7 +3363,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 27.200 (normalized: 9); Labour income share of GDP: 44.206 (normalized: 47)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 27.200 (normalized: 9); Labour income share of GDP: 44.206 (normalized: 47)."
         },
         "financial_extraction": {
           "score": 28,
@@ -3560,7 +3560,7 @@
       "composite_score": 31,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "ASM": {
       "name": "American Samoa",
@@ -3749,7 +3749,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.800 (normalized: 26); Labour income share of GDP: 58.322 (normalized: 26)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.800 (normalized: 26); Labour income share of GDP: 58.322 (normalized: 26)."
         },
         "financial_extraction": {
           "score": 33,
@@ -3965,7 +3965,7 @@
       "composite_score": 23,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "AUT": {
       "name": "Austria",
@@ -3997,7 +3997,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 31.200 (normalized: 19); Labour income share of GDP: 62.058 (normalized: 20)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 31.200 (normalized: 19); Labour income share of GDP: 62.058 (normalized: 20)."
         },
         "financial_extraction": {
           "score": 20,
@@ -4211,7 +4211,7 @@
       "composite_score": 20,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "AZE": {
       "name": "Azerbaijan",
@@ -4234,7 +4234,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 48.225 (normalized: 41)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 48.225 (normalized: 41)."
         },
         "financial_extraction": {
           "score": 26,
@@ -4432,7 +4432,7 @@
       "composite_score": 65,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "BDI": {
       "name": "Burundi",
@@ -4463,7 +4463,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 37.500 (normalized: 35); Labour income share of GDP: 38.405 (normalized: 56)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 37.500 (normalized: 35); Labour income share of GDP: 38.405 (normalized: 56)."
         },
         "financial_extraction": {
           "score": 32,
@@ -4660,7 +4660,7 @@
       "composite_score": 62,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "BEL": {
       "name": "Belgium",
@@ -4693,7 +4693,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 26.800 (normalized: 8); Labour income share of GDP: 63.345 (normalized: 18)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 26.800 (normalized: 8); Labour income share of GDP: 63.345 (normalized: 18)."
         },
         "financial_extraction": {
           "score": 18,
@@ -4910,7 +4910,7 @@
       "composite_score": 15,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "BEN": {
       "name": "Benin",
@@ -4941,7 +4941,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 34.400 (normalized: 27); Labour income share of GDP: 39.954 (normalized: 54)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 34.400 (normalized: 27); Labour income share of GDP: 39.954 (normalized: 54)."
         },
         "financial_extraction": {
           "score": 14,
@@ -5139,7 +5139,7 @@
       "composite_score": 32,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "BFA": {
       "name": "Burkina Faso",
@@ -5171,7 +5171,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 37.400 (normalized: 35); Labour income share of GDP: 43.474 (normalized: 48)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 37.400 (normalized: 35); Labour income share of GDP: 43.474 (normalized: 48)."
         },
         "financial_extraction": {
           "score": 14,
@@ -5369,7 +5369,7 @@
       "composite_score": 51,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "BGD": {
       "name": "Bangladesh",
@@ -5402,7 +5402,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 30.900 (normalized: 18); Labour income share of GDP: 49.029 (normalized: 40)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 30.900 (normalized: 18); Labour income share of GDP: 49.029 (normalized: 40)."
         },
         "financial_extraction": {
           "score": 14,
@@ -5618,7 +5618,7 @@
       "composite_score": 49,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "BGR": {
       "name": "Bulgaria",
@@ -5650,7 +5650,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 39.500 (normalized: 40); Labour income share of GDP: 50.717 (normalized: 37)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 39.500 (normalized: 40); Labour income share of GDP: 50.717 (normalized: 37)."
         },
         "financial_extraction": {
           "score": 18,
@@ -5868,7 +5868,7 @@
       "composite_score": 33,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "BHR": {
       "name": "Bahrain",
@@ -5891,7 +5891,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 27.479 (normalized: 73)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 27.479 (normalized: 73)."
         },
         "financial_extraction": {
           "score": 22,
@@ -6109,7 +6109,7 @@
       "composite_score": 63,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "BHS": {
       "name": "Bahamas",
@@ -6132,7 +6132,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 34.413 (normalized: 62)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 34.413 (normalized: 62)."
         },
         "financial_extraction": {
           "score": 23,
@@ -6229,7 +6229,7 @@
       "composite_score": 40,
       "overall_confidence": "moderate",
       "overall_trend": "stable",
-      "notes": "Auto-scored from TJN, World Bank (5/7 domains covered)."
+      "notes": "Auto-scored from ILO, TJN, World Bank (5/7 domains covered)."
     },
     "BIH": {
       "name": "Bosnia and Herzegovina",
@@ -6262,7 +6262,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.000 (normalized: 23); Labour income share of GDP: 56.168 (normalized: 29)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.000 (normalized: 23); Labour income share of GDP: 56.168 (normalized: 29)."
         },
         "financial_extraction": {
           "score": 21,
@@ -6459,7 +6459,7 @@
       "composite_score": 34,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "BLR": {
       "name": "Belarus",
@@ -6492,7 +6492,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 24.400 (normalized: 2); Labour income share of GDP: 54.564 (normalized: 31)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 24.400 (normalized: 2); Labour income share of GDP: 54.564 (normalized: 31)."
         },
         "financial_extraction": {
           "score": 16,
@@ -6690,7 +6690,7 @@
       "composite_score": 45,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "BLZ": {
       "name": "Belize",
@@ -6722,7 +6722,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 39.900 (normalized: 41); Labour income share of GDP: 46.187 (normalized: 44)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 39.900 (normalized: 41); Labour income share of GDP: 46.187 (normalized: 44)."
         },
         "financial_extraction": {
           "score": 29,
@@ -6838,7 +6838,7 @@
       "composite_score": 41,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, World Bank (6/7 domains covered)."
     },
     "BMU": {
       "name": "Bermuda",
@@ -6956,7 +6956,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 42.100 (normalized: 47); Labour income share of GDP: 55.381 (normalized: 30)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 42.100 (normalized: 47); Labour income share of GDP: 55.381 (normalized: 30)."
         },
         "financial_extraction": {
           "score": 26,
@@ -7171,7 +7171,7 @@
       "composite_score": 47,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "BRA": {
       "name": "Brazil",
@@ -7204,7 +7204,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 51.600 (normalized: 71); Labour income share of GDP: 59.500 (normalized: 24)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 51.600 (normalized: 71); Labour income share of GDP: 59.500 (normalized: 24)."
         },
         "financial_extraction": {
           "score": 31,
@@ -7422,7 +7422,7 @@
       "composite_score": 33,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "BRB": {
       "name": "Barbados",
@@ -7455,7 +7455,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 34.100 (normalized: 26); Labour income share of GDP: 55.581 (normalized: 30)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 34.100 (normalized: 26); Labour income share of GDP: 55.581 (normalized: 30)."
         },
         "financial_extraction": {
           "score": 28,
@@ -7663,7 +7663,7 @@
       "composite_score": 27,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "BRN": {
       "name": "Brunei",
@@ -7686,7 +7686,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 33.210 (normalized: 64)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 33.210 (normalized: 64)."
         },
         "financial_extraction": {
           "score": 16,
@@ -7793,7 +7793,7 @@
       "composite_score": 52,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, World Bank (6/7 domains covered)."
     },
     "BTN": {
       "name": "Bhutan",
@@ -7826,7 +7826,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 28.500 (normalized: 12); Labour income share of GDP: 48.314 (normalized: 41)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 28.500 (normalized: 12); Labour income share of GDP: 48.314 (normalized: 41)."
         },
         "financial_extraction": {
           "score": 20,
@@ -8024,7 +8024,7 @@
       "composite_score": 27,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "BWA": {
       "name": "Botswana",
@@ -8057,7 +8057,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 54.900 (normalized: 79); Labour income share of GDP: 40.045 (normalized: 54)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 54.900 (normalized: 79); Labour income share of GDP: 40.045 (normalized: 54)."
         },
         "financial_extraction": {
           "score": 20,
@@ -8275,7 +8275,7 @@
       "composite_score": 34,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "CAF": {
       "name": "Central African Republic",
@@ -8308,7 +8308,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 43.000 (normalized: 49); Labour income share of GDP: 31.267 (normalized: 67)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 43.000 (normalized: 49); Labour income share of GDP: 31.267 (normalized: 67)."
         },
         "financial_extraction": {
           "score": 6,
@@ -8495,7 +8495,7 @@
       "composite_score": 50,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "CAN": {
       "name": "Canada",
@@ -8527,7 +8527,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 31.100 (normalized: 19); Labour income share of GDP: 58.697 (normalized: 25)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 31.100 (normalized: 19); Labour income share of GDP: 58.697 (normalized: 25)."
         },
         "financial_extraction": {
           "score": 10,
@@ -8733,7 +8733,7 @@
       "composite_score": 18,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "CHE": {
       "name": "Switzerland",
@@ -8766,7 +8766,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.800 (normalized: 26); Labour income share of GDP: 71.172 (normalized: 6)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.800 (normalized: 26); Labour income share of GDP: 71.172 (normalized: 6)."
         },
         "financial_extraction": {
           "score": 39,
@@ -8983,7 +8983,7 @@
       "composite_score": 22,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "CHL": {
       "name": "Chile",
@@ -9015,7 +9015,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 43.000 (normalized: 49); Labour income share of GDP: 51.833 (normalized: 36)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 43.000 (normalized: 49); Labour income share of GDP: 51.833 (normalized: 36)."
         },
         "financial_extraction": {
           "score": 32,
@@ -9233,7 +9233,7 @@
       "composite_score": 31,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "CHN": {
       "name": "China",
@@ -9266,7 +9266,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 36.000 (normalized: 31); Labour income share of GDP: 51.228 (normalized: 37)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 36.000 (normalized: 31); Labour income share of GDP: 51.228 (normalized: 37)."
         },
         "financial_extraction": {
           "score": 49,
@@ -9484,7 +9484,7 @@
       "composite_score": 58,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "CIV": {
       "name": "Ivory Coast",
@@ -9516,7 +9516,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 35.300 (normalized: 29); Labour income share of GDP: 30.955 (normalized: 68)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 35.300 (normalized: 29); Labour income share of GDP: 30.955 (normalized: 68)."
         },
         "financial_extraction": {
           "score": 16,
@@ -9711,7 +9711,7 @@
       "composite_score": 40,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "CMR": {
       "name": "Cameroon",
@@ -9744,7 +9744,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 42.200 (normalized: 47); Labour income share of GDP: 44.374 (normalized: 47)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 42.200 (normalized: 47); Labour income share of GDP: 44.374 (normalized: 47)."
         },
         "financial_extraction": {
           "score": 13,
@@ -9960,7 +9960,7 @@
       "composite_score": 53,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "COD": {
       "name": "DR Congo",
@@ -9992,7 +9992,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 44.700 (normalized: 53); Labour income share of GDP: 37.744 (normalized: 57)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 44.700 (normalized: 53); Labour income share of GDP: 37.744 (normalized: 57)."
         },
         "financial_extraction": {
           "score": 5,
@@ -10179,7 +10179,7 @@
       "composite_score": 55,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "COG": {
       "name": "Congo",
@@ -10212,7 +10212,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 48.900 (normalized: 64); Labour income share of GDP: 44.064 (normalized: 47)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 48.900 (normalized: 64); Labour income share of GDP: 44.064 (normalized: 47)."
         },
         "financial_extraction": {
           "score": 6,
@@ -10399,7 +10399,7 @@
       "composite_score": 57,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "COL": {
       "name": "Colombia",
@@ -10431,7 +10431,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 53.900 (normalized: 77); Labour income share of GDP: 50.537 (normalized: 38)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 53.900 (normalized: 77); Labour income share of GDP: 50.537 (normalized: 38)."
         },
         "financial_extraction": {
           "score": 18,
@@ -10648,7 +10648,7 @@
       "composite_score": 38,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "COM": {
       "name": "Comoros",
@@ -10680,7 +10680,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 45.300 (normalized: 55); Labour income share of GDP: 42.333 (normalized: 50)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 45.300 (normalized: 55); Labour income share of GDP: 42.333 (normalized: 50)."
         },
         "financial_extraction": {
           "score": 8,
@@ -10867,7 +10867,7 @@
       "composite_score": 44,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "CPV": {
       "name": "Cabo Verde",
@@ -10899,7 +10899,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 42.400 (normalized: 47); Labour income share of GDP: 41.899 (normalized: 51)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 42.400 (normalized: 47); Labour income share of GDP: 41.899 (normalized: 51)."
         },
         "financial_extraction": {
           "score": 26,
@@ -11097,7 +11097,7 @@
       "composite_score": 28,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "CRI": {
       "name": "Costa Rica",
@@ -11130,7 +11130,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 45.800 (normalized: 56); Labour income share of GDP: 55.393 (normalized: 30)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 45.800 (normalized: 56); Labour income share of GDP: 55.393 (normalized: 30)."
         },
         "financial_extraction": {
           "score": 28,
@@ -11346,7 +11346,7 @@
       "composite_score": 27,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "CUB": {
       "name": "Cuba",
@@ -11369,7 +11369,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 41.306 (normalized: 52)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 41.306 (normalized: 52)."
         },
         "financial_extraction": {
           "score": 11,
@@ -11556,7 +11556,7 @@
       "composite_score": 48,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "CUW": {
       "name": "Cura\u00e7ao",
@@ -11741,7 +11741,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 31.800 (normalized: 20); Labour income share of GDP: 48.850 (normalized: 40)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 31.800 (normalized: 20); Labour income share of GDP: 48.850 (normalized: 40)."
         },
         "financial_extraction": {
           "score": 20,
@@ -11958,7 +11958,7 @@
       "composite_score": 27,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "CZE": {
       "name": "Czechia",
@@ -11990,7 +11990,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 25.700 (normalized: 5); Labour income share of GDP: 53.988 (normalized: 32)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 25.700 (normalized: 5); Labour income share of GDP: 53.988 (normalized: 32)."
         },
         "financial_extraction": {
           "score": 16,
@@ -12208,7 +12208,7 @@
       "composite_score": 15,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "DEU": {
       "name": "Germany",
@@ -12240,7 +12240,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 32.400 (normalized: 22); Labour income share of GDP: 63.107 (normalized: 18)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 32.400 (normalized: 22); Labour income share of GDP: 63.107 (normalized: 18)."
         },
         "financial_extraction": {
           "score": 19,
@@ -12456,7 +12456,7 @@
       "composite_score": 17,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "DJI": {
       "name": "Djibouti",
@@ -12488,7 +12488,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 41.600 (normalized: 45); Labour income share of GDP: 42.731 (normalized: 50)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 41.600 (normalized: 45); Labour income share of GDP: 42.731 (normalized: 50)."
         },
         "financial_extraction": {
           "score": 12,
@@ -12686,7 +12686,7 @@
       "composite_score": 46,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "DMA": {
       "name": "Dominica",
@@ -12807,7 +12807,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 39.000 (normalized: 39); Labour income share of GDP: 48.396 (normalized: 41)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 39.000 (normalized: 39); Labour income share of GDP: 48.396 (normalized: 41)."
         },
         "financial_extraction": {
           "score": 31,
@@ -13025,7 +13025,7 @@
       "composite_score": 37,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "DZA": {
       "name": "Algeria",
@@ -13058,7 +13058,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 27.600 (normalized: 10); Labour income share of GDP: 30.511 (normalized: 68)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 27.600 (normalized: 10); Labour income share of GDP: 30.511 (normalized: 68)."
         },
         "financial_extraction": {
           "score": 14,
@@ -13275,7 +13275,7 @@
       "composite_score": 57,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ECU": {
       "name": "Ecuador",
@@ -13308,7 +13308,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 45.200 (normalized: 55); Labour income share of GDP: 57.409 (normalized: 27)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 45.200 (normalized: 55); Labour income share of GDP: 57.409 (normalized: 27)."
         },
         "financial_extraction": {
           "score": 32,
@@ -13525,7 +13525,7 @@
       "composite_score": 40,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "EGY": {
       "name": "Egypt, Arab Rep.",
@@ -13558,7 +13558,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 28.500 (normalized: 12); Labour income share of GDP: 38.242 (normalized: 56)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 28.500 (normalized: 12); Labour income share of GDP: 38.242 (normalized: 56)."
         },
         "financial_extraction": {
           "score": 18,
@@ -13775,7 +13775,7 @@
       "composite_score": 57,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ERI": {
       "name": "Eritrea",
@@ -13798,7 +13798,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 35.892 (normalized: 60)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 35.892 (normalized: 60)."
         },
         "financial_extraction": {
           "score": 23,
@@ -13986,7 +13986,7 @@
       "composite_score": 72,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "ESP": {
       "name": "Spain",
@@ -14018,7 +14018,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.400 (normalized: 24); Labour income share of GDP: 59.684 (normalized: 24)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.400 (normalized: 24); Labour income share of GDP: 59.684 (normalized: 24)."
         },
         "financial_extraction": {
           "score": 18,
@@ -14234,7 +14234,7 @@
       "composite_score": 21,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "EST": {
       "name": "Estonia",
@@ -14266,7 +14266,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 30.700 (normalized: 18); Labour income share of GDP: 58.755 (normalized: 25)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 30.700 (normalized: 18); Labour income share of GDP: 58.755 (normalized: 25)."
         },
         "financial_extraction": {
           "score": 20,
@@ -14483,7 +14483,7 @@
       "composite_score": 14,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ETH": {
       "name": "Ethiopia",
@@ -14515,7 +14515,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 31.100 (normalized: 19); Labour income share of GDP: 38.525 (normalized: 56)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 31.100 (normalized: 19); Labour income share of GDP: 38.525 (normalized: 56)."
         },
         "financial_extraction": {
           "score": 24,
@@ -14703,7 +14703,7 @@
       "composite_score": 50,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "FIN": {
       "name": "Finland",
@@ -14735,7 +14735,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 27.400 (normalized: 9); Labour income share of GDP: 54.077 (normalized: 32)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 27.400 (normalized: 9); Labour income share of GDP: 54.077 (normalized: 32)."
         },
         "financial_extraction": {
           "score": 22,
@@ -14951,7 +14951,7 @@
       "composite_score": 15,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "FJI": {
       "name": "Fiji",
@@ -14983,7 +14983,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 30.700 (normalized: 18); Labour income share of GDP: 42.636 (normalized: 50)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 30.700 (normalized: 18); Labour income share of GDP: 42.636 (normalized: 50)."
         },
         "financial_extraction": {
           "score": 34,
@@ -15195,7 +15195,7 @@
       "composite_score": 39,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "FRA": {
       "name": "France",
@@ -15227,7 +15227,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 31.800 (normalized: 20); Labour income share of GDP: 59.996 (normalized: 23)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 31.800 (normalized: 20); Labour income share of GDP: 59.996 (normalized: 23)."
         },
         "financial_extraction": {
           "score": 24,
@@ -15444,7 +15444,7 @@
       "composite_score": 18,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "FRO": {
       "name": "Faroe Islands",
@@ -15592,7 +15592,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 38.000 (normalized: 36); Labour income share of GDP: 28.871 (normalized: 71)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 38.000 (normalized: 36); Labour income share of GDP: 28.871 (normalized: 71)."
         },
         "financial_extraction": {
           "score": 16,
@@ -15790,7 +15790,7 @@
       "composite_score": 44,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "GBR": {
       "name": "United Kingdom",
@@ -15822,7 +15822,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 32.400 (normalized: 22); Labour income share of GDP: 57.704 (normalized: 27)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 32.400 (normalized: 22); Labour income share of GDP: 57.704 (normalized: 27)."
         },
         "financial_extraction": {
           "score": 30,
@@ -16039,7 +16039,7 @@
       "composite_score": 19,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "GEO": {
       "name": "Georgia",
@@ -16072,7 +16072,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.900 (normalized: 26); Labour income share of GDP: 51.803 (normalized: 36)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.900 (normalized: 26); Labour income share of GDP: 51.803 (normalized: 36)."
         },
         "financial_extraction": {
           "score": 32,
@@ -16270,7 +16270,7 @@
       "composite_score": 34,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "GHA": {
       "name": "Ghana",
@@ -16302,7 +16302,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 43.500 (normalized: 50); Labour income share of GDP: 42.497 (normalized: 50)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 43.500 (normalized: 50); Labour income share of GDP: 42.497 (normalized: 50)."
         },
         "financial_extraction": {
           "score": 34,
@@ -16519,7 +16519,7 @@
       "composite_score": 36,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "GIN": {
       "name": "Guinea",
@@ -16552,7 +16552,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 29.600 (normalized: 15); Labour income share of GDP: 36.183 (normalized: 60)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 29.600 (normalized: 15); Labour income share of GDP: 36.183 (normalized: 60)."
         },
         "financial_extraction": {
           "score": 39,
@@ -16750,7 +16750,7 @@
       "composite_score": 51,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "GMB": {
       "name": "Gambia, The",
@@ -16781,7 +16781,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 38.800 (normalized: 38); Labour income share of GDP: 41.636 (normalized: 51)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 38.800 (normalized: 38); Labour income share of GDP: 41.636 (normalized: 51)."
         },
         "financial_extraction": {
           "score": 20,
@@ -16999,7 +16999,7 @@
       "composite_score": 37,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "GNB": {
       "name": "Guinea-Bissau",
@@ -17031,7 +17031,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.400 (normalized: 24); Labour income share of GDP: 37.283 (normalized: 58)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.400 (normalized: 24); Labour income share of GDP: 37.283 (normalized: 58)."
         },
         "financial_extraction": {
           "score": 5,
@@ -17218,7 +17218,7 @@
       "composite_score": 47,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "GNQ": {
       "name": "Equatorial Guinea",
@@ -17251,7 +17251,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 38.500 (normalized: 37); Labour income share of GDP: 40.674 (normalized: 53)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 38.500 (normalized: 37); Labour income share of GDP: 40.674 (normalized: 53)."
         },
         "financial_extraction": {
           "score": 3,
@@ -17439,7 +17439,7 @@
       "composite_score": 60,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "GRC": {
       "name": "Greece",
@@ -17470,7 +17470,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.400 (normalized: 24); Labour income share of GDP: 51.299 (normalized: 36)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.400 (normalized: 24); Labour income share of GDP: 51.299 (normalized: 36)."
         },
         "financial_extraction": {
           "score": 17,
@@ -17685,7 +17685,7 @@
       "composite_score": 25,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "GRD": {
       "name": "Grenada",
@@ -17874,7 +17874,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 45.200 (normalized: 55); Labour income share of GDP: 43.850 (normalized: 48)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 45.200 (normalized: 55); Labour income share of GDP: 43.850 (normalized: 48)."
         },
         "financial_extraction": {
           "score": 27,
@@ -18091,7 +18091,7 @@
       "composite_score": 48,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "GUM": {
       "name": "Guam",
@@ -18113,7 +18113,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 51.664 (normalized: 36)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 51.664 (normalized: 36)."
         },
         "institutional_gatekeeping": {
           "score": 26,
@@ -18177,7 +18177,7 @@
       "composite_score": 36,
       "overall_confidence": "moderate",
       "overall_trend": "stable",
-      "notes": "Auto-scored from TJN, World Bank (4/7 domains covered)."
+      "notes": "Auto-scored from ILO, TJN, World Bank (4/7 domains covered)."
     },
     "GUY": {
       "name": "Guyana",
@@ -18200,7 +18200,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 56.113 (normalized: 29)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 56.113 (normalized: 29)."
         },
         "financial_extraction": {
           "score": 22,
@@ -18397,7 +18397,7 @@
       "composite_score": 37,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "HKG": {
       "name": "Hong Kong",
@@ -18420,7 +18420,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 53.363 (normalized: 33)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 53.363 (normalized: 33)."
         },
         "financial_extraction": {
           "score": 53,
@@ -18638,7 +18638,7 @@
       "composite_score": 44,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "HND": {
       "name": "Honduras",
@@ -18671,7 +18671,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 45.700 (normalized: 56); Labour income share of GDP: 57.363 (normalized: 27)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 45.700 (normalized: 56); Labour income share of GDP: 57.363 (normalized: 27)."
         },
         "financial_extraction": {
           "score": 38,
@@ -18869,7 +18869,7 @@
       "composite_score": 42,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "HRV": {
       "name": "Croatia",
@@ -18901,7 +18901,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 30.100 (normalized: 16); Labour income share of GDP: 62.910 (normalized: 19)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 30.100 (normalized: 16); Labour income share of GDP: 62.910 (normalized: 19)."
         },
         "financial_extraction": {
           "score": 18,
@@ -19112,7 +19112,7 @@
       "composite_score": 24,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "HTI": {
       "name": "Haiti",
@@ -19145,7 +19145,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 41.100 (normalized: 44); Labour income share of GDP: 52.182 (normalized: 35)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 41.100 (normalized: 44); Labour income share of GDP: 52.182 (normalized: 35)."
         },
         "financial_extraction": {
           "score": 14,
@@ -19343,7 +19343,7 @@
       "composite_score": 42,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "HUN": {
       "name": "Hungary",
@@ -19374,7 +19374,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 30.600 (normalized: 17); Labour income share of GDP: 51.296 (normalized: 36)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 30.600 (normalized: 17); Labour income share of GDP: 51.296 (normalized: 36)."
         },
         "financial_extraction": {
           "score": 14,
@@ -19591,7 +19591,7 @@
       "composite_score": 33,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "IDN": {
       "name": "Indonesia",
@@ -19624,7 +19624,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 34.900 (normalized: 28); Labour income share of GDP: 58.202 (normalized: 26)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 34.900 (normalized: 28); Labour income share of GDP: 58.202 (normalized: 26)."
         },
         "financial_extraction": {
           "score": 25,
@@ -19842,7 +19842,7 @@
       "composite_score": 43,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "IMN": {
       "name": "Isle of Man",
@@ -19923,7 +19923,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 25.500 (normalized: 4); Labour income share of GDP: 61.825 (normalized: 20)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 25.500 (normalized: 4); Labour income share of GDP: 61.825 (normalized: 20)."
         },
         "financial_extraction": {
           "score": 22,
@@ -20137,7 +20137,7 @@
       "composite_score": 42,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "IRL": {
       "name": "Ireland",
@@ -20170,7 +20170,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 29.000 (normalized: 13); Labour income share of GDP: 29.228 (normalized: 70)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 29.000 (normalized: 13); Labour income share of GDP: 29.228 (normalized: 70)."
         },
         "financial_extraction": {
           "score": 9,
@@ -20386,7 +20386,7 @@
       "composite_score": 18,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "IRN": {
       "name": "Iran",
@@ -20419,7 +20419,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 35.900 (normalized: 31); Labour income share of GDP: 34.953 (normalized: 61)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 35.900 (normalized: 31); Labour income share of GDP: 34.953 (normalized: 61)."
         },
         "financial_extraction": {
           "score": 25,
@@ -20606,7 +20606,7 @@
       "composite_score": 64,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "IRQ": {
       "name": "Iraq",
@@ -20639,7 +20639,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 29.800 (normalized: 15); Labour income share of GDP: 41.377 (normalized: 52)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 29.800 (normalized: 15); Labour income share of GDP: 41.377 (normalized: 52)."
         },
         "financial_extraction": {
           "score": 3,
@@ -20837,7 +20837,7 @@
       "composite_score": 50,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "ISL": {
       "name": "Iceland",
@@ -20870,7 +20870,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 26.800 (normalized: 8); Labour income share of GDP: 63.627 (normalized: 18)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 26.800 (normalized: 8); Labour income share of GDP: 63.627 (normalized: 18)."
         },
         "financial_extraction": {
           "score": 28,
@@ -21086,7 +21086,7 @@
       "composite_score": 15,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ISR": {
       "name": "Israel",
@@ -21119,7 +21119,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 37.900 (normalized: 36); Labour income share of GDP: 49.436 (normalized: 39)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 37.900 (normalized: 36); Labour income share of GDP: 49.436 (normalized: 39)."
         },
         "financial_extraction": {
           "score": 23,
@@ -21336,7 +21336,7 @@
       "composite_score": 30,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ITA": {
       "name": "Italy",
@@ -21368,7 +21368,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 34.300 (normalized: 27); Labour income share of GDP: 58.452 (normalized: 25)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 34.300 (normalized: 27); Labour income share of GDP: 58.452 (normalized: 25)."
         },
         "financial_extraction": {
           "score": 16,
@@ -21583,7 +21583,7 @@
       "composite_score": 24,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "JAM": {
       "name": "Jamaica",
@@ -21615,7 +21615,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 39.900 (normalized: 41); Labour income share of GDP: 53.447 (normalized: 33)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 39.900 (normalized: 41); Labour income share of GDP: 53.447 (normalized: 33)."
         },
         "financial_extraction": {
           "score": 22,
@@ -21812,7 +21812,7 @@
       "composite_score": 22,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "JOR": {
       "name": "Jordan",
@@ -21845,7 +21845,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.700 (normalized: 25); Labour income share of GDP: 45.900 (normalized: 45)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.700 (normalized: 25); Labour income share of GDP: 45.900 (normalized: 45)."
         },
         "financial_extraction": {
           "score": 28,
@@ -22061,7 +22061,7 @@
       "composite_score": 44,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "JPN": {
       "name": "Japan",
@@ -22093,7 +22093,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 32.300 (normalized: 22); Labour income share of GDP: 54.409 (normalized: 32)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 32.300 (normalized: 22); Labour income share of GDP: 54.409 (normalized: 32)."
         },
         "financial_extraction": {
           "score": 44,
@@ -22310,7 +22310,7 @@
       "composite_score": 27,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "KAZ": {
       "name": "Kazakhstan",
@@ -22343,7 +22343,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 29.200 (normalized: 14); Labour income share of GDP: 41.333 (normalized: 52)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 29.200 (normalized: 14); Labour income share of GDP: 41.333 (normalized: 52)."
         },
         "financial_extraction": {
           "score": 24,
@@ -22560,7 +22560,7 @@
       "composite_score": 56,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "KEN": {
       "name": "Kenya",
@@ -22592,7 +22592,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 37.700 (normalized: 35); Labour income share of GDP: 33.276 (normalized: 64)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 37.700 (normalized: 35); Labour income share of GDP: 33.276 (normalized: 64)."
         },
         "financial_extraction": {
           "score": 28,
@@ -22808,7 +22808,7 @@
       "composite_score": 41,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "KGZ": {
       "name": "Kyrgyz Republic",
@@ -22841,7 +22841,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 27.200 (normalized: 9); Labour income share of GDP: 32.396 (normalized: 65)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 27.200 (normalized: 9); Labour income share of GDP: 32.396 (normalized: 65)."
         },
         "financial_extraction": {
           "score": 27,
@@ -23039,7 +23039,7 @@
       "composite_score": 52,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "KHM": {
       "name": "Cambodia",
@@ -23061,7 +23061,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 46.225 (normalized: 44)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 46.225 (normalized: 44)."
         },
         "financial_extraction": {
           "score": 45,
@@ -23259,7 +23259,7 @@
       "composite_score": 60,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "KIR": {
       "name": "Kiribati",
@@ -23448,7 +23448,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 32.900 (normalized: 23); Labour income share of GDP: 58.681 (normalized: 25)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 32.900 (normalized: 23); Labour income share of GDP: 58.681 (normalized: 25)."
         },
         "financial_extraction": {
           "score": 40,
@@ -23666,7 +23666,7 @@
       "composite_score": 28,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "KWT": {
       "name": "Kuwait",
@@ -23689,7 +23689,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 37.739 (normalized: 57)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 37.739 (normalized: 57)."
         },
         "financial_extraction": {
           "score": 26,
@@ -23907,7 +23907,7 @@
       "composite_score": 56,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "LAO": {
       "name": "Laos",
@@ -23940,7 +23940,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 38.800 (normalized: 38); Labour income share of GDP: 48.703 (normalized: 40)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 38.800 (normalized: 38); Labour income share of GDP: 48.703 (normalized: 40)."
         },
         "financial_extraction": {
           "score": 6,
@@ -24138,7 +24138,7 @@
       "composite_score": 52,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "LBN": {
       "name": "Lebanon",
@@ -24170,7 +24170,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 35.300 (normalized: 29); Labour income share of GDP: 43.973 (normalized: 48)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 35.300 (normalized: 29); Labour income share of GDP: 43.973 (normalized: 48)."
         },
         "financial_extraction": {
           "score": 50,
@@ -24387,7 +24387,7 @@
       "composite_score": 48,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "LBR": {
       "name": "Liberia",
@@ -24419,7 +24419,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 35.300 (normalized: 29); Labour income share of GDP: 35.706 (normalized: 60)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 35.300 (normalized: 29); Labour income share of GDP: 35.706 (normalized: 60)."
         },
         "financial_extraction": {
           "score": 30,
@@ -24637,7 +24637,7 @@
       "composite_score": 47,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "LBY": {
       "name": "Libya",
@@ -24660,7 +24660,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 44.280 (normalized: 47)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 44.280 (normalized: 47)."
         },
         "financial_extraction": {
           "score": 6,
@@ -24858,7 +24858,7 @@
       "composite_score": 57,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "LCA": {
       "name": "Saint Lucia",
@@ -24890,7 +24890,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 43.700 (normalized: 51); Labour income share of GDP: 47.412 (normalized: 42)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 43.700 (normalized: 51); Labour income share of GDP: 47.412 (normalized: 42)."
         },
         "financial_extraction": {
           "score": 22,
@@ -24987,7 +24987,7 @@
       "composite_score": 38,
       "overall_confidence": "moderate",
       "overall_trend": "falling",
-      "notes": "Auto-scored from TJN, World Bank (5/7 domains covered)."
+      "notes": "Auto-scored from ILO, TJN, World Bank (5/7 domains covered)."
     },
     "LIE": {
       "name": "Liechtenstein",
@@ -25110,7 +25110,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 37.700 (normalized: 35); Labour income share of GDP: 28.146 (normalized: 72)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 37.700 (normalized: 35); Labour income share of GDP: 28.146 (normalized: 72)."
         },
         "financial_extraction": {
           "score": 22,
@@ -25328,7 +25328,7 @@
       "composite_score": 39,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "LSO": {
       "name": "Lesotho",
@@ -25361,7 +25361,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 44.900 (normalized: 54); Labour income share of GDP: 54.583 (normalized: 31)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 44.900 (normalized: 54); Labour income share of GDP: 54.583 (normalized: 31)."
         },
         "financial_extraction": {
           "score": 20,
@@ -25558,7 +25558,7 @@
       "composite_score": 33,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "LTU": {
       "name": "Lithuania",
@@ -25591,7 +25591,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 36.000 (normalized: 31); Labour income share of GDP: 56.765 (normalized: 28)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 36.000 (normalized: 31); Labour income share of GDP: 56.765 (normalized: 28)."
         },
         "financial_extraction": {
           "score": 12,
@@ -25807,7 +25807,7 @@
       "composite_score": 19,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "LVA": {
       "name": "Latvia",
@@ -25840,7 +25840,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 34.000 (normalized: 26); Labour income share of GDP: 66.504 (normalized: 13)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 34.000 (normalized: 26); Labour income share of GDP: 66.504 (normalized: 13)."
         },
         "financial_extraction": {
           "score": 12,
@@ -26057,7 +26057,7 @@
       "composite_score": 17,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "MAC": {
       "name": "Macao",
@@ -26080,7 +26080,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 30.068 (normalized: 69)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 30.068 (normalized: 69)."
         },
         "financial_extraction": {
           "score": 32,
@@ -26176,7 +26176,7 @@
       "composite_score": 42,
       "overall_confidence": "moderate",
       "overall_trend": "falling",
-      "notes": "Auto-scored from TJN, World Bank (5/7 domains covered)."
+      "notes": "Auto-scored from ILO, TJN, World Bank (5/7 domains covered)."
     },
     "MAF": {
       "name": "St. Martin (French part)",
@@ -26237,7 +26237,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 39.500 (normalized: 40); Labour income share of GDP: 40.955 (normalized: 52)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 39.500 (normalized: 40); Labour income share of GDP: 40.955 (normalized: 52)."
         },
         "financial_extraction": {
           "score": 24,
@@ -26452,7 +26452,7 @@
       "composite_score": 45,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "MCO": {
       "name": "Monaco",
@@ -26555,7 +26555,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 26.800 (normalized: 8); Labour income share of GDP: 60.038 (normalized: 23)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 26.800 (normalized: 8); Labour income share of GDP: 60.038 (normalized: 23)."
         },
         "financial_extraction": {
           "score": 22,
@@ -26752,7 +26752,7 @@
       "composite_score": 24,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "MDG": {
       "name": "Madagascar",
@@ -26784,7 +26784,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 36.800 (normalized: 33); Labour income share of GDP: 37.835 (normalized: 57)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 36.800 (normalized: 33); Labour income share of GDP: 37.835 (normalized: 57)."
         },
         "financial_extraction": {
           "score": 26,
@@ -26981,7 +26981,7 @@
       "composite_score": 49,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "MDV": {
       "name": "Maldives",
@@ -27014,7 +27014,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 29.300 (normalized: 14); Labour income share of GDP: 42.682 (normalized: 50)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 29.300 (normalized: 14); Labour income share of GDP: 42.682 (normalized: 50)."
         },
         "financial_extraction": {
           "score": 30,
@@ -27231,7 +27231,7 @@
       "composite_score": 36,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "MEX": {
       "name": "Mexico",
@@ -27264,7 +27264,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 43.500 (normalized: 50); Labour income share of GDP: 37.985 (normalized: 57)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 43.500 (normalized: 50); Labour income share of GDP: 37.985 (normalized: 57)."
         },
         "financial_extraction": {
           "score": 26,
@@ -27480,7 +27480,7 @@
       "composite_score": 44,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "MHL": {
       "name": "Marshall Islands",
@@ -27601,7 +27601,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.500 (normalized: 25); Labour income share of GDP: 45.127 (normalized: 46)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.500 (normalized: 25); Labour income share of GDP: 45.127 (normalized: 46)."
         },
         "financial_extraction": {
           "score": 18,
@@ -27818,7 +27818,7 @@
       "composite_score": 36,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "MLI": {
       "name": "Mali",
@@ -27849,7 +27849,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 35.700 (normalized: 30); Labour income share of GDP: 37.705 (normalized: 57)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 35.700 (normalized: 30); Labour income share of GDP: 37.705 (normalized: 57)."
         },
         "financial_extraction": {
           "score": 18,
@@ -28047,7 +28047,7 @@
       "composite_score": 50,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "MLT": {
       "name": "Malta",
@@ -28079,7 +28079,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 34.600 (normalized: 28); Labour income share of GDP: 48.506 (normalized: 41)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 34.600 (normalized: 28); Labour income share of GDP: 48.506 (normalized: 41)."
         },
         "financial_extraction": {
           "score": 20,
@@ -28294,7 +28294,7 @@
       "composite_score": 28,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "MMR": {
       "name": "Myanmar",
@@ -28327,7 +28327,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 30.700 (normalized: 18); Labour income share of GDP: 48.667 (normalized: 40)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 30.700 (normalized: 18); Labour income share of GDP: 48.667 (normalized: 40)."
         },
         "financial_extraction": {
           "score": 10,
@@ -28525,7 +28525,7 @@
       "composite_score": 60,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "MNE": {
       "name": "Montenegro",
@@ -28557,7 +28557,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 34.300 (normalized: 27); Labour income share of GDP: 51.373 (normalized: 36)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 34.300 (normalized: 27); Labour income share of GDP: 51.373 (normalized: 36)."
         },
         "financial_extraction": {
           "score": 22,
@@ -28774,7 +28774,7 @@
       "composite_score": 30,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "MNG": {
       "name": "Mongolia",
@@ -28807,7 +28807,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 31.400 (normalized: 19); Labour income share of GDP: 32.883 (normalized: 65)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 31.400 (normalized: 19); Labour income share of GDP: 32.883 (normalized: 65)."
         },
         "financial_extraction": {
           "score": 26,
@@ -29005,7 +29005,7 @@
       "composite_score": 42,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "MNP": {
       "name": "Northern Mariana Islands",
@@ -29067,7 +29067,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 49.600 (normalized: 66); Labour income share of GDP: 61.837 (normalized: 20)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 49.600 (normalized: 66); Labour income share of GDP: 61.837 (normalized: 20)."
         },
         "financial_extraction": {
           "score": 36,
@@ -29264,7 +29264,7 @@
       "composite_score": 53,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "MRT": {
       "name": "Mauritania",
@@ -29297,7 +29297,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 32.000 (normalized: 21); Labour income share of GDP: 35.646 (normalized: 60)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 32.000 (normalized: 21); Labour income share of GDP: 35.646 (normalized: 60)."
         },
         "financial_extraction": {
           "score": 14,
@@ -29495,7 +29495,7 @@
       "composite_score": 45,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "MUS": {
       "name": "Mauritius",
@@ -29528,7 +29528,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 36.800 (normalized: 33); Labour income share of GDP: 41.723 (normalized: 51)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 36.800 (normalized: 33); Labour income share of GDP: 41.723 (normalized: 51)."
         },
         "financial_extraction": {
           "score": 21,
@@ -29746,7 +29746,7 @@
       "composite_score": 33,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "MWI": {
       "name": "Malawi",
@@ -29778,7 +29778,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 38.500 (normalized: 37); Labour income share of GDP: 37.071 (normalized: 58)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 38.500 (normalized: 37); Labour income share of GDP: 37.071 (normalized: 58)."
         },
         "financial_extraction": {
           "score": 26,
@@ -29976,7 +29976,7 @@
       "composite_score": 39,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "MYS": {
       "name": "Malaysia",
@@ -30009,7 +30009,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 40.700 (normalized: 43); Labour income share of GDP: 40.712 (normalized: 53)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 40.700 (normalized: 43); Labour income share of GDP: 40.712 (normalized: 53)."
         },
         "financial_extraction": {
           "score": 31,
@@ -30227,7 +30227,7 @@
       "composite_score": 44,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "NAM": {
       "name": "Namibia",
@@ -30259,7 +30259,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 59.100 (normalized: 90); Labour income share of GDP: 47.101 (normalized: 43)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 59.100 (normalized: 90); Labour income share of GDP: 47.101 (normalized: 43)."
         },
         "financial_extraction": {
           "score": 28,
@@ -30457,7 +30457,7 @@
       "composite_score": 33,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "NCL": {
       "name": "New Caledonia",
@@ -30479,7 +30479,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 52.942 (normalized: 34)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 52.942 (normalized: 34)."
         },
         "resource_capture": {
           "score": 70,
@@ -30505,7 +30505,7 @@
       "composite_score": 52,
       "overall_confidence": "low",
       "overall_trend": "stable",
-      "notes": "Auto-scored from World Bank (2/7 domains covered)."
+      "notes": "Auto-scored from ILO, World Bank (2/7 domains covered)."
     },
     "NER": {
       "name": "Niger",
@@ -30538,7 +30538,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 32.900 (normalized: 23); Labour income share of GDP: 27.758 (normalized: 72)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 32.900 (normalized: 23); Labour income share of GDP: 27.758 (normalized: 72)."
         },
         "financial_extraction": {
           "score": 16,
@@ -30736,7 +30736,7 @@
       "composite_score": 42,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "NIC": {
       "name": "Nicaragua",
@@ -30768,7 +30768,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 46.200 (normalized: 57); Labour income share of GDP: 47.154 (normalized: 43)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 46.200 (normalized: 57); Labour income share of GDP: 47.154 (normalized: 43)."
         },
         "financial_extraction": {
           "score": 28,
@@ -30966,7 +30966,7 @@
       "composite_score": 64,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "NLD": {
       "name": "Netherlands",
@@ -30999,7 +30999,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 25.700 (normalized: 5); Labour income share of GDP: 60.499 (normalized: 22)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 25.700 (normalized: 5); Labour income share of GDP: 60.499 (normalized: 22)."
         },
         "financial_extraction": {
           "score": 21,
@@ -31215,7 +31215,7 @@
       "composite_score": 18,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "NPL": {
       "name": "Nepal",
@@ -31248,7 +31248,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 30.000 (normalized: 16); Labour income share of GDP: 48.943 (normalized: 40)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 30.000 (normalized: 16); Labour income share of GDP: 48.943 (normalized: 40)."
         },
         "financial_extraction": {
           "score": 30,
@@ -31446,7 +31446,7 @@
       "composite_score": 31,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "NRU": {
       "name": "Nauru",
@@ -31558,7 +31558,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 54.068 (normalized: 32)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 54.068 (normalized: 32)."
         },
         "financial_extraction": {
           "score": 37,
@@ -31775,7 +31775,7 @@
       "composite_score": 24,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "OMN": {
       "name": "Oman",
@@ -31798,7 +31798,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 30.860 (normalized: 68)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 30.860 (normalized: 68)."
         },
         "financial_extraction": {
           "score": 21,
@@ -32016,7 +32016,7 @@
       "composite_score": 60,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PAK": {
       "name": "Pakistan",
@@ -32049,7 +32049,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 29.600 (normalized: 15); Labour income share of GDP: 49.828 (normalized: 39)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 29.600 (normalized: 15); Labour income share of GDP: 49.828 (normalized: 39)."
         },
         "financial_extraction": {
           "score": 13,
@@ -32265,7 +32265,7 @@
       "composite_score": 48,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PAN": {
       "name": "Panama",
@@ -32298,7 +32298,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 49.700 (normalized: 66); Labour income share of GDP: 35.592 (normalized: 60)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 49.700 (normalized: 66); Labour income share of GDP: 35.592 (normalized: 60)."
         },
         "financial_extraction": {
           "score": 32,
@@ -32516,7 +32516,7 @@
       "composite_score": 45,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PER": {
       "name": "Peru",
@@ -32549,7 +32549,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 40.100 (normalized: 42); Labour income share of GDP: 43.619 (normalized: 48)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 40.100 (normalized: 42); Labour income share of GDP: 43.619 (normalized: 48)."
         },
         "financial_extraction": {
           "score": 24,
@@ -32766,7 +32766,7 @@
       "composite_score": 40,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PHL": {
       "name": "Philippines",
@@ -32798,7 +32798,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 39.300 (normalized: 40); Labour income share of GDP: 45.646 (normalized: 45)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 39.300 (normalized: 40); Labour income share of GDP: 45.646 (normalized: 45)."
         },
         "financial_extraction": {
           "score": 22,
@@ -33016,7 +33016,7 @@
       "composite_score": 46,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PLW": {
       "name": "Palau",
@@ -33089,7 +33089,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 32.566 (normalized: 65)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 32.566 (normalized: 65)."
         },
         "financial_extraction": {
           "score": 24,
@@ -33287,7 +33287,7 @@
       "composite_score": 47,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "POL": {
       "name": "Poland",
@@ -33319,7 +33319,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 28.500 (normalized: 12); Labour income share of GDP: 49.592 (normalized: 39)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 28.500 (normalized: 12); Labour income share of GDP: 49.592 (normalized: 39)."
         },
         "financial_extraction": {
           "score": 15,
@@ -33537,7 +33537,7 @@
       "composite_score": 20,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PRI": {
       "name": "Puerto Rico",
@@ -33560,7 +33560,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 58.997 (normalized: 25)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 58.997 (normalized: 25)."
         },
         "institutional_gatekeeping": {
           "score": 54,
@@ -33626,7 +33626,7 @@
       "composite_score": 42,
       "overall_confidence": "moderate",
       "overall_trend": "stable",
-      "notes": "Auto-scored from TJN, World Bank (4/7 domains covered)."
+      "notes": "Auto-scored from ILO, TJN, World Bank (4/7 domains covered)."
     },
     "PRT": {
       "name": "Portugal",
@@ -33658,7 +33658,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.900 (normalized: 26); Labour income share of GDP: 57.587 (normalized: 27)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.900 (normalized: 26); Labour income share of GDP: 57.587 (normalized: 27)."
         },
         "financial_extraction": {
           "score": 20,
@@ -33875,7 +33875,7 @@
       "composite_score": 21,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PRY": {
       "name": "Paraguay",
@@ -33907,7 +33907,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 44.200 (normalized: 52); Labour income share of GDP: 45.237 (normalized: 46)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 44.200 (normalized: 52); Labour income share of GDP: 45.237 (normalized: 46)."
         },
         "financial_extraction": {
           "score": 28,
@@ -34123,7 +34123,7 @@
       "composite_score": 43,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "PSE": {
       "name": "Palestine",
@@ -34154,7 +34154,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 36.400 (normalized: 32); Labour income share of GDP: 42.667 (normalized: 50)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 36.400 (normalized: 32); Labour income share of GDP: 42.667 (normalized: 50)."
         },
         "financial_extraction": {
           "score": 30,
@@ -34339,7 +34339,7 @@
       "composite_score": 44,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "PYF": {
       "name": "French Polynesia",
@@ -34361,7 +34361,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 51.480 (normalized: 36)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 51.480 (normalized: 36)."
         },
         "resource_capture": {
           "score": 0,
@@ -34387,7 +34387,7 @@
       "composite_score": 18,
       "overall_confidence": "low",
       "overall_trend": "stable",
-      "notes": "Auto-scored from World Bank (2/7 domains covered)."
+      "notes": "Auto-scored from ILO, World Bank (2/7 domains covered)."
     },
     "QAT": {
       "name": "Qatar",
@@ -34419,7 +34419,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 35.100 (normalized: 29); Labour income share of GDP: 27.757 (normalized: 72)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 35.100 (normalized: 29); Labour income share of GDP: 27.757 (normalized: 72)."
         },
         "financial_extraction": {
           "score": 34,
@@ -34637,7 +34637,7 @@
       "composite_score": 60,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ROU": {
       "name": "Romania",
@@ -34669,7 +34669,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 29.800 (normalized: 15); Labour income share of GDP: 44.549 (normalized: 47)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 29.800 (normalized: 15); Labour income share of GDP: 44.549 (normalized: 47)."
         },
         "financial_extraction": {
           "score": 15,
@@ -34886,7 +34886,7 @@
       "composite_score": 30,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "RWA": {
       "name": "Rwanda",
@@ -34917,7 +34917,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 39.400 (normalized: 40); Labour income share of GDP: 39.766 (normalized: 54)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 39.400 (normalized: 40); Labour income share of GDP: 39.766 (normalized: 54)."
         },
         "financial_extraction": {
           "score": 37,
@@ -35135,7 +35135,7 @@
       "composite_score": 51,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "SAU": {
       "name": "Saudi Arabia",
@@ -35158,7 +35158,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 30.227 (normalized: 69)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 30.227 (normalized: 69)."
         },
         "financial_extraction": {
           "score": 20,
@@ -35376,7 +35376,7 @@
       "composite_score": 65,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "SDN": {
       "name": "Sudan",
@@ -35409,7 +35409,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 34.200 (normalized: 27); Labour income share of GDP: 36.307 (normalized: 59)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 34.200 (normalized: 27); Labour income share of GDP: 36.307 (normalized: 59)."
         },
         "financial_extraction": {
           "score": 6,
@@ -35606,7 +35606,7 @@
       "composite_score": 57,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "SEN": {
       "name": "Senegal",
@@ -35637,7 +35637,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 36.200 (normalized: 32); Labour income share of GDP: 42.488 (normalized: 50)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 36.200 (normalized: 32); Labour income share of GDP: 42.488 (normalized: 50)."
         },
         "financial_extraction": {
           "score": 12,
@@ -35835,7 +35835,7 @@
       "composite_score": 30,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "SLB": {
       "name": "Solomon Islands",
@@ -35867,7 +35867,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 37.100 (normalized: 34); Labour income share of GDP: 46.935 (normalized: 43)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 37.100 (normalized: 34); Labour income share of GDP: 46.935 (normalized: 43)."
         },
         "financial_extraction": {
           "score": 15,
@@ -36040,7 +36040,7 @@
       "composite_score": 30,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, V-Dem, World Bank (6/7 domains covered)."
     },
     "SLE": {
       "name": "Sierra Leone",
@@ -36071,7 +36071,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 35.700 (normalized: 30); Labour income share of GDP: 36.842 (normalized: 59)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 35.700 (normalized: 30); Labour income share of GDP: 36.842 (normalized: 59)."
         },
         "financial_extraction": {
           "score": 51,
@@ -36269,7 +36269,7 @@
       "composite_score": 43,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "SLV": {
       "name": "El Salvador",
@@ -36302,7 +36302,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 39.800 (normalized: 41); Labour income share of GDP: 50.748 (normalized: 37)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 39.800 (normalized: 41); Labour income share of GDP: 50.748 (normalized: 37)."
         },
         "financial_extraction": {
           "score": 34,
@@ -36518,7 +36518,7 @@
       "composite_score": 50,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "SMR": {
       "name": "San Marino",
@@ -36629,7 +36629,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 37.553 (normalized: 57)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 37.553 (normalized: 57)."
         },
         "financial_extraction": {
           "score": 0,
@@ -36817,7 +36817,7 @@
       "composite_score": 53,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "SRB": {
       "name": "Serbia",
@@ -36850,7 +36850,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 32.800 (normalized: 23); Labour income share of GDP: 53.642 (normalized: 33)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 32.800 (normalized: 23); Labour income share of GDP: 53.642 (normalized: 33)."
         },
         "financial_extraction": {
           "score": 14,
@@ -37058,7 +37058,7 @@
       "composite_score": 44,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "SSD": {
       "name": "South Sudan",
@@ -37090,7 +37090,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 44.000 (normalized: 52); Labour income share of GDP: 37.567 (normalized: 57)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 44.000 (normalized: 52); Labour income share of GDP: 37.567 (normalized: 57)."
         },
         "financial_extraction": {
           "score": 14,
@@ -37288,7 +37288,7 @@
       "composite_score": 62,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "STP": {
       "name": "Sao Tome and Principe",
@@ -37319,7 +37319,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 40.700 (normalized: 43); Labour income share of GDP: 43.733 (normalized: 48)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 40.700 (normalized: 43); Labour income share of GDP: 43.733 (normalized: 48)."
         },
         "financial_extraction": {
           "score": 3,
@@ -37485,7 +37485,7 @@
       "composite_score": 26,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, V-Dem, World Bank (6/7 domains covered)."
     },
     "SUR": {
       "name": "Suriname",
@@ -37517,7 +37517,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 39.200 (normalized: 39); Labour income share of GDP: 49.918 (normalized: 39)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 39.200 (normalized: 39); Labour income share of GDP: 49.918 (normalized: 39)."
         },
         "financial_extraction": {
           "score": 12,
@@ -37714,7 +37714,7 @@
       "composite_score": 25,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "SVK": {
       "name": "Slovak Republic",
@@ -37746,7 +37746,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 23.800 (normalized: 0); Labour income share of GDP: 53.788 (normalized: 33)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 23.800 (normalized: 0); Labour income share of GDP: 53.788 (normalized: 33)."
         },
         "financial_extraction": {
           "score": 18,
@@ -37963,7 +37963,7 @@
       "composite_score": 22,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "SVN": {
       "name": "Slovenia",
@@ -37996,7 +37996,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 24.700 (normalized: 2); Labour income share of GDP: 61.927 (normalized: 20)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 24.700 (normalized: 2); Labour income share of GDP: 61.927 (normalized: 20)."
         },
         "financial_extraction": {
           "score": 13,
@@ -38211,7 +38211,7 @@
       "composite_score": 13,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "SWE": {
       "name": "Sweden",
@@ -38242,7 +38242,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 29.300 (normalized: 14); Labour income share of GDP: 53.686 (normalized: 33)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 29.300 (normalized: 14); Labour income share of GDP: 53.686 (normalized: 33)."
         },
         "financial_extraction": {
           "score": 30,
@@ -38459,7 +38459,7 @@
       "composite_score": 14,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "SWZ": {
       "name": "Eswatini",
@@ -38492,7 +38492,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 54.600 (normalized: 79); Labour income share of GDP: 41.159 (normalized: 52)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 54.600 (normalized: 79); Labour income share of GDP: 41.159 (normalized: 52)."
         },
         "financial_extraction": {
           "score": 32,
@@ -38690,7 +38690,7 @@
       "composite_score": 58,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "SXM": {
       "name": "Sint Maarten (Dutch part)",
@@ -38993,7 +38993,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 26.600 (normalized: 7); Labour income share of GDP: 34.241 (normalized: 62)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 26.600 (normalized: 7); Labour income share of GDP: 34.241 (normalized: 62)."
         },
         "financial_extraction": {
           "score": 9,
@@ -39191,7 +39191,7 @@
       "composite_score": 53,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "TCA": {
       "name": "Turks and Caicos Islands",
@@ -39271,7 +39271,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 37.400 (normalized: 35); Labour income share of GDP: 39.106 (normalized: 55)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 37.400 (normalized: 35); Labour income share of GDP: 39.106 (normalized: 55)."
         },
         "financial_extraction": {
           "score": 28,
@@ -39469,7 +39469,7 @@
       "composite_score": 60,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "TGO": {
       "name": "Togo",
@@ -39500,7 +39500,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 37.900 (normalized: 36); Labour income share of GDP: 42.149 (normalized: 50)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 37.900 (normalized: 36); Labour income share of GDP: 42.149 (normalized: 50)."
         },
         "financial_extraction": {
           "score": 18,
@@ -39698,7 +39698,7 @@
       "composite_score": 45,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "THA": {
       "name": "Thailand",
@@ -39730,7 +39730,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.500 (normalized: 25); Labour income share of GDP: 47.019 (normalized: 43)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.500 (normalized: 25); Labour income share of GDP: 47.019 (normalized: 43)."
         },
         "financial_extraction": {
           "score": 40,
@@ -39946,7 +39946,7 @@
       "composite_score": 46,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "TJK": {
       "name": "Tajikistan",
@@ -39979,7 +39979,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 36.100 (normalized: 31); Labour income share of GDP: 18.995 (normalized: 86)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 36.100 (normalized: 31); Labour income share of GDP: 18.995 (normalized: 86)."
         },
         "financial_extraction": {
           "score": 45,
@@ -40177,7 +40177,7 @@
       "composite_score": 68,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "TKM": {
       "name": "Turkmenistan",
@@ -40200,7 +40200,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 46.234 (normalized: 44)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 46.234 (normalized: 44)."
         },
         "financial_extraction": {
           "score": 11,
@@ -40388,7 +40388,7 @@
       "composite_score": 63,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "TLS": {
       "name": "Timor-Leste",
@@ -40421,7 +40421,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 28.700 (normalized: 12); Labour income share of GDP: 31.095 (normalized: 67)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 28.700 (normalized: 12); Labour income share of GDP: 31.095 (normalized: 67)."
         },
         "financial_extraction": {
           "score": 15,
@@ -40609,7 +40609,7 @@
       "composite_score": 28,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "TON": {
       "name": "Tonga",
@@ -40641,7 +40641,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 27.100 (normalized: 8); Labour income share of GDP: 43.681 (normalized: 48)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 27.100 (normalized: 8); Labour income share of GDP: 43.681 (normalized: 48)."
         },
         "financial_extraction": {
           "score": 15,
@@ -40727,7 +40727,7 @@
       "composite_score": 27,
       "overall_confidence": "moderate",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, World Bank (5/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, World Bank (5/7 domains covered)."
     },
     "TTO": {
       "name": "Trinidad and Tobago",
@@ -40750,7 +40750,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 45.202 (normalized: 46)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 45.202 (normalized: 46)."
         },
         "financial_extraction": {
           "score": 24,
@@ -40968,7 +40968,7 @@
       "composite_score": 31,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "TUN": {
       "name": "Tunisia",
@@ -41000,7 +41000,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 33.700 (normalized: 25); Labour income share of GDP: 49.161 (normalized: 40)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 33.700 (normalized: 25); Labour income share of GDP: 49.161 (normalized: 40)."
         },
         "financial_extraction": {
           "score": 22,
@@ -41218,7 +41218,7 @@
       "composite_score": 36,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "TUR": {
       "name": "Turkiye",
@@ -41251,7 +41251,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 44.500 (normalized: 53); Labour income share of GDP: 41.126 (normalized: 52)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 44.500 (normalized: 53); Labour income share of GDP: 41.126 (normalized: 52)."
         },
         "financial_extraction": {
           "score": 20,
@@ -41468,7 +41468,7 @@
       "composite_score": 52,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "TUV": {
       "name": "Tuvalu",
@@ -41567,7 +41567,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 40.500 (normalized: 43); Labour income share of GDP: 54.186 (normalized: 32)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 40.500 (normalized: 43); Labour income share of GDP: 54.186 (normalized: 32)."
         },
         "financial_extraction": {
           "score": 30,
@@ -41782,7 +41782,7 @@
       "composite_score": 45,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "UGA": {
       "name": "Uganda",
@@ -41814,7 +41814,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 42.700 (normalized: 48); Labour income share of GDP: 37.571 (normalized: 57)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 42.700 (normalized: 48); Labour income share of GDP: 37.571 (normalized: 57)."
         },
         "financial_extraction": {
           "score": 36,
@@ -42011,7 +42011,7 @@
       "composite_score": 58,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "UKR": {
       "name": "Ukraine",
@@ -42044,7 +42044,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 25.600 (normalized: 5); Labour income share of GDP: 50.208 (normalized: 38)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 25.600 (normalized: 5); Labour income share of GDP: 50.208 (normalized: 38)."
         },
         "financial_extraction": {
           "score": 16,
@@ -42262,7 +42262,7 @@
       "composite_score": 41,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "URY": {
       "name": "Uruguay",
@@ -42295,7 +42295,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 40.000 (normalized: 41); Labour income share of GDP: 56.263 (normalized: 29)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 40.000 (normalized: 41); Labour income share of GDP: 56.263 (normalized: 29)."
         },
         "financial_extraction": {
           "score": 22,
@@ -42512,7 +42512,7 @@
       "composite_score": 24,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "UZB": {
       "name": "Uzbekistan",
@@ -42545,7 +42545,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 34.600 (normalized: 28); Labour income share of GDP: 44.384 (normalized: 47)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 34.600 (normalized: 28); Labour income share of GDP: 44.384 (normalized: 47)."
         },
         "financial_extraction": {
           "score": 22,
@@ -42743,7 +42743,7 @@
       "composite_score": 56,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "VCT": {
       "name": "Saint Vincent and the Grenadines",
@@ -42765,7 +42765,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 46.793 (normalized: 43)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 46.793 (normalized: 43)."
         },
         "financial_extraction": {
           "score": 16,
@@ -42851,7 +42851,7 @@
       "composite_score": 33,
       "overall_confidence": "moderate",
       "overall_trend": "falling",
-      "notes": "Auto-scored from TJN, World Bank (5/7 domains covered)."
+      "notes": "Auto-scored from ILO, TJN, World Bank (5/7 domains covered)."
     },
     "VEN": {
       "name": "Venezuela",
@@ -42874,7 +42874,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 9.691 (normalized: 100)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 9.691 (normalized: 100)."
         },
         "financial_extraction": {
           "score": 14,
@@ -43092,7 +43092,7 @@
       "composite_score": 73,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "VIR": {
       "name": "US Virgin Islands",
@@ -43114,7 +43114,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 55.981 (normalized: 29)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 55.981 (normalized: 29)."
         },
         "institutional_gatekeeping": {
           "score": 55,
@@ -43178,7 +43178,7 @@
       "composite_score": 42,
       "overall_confidence": "moderate",
       "overall_trend": "stable",
-      "notes": "Auto-scored from TJN, World Bank (4/7 domains covered)."
+      "notes": "Auto-scored from ILO, TJN, World Bank (4/7 domains covered)."
     },
     "VNM": {
       "name": "Vietnam",
@@ -43210,7 +43210,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 36.100 (normalized: 31); Labour income share of GDP: 47.320 (normalized: 42)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 36.100 (normalized: 31); Labour income share of GDP: 47.320 (normalized: 42)."
         },
         "financial_extraction": {
           "score": 38,
@@ -43427,7 +43427,7 @@
       "composite_score": 57,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "VUT": {
       "name": "Vanuatu",
@@ -43459,7 +43459,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 32.300 (normalized: 22); Labour income share of GDP: 60.842 (normalized: 22)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 32.300 (normalized: 22); Labour income share of GDP: 60.842 (normalized: 22)."
         },
         "financial_extraction": {
           "score": 24,
@@ -43650,7 +43650,7 @@
       "composite_score": 33,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "WSM": {
       "name": "Samoa",
@@ -43683,7 +43683,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 38.700 (normalized: 38); Labour income share of GDP: 42.110 (normalized: 50)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 38.700 (normalized: 38); Labour income share of GDP: 42.110 (normalized: 50)."
         },
         "financial_extraction": {
           "score": 30,
@@ -43788,7 +43788,7 @@
       "composite_score": 39,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, World Bank (6/7 domains covered)."
     },
     "YEM": {
       "name": "Yemen, Rep.",
@@ -43821,7 +43821,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 36.700 (normalized: 33); Labour income share of GDP: 32.383 (normalized: 65)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 36.700 (normalized: 33); Labour income share of GDP: 32.383 (normalized: 65)."
         },
         "financial_extraction": {
           "score": 2,
@@ -44009,7 +44009,7 @@
       "composite_score": 59,
       "overall_confidence": "high",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "ZAF": {
       "name": "South Africa",
@@ -44042,7 +44042,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 63.000 (normalized: 100); Labour income share of GDP: 52.636 (normalized: 34)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 63.000 (normalized: 100); Labour income share of GDP: 52.636 (normalized: 34)."
         },
         "financial_extraction": {
           "score": 30,
@@ -44259,7 +44259,7 @@
       "composite_score": 38,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem, World Bank (7/7 domains covered)."
     },
     "ZMB": {
       "name": "Zambia",
@@ -44292,7 +44292,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 51.500 (normalized: 71); Labour income share of GDP: 25.929 (normalized: 75)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 51.500 (normalized: 71); Labour income share of GDP: 25.929 (normalized: 75)."
         },
         "financial_extraction": {
           "score": 35,
@@ -44489,7 +44489,7 @@
       "composite_score": 47,
       "overall_confidence": "high",
       "overall_trend": "rising",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "ZWE": {
       "name": "Zimbabwe",
@@ -44522,7 +44522,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Gini Index: 50.300 (normalized: 68); Labour income share of GDP: 60.333 (normalized: 23)."
+          "justification_detail": "Auto-scored from ILO / World Bank data. Gini Index: 50.300 (normalized: 68); Labour income share of GDP: 60.333 (normalized: 23)."
         },
         "financial_extraction": {
           "score": 45,
@@ -44720,7 +44720,7 @@
       "composite_score": 56,
       "overall_confidence": "high",
       "overall_trend": "falling",
-      "notes": "Auto-scored from RSF, V-Dem, World Bank (6/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, V-Dem, World Bank (6/7 domains covered)."
     },
     "AIA": {
       "name": "Anguilla",
@@ -44911,7 +44911,7 @@
               ]
             }
           ],
-          "justification_detail": "Auto-scored from World Bank data. Labour income share of GDP: 52.201 (normalized: 35)."
+          "justification_detail": "Auto-scored from ILO data. Labour income share of GDP: 52.201 (normalized: 35)."
         },
         "information_capture": {
           "score": 18,
@@ -45066,7 +45066,7 @@
       "composite_score": 31,
       "overall_confidence": "moderate",
       "overall_trend": "stable",
-      "notes": "Auto-scored from RSF, TJN, V-Dem, World Bank (5/7 domains covered)."
+      "notes": "Auto-scored from ILO, RSF, TJN, V-Dem (5/7 domains covered)."
     },
     "VGB": {
       "name": "British Virgin Islands",

@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-from score_countries import build_wb_domain
+from score_countries import build_indicator_domain
 
 
 def _make_wb_group():
@@ -21,6 +21,7 @@ def _make_wb_group():
             "source_key": ["wb_wgi_corruption"],
             "indicator_name": ["WGI Control of Corruption"],
             "indicator_file": ["wb_wgi_corruption.csv"],
+            "source_name": ["World Bank"],
         }
     )
 
@@ -29,13 +30,13 @@ class TestBuildWbDomain:
     def test_score_is_mean_of_normalized(self):
         group = _make_wb_group()
         all_indicator_raw = {"wb_wgi_corruption": {"USA": -0.5}}
-        result = build_wb_domain(group, "USA", all_indicator_raw)
+        result = build_indicator_domain(group, "USA", all_indicator_raw)
         assert result["score"] == 60  # single indicator
 
     def test_has_required_keys(self):
         group = _make_wb_group()
         all_indicator_raw = {}
-        result = build_wb_domain(group, "USA", all_indicator_raw)
+        result = build_indicator_domain(group, "USA", all_indicator_raw)
         for key in [
             "score",
             "confidence",
@@ -51,17 +52,17 @@ class TestBuildWbDomain:
 
     def test_n_indicators_matches_group_size(self):
         group = _make_wb_group()
-        result = build_wb_domain(group, "USA", {})
+        result = build_indicator_domain(group, "USA", {})
         assert result["_n_indicators"] == 1
 
     def test_sources_list(self):
         group = _make_wb_group()
-        result = build_wb_domain(group, "USA", {})
+        result = build_indicator_domain(group, "USA", {})
         assert "wb_wgi_corruption" in result["sources"]
 
     def test_most_recent_year(self):
         group = _make_wb_group()
-        result = build_wb_domain(group, "USA", {})
+        result = build_indicator_domain(group, "USA", {})
         assert result["_most_recent_year"] == 2022
 
     def test_single_indicator(self):
@@ -76,8 +77,9 @@ class TestBuildWbDomain:
                 "source_key": ["wb_gini"],
                 "indicator_name": ["Gini Index"],
                 "indicator_file": ["wb_gini.csv"],
+                "source_name": ["World Bank"],
             }
         )
-        result = build_wb_domain(group, "USA", {})
+        result = build_indicator_domain(group, "USA", {})
         assert result["score"] == 72
         assert result["_n_indicators"] == 1
