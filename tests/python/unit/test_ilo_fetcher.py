@@ -56,7 +56,7 @@ class TestFetch:
             mock_get.return_value.status_code = 200
             mock_get.return_value.text = empty_csv
             mock_get.return_value.raise_for_status = lambda: None
-            files = fetch(tmp_path)
+            fetch(tmp_path)
 
         output_file = tmp_path / "ilo" / "ilo_labor_share.csv"
         assert not output_file.exists()
