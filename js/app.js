@@ -16,8 +16,6 @@ const SOURCE_URLS = {
   wb_top10_income: 'https://data.worldbank.org/indicator/SI.DST.10TH.10',
   wb_natural_rents: 'https://data.worldbank.org/indicator/NY.GDP.TOTL.RT.ZS',
   wb_wgi_corruption: 'https://data.worldbank.org/indicator/CC.EST',
-  wb_reg_quality: 'https://data.worldbank.org/indicator/RQ.EST',
-  wb_wgi_gov_eff: 'https://data.worldbank.org/indicator/GE.EST',
   rsf_press: 'https://rsf.org/en/index',
   tjn_fsi: 'https://fsi.taxjustice.net/',
   tjn_fsi_secrecy: 'https://fsi.taxjustice.net/',
@@ -179,7 +177,7 @@ function drawMap(world) {
       const name = getCountryName(a3) || d.properties?.name || `#${d.id}`;
       const score = cd ? computeComposite(cd.domains, currentWeights, DOMAIN_KEYS) : null;
       tooltip.html(
-        `<strong>${name}</strong>` +
+        `<strong>${esc(name)}</strong>` +
           (score !== null
             ? `<span class="tooltip-score">${score}</span>`
             : ' <span style="color:var(--text-muted)">No data</span>'),
@@ -267,7 +265,7 @@ function selectCountry(alpha3, numericId) {
     const sel = d3
       .selectAll('.country-path')
       .filter((d) =>
-        numericId != null ? String(d.id) === String(numericId) : getCountryAlpha3FromFeature(d) === alpha3,
+        numericId != null ? Number(d.id) === Number(numericId) : getCountryAlpha3FromFeature(d) === alpha3,
       );
     sel.classed('selected', true).raise();
 
@@ -290,9 +288,11 @@ function selectCountry(alpha3, numericId) {
   const cd = getCountryData(alpha3);
   const empty = document.getElementById('panel-empty');
   const content = document.getElementById('panel-content');
+  const pickerBtn = document.getElementById('picker-button');
 
   if (!cd) {
     selectedCountryCode = null;
+    if (pickerBtn) pickerBtn.textContent = 'Select a country\u2026';
     empty.style.display = 'flex';
     content.style.display = 'none';
     empty.querySelector('h3').textContent = alpha3 ? `No data for ${getCountryName(alpha3)}` : 'Select a country';
@@ -304,7 +304,6 @@ function selectCountry(alpha3, numericId) {
   content.style.display = 'block';
 
   // Sync dropdown button text
-  const pickerBtn = document.getElementById('picker-button');
   if (pickerBtn && cd) pickerBtn.textContent = cd.name;
 
   const composite = computeComposite(cd.domains, currentWeights, DOMAIN_KEYS);
@@ -328,7 +327,7 @@ function selectCountry(alpha3, numericId) {
   const sel = d3
     .selectAll('.country-path')
     .filter((d) =>
-      numericId != null ? String(d.id) === String(numericId) : getCountryAlpha3FromFeature(d) === alpha3,
+      numericId != null ? Number(d.id) === Number(numericId) : getCountryAlpha3FromFeature(d) === alpha3,
     );
   if (sel.size() === 0) {
     advisories.push('This territory is too small to display on the world map.');
@@ -491,20 +490,20 @@ function drawDomainList(domains) {
         d.indicators?.length
           ? `<ul class="domain-justification">${d.indicators
               .map((ind) => {
-                const factsHtml = (ind.facts || []).map((f) => `<span class="context-fact">${f}</span>`).join('');
-                return `<li>${ind.question} ${ind.label}${factsHtml}</li>`;
+                const factsHtml = (ind.facts || []).map((f) => `<span class="context-fact">${esc(f)}</span>`).join('');
+                return `<li>${esc(ind.question)} ${esc(ind.label)}${factsHtml}</li>`;
               })
               .join('')}</ul>`
           : d.justification
             ? `<ul class="domain-justification">${d.justification
                 .split(/(?<=\.)\s+/)
                 .filter((s) => s.trim())
-                .map((s) => `<li>${s.replace(/\.$/, '')}</li>`)
+                .map((s) => `<li>${esc(s.replace(/\.$/, ''))}</li>`)
                 .join('')}</ul>`
             : ''
       }
       ${d.related_jurisdictions_note ? `<div class="related-jurisdictions-note">${esc(d.related_jurisdictions_note)}</div>` : ''}
-      ${d.justification_detail ? `<a class="raw-data-toggle" href="#">Show raw data &#9656;</a><div class="raw-data-detail" style="display:none"><div class="domain-justification">${d.justification_detail}</div>${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.map((s) => (SOURCE_URLS[s] ? `<a href="${SOURCE_URLS[s]}" target="_blank" rel="noopener">${s}</a>` : s)).join(', ')}</div>` : ''}</div>` : ''}
+      ${d.justification_detail ? `<a class="raw-data-toggle" href="#">Show raw data &#9656;</a><div class="raw-data-detail" style="display:none"><div class="domain-justification">${esc(d.justification_detail)}</div>${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.map((s) => (SOURCE_URLS[s] ? `<a href="${SOURCE_URLS[s]}" target="_blank" rel="noopener">${esc(s)}</a>` : esc(s))).join(', ')}</div>` : ''}</div>` : ''}
       <div class="domain-meta">
         <span class="confidence-badge">Confidence: ${conf.replace('_', ' ')}</span>
       </div>
@@ -742,7 +741,6 @@ function populateCountrySelect(sortBy, query) {
     const code = item.dataset.code;
     const numId = Object.entries(numericToAlpha3).find(([, a3]) => a3 === code)?.[0];
     selectCountry(code, numId || null);
-    button.textContent = item.textContent;
     dropdown.classList.remove('open');
   });
 })();

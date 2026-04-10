@@ -1174,7 +1174,11 @@ def _load_fsi_csv():
     if df.empty:
         return pd.DataFrame()
     if "scoring_timestamp" in df.columns:
-        latest_scoring = df.sort_values("scoring_timestamp").iloc[-1]["methodology_id"]
+        ts = df.dropna(subset=["scoring_timestamp"]).sort_values("scoring_timestamp")
+        if not ts.empty:
+            latest_scoring = ts.iloc[-1]["methodology_id"]
+        else:
+            latest_scoring = sorted(df["methodology_id"].unique())[-1]
     else:
         latest_scoring = sorted(df["methodology_id"].unique())[-1]
     return df[df["methodology_id"] == latest_scoring]
@@ -1191,10 +1195,13 @@ def load_fsi_related_jurisdictions():
     result = []
     for _, row in df.iterrows():
         if row["jurisdiction_id"] in UK_RELATED_JURISDICTION_IDS:
+            secrecy = round(float(row["index_score"]), 0) if pd.notna(row.get("index_score")) else None
+            if secrecy is None:
+                continue
             entry = {
                 "name": row.get("jurisdiction_name", row["jurisdiction_id"]),
                 "code": ALPHA2_TO_ALPHA3.get(row["jurisdiction_id"], row["jurisdiction_id"]),
-                "secrecy_score": round(float(row["index_score"]), 0) if pd.notna(row.get("index_score")) else None,
+                "secrecy_score": secrecy,
             }
             if "index_share" in row and pd.notna(row.get("index_share")):
                 entry["fsi_share_pct"] = round(float(row["index_share"]) * 100, 2)
@@ -1227,7 +1234,7 @@ def load_fsi_data():
             result[a3] = {"value": float(row["index_value"]), "secrecy": secrecy}
         elif secrecy is not None:
             # Fallback for older data or fixtures without index_value
-            result[a3] = {"value": secrecy, "secrecy": secrecy}
+            result[a3] = {"value": None, "secrecy": secrecy}
     return result
 
 
@@ -1759,9 +1766,11 @@ def build_country_scores():
     if fsi_data:
         print(f"  FSI: {len(fsi_data)} countries")
         fsi_secrecy = {k: v["secrecy"] for k, v in fsi_data.items() if v.get("secrecy") is not None}
+        fsi_related = load_fsi_related_jurisdictions()
     else:
         fsi_data = {}
         fsi_secrecy = {}
+        fsi_related = []
 
     # Load V-Dem data (political_capture + information_capture)
     vdem_raw, vdem_df_full = load_vdem_data()
@@ -1802,7 +1811,7 @@ def build_country_scores():
     if rsf_scores:
         all_indicator_raw["rsf_press"] = dict(rsf_scores)
     if fsi_data:
-        all_indicator_raw["tjn_fsi"] = {k: v["value"] for k, v in fsi_data.items()}
+        all_indicator_raw["tjn_fsi"] = {k: v["value"] for k, v in fsi_data.items() if v.get("value") is not None}
         all_indicator_raw["tjn_fsi_secrecy"] = {
             k: v["secrecy"] for k, v in fsi_data.items() if v.get("secrecy") is not None
         }
@@ -1902,7 +1911,7 @@ def build_country_scores():
                 "score": secrecy_rounded,
                 "confidence": fsi_confidence,
                 "trend": "unknown",
-                "sources": ["tjn_fsi"],
+                "sources": ["tjn_fsi_secrecy"],
                 "indicators": [secrecy_entry],
                 "justification_detail": build_technical_justification("Tax Justice Network FSI", fsi_ind),
                 "_n_indicators": 1,
@@ -1912,21 +1921,17 @@ def build_country_scores():
             source_names.append("TJN")
 
             # Annotate UK with Crown Dependencies data
-            if code == "GBR":
-                related = load_fsi_related_jurisdictions()
-                if related:
-                    domains["transnational_facilitation"]["related_jurisdictions"] = related
-                    total_share = sum(r.get("fsi_share_pct", 0) for r in related)
-                    if total_share > 0:
-                        share_text = (
-                            f" that collectively account for {total_share:.1f}% of global financial secrecy value"
-                        )
-                    else:
-                        share_text = ""
-                    domains["transnational_facilitation"]["related_jurisdictions_note"] = (
-                        f"The UK retains constitutional authority over Crown Dependencies and "
-                        f"Overseas Territories{share_text}."
-                    )
+            if code == "GBR" and fsi_related:
+                domains["transnational_facilitation"]["related_jurisdictions"] = fsi_related
+                total_share = sum(r.get("fsi_share_pct", 0) for r in fsi_related)
+                if total_share > 0:
+                    share_text = f" that collectively account for {total_share:.1f}% of global financial secrecy value"
+                else:
+                    share_text = ""
+                domains["transnational_facilitation"]["related_jurisdictions_note"] = (
+                    f"The UK retains constitutional authority over Crown Dependencies and "
+                    f"Overseas Territories{share_text}."
+                )
 
         # Add V-Dem indicators (political_capture, information_capture, institutional_gatekeeping)
         if code in vdem_normalized:

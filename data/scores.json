@@ -9,7 +9,7 @@
       "financial_extraction": 0.143,
       "institutional_gatekeeping": 0.143,
       "information_capture": 0.143,
-      "resource_labor_extraction": 0.143,
+      "resource_capture": 0.143,
       "transnational_facilitation": 0.143
     }
   },
@@ -199,7 +199,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -468,7 +468,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -719,7 +719,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -989,7 +989,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -1440,7 +1440,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -1711,7 +1711,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -1983,7 +1983,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -2130,7 +2130,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -2561,7 +2561,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -2833,7 +2833,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -3003,7 +3003,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -3215,7 +3215,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -3482,7 +3482,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -3861,7 +3861,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -3951,7 +3951,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -4160,7 +4160,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -4427,7 +4427,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -5175,7 +5175,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -5942,7 +5942,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -6202,7 +6202,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -6454,7 +6454,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -6635,7 +6635,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -7296,7 +7296,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -7383,7 +7383,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -7591,7 +7591,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -7862,7 +7862,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -8094,7 +8094,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -8315,7 +8315,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -8778,7 +8778,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -9277,7 +9277,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -9547,7 +9547,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -9817,7 +9817,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -10089,7 +10089,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -10605,7 +10605,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -11353,7 +11353,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -12113,7 +12113,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -12461,7 +12461,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -12548,7 +12548,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -12757,7 +12757,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -13027,7 +13027,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -13298,7 +13298,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -13697,7 +13697,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -13906,7 +13906,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -14178,7 +14178,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -14448,7 +14448,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -14720,7 +14720,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -15199,7 +15199,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -15468,7 +15468,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -15978,7 +15978,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -16243,7 +16243,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -16511,7 +16511,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -17155,7 +17155,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -17739,7 +17739,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -18258,7 +18258,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -18995,7 +18995,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -19175,7 +19175,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -19433,7 +19433,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -19580,7 +19580,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -20001,7 +20001,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -20517,7 +20517,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -21023,7 +21023,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -21294,7 +21294,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -21404,7 +21404,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -21613,7 +21613,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -21881,7 +21881,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -22643,7 +22643,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -22913,7 +22913,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -23180,7 +23180,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -23697,7 +23697,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -23966,7 +23966,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -24237,7 +24237,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -24505,7 +24505,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -25212,7 +25212,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -25422,7 +25422,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -25674,7 +25674,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -26184,7 +26184,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -26453,7 +26453,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -26884,7 +26884,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -26975,7 +26975,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -27187,7 +27187,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -27708,7 +27708,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -27978,7 +27978,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -28158,7 +28158,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -28397,7 +28397,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -28525,7 +28525,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -29234,7 +29234,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -29504,7 +29504,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -29662,7 +29662,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -29872,7 +29872,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -30388,7 +30388,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -30899,7 +30899,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -31949,7 +31949,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -32470,7 +32470,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -33540,7 +33540,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -33948,7 +33948,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -34140,7 +34140,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -34391,7 +34391,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -34660,7 +34660,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -34931,7 +34931,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -35201,7 +35201,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -35472,7 +35472,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -36023,7 +36023,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -36174,7 +36174,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -36384,7 +36384,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -36653,7 +36653,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -37195,7 +37195,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -37466,7 +37466,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -37735,7 +37735,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -37987,7 +37987,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -39219,7 +39219,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -39367,7 +39367,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -39789,7 +39789,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -40772,7 +40772,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -41043,7 +41043,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -41311,7 +41311,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -41852,7 +41852,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -42203,7 +42203,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -42911,7 +42911,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -44002,7 +44002,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -44272,7 +44272,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -44543,7 +44543,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -44890,7 +44890,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -45410,7 +45410,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -45682,7 +45682,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -46102,7 +46102,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -46293,7 +46293,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -46441,7 +46441,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -46650,7 +46650,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -46868,7 +46868,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -47101,7 +47101,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -47554,7 +47554,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -48144,7 +48144,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -48173,7 +48173,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -48202,7 +48202,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -48231,7 +48231,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -48260,7 +48260,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -48289,7 +48289,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -48378,7 +48378,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -48507,7 +48507,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {
@@ -48650,7 +48650,7 @@
           "confidence": "low",
           "trend": "unknown",
           "sources": [
-            "tjn_fsi"
+            "tjn_fsi_secrecy"
           ],
           "indicators": [
             {

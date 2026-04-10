@@ -21,6 +21,7 @@ Key variables we need:
   - v2x_rule             Rule of Law Index                 → institutional_gatekeeping (inverted)
   - v2x_egal             Egalitarian Component Index       → institutional_gatekeeping (inverted)
   - v2x_partipdem        Participatory Democracy Index     → institutional_gatekeeping (inverted)
+  - v2lgcrrpt            Legislature corrupt activities    → political_capture (inverted)
 """
 
 import json
