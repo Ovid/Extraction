@@ -2,7 +2,7 @@ import { DOMAIN_LABELS, DOMAIN_KEYS, NUMERIC_MAP, COUNTRY_NAMES, computeComposit
 
 const SOURCE_URLS = {
   wb_gini: 'https://data.worldbank.org/indicator/SI.POV.GINI',
-  wb_labor_share: 'https://data.worldbank.org/indicator/SL.GDP.PCAP.EM.KD',
+  ilo_labor_share: 'https://ilostat.ilo.org/data/',
   wb_domestic_credit: 'https://data.worldbank.org/indicator/FS.AST.PRVT.GD.ZS',
   wb_natural_rents: 'https://data.worldbank.org/indicator/NY.GDP.TOTL.RT.ZS',
   wb_wgi_corruption: 'https://data.worldbank.org/indicator/CC.EST',

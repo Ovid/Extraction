@@ -46,11 +46,12 @@ INDICATOR_CONFIG = [
         "name": "Gini Index",
     },
     {
-        "file": "wb_gdp_per_worker.csv",
+        "file": "ilo_labor_share.csv",
         "domain": "economic_concentration",
-        "inverted": False,
-        "source_key": "wb_labor_share",
-        "name": "GDP per worker",
+        "inverted": True,
+        "source_key": "ilo_labor_share",
+        "name": "Labour income share of GDP",
+        "data_dir": "ilo",
     },
     {
         "file": "wb_domestic_credit.csv",
@@ -87,7 +88,7 @@ INDICATOR_CONFIG = [
 INDICATOR_QUESTIONS = {
     # World Bank indicators
     "wb_gini": "How unequal is income distribution?",
-    "wb_labor_share": "How little do workers get paid relative to what they produce?",
+    "ilo_labor_share": "What share of GDP goes to workers as income?",
     "wb_domestic_credit": "How large is the financial sector's credit exposure?",
     "wb_net_interest_margin": "How much do banks extract per dollar intermediated?",
     "wb_natural_rents": "How dependent is the economy on natural resources?",
@@ -126,6 +127,7 @@ def score_to_label(score):
 # Indicators whose questions ask about something positive (freedom, democracy, etc.)
 # For these, the label should be flipped: a low extraction score means "High" freedom.
 POSITIVE_QUESTION_INDICATORS = {
+    "ilo_labor_share",  # "What share of GDP goes to workers?" — higher = good
     "wb_wgi_corruption",  # "How well is corruption controlled?" — well = good
     "vdem_electoral_democracy",  # "How democratic are elections?"
     "vdem_freedom_of_expression",  # "How free is public expression?"
@@ -155,11 +157,11 @@ INDICATOR_DISPLAY = {
         "unit": "",
         "comparison_label": ["Most unequal among", "Most equal among"],
     },
-    "wb_labor_share": {
-        "label": "GDP per worker",
-        "format": "${:,.0f}",
-        "unit": "",
-        "comparison_label": ["Highest among", "Lowest among"],
+    "ilo_labor_share": {
+        "label": "Labour income share of GDP",
+        "format": "{:.1f}",
+        "unit": "%",
+        "comparison_label": ["Highest labour share among", "Lowest labour share among"],
     },
     "wb_domestic_credit": {
         "label": "Domestic credit to private sector",
@@ -1368,12 +1370,12 @@ def estimate_trend_from_data(df, inverted=False):
     return "rising" if change > 0 else "falling"
 
 
-def estimate_trend(df_full, country_code, indicator_file, inverted=False):
+def estimate_trend(df_full, country_code, indicator_file, inverted=False, data_dir=None):
     """Estimate trend for a country/indicator by reading from disk.
 
     Thin wrapper around estimate_trend_from_data that handles file loading.
     """
-    filepath = WB_DIR / indicator_file
+    filepath = (data_dir or WB_DIR) / indicator_file
     if not filepath.exists():
         return "unknown"
     df = pd.read_csv(filepath)
@@ -1496,7 +1498,8 @@ def build_wb_domain(group, code, all_indicator_raw):
     for _, row in group.iterrows():
         cfg = next((c for c in INDICATOR_CONFIG if c["file"] == row["indicator_file"]), None)
         inv = cfg["inverted"] if cfg else False
-        t = estimate_trend(None, code, row["indicator_file"], inverted=inv)
+        trend_data_dir = RAW_DATA_DIR / cfg["data_dir"] if cfg and "data_dir" in cfg else None
+        t = estimate_trend(None, code, row["indicator_file"], inverted=inv, data_dir=trend_data_dir)
         if t != "unknown":
             trend_votes.append(t)
     if trend_votes:
@@ -1536,7 +1539,8 @@ def build_country_scores():
     # Load and normalize each indicator
     indicators = {}
     for cfg in INDICATOR_CONFIG:
-        filepath = WB_DIR / cfg["file"]
+        data_dir = RAW_DATA_DIR / cfg["data_dir"] if "data_dir" in cfg else WB_DIR
+        filepath = data_dir / cfg["file"]
         df = load_indicator(filepath)
         if df.empty:
             continue
