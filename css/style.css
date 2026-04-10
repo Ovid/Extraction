@@ -676,6 +676,12 @@ ul.domain-justification li .context-fact {
   width: 100%;
   box-sizing: border-box;
 }
+.picker-search:focus,
+.picker-search:focus-visible {
+  outline: 2px solid var(--accent-mid-low);
+  outline-offset: -2px;
+  border-bottom-color: var(--accent-mid-low);
+}
 .picker-search::placeholder {
   color: var(--text-muted);
 }
