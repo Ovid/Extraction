@@ -1781,7 +1781,9 @@ def build_country_scores():
         all_indicator_raw["rsf_press"] = dict(rsf_scores)
     if fsi_data:
         all_indicator_raw["tjn_fsi"] = {k: v["value"] for k, v in fsi_data.items()}
-        all_indicator_raw["tjn_fsi_secrecy"] = {k: v["secrecy"] for k, v in fsi_data.items() if v.get("secrecy") is not None}
+        all_indicator_raw["tjn_fsi_secrecy"] = {
+            k: v["secrecy"] for k, v in fsi_data.items() if v.get("secrecy") is not None
+        }
     vdem_source_key_map = {
         "v2x_corr": "vdem_political_corruption",
         "v2xnp_client": "vdem_clientelism",
@@ -1866,9 +1868,7 @@ def build_country_scores():
             secrecy_rounded = int(round(secrecy))
             fsi_confidence = assess_domain_confidence(1, 1, 2025)
             # Primary indicator: secrecy score (used for domain score)
-            secrecy_entry = build_indicator_entry(
-                "tjn_fsi_secrecy", secrecy, secrecy_rounded, code, all_indicator_raw
-            )
+            secrecy_entry = build_indicator_entry("tjn_fsi_secrecy", secrecy, secrecy_rounded, code, all_indicator_raw)
             # Context fact: FSI Value (secrecy × volume) for analysts
             fsi_value = fsi_data[code].get("value")
             if fsi_value is not None and secrecy_entry.get("facts") is not None:
