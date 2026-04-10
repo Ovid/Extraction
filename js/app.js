@@ -292,6 +292,7 @@ function selectCountry(alpha3, numericId) {
   const content = document.getElementById('panel-content');
 
   if (!cd) {
+    selectedCountryCode = null;
     empty.style.display = 'flex';
     content.style.display = 'none';
     empty.querySelector('h3').textContent = alpha3 ? `No data for ${getCountryName(alpha3)}` : 'Select a country';
@@ -340,7 +341,7 @@ function selectCountry(alpha3, numericId) {
     advisories.push(cd.data_quality_notes);
   }
   const advisoryEl = document.getElementById('data-advisory');
-  advisoryEl.innerHTML = advisories.join(' ');
+  advisoryEl.textContent = advisories.join(' ');
 
   drawRadar(cd.domains);
   drawDomainList(cd.domains);
@@ -452,6 +453,13 @@ function drawRadar(domains) {
   });
 }
 
+// Escape a plain-text string for safe insertion into innerHTML templates
+function esc(s) {
+  const el = document.createElement('span');
+  el.textContent = s;
+  return el.innerHTML;
+}
+
 // -- Domain list --
 function drawDomainList(domains) {
   const container = document.getElementById('domain-list');
@@ -495,7 +503,7 @@ function drawDomainList(domains) {
                 .join('')}</ul>`
             : ''
       }
-      ${d.related_jurisdictions_note ? `<div class="related-jurisdictions-note">${d.related_jurisdictions_note}</div>` : ''}
+      ${d.related_jurisdictions_note ? `<div class="related-jurisdictions-note">${esc(d.related_jurisdictions_note)}</div>` : ''}
       ${d.justification_detail ? `<a class="raw-data-toggle" href="#">Show raw data &#9656;</a><div class="raw-data-detail" style="display:none"><div class="domain-justification">${d.justification_detail}</div>${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.map((s) => (SOURCE_URLS[s] ? `<a href="${SOURCE_URLS[s]}" target="_blank" rel="noopener">${s}</a>` : s)).join(', ')}</div>` : ''}</div>` : ''}
       <div class="domain-meta">
         <span class="confidence-badge">Confidence: ${conf.replace('_', ' ')}</span>
