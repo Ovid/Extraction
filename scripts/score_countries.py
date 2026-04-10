@@ -827,11 +827,13 @@ INCOME_GROUP_MAP = {
 }
 
 # Aggregates and regions to exclude (World Bank includes these as "countries")
+# Also includes ILO non-country codes (CHA = Channel Islands, ESH = Western Sahara)
 EXCLUDE_CODES = {
     "AFE",
     "AFW",
     "ARB",
     "CEB",
+    "CHA",
     "CSS",
     "EAP",
     "EAR",
@@ -876,6 +878,7 @@ EXCLUDE_CODES = {
     "TSS",
     "UMC",
     "WLD",
+    "ESH",
     "EUU",
     "SXZ",
     # Non-standard codes from RSF/V-Dem that aren't real ISO alpha-3
@@ -1318,8 +1321,9 @@ def load_indicator(filepath):
     df = pd.read_csv(filepath)
     # Filter out aggregates
     df = df[~df["country_code"].isin(EXCLUDE_CODES)]
-    # Filter to valid 3-letter ISO codes
+    # Filter to valid 3-letter ISO codes (excludes ILO aggregate codes like X01-X99)
     df = df[df["country_code"].str.len() == 3]
+    df = df[~df["country_code"].str.match(r"^X[0-9A-Z]")]
     # Take most recent year per country
     df = df.sort_values("year", ascending=False).drop_duplicates("country_code", keep="first")
     return df[["country_code", "country_name", "year", "value"]].copy()
@@ -1650,11 +1654,15 @@ def build_country_scores():
     for code in sorted(country_codes):
         country_data = all_data[all_data["country_code"] == code] if not all_data.empty else pd.DataFrame()
 
-        # Get country name
-        if not country_data.empty:
-            name = COUNTRY_NAME_OVERRIDES.get(code, country_data["country_name"].iloc[0])
+        # Get country name (skip empty names from sources like ILO)
+        if code in COUNTRY_NAME_OVERRIDES:
+            name = COUNTRY_NAME_OVERRIDES[code]
+        elif not country_data.empty:
+            names = country_data["country_name"].dropna()
+            names = names[names.str.strip() != ""]
+            name = names.iloc[0] if not names.empty else code
         else:
-            name = COUNTRY_NAME_OVERRIDES.get(code, code)
+            name = code
 
         # Group World Bank indicators by domain
         domains = {}

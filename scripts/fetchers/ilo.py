@@ -16,7 +16,7 @@ from pathlib import Path
 import pandas as pd
 import requests
 
-ILO_API_URL = "https://sdmx.ilo.org/rest/data/ILO,DF_LAP_2GDP_NOC_RT/..A.?startPeriod=2010&endPeriod=2025"
+ILO_API_URL = "https://sdmx.ilo.org/rest/data/ILO,DF_LAP_2GDP_NOC_RT/.A.?startPeriod=2010&endPeriod=2025"
 
 COUNTRY_CODE_OVERRIDES = {}
 

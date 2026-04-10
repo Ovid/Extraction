@@ -143,6 +143,23 @@
       ],
       "status": "success",
       "note": ""
+    },
+    {
+      "source": "ilo",
+      "timestamp": "2026-04-10T11:41:42.857360+00:00",
+      "files": [],
+      "status": "error",
+      "note": "404 Client Error: Not Found for url: https://sdmx.ilo.org/rest/data/ILO,DF_LAP_2GDP_NOC_RT/..A.?startPeriod=2010&endPeriod=2025"
+    },
+    {
+      "source": "ilo",
+      "timestamp": "2026-04-10T11:42:26.592406+00:00",
+      "files": [
+        "ilo/ilo_labor_share.csv",
+        "ilo/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
     }
   ]
 }
