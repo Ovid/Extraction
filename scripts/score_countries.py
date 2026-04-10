@@ -1203,7 +1203,10 @@ def load_fsi_related_jurisdictions():
 
 
 def load_fsi_data():
-    """Load FSI data. Returns dict of {alpha3: {'value': fsi_value, 'secrecy': secrecy_score}}.
+    """Load FSI data. Returns dict of {alpha3: {'value': fsi_value, 'secrecy': secrecy_score_or_None}}.
+
+    Every entry always has both 'value' and 'secrecy' keys. 'secrecy' is None
+    when index_score is missing/NaN in the source data.
 
     The secrecy score (index_score) is the primary scoring indicator — used raw
     (no min-max normalization) as the TF domain score. The FSI Value (index_value)
@@ -1218,30 +1221,34 @@ def load_fsi_data():
         a3 = ALPHA2_TO_ALPHA3.get(row["jurisdiction_id"])
         if not a3:
             continue
+        secrecy = float(row["index_score"]) if pd.notna(row.get("index_score")) else None
         # Load both index_value (for context fact) and index_score (secrecy, for scoring)
         if "index_value" in row and pd.notna(row.get("index_value")):
-            entry = {"value": float(row["index_value"])}
-            if pd.notna(row.get("index_score")):
-                entry["secrecy"] = float(row["index_score"])
-            result[a3] = entry
-        elif pd.notna(row.get("index_score")):
+            result[a3] = {"value": float(row["index_value"]), "secrecy": secrecy}
+        elif secrecy is not None:
             # Fallback for older data or fixtures without index_value
-            result[a3] = {"value": float(row["index_score"]), "secrecy": float(row["index_score"])}
+            result[a3] = {"value": secrecy, "secrecy": secrecy}
     return result
 
 
 def load_vdem_data():
-    """Load V-Dem indicators. Returns dict of {alpha3: {var: value}} for most recent year."""
+    """Load V-Dem indicators.
+
+    Returns:
+        (latest, full_df) where latest is {alpha3: {var: value}} for most recent
+        year per country, and full_df is the complete DataFrame (all years) for
+        trend computation. Returns ({}, empty DataFrame) if unavailable.
+    """
     csv_path = VDEM_DIR / "vdem_extract.csv"
     if not csv_path.exists():
-        return {}
+        return {}, pd.DataFrame()
     df = pd.read_csv(csv_path)
     if df.empty:
-        return {}
+        return {}, pd.DataFrame()
     # Filter out excluded codes
     df = df[~df["country_text_id"].isin(EXCLUDE_CODES)]
-    # Take most recent year per country
-    df = df.sort_values("year", ascending=False).drop_duplicates("country_text_id", keep="first")
+    # Take most recent year per country for the latest-values dict
+    latest_df = df.sort_values("year", ascending=False).drop_duplicates("country_text_id", keep="first")
     result = {}
     vdem_vars = [
         "v2x_polyarchy",
@@ -1255,7 +1262,7 @@ def load_vdem_data():
         "v2x_partipdem",
         "v2lgcrrpt",
     ]
-    for _, row in df.iterrows():
+    for _, row in latest_df.iterrows():
         code = row["country_text_id"]
         vals = {}
         for v in vdem_vars:
@@ -1263,7 +1270,7 @@ def load_vdem_data():
                 vals[v] = float(row[v])
         if vals:
             result[code] = vals
-    return result
+    return result, df
 
 
 def assess_domain_confidence(n_indicators, n_sources, most_recent_year):
@@ -1504,18 +1511,16 @@ def estimate_trend(country_code, indicator_file, inverted=False, data_dir=None):
     return estimate_trend_from_data(df, inverted=inverted)
 
 
-def estimate_vdem_trend(vdem_df, country_code, var_name, inverted=False):
+def estimate_vdem_trend(country_df, var_name, inverted=False):
     """Estimate trend for a V-Dem variable using time series data.
 
     Reuses the same threshold logic as World Bank trend estimation.
-    vdem_df should be the full V-Dem extract (all years, all countries).
+    country_df should be a pre-sliced DataFrame for a single country
+    (all years), as returned by groupby or boolean indexing on the full extract.
     """
-    if vdem_df.empty or var_name not in vdem_df.columns:
+    if country_df.empty or var_name not in country_df.columns:
         return "unknown"
-    country = vdem_df[vdem_df["country_text_id"] == country_code]
-    if country.empty:
-        return "unknown"
-    trend_df = country[["year", var_name]].dropna(subset=[var_name]).rename(columns={var_name: "value"})
+    trend_df = country_df[["year", var_name]].dropna(subset=[var_name]).rename(columns={var_name: "value"})
     return estimate_trend_from_data(trend_df, inverted=inverted)
 
 
@@ -1759,7 +1764,7 @@ def build_country_scores():
         fsi_secrecy = {}
 
     # Load V-Dem data (political_capture + information_capture)
-    vdem_raw = load_vdem_data()
+    vdem_raw, vdem_df_full = load_vdem_data()
     if vdem_raw:
         print(f"  V-Dem: {len(vdem_raw)} countries")
         # Normalize each V-Dem variable across all countries
@@ -1822,9 +1827,11 @@ def build_country_scores():
         print("No indicator data found!")
         return {}
 
-    # Load V-Dem time series for trend computation (load once, not per-country)
-    vdem_extract_path = VDEM_DIR / "vdem_extract.csv"
-    vdem_df_full = pd.read_csv(vdem_extract_path) if vdem_extract_path.exists() else pd.DataFrame()
+    # Pre-group V-Dem full DataFrame by country for efficient trend lookups
+    if not vdem_df_full.empty:
+        vdem_by_country = dict(tuple(vdem_df_full.groupby("country_text_id")))
+    else:
+        vdem_by_country = {}
 
     # Combine all World Bank indicators
     all_data = pd.concat(indicators.values(), ignore_index=True) if indicators else pd.DataFrame()
@@ -1955,9 +1962,10 @@ def build_country_scores():
 
                 # Compute V-Dem trend via majority vote across indicators
                 vdem_trend_votes = []
+                country_vdem_df = vdem_by_country.get(code, pd.DataFrame())
                 for i in indicators_list:
                     cfg = vdem_vars_config[i["var"]]
-                    t = estimate_vdem_trend(vdem_df_full, code, i["var"], inverted=cfg["inverted"])
+                    t = estimate_vdem_trend(country_vdem_df, i["var"], inverted=cfg["inverted"])
                     if t != "unknown":
                         vdem_trend_votes.append(t)
                 vdem_trend = Counter(vdem_trend_votes).most_common(1)[0][0] if vdem_trend_votes else "unknown"

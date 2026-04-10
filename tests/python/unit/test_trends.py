@@ -118,25 +118,27 @@ class TestEstimateVdemTrend:
             }
         )
 
+    def _country_slice(self, code):
+        df = self._make_vdem_df()
+        return df[df["country_text_id"] == code]
+
     def test_rising_direct(self):
         """USA corruption rising (direct: higher = more extraction)."""
-        df = self._make_vdem_df()
-        result = estimate_vdem_trend(df, "USA", "v2x_corr", inverted=False)
+        result = estimate_vdem_trend(self._country_slice("USA"), "v2x_corr", inverted=False)
         assert result == "rising"
 
     def test_stable_inverted(self):
         """DNK polyarchy roughly stable."""
-        df = self._make_vdem_df()
-        result = estimate_vdem_trend(df, "DNK", "v2x_polyarchy", inverted=True)
+        result = estimate_vdem_trend(self._country_slice("DNK"), "v2x_polyarchy", inverted=True)
         assert result == "stable"
 
     def test_missing_country(self):
-        df = self._make_vdem_df()
-        assert estimate_vdem_trend(df, "XYZ", "v2x_corr", inverted=False) == "unknown"
+        result = estimate_vdem_trend(self._country_slice("XYZ"), "v2x_corr", inverted=False)
+        assert result == "unknown"
 
     def test_missing_variable(self):
-        df = self._make_vdem_df()
-        assert estimate_vdem_trend(df, "USA", "nonexistent", inverted=False) == "unknown"
+        result = estimate_vdem_trend(self._country_slice("USA"), "nonexistent", inverted=False)
+        assert result == "unknown"
 
     def test_empty_dataframe(self):
-        assert estimate_vdem_trend(pd.DataFrame(), "USA", "v2x_corr", inverted=False) == "unknown"
+        assert estimate_vdem_trend(pd.DataFrame(), "v2x_corr", inverted=False) == "unknown"
