@@ -123,6 +123,7 @@ INDICATOR_QUESTIONS = {
     "rsf_press": "How free is the press?",
     # TJN FSI
     "tjn_fsi": "How much does this jurisdiction facilitate global financial secrecy?",
+    "tjn_fsi_secrecy": "How much financial secrecy do this jurisdiction's laws enable?",
 }
 
 
@@ -280,6 +281,12 @@ INDICATOR_DISPLAY = {
         "format": "{:.0f}",
         "unit": "",
         "comparison_label": ["Largest secrecy facilitator among", "Smallest secrecy facilitator among"],
+    },
+    "tjn_fsi_secrecy": {
+        "label": "Financial secrecy score",
+        "format": "{:.0f}",
+        "unit": "out of 100",
+        "comparison_label": ["Most secretive among", "Least secretive among"],
     },
 }
 
