@@ -242,10 +242,10 @@ function drawLegendGradient() {
     ctx.fillStyle = extractionColor(score);
     ctx.fillRect(x, 0, 1, 12);
   }
-  // Update labels to show actual range
+  // Labels always show the theoretical 0–100 scale
   const labels = document.querySelector('.legend-labels');
   if (labels) {
-    labels.innerHTML = `<span>${lo} — Low</span><span>${hi} — Extreme</span>`;
+    labels.innerHTML = `<span>0 — Low</span><span>100 — Extreme</span>`;
   }
 }
 
