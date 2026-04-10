@@ -72,6 +72,14 @@ INDICATOR_CONFIG = [
         "source_name": "World Bank",
     },
     {
+        "file": "wb_top10_income.csv",
+        "domain": "economic_concentration",
+        "inverted": False,
+        "source_key": "wb_top10_income",
+        "name": "Income share of top 10%",
+        "source_name": "World Bank",
+    },
+    {
         "file": "wb_natural_rents.csv",
         "domain": "resource_capture",
         "inverted": False,
@@ -97,7 +105,8 @@ INDICATOR_QUESTIONS = {
     "ilo_labor_share": "What share of GDP goes to workers as income?",
     "wb_domestic_credit": "How large is the financial sector's credit exposure?",
     "wb_net_interest_margin": "How much do banks extract per dollar intermediated?",
-    "wb_natural_rents": "How dependent is the economy on natural resources?",
+    "wb_top10_income": "How much income is concentrated in the top 10%?",
+    "wb_natural_rents": "How vulnerable is resource wealth to elite capture?",
     "wb_wgi_corruption": "How well is corruption controlled?",
     # V-Dem indicators
     "vdem_political_corruption": "How corrupt is the political system?",
@@ -109,10 +118,11 @@ INDICATOR_QUESTIONS = {
     "vdem_rule_of_law": "How strong is the rule of law?",
     "vdem_egalitarian": "How equally are political power and resources distributed?",
     "vdem_participatory_democracy": "How much can citizens participate in governance?",
+    "vdem_legislative_corruption": "How corrupt is the legislature?",
     # RSF
     "rsf_press": "How free is the press?",
     # TJN FSI
-    "tjn_fsi": "How much financial secrecy exists?",
+    "tjn_fsi": "How much does this jurisdiction facilitate global financial secrecy?",
 }
 
 
@@ -168,6 +178,12 @@ INDICATOR_DISPLAY = {
         "format": "{:.1f}",
         "unit": "%",
         "comparison_label": ["Highest labour share among", "Lowest labour share among"],
+    },
+    "wb_top10_income": {
+        "label": "Income share of top 10%",
+        "format": "{:.1f}",
+        "unit": "%",
+        "comparison_label": ["Most concentrated among", "Least concentrated among"],
     },
     "wb_domestic_credit": {
         "label": "Domestic credit to private sector",
@@ -247,6 +263,12 @@ INDICATOR_DISPLAY = {
         "unit": "(scale: 0-1)",
         "comparison_label": ["Most participatory among", "Least participatory among"],
     },
+    "vdem_legislative_corruption": {
+        "label": "Legislative corruption index",
+        "format": "{:.2f}",
+        "unit": "(scale: -3 to 3.5)",
+        "comparison_label": ["Most corrupt legislature among", "Least corrupt legislature among"],
+    },
     "rsf_press": {
         "label": "Press freedom score",
         "format": "{:.1f}",
@@ -254,10 +276,10 @@ INDICATOR_DISPLAY = {
         "comparison_label": ["Freest press among", "Least free press among"],
     },
     "tjn_fsi": {
-        "label": "Financial Secrecy Index score",
+        "label": "FSI Value",
         "format": "{:.0f}",
         "unit": "",
-        "comparison_label": ["Most secretive among", "Least secretive among"],
+        "comparison_label": ["Largest secrecy facilitator among", "Smallest secrecy facilitator among"],
     },
 }
 
@@ -423,6 +445,27 @@ COUNTRY_NAME_OVERRIDES = {
     "GNB": "Guinea-Bissau",
     "GNQ": "Equatorial Guinea",
     "TLS": "Timor-Leste",
+}
+
+# Data quality notes for countries with known measurement issues.
+# These are displayed as advisories in the UI — they do NOT change scores.
+DATA_QUALITY_NOTES = {
+    "NGA": (
+        "Labour share estimates may be unreliable due to Nigeria's large informal sector "
+        "(~65% of employment). ILO data uses imputations for self-employment income that "
+        "have high uncertainty in this context."
+    ),
+    "IRL": (
+        "GDP is significantly inflated by multinational profit shifting. Indicators "
+        "denominated as % of GDP (domestic credit, resource rents) may understate extraction. "
+        "Ireland's Central Statistics Office recommends GNI* as a more accurate measure."
+    ),
+    "ETH": ("Labour share estimates may be unreliable due to large informal and subsistence agriculture sector."),
+    "LUX": (
+        "GDP per capita is inflated by ~200,000 cross-border workers. GDP-denominated "
+        "indicators may not reflect domestic economic conditions."
+    ),
+    "PRK": ("No independent data sources; scores rely on external estimates and V-Dem expert coding."),
 }
 
 # UN geoscheme region mapping for peer comparisons
@@ -1106,8 +1149,44 @@ def load_rsf_data():
     return dict(zip(df["country_code"], df["score"]))
 
 
+# UK Crown Dependencies and Overseas Territories (alpha-2 codes in TJN data)
+UK_RELATED_JURISDICTION_IDS = ["GG", "JE", "IM", "AI", "BM", "GI", "KY", "MS", "TC", "VG"]
+
+
+def load_fsi_related_jurisdictions():
+    """Load FSI data for UK Crown Dependencies and Overseas Territories.
+
+    Returns list of dicts with name, code, secrecy_score, and fsi_share_pct.
+    """
+    csv_path = TJN_DIR / "fsi_jurisdictions.csv"
+    if not csv_path.exists():
+        return []
+    df = pd.read_csv(csv_path)
+    if df.empty:
+        return []
+    latest_scoring = df["methodology_id"].unique()[-1]
+    df = df[df["methodology_id"] == latest_scoring]
+    result = []
+    for _, row in df.iterrows():
+        if row["jurisdiction_id"] in UK_RELATED_JURISDICTION_IDS:
+            entry = {
+                "name": row.get("jurisdiction_name", row["jurisdiction_id"]),
+                "code": ALPHA2_TO_ALPHA3.get(row["jurisdiction_id"], row["jurisdiction_id"]),
+                "secrecy_score": round(float(row["index_score"]), 0) if pd.notna(row.get("index_score")) else None,
+            }
+            if "index_share" in row and pd.notna(row.get("index_share")):
+                entry["fsi_share_pct"] = round(float(row["index_share"]) * 100, 2)
+            result.append(entry)
+    return result
+
+
 def load_fsi_data():
-    """Load FSI financial secrecy scores. Returns dict of {alpha3: score}."""
+    """Load FSI data. Returns dict of {alpha3: {'value': fsi_value, 'secrecy': secrecy_score}}.
+
+    Uses index_value (TJN's composite of secrecy laws × offshore finance volume)
+    as the primary scoring indicator. Also returns index_score (secrecy-only)
+    for display as a context fact.
+    """
     csv_path = TJN_DIR / "fsi_jurisdictions.csv"
     if not csv_path.exists():
         return {}
@@ -1121,8 +1200,17 @@ def load_fsi_data():
     result = {}
     for _, row in df.iterrows():
         a3 = ALPHA2_TO_ALPHA3.get(row["jurisdiction_id"])
-        if a3 and pd.notna(row["index_score"]):
-            result[a3] = float(row["index_score"])
+        if not a3:
+            continue
+        # Prefer index_value (secrecy × volume); fall back to index_score
+        if "index_value" in row and pd.notna(row.get("index_value")):
+            entry = {"value": float(row["index_value"])}
+            if pd.notna(row.get("index_score")):
+                entry["secrecy"] = float(row["index_score"])
+            result[a3] = entry
+        elif pd.notna(row.get("index_score")):
+            # Fallback for older data or fixtures without index_value
+            result[a3] = {"value": float(row["index_score"]), "secrecy": float(row["index_score"])}
     return result
 
 
@@ -1149,6 +1237,7 @@ def load_vdem_data():
         "v2x_rule",
         "v2x_egal",
         "v2x_partipdem",
+        "v2lgcrrpt",
     ]
     for _, row in df.iterrows():
         code = row["country_text_id"]
@@ -1247,7 +1336,7 @@ def cap_confidence_by_coverage(confidence, n_domains):
     return confidence
 
 
-def assemble_country_entry(name, domains, source_names):
+def assemble_country_entry(name, domains, source_names, country_code=None):
     """Assemble the final country dict from scored domains.
 
     Computes composite score (average), overall confidence (with domain-coverage cap),
@@ -1281,7 +1370,7 @@ def assemble_country_entry(name, domains, source_names):
         overall_trend = "unknown"
 
     unique_sources = sorted(set(source_names))
-    return {
+    entry = {
         "name": name,
         "domains": domains,
         "composite_score": composite,
@@ -1289,6 +1378,9 @@ def assemble_country_entry(name, domains, source_names):
         "overall_trend": overall_trend,
         "notes": f"Auto-scored from {', '.join(unique_sources)} ({len(domains)}/7 domains covered).",
     }
+    if country_code and country_code in DATA_QUALITY_NOTES:
+        entry["data_quality_notes"] = DATA_QUALITY_NOTES[country_code]
+    return entry
 
 
 def merge_domain_scores(existing, new_domain):
@@ -1394,6 +1486,56 @@ def estimate_trend(country_code, indicator_file, inverted=False, data_dir=None):
     df = pd.read_csv(filepath)
     df = df[df["country_code"] == country_code].sort_values("year")
     return estimate_trend_from_data(df, inverted=inverted)
+
+
+def estimate_vdem_trend(vdem_df, country_code, var_name, inverted=False):
+    """Estimate trend for a V-Dem variable using time series data.
+
+    Reuses the same threshold logic as World Bank trend estimation.
+    vdem_df should be the full V-Dem extract (all years, all countries).
+    """
+    if vdem_df.empty or var_name not in vdem_df.columns:
+        return "unknown"
+    country = vdem_df[vdem_df["country_text_id"] == country_code]
+    if country.empty:
+        return "unknown"
+    trend_df = country[["year", var_name]].dropna(subset=[var_name]).rename(columns={var_name: "value"})
+    return estimate_trend_from_data(trend_df, inverted=inverted)
+
+
+def restructure_institutional_gatekeeping(domains, wb_indicators, vdem_normalized, code):
+    """Re-average institutional_gatekeeping using quality/purpose sub-groups.
+
+    Quality = (corruption_control + rule_of_law) / 2
+    Purpose = (egalitarian + participatory_democracy) / 2
+    Domain = (quality + purpose) / 2
+
+    This ensures "who do institutions serve?" gets equal weight to
+    "how well do institutions function?", matching the Acemoglu/Robinson
+    concept of extractive vs. inclusive institutions.
+    """
+    if "institutional_gatekeeping" not in domains:
+        return
+    quality_scores = []
+    purpose_scores = []
+    # WB corruption control → quality
+    if not wb_indicators.empty:
+        corr = wb_indicators[wb_indicators["source_key"] == "wb_wgi_corruption"]
+        if not corr.empty:
+            quality_scores.append(int(corr["normalized"].iloc[0]))
+    # V-Dem indicators → quality or purpose
+    if code in vdem_normalized:
+        vc = vdem_normalized[code]
+        if "v2x_rule" in vc:
+            quality_scores.append(vc["v2x_rule"]["score"])
+        if "v2x_egal" in vc:
+            purpose_scores.append(vc["v2x_egal"]["score"])
+        if "v2x_partipdem" in vc:
+            purpose_scores.append(vc["v2x_partipdem"]["score"])
+    if quality_scores and purpose_scores:
+        quality_avg = sum(quality_scores) / len(quality_scores)
+        purpose_avg = sum(purpose_scores) / len(purpose_scores)
+        domains["institutional_gatekeeping"]["score"] = round((quality_avg + purpose_avg) / 2)
 
 
 def apply_resource_moderation(domains, raw_polyarchy):
@@ -1583,15 +1725,18 @@ def build_country_scores():
     else:
         rsf_map = {}
 
-    # Load FSI data (transnational_facilitation)
-    fsi_scores = load_fsi_data()
-    if fsi_scores:
-        print(f"  FSI: {len(fsi_scores)} countries")
-        fsi_series = pd.Series(fsi_scores)
-        fsi_normalized = normalize_minmax(fsi_series, inverted=False)  # Higher FSI = more secretive = more extraction
-        fsi_map = dict(zip(fsi_series.index, fsi_normalized))
+    # Load FSI data (transnational_facilitation) — uses FSI Value (secrecy × volume)
+    fsi_data = load_fsi_data()
+    if fsi_data:
+        print(f"  FSI: {len(fsi_data)} countries")
+        fsi_value_series = pd.Series({k: v["value"] for k, v in fsi_data.items()})
+        fsi_normalized = normalize_minmax(fsi_value_series, inverted=False)  # Linear, no log
+        fsi_map = dict(zip(fsi_value_series.index, fsi_normalized))
+        fsi_secrecy = {k: v.get("secrecy") for k, v in fsi_data.items()}
     else:
+        fsi_data = {}
         fsi_map = {}
+        fsi_secrecy = {}
 
     # Load V-Dem data (political_capture + information_capture)
     vdem_raw = load_vdem_data()
@@ -1616,6 +1761,7 @@ def build_country_scores():
                 "inverted": True,
                 "name": "Participatory Democracy",
             },
+            "v2lgcrrpt": {"domain": "political_capture", "inverted": True, "name": "Legislative Corruption"},
         }
         vdem_normalized = normalize_vdem_indicators(vdem_raw, vdem_vars_config)
     else:
@@ -1630,8 +1776,8 @@ def build_country_scores():
             all_indicator_raw[key] = dict(zip(df["country_code"], df["value"]))
     if rsf_scores:
         all_indicator_raw["rsf_press"] = dict(rsf_scores)
-    if fsi_scores:
-        all_indicator_raw["tjn_fsi"] = dict(fsi_scores)
+    if fsi_data:
+        all_indicator_raw["tjn_fsi"] = {k: v["value"] for k, v in fsi_data.items()}
     vdem_source_key_map = {
         "v2x_corr": "vdem_political_corruption",
         "v2xnp_client": "vdem_clientelism",
@@ -1642,6 +1788,7 @@ def build_country_scores():
         "v2x_rule": "vdem_rule_of_law",
         "v2x_egal": "vdem_egalitarian",
         "v2x_partipdem": "vdem_participatory_democracy",
+        "v2lgcrrpt": "vdem_legislative_corruption",
     }
     for var, source_key in vdem_source_key_map.items():
         values = {code: vals[var] for code, vals in vdem_raw.items() if var in vals}
@@ -1651,6 +1798,10 @@ def build_country_scores():
     if not indicators and not rsf_map and not fsi_map and not vdem_normalized:
         print("No indicator data found!")
         return {}
+
+    # Load V-Dem time series for trend computation (load once, not per-country)
+    vdem_extract_path = VDEM_DIR / "vdem_extract.csv"
+    vdem_df_full = pd.read_csv(vdem_extract_path) if vdem_extract_path.exists() else pd.DataFrame()
 
     # Combine all World Bank indicators
     all_data = pd.concat(indicators.values(), ignore_index=True) if indicators else pd.DataFrame()
@@ -1705,13 +1856,17 @@ def build_country_scores():
             }
             source_names.append("RSF")
 
-        # Add FSI (transnational_facilitation) — FSI 2025 data
+        # Add FSI (transnational_facilitation) — FSI Value (secrecy × volume)
         if code in fsi_map:
-            raw_score = fsi_scores[code]
+            raw_value = fsi_data[code]["value"]
             fsi_confidence = assess_domain_confidence(1, 1, 2025)
             fsi_norm = int(fsi_map[code])
-            fsi_entry = build_indicator_entry("tjn_fsi", raw_score, fsi_norm, code, all_indicator_raw)
-            fsi_ind = [{"name": "Financial Secrecy Index", "raw": raw_score, "normalized": fsi_norm}]
+            fsi_entry = build_indicator_entry("tjn_fsi", raw_value, fsi_norm, code, all_indicator_raw)
+            # Add secrecy score as an extra context fact
+            secrecy = fsi_secrecy.get(code)
+            if secrecy is not None and fsi_entry.get("facts") is not None:
+                fsi_entry["facts"].append(f"Financial secrecy score: {secrecy:.0f} out of 100")
+            fsi_ind = [{"name": "FSI Value", "raw": raw_value, "normalized": fsi_norm}]
             domains["transnational_facilitation"] = {
                 "score": fsi_norm,
                 "confidence": fsi_confidence,
@@ -1724,6 +1879,18 @@ def build_country_scores():
                 "_most_recent_year": 2025,
             }
             source_names.append("TJN")
+
+            # Annotate UK with Crown Dependencies data
+            if code == "GBR":
+                related = load_fsi_related_jurisdictions()
+                if related:
+                    domains["transnational_facilitation"]["related_jurisdictions"] = related
+                    total_share = sum(r.get("fsi_share_pct", 0) for r in related)
+                    domains["transnational_facilitation"]["related_jurisdictions_note"] = (
+                        f"The UK retains constitutional authority over Crown Dependencies and "
+                        f"Overseas Territories that collectively account for "
+                        f"{total_share:.1f}% of global financial secrecy value."
+                    )
 
         # Add V-Dem indicators (political_capture, information_capture, institutional_gatekeeping)
         if code in vdem_normalized:
@@ -1757,11 +1924,20 @@ def build_country_scores():
                     )
                 vdem_detail = build_technical_justification("V-Dem", vdem_ind_info)
 
+                # Compute V-Dem trend via majority vote across indicators
+                vdem_trend_votes = []
+                for i in indicators_list:
+                    cfg = vdem_vars_config[i["var"]]
+                    t = estimate_vdem_trend(vdem_df_full, code, i["var"], inverted=cfg["inverted"])
+                    if t != "unknown":
+                        vdem_trend_votes.append(t)
+                vdem_trend = Counter(vdem_trend_votes).most_common(1)[0][0] if vdem_trend_votes else "unknown"
+
                 if domain in domains:
                     vdem_domain_entry = {
                         "score": vdem_score,
                         "confidence": assess_domain_confidence(n_vdem, 1, 2024),
-                        "trend": "unknown",
+                        "trend": vdem_trend,
                         "sources": vdem_sources,
                         "indicators": vdem_ind_entries,
                         "justification_detail": vdem_detail,
@@ -1775,7 +1951,7 @@ def build_country_scores():
                     domains[domain] = {
                         "score": vdem_score,
                         "confidence": vdem_confidence,
-                        "trend": "unknown",
+                        "trend": vdem_trend,
                         "sources": vdem_sources,
                         "indicators": vdem_ind_entries,
                         "justification_detail": vdem_detail,
@@ -1791,11 +1967,14 @@ def build_country_scores():
         if not domains:
             continue
 
+        # Restructure institutional_gatekeeping into quality/purpose sub-groups
+        restructure_institutional_gatekeeping(domains, country_data, vdem_normalized, code)
+
         # Resource capture: resource rents moderated by democratic accountability
         raw_polyarchy = vdem_raw.get(code, {}).get("v2x_polyarchy")
         apply_resource_moderation(domains, raw_polyarchy)
 
-        countries[code] = assemble_country_entry(name, domains, source_names)
+        countries[code] = assemble_country_entry(name, domains, source_names, country_code=code)
 
     return countries
 

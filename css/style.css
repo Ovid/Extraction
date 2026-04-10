@@ -336,6 +336,15 @@ header p {
   border-left: 2px solid var(--border);
   padding-left: 0.8rem;
 }
+.related-jurisdictions-note {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-top: 0.4rem;
+  font-style: italic;
+  border-left: 2px solid var(--border);
+  padding-left: 0.6rem;
+}
 .data-advisory {
   font-size: 0.78rem;
   color: var(--text-muted);

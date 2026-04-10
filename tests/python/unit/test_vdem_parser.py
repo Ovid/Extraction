@@ -15,7 +15,7 @@ class TestLoadVdemData:
         assert isinstance(result, dict)
         assert "USA" in result
 
-    def test_extracts_all_nine_variables(self):
+    def test_extracts_all_ten_variables(self):
         with patch("score_countries.VDEM_DIR", FIXTURES / "vdem"):
             result = load_vdem_data()
         usa = result["USA"]
@@ -29,6 +29,7 @@ class TestLoadVdemData:
             "v2x_rule",
             "v2x_egal",
             "v2x_partipdem",
+            "v2lgcrrpt",
         ]
         for var in expected_vars:
             assert var in usa, f"Missing variable: {var}"

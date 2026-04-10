@@ -42,6 +42,7 @@ VARIABLES = [
     "v2x_rule",  # Rule of Law Index (0–1, higher = stronger rule of law)
     "v2x_egal",  # Egalitarian Component Index (0–1, higher = more egalitarian)
     "v2x_partipdem",  # Participatory Democracy Index (0–1, higher = more participatory)
+    "v2lgcrrpt",  # Legislature corrupt activities (ordinal, higher = less corrupt)
 ]
 
 # V-Dem uses its own country codes; this maps common ones to ISO alpha-3
@@ -161,6 +162,12 @@ def fetch(raw_data_dir: Path) -> list[str]:
                 "domain": "institutional_gatekeeping",
                 "inverted": True,
                 "desc": "Participatory Democracy Index (0-1)",
+            },
+            {
+                "name": "v2lgcrrpt",
+                "domain": "political_capture",
+                "inverted": True,
+                "desc": "Legislature corrupt activities (ordinal, higher = less corrupt)",
             },
         ],
         "note": "inverted=True means higher raw value = less extraction; flip when scoring. V-Dem country_text_id is usually ISO alpha-3 but check the codebook for exceptions.",

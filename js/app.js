@@ -5,6 +5,7 @@ const SOURCE_URLS = {
   ilo_labor_share: 'https://ilostat.ilo.org/data/',
   wb_net_interest_margin: 'https://data.worldbank.org/indicator/GFDD.EI.01',
   wb_domestic_credit: 'https://data.worldbank.org/indicator/FS.AST.PRVT.GD.ZS',
+  wb_top10_income: 'https://data.worldbank.org/indicator/SI.DST.10TH.10',
   wb_natural_rents: 'https://data.worldbank.org/indicator/NY.GDP.TOTL.RT.ZS',
   wb_wgi_corruption: 'https://data.worldbank.org/indicator/CC.EST',
   wb_reg_quality: 'https://data.worldbank.org/indicator/RQ.EST',
@@ -20,6 +21,7 @@ const SOURCE_URLS = {
   vdem_rule_of_law: 'https://www.v-dem.net/',
   vdem_egalitarian: 'https://www.v-dem.net/',
   vdem_participatory_democracy: 'https://www.v-dem.net/',
+  vdem_legislative_corruption: 'https://www.v-dem.net/',
 };
 
 const CONFIDENCE_OPACITY = { high: 1.0, moderate: 0.75, low: 0.5, very_low: 0.3 };
@@ -325,6 +327,9 @@ function selectCountry(alpha3, numericId) {
   if (nDomains <= 3) {
     advisories.push(`Score is based on ${nDomains} of 7 domains \u2014 may not reflect overall extraction.`);
   }
+  if (cd.data_quality_notes) {
+    advisories.push(cd.data_quality_notes);
+  }
   const advisoryEl = document.getElementById('data-advisory');
   advisoryEl.innerHTML = advisories.join(' ');
 
@@ -481,6 +486,7 @@ function drawDomainList(domains) {
                 .join('')}</ul>`
             : ''
       }
+      ${d.related_jurisdictions_note ? `<div class="related-jurisdictions-note">${d.related_jurisdictions_note}</div>` : ''}
       ${d.justification_detail ? `<a class="raw-data-toggle" href="#">Show raw data &#9656;</a><div class="raw-data-detail" style="display:none"><div class="domain-justification">${d.justification_detail}</div>${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.map((s) => (SOURCE_URLS[s] ? `<a href="${SOURCE_URLS[s]}" target="_blank" rel="noopener">${s}</a>` : s)).join(', ')}</div>` : ''}</div>` : ''}
       <div class="domain-meta">
         <span class="confidence-badge">Confidence: ${conf.replace('_', ' ')}</span>

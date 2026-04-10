@@ -160,6 +160,172 @@
       ],
       "status": "success",
       "note": ""
+    },
+    {
+      "source": "worldbank",
+      "timestamp": "2026-04-10T14:26:28.555743+00:00",
+      "files": [
+        "worldbank/wb_wgi_corruption.csv",
+        "worldbank/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "worldbank",
+      "timestamp": "2026-04-10T14:31:11.770246+00:00",
+      "files": [
+        "worldbank/wb_wgi_corruption.csv",
+        "worldbank/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "worldbank",
+      "timestamp": "2026-04-10T14:35:10.331710+00:00",
+      "files": [
+        "worldbank/wb_wgi_corruption.csv",
+        "worldbank/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "vdem",
+      "timestamp": "2026-04-10T14:35:13.185739+00:00",
+      "files": [
+        "vdem/vdem_extract.csv",
+        "vdem/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "fsi",
+      "timestamp": "2026-04-10T14:35:15.780062+00:00",
+      "files": [
+        "tjn/fsi_jurisdictions.csv",
+        "tjn/fsi_scorings.csv",
+        "tjn/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "rsf",
+      "timestamp": "2026-04-10T14:35:16.246479+00:00",
+      "files": [
+        "rsf/rsf_scores.csv",
+        "rsf/rsf_raw.json",
+        "rsf/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "cpi",
+      "timestamp": "2026-04-10T14:35:17.380051+00:00",
+      "files": [
+        "cpi/DOWNLOAD_INSTRUCTIONS.md",
+        "cpi/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "ilo",
+      "timestamp": "2026-04-10T14:35:21.448543+00:00",
+      "files": [
+        "ilo/ilo_labor_share.csv",
+        "ilo/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "worldbank",
+      "timestamp": "2026-04-10T17:21:06.644969+00:00",
+      "files": [
+        "worldbank/wb_gini.csv",
+        "worldbank/wb_domestic_credit.csv",
+        "worldbank/wb_natural_rents.csv",
+        "worldbank/wb_wgi_corruption.csv",
+        "worldbank/wb_wgi_reg_quality.csv",
+        "worldbank/wb_wgi_gov_effectiveness.csv",
+        "worldbank/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "vdem",
+      "timestamp": "2026-04-10T17:21:09.419656+00:00",
+      "files": [
+        "vdem/vdem_extract.csv",
+        "vdem/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "fsi",
+      "timestamp": "2026-04-10T17:21:12.117639+00:00",
+      "files": [
+        "tjn/fsi_jurisdictions.csv",
+        "tjn/fsi_scorings.csv",
+        "tjn/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "rsf",
+      "timestamp": "2026-04-10T17:21:12.620834+00:00",
+      "files": [
+        "rsf/rsf_scores.csv",
+        "rsf/rsf_raw.json",
+        "rsf/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "cpi",
+      "timestamp": "2026-04-10T17:21:13.316145+00:00",
+      "files": [
+        "cpi/DOWNLOAD_INSTRUCTIONS.md",
+        "cpi/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "ilo",
+      "timestamp": "2026-04-10T17:21:15.331033+00:00",
+      "files": [
+        "ilo/ilo_labor_share.csv",
+        "ilo/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
+    },
+    {
+      "source": "worldbank",
+      "timestamp": "2026-04-10T17:24:30.379900+00:00",
+      "files": [
+        "worldbank/wb_gini.csv",
+        "worldbank/wb_domestic_credit.csv",
+        "worldbank/wb_net_interest_margin.csv",
+        "worldbank/wb_natural_rents.csv",
+        "worldbank/wb_top10_income.csv",
+        "worldbank/wb_wgi_corruption.csv",
+        "worldbank/wb_wgi_reg_quality.csv",
+        "worldbank/wb_wgi_gov_effectiveness.csv",
+        "worldbank/_metadata.json"
+      ],
+      "status": "success",
+      "note": ""
     }
   ]
 }
