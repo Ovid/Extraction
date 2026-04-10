@@ -32,6 +32,9 @@ def parse_sdmx_csv(csv_text):
     """
     records = []
     reader = csv.DictReader(io.StringIO(csv_text))
+    required = {"REF_AREA", "TIME_PERIOD", "OBS_VALUE"}
+    if reader.fieldnames is None or not required.issubset(reader.fieldnames):
+        return records
     for row in reader:
         obs_value = row.get("OBS_VALUE", "").strip()
         if not obs_value:

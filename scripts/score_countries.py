@@ -1322,7 +1322,7 @@ def merge_domain_scores(existing, new_domain):
 
 
 def load_indicator(filepath):
-    """Load a World Bank indicator CSV and return most recent value per country."""
+    """Load an indicator CSV and return most recent value per country."""
     if not filepath.exists():
         return pd.DataFrame()
     df = pd.read_csv(filepath)
@@ -1383,7 +1383,7 @@ def estimate_trend_from_data(df, inverted=False):
     return "rising" if change > 0 else "falling"
 
 
-def estimate_trend(df_full, country_code, indicator_file, inverted=False, data_dir=None):
+def estimate_trend(country_code, indicator_file, inverted=False, data_dir=None):
     """Estimate trend for a country/indicator by reading from disk.
 
     Thin wrapper around estimate_trend_from_data that handles file loading.
@@ -1505,7 +1505,8 @@ def build_indicator_domain(group, code, all_indicator_raw):
     n_indicators = len(group)
     most_recent = int(group["year"].max())
 
-    confidence = assess_domain_confidence(n_indicators, 1, most_recent)
+    n_sources = group["source_name"].nunique()
+    confidence = assess_domain_confidence(n_indicators, n_sources, most_recent)
 
     # Estimate trend using majority vote across all indicators in domain
     trend_votes = []
@@ -1513,7 +1514,7 @@ def build_indicator_domain(group, code, all_indicator_raw):
         cfg = next((c for c in INDICATOR_CONFIG if c["file"] == row["indicator_file"]), None)
         inv = cfg["inverted"] if cfg else False
         trend_data_dir = RAW_DATA_DIR / cfg["data_dir"] if cfg and "data_dir" in cfg else None
-        t = estimate_trend(None, code, row["indicator_file"], inverted=inv, data_dir=trend_data_dir)
+        t = estimate_trend(code, row["indicator_file"], inverted=inv, data_dir=trend_data_dir)
         if t != "unknown":
             trend_votes.append(t)
     if trend_votes:
@@ -1536,7 +1537,6 @@ def build_indicator_domain(group, code, all_indicator_raw):
     source_label = " / ".join(sorted(group["source_name"].unique())) + " data"
     justification_detail = build_technical_justification(source_label, ind_info)
 
-    n_sources = group["source_name"].nunique()
     return {
         "score": score,
         "confidence": confidence,
