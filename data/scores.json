@@ -42018,7 +42018,7 @@
       "domains": {
         "economic_concentration": {
           "score": 22,
-          "confidence": "low",
+          "confidence": "moderate",
           "trend": "stable",
           "sources": [
             "wb_gini",
@@ -45099,6 +45099,111 @@
     "XKX": {
       "name": "Kosovo",
       "domains": {
+        "economic_concentration": {
+          "score": 37,
+          "confidence": "low",
+          "trend": "rising",
+          "sources": [
+            "wb_gini"
+          ],
+          "indicators": [
+            {
+              "key": "wb_gini",
+              "question": "How unequal is income distribution?",
+              "label": "Moderate",
+              "facts": [
+                "Gini coefficient: 38.3"
+              ]
+            }
+          ],
+          "justification_detail": "Auto-scored from World Bank data. Gini Index: 38.300 (normalized: 37)."
+        },
+        "financial_extraction": {
+          "score": 26,
+          "confidence": "low",
+          "trend": "rising",
+          "sources": [
+            "wb_domestic_credit"
+          ],
+          "indicators": [
+            {
+              "key": "wb_domestic_credit",
+              "question": "How large is the financial sector's credit exposure?",
+              "label": "Low",
+              "facts": [
+                "Domestic credit to private sector: 61.0 % of GDP"
+              ]
+            }
+          ],
+          "justification_detail": "Auto-scored from World Bank data. Domestic credit to private sector: 61.002 (normalized: 26)."
+        },
+        "institutional_gatekeeping": {
+          "score": 50,
+          "confidence": "high",
+          "trend": "falling",
+          "sources": [
+            "wb_wgi_corruption",
+            "vdem_rule_of_law",
+            "vdem_egalitarian",
+            "vdem_participatory_democracy"
+          ],
+          "indicators": [
+            {
+              "key": "wb_wgi_corruption",
+              "question": "How well is corruption controlled?",
+              "label": "Moderate",
+              "facts": [
+                "Control of corruption index: -0.19 (scale: -2.5 to 2.5)"
+              ]
+            },
+            {
+              "key": "vdem_rule_of_law",
+              "question": "How strong is the rule of law?",
+              "label": "High",
+              "facts": [
+                "Rule of law index: 0.66 (scale: 0-1)"
+              ]
+            },
+            {
+              "key": "vdem_egalitarian",
+              "question": "How equally are political power and resources distributed?",
+              "label": "High",
+              "facts": [
+                "Egalitarian component index: 0.69 (scale: 0-1)"
+              ]
+            },
+            {
+              "key": "vdem_participatory_democracy",
+              "question": "How much can citizens participate in governance?",
+              "label": "Moderate",
+              "facts": [
+                "Participatory democracy index: 0.35 (scale: 0-1)"
+              ]
+            }
+          ],
+          "justification_detail": "Auto-scored from World Bank data. WGI Control of Corruption: -0.185 (normalized: 59). Auto-scored from V-Dem. Rule of Law: 0.662 (normalized: 34); Egalitarian Component: 0.692 (normalized: 30); Participatory Democracy: 0.346 (normalized: 56)."
+        },
+        "resource_capture": {
+          "score": 6,
+          "confidence": "low",
+          "trend": "falling",
+          "sources": [
+            "wb_natural_rents",
+            "vdem_electoral_democracy"
+          ],
+          "indicators": [
+            {
+              "key": "resource_capture_composite",
+              "question": "How vulnerable is resource wealth to elite capture?",
+              "label": "Very low",
+              "facts": [
+                "Natural resource rents: 0.9 % of GDP",
+                "Moderated by democratic accountability (V-Dem polyarchy: 0.63)"
+              ]
+            }
+          ],
+          "justification_detail": "Auto-scored from World Bank data. Natural resource rents: 0.929 (normalized: 16). Composite: resource rents (16) x (100 - accountability (63)) / 100 = 6."
+        },
         "transnational_facilitation": {
           "score": 69,
           "confidence": "low",
@@ -45191,49 +45296,12 @@
             }
           ],
           "justification_detail": "Auto-scored from V-Dem. Freedom of Expression: 0.766 (normalized: 22); Alternative Info Sources: 0.702 (normalized: 28)."
-        },
-        "institutional_gatekeeping": {
-          "score": 40,
-          "confidence": "moderate",
-          "trend": "unknown",
-          "sources": [
-            "vdem_rule_of_law",
-            "vdem_egalitarian",
-            "vdem_participatory_democracy"
-          ],
-          "indicators": [
-            {
-              "key": "vdem_rule_of_law",
-              "question": "How strong is the rule of law?",
-              "label": "High",
-              "facts": [
-                "Rule of law index: 0.66 (scale: 0-1)"
-              ]
-            },
-            {
-              "key": "vdem_egalitarian",
-              "question": "How equally are political power and resources distributed?",
-              "label": "High",
-              "facts": [
-                "Egalitarian component index: 0.69 (scale: 0-1)"
-              ]
-            },
-            {
-              "key": "vdem_participatory_democracy",
-              "question": "How much can citizens participate in governance?",
-              "label": "Moderate",
-              "facts": [
-                "Participatory democracy index: 0.35 (scale: 0-1)"
-              ]
-            }
-          ],
-          "justification_detail": "Auto-scored from V-Dem. Rule of Law: 0.662 (normalized: 34); Egalitarian Component: 0.692 (normalized: 30); Participatory Democracy: 0.346 (normalized: 56)."
         }
       },
-      "composite_score": 41,
-      "overall_confidence": "moderate",
-      "overall_trend": "unknown",
-      "notes": "Auto-scored from TJN, V-Dem (4/7 domains covered)."
+      "composite_score": 35,
+      "overall_confidence": "high",
+      "overall_trend": "rising",
+      "notes": "Auto-scored from TJN, V-Dem, World Bank (7/7 domains covered)."
     }
   }
 }
