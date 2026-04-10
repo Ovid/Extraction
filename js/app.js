@@ -12,6 +12,7 @@ const SOURCE_URLS = {
   wb_wgi_gov_eff: 'https://data.worldbank.org/indicator/GE.EST',
   rsf_press: 'https://rsf.org/en/index',
   tjn_fsi: 'https://fsi.taxjustice.net/',
+  tjn_fsi_secrecy: 'https://fsi.taxjustice.net/',
   vdem_political_corruption: 'https://www.v-dem.net/',
   vdem_clientelism: 'https://www.v-dem.net/',
   vdem_electoral_democracy: 'https://www.v-dem.net/',
