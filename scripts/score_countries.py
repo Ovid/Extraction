@@ -44,13 +44,16 @@ INDICATOR_CONFIG = [
         "inverted": False,
         "source_key": "wb_gini",
         "name": "Gini Index",
+        "source_name": "World Bank",
     },
     {
-        "file": "wb_gdp_per_worker.csv",
+        "file": "ilo_labor_share.csv",
         "domain": "economic_concentration",
-        "inverted": False,
-        "source_key": "wb_labor_share",
-        "name": "GDP per worker",
+        "inverted": True,
+        "source_key": "ilo_labor_share",
+        "name": "Labour income share of GDP",
+        "data_dir": "ilo",
+        "source_name": "ILO",
     },
     {
         "file": "wb_domestic_credit.csv",
@@ -58,6 +61,7 @@ INDICATOR_CONFIG = [
         "inverted": False,
         "source_key": "wb_domestic_credit",
         "name": "Domestic credit to private sector",
+        "source_name": "World Bank",
     },
     {
         "file": "wb_net_interest_margin.csv",
@@ -65,6 +69,7 @@ INDICATOR_CONFIG = [
         "inverted": False,
         "source_key": "wb_net_interest_margin",
         "name": "Bank net interest margin",
+        "source_name": "World Bank",
     },
     {
         "file": "wb_natural_rents.csv",
@@ -73,6 +78,7 @@ INDICATOR_CONFIG = [
         "source_key": "wb_natural_rents",
         "name": "Natural resource rents",
         "log_transform": True,
+        "source_name": "World Bank",
     },
     {
         "file": "wb_wgi_corruption.csv",
@@ -80,6 +86,7 @@ INDICATOR_CONFIG = [
         "inverted": True,
         "source_key": "wb_wgi_corruption",
         "name": "WGI Control of Corruption",
+        "source_name": "World Bank",
     },
 ]
 
@@ -87,7 +94,7 @@ INDICATOR_CONFIG = [
 INDICATOR_QUESTIONS = {
     # World Bank indicators
     "wb_gini": "How unequal is income distribution?",
-    "wb_labor_share": "How little do workers get paid relative to what they produce?",
+    "ilo_labor_share": "What share of GDP goes to workers as income?",
     "wb_domestic_credit": "How large is the financial sector's credit exposure?",
     "wb_net_interest_margin": "How much do banks extract per dollar intermediated?",
     "wb_natural_rents": "How dependent is the economy on natural resources?",
@@ -126,6 +133,7 @@ def score_to_label(score):
 # Indicators whose questions ask about something positive (freedom, democracy, etc.)
 # For these, the label should be flipped: a low extraction score means "High" freedom.
 POSITIVE_QUESTION_INDICATORS = {
+    "ilo_labor_share",  # "What share of GDP goes to workers?" — higher = good
     "wb_wgi_corruption",  # "How well is corruption controlled?" — well = good
     "vdem_electoral_democracy",  # "How democratic are elections?"
     "vdem_freedom_of_expression",  # "How free is public expression?"
@@ -155,11 +163,11 @@ INDICATOR_DISPLAY = {
         "unit": "",
         "comparison_label": ["Most unequal among", "Most equal among"],
     },
-    "wb_labor_share": {
-        "label": "GDP per worker",
-        "format": "${:,.0f}",
-        "unit": "",
-        "comparison_label": ["Highest among", "Lowest among"],
+    "ilo_labor_share": {
+        "label": "Labour income share of GDP",
+        "format": "{:.1f}",
+        "unit": "%",
+        "comparison_label": ["Highest labour share among", "Lowest labour share among"],
     },
     "wb_domestic_credit": {
         "label": "Domestic credit to private sector",
@@ -825,11 +833,14 @@ INCOME_GROUP_MAP = {
 }
 
 # Aggregates and regions to exclude (World Bank includes these as "countries")
+# CHA = Channel Islands (not a real ISO alpha-3 code, ILO grouping)
+# ESH = Western Sahara (valid ISO code but disputed territory with no governance data)
 EXCLUDE_CODES = {
     "AFE",
     "AFW",
     "ARB",
     "CEB",
+    "CHA",
     "CSS",
     "EAP",
     "EAR",
@@ -874,6 +885,7 @@ EXCLUDE_CODES = {
     "TSS",
     "UMC",
     "WLD",
+    "ESH",
     "EUU",
     "SXZ",
     # Non-standard codes from RSF/V-Dem that aren't real ISO alpha-3
@@ -1310,7 +1322,7 @@ def merge_domain_scores(existing, new_domain):
 
 
 def load_indicator(filepath):
-    """Load a World Bank indicator CSV and return most recent value per country."""
+    """Load an indicator CSV and return most recent value per country."""
     if not filepath.exists():
         return pd.DataFrame()
     df = pd.read_csv(filepath)
@@ -1318,6 +1330,9 @@ def load_indicator(filepath):
     df = df[~df["country_code"].isin(EXCLUDE_CODES)]
     # Filter to valid 3-letter ISO codes
     df = df[df["country_code"].str.len() == 3]
+    # Exclude ILO aggregate codes (X01-X99, XA1) without hitting real ISO codes like XKX (Kosovo)
+    df = df[~df["country_code"].str.match(r"^X[0-9]", na=False)]
+    df = df[~df["country_code"].isin({"XA1"})]
     # Take most recent year per country
     df = df.sort_values("year", ascending=False).drop_duplicates("country_code", keep="first")
     return df[["country_code", "country_name", "year", "value"]].copy()
@@ -1368,12 +1383,12 @@ def estimate_trend_from_data(df, inverted=False):
     return "rising" if change > 0 else "falling"
 
 
-def estimate_trend(df_full, country_code, indicator_file, inverted=False):
+def estimate_trend(country_code, indicator_file, inverted=False, data_dir=None):
     """Estimate trend for a country/indicator by reading from disk.
 
     Thin wrapper around estimate_trend_from_data that handles file loading.
     """
-    filepath = WB_DIR / indicator_file
+    filepath = (data_dir or WB_DIR) / indicator_file
     if not filepath.exists():
         return "unknown"
     df = pd.read_csv(filepath)
@@ -1471,12 +1486,13 @@ def normalize_vdem_indicators(vdem_raw, vdem_vars_config):
     return vdem_normalized
 
 
-def build_wb_domain(group, code, all_indicator_raw):
-    """Build a domain entry from a World Bank indicator group.
+def build_indicator_domain(group, code, all_indicator_raw):
+    """Build a domain entry from an indicator group (World Bank, ILO, etc.).
 
     Args:
         group: pandas DataFrame — rows for one country+domain from groupby('domain').
-            Must have columns: normalized, source_key, year, indicator_file, value, indicator_name.
+            Must have columns: normalized, source_key, source_name, year, indicator_file,
+            value, indicator_name.
         code: ISO alpha-3 country code.
         all_indicator_raw: {source_key: {country_code: raw_value}} for peer comparisons.
 
@@ -1489,14 +1505,16 @@ def build_wb_domain(group, code, all_indicator_raw):
     n_indicators = len(group)
     most_recent = int(group["year"].max())
 
-    confidence = assess_domain_confidence(n_indicators, 1, most_recent)
+    n_sources = group["source_name"].nunique()
+    confidence = assess_domain_confidence(n_indicators, n_sources, most_recent)
 
     # Estimate trend using majority vote across all indicators in domain
     trend_votes = []
     for _, row in group.iterrows():
         cfg = next((c for c in INDICATOR_CONFIG if c["file"] == row["indicator_file"]), None)
         inv = cfg["inverted"] if cfg else False
-        t = estimate_trend(None, code, row["indicator_file"], inverted=inv)
+        trend_data_dir = RAW_DATA_DIR / cfg["data_dir"] if cfg and "data_dir" in cfg else None
+        t = estimate_trend(code, row["indicator_file"], inverted=inv, data_dir=trend_data_dir)
         if t != "unknown":
             trend_votes.append(t)
     if trend_votes:
@@ -1516,7 +1534,8 @@ def build_wb_domain(group, code, all_indicator_raw):
                 "normalized": int(row["normalized"]),
             }
         )
-    justification_detail = build_technical_justification("World Bank data", ind_info)
+    source_label = " / ".join(sorted(group["source_name"].unique())) + " data"
+    justification_detail = build_technical_justification(source_label, ind_info)
 
     return {
         "score": score,
@@ -1526,17 +1545,18 @@ def build_wb_domain(group, code, all_indicator_raw):
         "indicators": ind_entries,
         "justification_detail": justification_detail,
         "_n_indicators": n_indicators,
-        "_n_sources": 1,
+        "_n_sources": n_sources,
         "_most_recent_year": most_recent,
     }
 
 
 def build_country_scores():
-    """Build normalized scores for all countries from World Bank data."""
+    """Build normalized scores for all countries from indicator data (World Bank, ILO, etc.)."""
     # Load and normalize each indicator
     indicators = {}
     for cfg in INDICATOR_CONFIG:
-        filepath = WB_DIR / cfg["file"]
+        data_dir = RAW_DATA_DIR / cfg["data_dir"] if "data_dir" in cfg else WB_DIR
+        filepath = data_dir / cfg["file"]
         df = load_indicator(filepath)
         if df.empty:
             continue
@@ -1548,6 +1568,7 @@ def build_country_scores():
         df["source_key"] = cfg["source_key"]
         df["indicator_name"] = cfg["name"]
         df["indicator_file"] = cfg["file"]
+        df["source_name"] = cfg["source_name"]
         indicators[cfg["file"]] = df
 
     # Load RSF data (information_capture)
@@ -1646,19 +1667,23 @@ def build_country_scores():
     for code in sorted(country_codes):
         country_data = all_data[all_data["country_code"] == code] if not all_data.empty else pd.DataFrame()
 
-        # Get country name
-        if not country_data.empty:
-            name = COUNTRY_NAME_OVERRIDES.get(code, country_data["country_name"].iloc[0])
+        # Get country name (skip empty names from sources like ILO)
+        if code in COUNTRY_NAME_OVERRIDES:
+            name = COUNTRY_NAME_OVERRIDES[code]
+        elif not country_data.empty:
+            names = country_data["country_name"].dropna()
+            names = names[names.str.strip() != ""]
+            name = names.iloc[0] if not names.empty else code
         else:
-            name = COUNTRY_NAME_OVERRIDES.get(code, code)
+            name = code
 
-        # Group World Bank indicators by domain
+        # Group indicators by domain
         domains = {}
         source_names = []
         if not country_data.empty:
             for domain, group in country_data.groupby("domain"):
-                domains[domain] = build_wb_domain(group, code, all_indicator_raw)
-            source_names.append("World Bank")
+                domains[domain] = build_indicator_domain(group, code, all_indicator_raw)
+            source_names.extend(sorted(country_data["source_name"].unique()))
 
         # Add RSF (information_capture) — RSF 2025 data
         if code in rsf_map:

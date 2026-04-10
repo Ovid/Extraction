@@ -28,7 +28,7 @@ MANIFEST_PATH = RAW_DATA_DIR / "manifest.json"
 FETCHER_REGISTRY = {
     "worldbank": {
         "module": "worldbank",
-        "description": "World Bank Development Indicators (Gini, labor share, domestic credit, natural resource rents, corruption control)",
+        "description": "World Bank Development Indicators (Gini, domestic credit, net interest margin, natural resource rents, corruption control)",
         "type": "api",
     },
     "vdem": {
@@ -50,6 +50,11 @@ FETCHER_REGISTRY = {
         "module": "cpi",
         "description": "Transparency International Corruption Perceptions Index",
         "type": "download",
+    },
+    "ilo": {
+        "module": "ilo",
+        "description": "ILO labour income share of GDP (SDG 10.4.1)",
+        "type": "api",
     },
 }
 

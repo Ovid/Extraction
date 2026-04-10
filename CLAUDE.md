@@ -61,6 +61,7 @@ python fetch_all.py --list               # Show available
 | Source | Type | Domains |
 |--------|------|---------|
 | World Bank | API (auto) | economic_concentration, financial_extraction, institutional_gatekeeping, resource_capture |
+| ILO | API (auto) | economic_concentration |
 | V-Dem | Manual CSV download | political_capture, information_capture, institutional_gatekeeping |
 | RSF | Page scrape (auto) | information_capture |
 | TJN FSI | API w/ public token | transnational_facilitation |
@@ -119,3 +120,18 @@ python score_countries.py --country USA    # Single country
 ## Style & Tone
 
 Extraction is a structural pattern, not a moral failing. Tone is analytical, not polemical. Justifications should read like concise research notes, not advocacy.
+
+## Commit messages
+
+Commit messages must ALWAYS be bare strings. NO EXCEPTIONS.
+
+Bad:
+
+   git commit -m "$(cat <<'EOF'
+      refactor: register ILO fetcher, remove GDP per worker from World Bank
+    EOF
+    )"
+
+Good:
+
+    git commit -m "refactor: register ILO fetcher, remove GDP per worker from World Bank"

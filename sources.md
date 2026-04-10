@@ -20,7 +20,7 @@ Each source is assigned a key used in the per-country data files.
 |-----|--------|-----|----------|--------------|
 | `wid_inequality` | World Inequality Database | https://wid.world/ | 180+ countries | Continuous |
 | `wb_gini` | World Bank Gini Index | https://data.worldbank.org/ | 160+ countries | Annual |
-| `wb_labor_share` | World Bank / ILO Labor Share of GDP | https://data.worldbank.org/ | 130+ countries | Annual |
+| `ilo_labor_share` | ILO Labour Income Share of GDP (SDG 10.4.1) | https://ilostat.ilo.org/ | 189 countries | Annual |
 | `ilo_wages` | ILO Global Wage Report data | https://www.ilo.org/ | 130+ countries | Biennial |
 
 ### Financial Extraction
