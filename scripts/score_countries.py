@@ -106,7 +106,7 @@ INDICATOR_QUESTIONS = {
     "wb_domestic_credit": "How large is the financial sector's credit exposure?",
     "wb_net_interest_margin": "How much do banks extract per dollar intermediated?",
     "wb_top10_income": "How much income is concentrated in the top 10%?",
-    "wb_natural_rents": "How vulnerable is resource wealth to elite capture?",
+    "wb_natural_rents": "How large are natural resource rents as a share of the economy?",
     "wb_wgi_corruption": "How well is corruption controlled?",
     # V-Dem indicators
     "vdem_political_corruption": "How corrupt is the political system?",
