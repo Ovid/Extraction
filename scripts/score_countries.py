@@ -1587,6 +1587,13 @@ def restructure_institutional_gatekeeping(domains, wb_indicators, vdem_normalize
             f"purpose ({purpose_avg:.0f}) = avg(egalitarian, participatory); "
             f"domain = avg(quality, purpose) = {restructured}."
         )
+    elif quality_scores or purpose_scores:
+        existing_detail = domains["institutional_gatekeeping"].get("justification_detail", "")
+        missing = "purpose (egalitarian, participatory)" if not purpose_scores else "quality (corruption control, rule of law)"
+        domains["institutional_gatekeeping"]["justification_detail"] = (
+            f"{existing_detail} "
+            f"Quality/purpose restructuring skipped: no {missing} data available; using flat average."
+        )
 
 
 def apply_resource_moderation(domains, raw_polyarchy):
