@@ -61,6 +61,7 @@ python fetch_all.py --list               # Show available
 | Source | Type | Domains |
 |--------|------|---------|
 | World Bank | API (auto) | economic_concentration, financial_extraction, institutional_gatekeeping, resource_capture |
+| ILO | API (auto) | economic_concentration |
 | V-Dem | Manual CSV download | political_capture, information_capture, institutional_gatekeeping |
 | RSF | Page scrape (auto) | information_capture |
 | TJN FSI | API w/ public token | transnational_facilitation |

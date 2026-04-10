@@ -27,14 +27,19 @@ Domain score = mean of normalized indicator scores.
 
 ### 2. Economic Concentration
 
-Wealth inequality and the gap between productivity and worker compensation.
+Wealth inequality and the share of economic output captured by workers.
 
 | Indicator | Source | Variable | Direction |
 |-----------|--------|----------|-----------|
 | Gini Index | World Bank | SI.POV.GINI | Direct |
-| GDP per worker | World Bank | SL.GDP.PCAP.EM.KD | Direct |
+| Labour income share of GDP | ILO (ILOSTAT) | LAP_2GDP_NOC_RT | Inverted (higher = less extraction) |
 
 Domain score = mean of normalized indicator scores.
+
+**Why these indicators:**
+
+- **Gini Index** measures income inequality — how unevenly income is distributed across the population.
+- **Labour income share** measures what fraction of GDP goes to workers as compensation (wages, salaries, benefits, and imputed income for the self-employed). This is ILO SDG indicator 10.4.1. A declining labour share means a larger fraction of economic output is captured by capital owners rather than workers — a direct measure of economic extraction. This replaced an earlier GDP-per-worker indicator that measured productivity rather than distribution.
 
 ### 3. Financial Extraction
 
@@ -258,6 +263,7 @@ For the resource capture domain, context facts reflect the composite calculation
 | [World Bank](https://data.worldbank.org/) | API (automatic) | Economic concentration, financial extraction, institutional gatekeeping, resource capture | 190+ countries |
 | [V-Dem](https://www.v-dem.net/) | Manual download (form required) | Political capture, information capture, institutional gatekeeping | 202 countries |
 | [RSF Press Freedom Index](https://rsf.org/) | Web scrape (automatic) | Information capture | 180 countries |
+| [ILO (ILOSTAT)](https://ilostat.ilo.org/) | API (automatic) | Economic concentration | 189 countries |
 | [Tax Justice Network FSI](https://fsi.taxjustice.net/) | API with public token (automatic) | Transnational facilitation | 141 jurisdictions |
 
 See `sources.md` for the complete source registry including URLs, coverage details, and update cycles.
