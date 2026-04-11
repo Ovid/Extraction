@@ -20,7 +20,7 @@ That last one matters more than you'd think. Some countries barely extract from 
 
 ## What you see on the map
 
-Every country gets a composite score from 0 (no measurable extraction) to 100 (extreme extraction), color-coded from teal to crimson. But the score is only the entry point. Click a country and you get a radar chart showing *where* the extraction is concentrated, per-domain breakdowns with trend arrows (is it getting worse?), and source citations for every number.
+Every country gets a composite score from 0 (no measurable extraction) to 100 (extreme extraction), color-coded from pale yellow through amber to deep brown. But the score is only the entry point. Click a country and you get a radar chart showing *where* the extraction is concentrated, per-domain breakdowns with trend arrows (is it getting worse?), and source citations for every number.
 
 You can adjust the weights yourself. Think financial extraction matters more than media capture? Move the sliders. The map redraws in real time. Equal weights are the default because we make no claim that one form of extraction matters more than another — but you might, and the tool respects that.
 
@@ -30,7 +30,7 @@ The most extractive regimes tend to produce the worst data. North Korea is almos
 
 ## Where the data comes from
 
-Every score is grounded in published, independent data sources: V-Dem for political indicators, the World Inequality Database for wealth concentration, Tax Justice Network for financial secrecy, Reporters Without Borders for press freedom, and a dozen more. The full source registry is in [`sources.md`](sources.md), and every per-country score includes its source citations and a written justification.
+Every score is grounded in published, independent data sources: V-Dem for political indicators, World Bank and ILO for economic and institutional measures, Tax Justice Network for financial secrecy, and Reporters Without Borders for press freedom. The full source registry is in [`sources.md`](sources.md), and every per-country score includes its source citations and a written justification.
 
 ## The ground rules
 
