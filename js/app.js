@@ -506,7 +506,7 @@ function drawDomainList(domains) {
       ${d.related_jurisdictions_note ? `<div class="related-jurisdictions-note">${esc(d.related_jurisdictions_note)}</div>` : ''}
       ${d.justification_detail ? `<a class="raw-data-toggle" href="#">Show raw data &#9656;</a><div class="raw-data-detail" style="display:none"><div class="domain-justification">${esc(d.justification_detail)}</div>${d.sources?.length ? `<div class="domain-sources">Sources: ${d.sources.map((s) => (SOURCE_URLS[s] ? `<a href="${SOURCE_URLS[s]}" target="_blank" rel="noopener">${esc(s)}</a>` : esc(s))).join(', ')}</div>` : ''}</div>` : ''}
       <div class="domain-meta">
-        <span class="confidence-badge">Confidence: ${conf.replace('_', ' ')}</span>
+        <span class="confidence-badge">Confidence: ${esc(conf.replace('_', ' '))}</span>
       </div>
     `;
     container.appendChild(div);
