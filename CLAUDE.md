@@ -97,6 +97,7 @@ python score_countries.py --country USA    # Single country
 ## Scoring Rules
 
 **Changes to scoring methodology must be reflected in `METHODOLOGY.md`.**
+**User-visible or methodology changes must get a `CHANGELOG.md` entry.**
 
 - Scores: 0–100 (0 = no extraction, 100 = extreme)
 - Every score requires: confidence level, trend, source keys, justification
