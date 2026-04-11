@@ -109,7 +109,11 @@ improve political_capture scoring in advanced democracies. (Already done.)
 - Spot-check key countries (USA, Switzerland, Cayman, Panama, Denmark) against
   expected values above
 
-### No changes to
+### Minimal scope beyond scoring
 
-The frontend (js/app.js, css), the fetcher pipeline, or any other domain's
-scoring.
+This plan covers the TF scoring change only. Small frontend updates were
+needed (adding `tjn_fsi_secrecy` to SOURCE_URLS, rendering
+`related_jurisdictions_note`), but no structural frontend changes. The
+fetcher pipeline and other domains' scoring are unchanged by this plan.
+Other changes on the branch (country picker search, XSS hardening, new
+indicators) are separate work items.
