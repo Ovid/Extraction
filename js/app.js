@@ -678,7 +678,7 @@ function populateCountrySelect(sortBy, query) {
   const rankMap = new Map(entries.map((e, i) => [e.code, i + 1]));
 
   if (countrySortMode === 'score') {
-    entries.sort((a, b) => a.composite - b.composite);
+    entries.sort((a, b) => a.composite - b.composite || a.name.localeCompare(b.name));
   } else {
     entries.sort((a, b) => a.name.localeCompare(b.name));
   }
@@ -689,12 +689,12 @@ function populateCountrySelect(sortBy, query) {
   const visible = filterEntries(entries, query || '');
 
   list.innerHTML = '';
-  visible.forEach(({ code, name, composite }) => {
-    const rank = rankMap.get(code);
+  visible.forEach(({ code, name, composite }, i) => {
     const div = document.createElement('div');
     div.className = 'picker-item' + (code === selectedCountryCode ? ' selected' : '');
     div.dataset.code = code;
-    div.textContent = countrySortMode === 'score' ? `${rank}. ${name} (${composite})` : `${name} (#${rank})`;
+    div.textContent =
+      countrySortMode === 'score' ? `${i + 1}. ${name} (${composite})` : `${name} (#${rankMap.get(code)})`;
     list.appendChild(div);
   });
 }
