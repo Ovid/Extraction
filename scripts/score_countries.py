@@ -1174,6 +1174,8 @@ def _load_fsi_csv():
     df = pd.read_csv(csv_path)
     if df.empty:
         return pd.DataFrame(), None
+    if "methodology_id" not in df.columns:
+        return pd.DataFrame(), None
     data_year = None
     if "scoring_timestamp" in df.columns:
         ts = df.dropna(subset=["scoring_timestamp"]).sort_values("scoring_timestamp")
