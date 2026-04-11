@@ -232,6 +232,7 @@ function countryOpacity(d) {
 }
 
 function refreshMapColors() {
+  if (!mapG) return;
   d3.selectAll('.country-path')
     .transition()
     .duration(400)
