@@ -120,7 +120,6 @@ export const NUMERIC_MAP = {
   686: 'SEN',
   688: 'SRB',
   694: 'SLE',
-  699: 'IND',
   704: 'VNM',
   706: 'SOM',
   710: 'ZAF',
