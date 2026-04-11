@@ -5,6 +5,9 @@ updates, new data sources, and user-visible improvements.
 
 ## Data Quality & Security Hardening (2026-04-11)
 
+- Country picker "Sort by: Score" now shows lowest extraction first
+- Removed extraction-level coloring from score numbers in the side panel
+  for readability
 - Added type-to-filter search in the country picker dropdown
 - Added Subresource Integrity hashes to all CDN script tags
 - Added keyboard-accessible focus styles to the country picker search
