@@ -8,7 +8,7 @@ That's extraction: the systematic capture of value from the many by the few, thr
 
 **The Extraction Index makes it visible.** It's an interactive world map that scores every country across seven domains — from political capture to financial secrecy to whether a country helps *other* countries extract from their own populations. Click a country, see where the extraction is concentrated, and watch how the picture changes when you decide which forms of extraction matter most to you.
 
-**[Live Demo →](#)** *(coming soon)*
+**[Live Demo](https://curtispoe.org/projects/extraction/)**
 
 ## Why seven domains?
 
