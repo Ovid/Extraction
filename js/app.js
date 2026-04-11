@@ -261,6 +261,21 @@ function drawLegendGradient() {
 // -- Country selection --
 function selectCountry(alpha3, numericId) {
   d3.selectAll('.country-path').classed('selected', false);
+
+  const cd = getCountryData(alpha3);
+  const empty = document.getElementById('panel-empty');
+  const content = document.getElementById('panel-content');
+  const pickerBtn = document.getElementById('picker-button');
+
+  if (!cd) {
+    selectedCountryCode = null;
+    if (pickerBtn) pickerBtn.textContent = 'Select a country\u2026';
+    empty.style.display = 'flex';
+    content.style.display = 'none';
+    empty.querySelector('h3').textContent = alpha3 ? `No data for ${getCountryName(alpha3)}` : 'Select a country';
+    return;
+  }
+
   if (numericId != null || alpha3) {
     const sel = d3
       .selectAll('.country-path')
@@ -283,20 +298,6 @@ function selectCountry(alpha3, numericId) {
         .duration(750)
         .call(mapZoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
     }
-  }
-
-  const cd = getCountryData(alpha3);
-  const empty = document.getElementById('panel-empty');
-  const content = document.getElementById('panel-content');
-  const pickerBtn = document.getElementById('picker-button');
-
-  if (!cd) {
-    selectedCountryCode = null;
-    if (pickerBtn) pickerBtn.textContent = 'Select a country\u2026';
-    empty.style.display = 'flex';
-    content.style.display = 'none';
-    empty.querySelector('h3').textContent = alpha3 ? `No data for ${getCountryName(alpha3)}` : 'Select a country';
-    return;
   }
 
   selectedCountryCode = alpha3;
