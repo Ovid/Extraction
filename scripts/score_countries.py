@@ -1964,6 +1964,8 @@ def build_country_scores():
         # Add V-Dem indicators (political_capture, information_capture, institutional_gatekeeping)
         if code in vdem_normalized:
             vdem_country = vdem_normalized[code]
+            country_vdem_df = vdem_by_country.get(code, pd.DataFrame())
+            vdem_most_recent = int(country_vdem_df["year"].max()) if not country_vdem_df.empty else None
             # Group V-Dem indicators by domain
             vdem_by_domain = {}
             for var, info in vdem_country.items():
@@ -1995,7 +1997,6 @@ def build_country_scores():
 
                 # Compute V-Dem trend via majority vote across indicators
                 vdem_trend_votes = []
-                country_vdem_df = vdem_by_country.get(code, pd.DataFrame())
                 for i in indicators_list:
                     cfg = vdem_vars_config[i["var"]]
                     t = estimate_vdem_trend(country_vdem_df, i["var"], inverted=cfg["inverted"])
@@ -2006,18 +2007,18 @@ def build_country_scores():
                 if domain in domains:
                     vdem_domain_entry = {
                         "score": vdem_score,
-                        "confidence": assess_domain_confidence(n_vdem, 1, 2024),
+                        "confidence": assess_domain_confidence(n_vdem, 1, vdem_most_recent),
                         "trend": vdem_trend,
                         "sources": vdem_sources,
                         "indicators": vdem_ind_entries,
                         "justification_detail": vdem_detail,
                         "_n_indicators": n_vdem,
                         "_n_sources": 1,
-                        "_most_recent_year": 2024,
+                        "_most_recent_year": vdem_most_recent,
                     }
                     domains[domain] = merge_domain_scores(domains[domain], vdem_domain_entry)
                 else:
-                    vdem_confidence = assess_domain_confidence(n_vdem, 1, 2024)
+                    vdem_confidence = assess_domain_confidence(n_vdem, 1, vdem_most_recent)
                     domains[domain] = {
                         "score": vdem_score,
                         "confidence": vdem_confidence,
@@ -2027,7 +2028,7 @@ def build_country_scores():
                         "justification_detail": vdem_detail,
                         "_n_indicators": n_vdem,
                         "_n_sources": 1,
-                        "_most_recent_year": 2024,
+                        "_most_recent_year": vdem_most_recent,
                     }
             source_names.append("V-Dem")
 
