@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-from score_countries import estimate_trend_from_data
+from score_countries import estimate_trend_from_data, estimate_vdem_trend
 
 
 class TestEstimateTrendFromData:
@@ -37,7 +37,7 @@ class TestEstimateTrendFromData:
         assert estimate_trend_from_data(data, inverted=False) == "stable"
 
     def test_boundary_exactly_10_percent(self):
-        """Exactly 10% change -> stable (< 0.10, not <=)."""
+        """Exactly 10% change -> stable (<= 0.10 threshold)."""
         data = pd.DataFrame(
             {
                 "year": [2012, 2013, 2019, 2020],
@@ -105,3 +105,40 @@ class TestEstimateTrendFromData:
         """Empty dataframe -> unknown."""
         data = pd.DataFrame({"year": [], "value": []})
         assert estimate_trend_from_data(data, inverted=False) == "unknown"
+
+
+class TestEstimateVdemTrend:
+    def _make_vdem_df(self):
+        return pd.DataFrame(
+            {
+                "country_text_id": ["USA"] * 4 + ["DNK"] * 4,
+                "year": [2012, 2013, 2020, 2023] * 2,
+                "v2x_corr": [0.05, 0.06, 0.15, 0.17, 0.03, 0.03, 0.04, 0.04],
+                "v2x_polyarchy": [0.89, 0.89, 0.86, 0.87, 0.92, 0.92, 0.93, 0.93],
+            }
+        )
+
+    def _country_slice(self, code):
+        df = self._make_vdem_df()
+        return df[df["country_text_id"] == code]
+
+    def test_rising_direct(self):
+        """USA corruption rising (direct: higher = more extraction)."""
+        result = estimate_vdem_trend(self._country_slice("USA"), "v2x_corr", inverted=False)
+        assert result == "rising"
+
+    def test_stable_inverted(self):
+        """DNK polyarchy roughly stable."""
+        result = estimate_vdem_trend(self._country_slice("DNK"), "v2x_polyarchy", inverted=True)
+        assert result == "stable"
+
+    def test_missing_country(self):
+        result = estimate_vdem_trend(self._country_slice("XYZ"), "v2x_corr", inverted=False)
+        assert result == "unknown"
+
+    def test_missing_variable(self):
+        result = estimate_vdem_trend(self._country_slice("USA"), "nonexistent", inverted=False)
+        assert result == "unknown"
+
+    def test_empty_dataframe(self):
+        assert estimate_vdem_trend(pd.DataFrame(), "v2x_corr", inverted=False) == "unknown"

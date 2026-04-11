@@ -22,8 +22,13 @@ Elite monopolization of political power. Measured through:
 | Clientelism | V-Dem | v2xnp_client | Direct |
 | Electoral Democracy | V-Dem | v2x_polyarchy | Inverted (higher = less extraction) |
 | Political Violence | V-Dem | v2x_clphy | Inverted |
+| Legislative Corruption | V-Dem | v2lgcrrpt | Inverted (higher raw = less extraction) |
 
 Domain score = mean of normalized indicator scores.
+
+**Known limitations:**
+
+- V-Dem measures formal democratic quality well but systematically underweights legal capture mechanisms — campaign finance deregulation (e.g., Citizens United in the US), lobbying industry scale, and revolving door dynamics — that are the primary mode of political capture in advanced democracies. Countries with strong electoral democracy but weak regulation of money in politics may have understated scores.
 
 ### 2. Economic Concentration
 
@@ -33,6 +38,7 @@ Wealth inequality and the share of economic output captured by workers.
 |-----------|--------|----------|-----------|
 | Gini Index | World Bank | SI.POV.GINI | Direct |
 | Labour income share of GDP | ILO (ILOSTAT) | LAP_2GDP_NOC_RT | Inverted (higher = less extraction) |
+| Income share of top 10% | World Bank | SI.DST.10TH.10 | Direct |
 
 Domain score = mean of normalized indicator scores.
 
@@ -127,9 +133,28 @@ Enabling extraction elsewhere through financial secrecy, tax havens, and profit 
 
 | Indicator | Source | Variable | Direction |
 |-----------|--------|----------|-----------|
-| Financial Secrecy Index | Tax Justice Network | (composite score) | Direct |
+| Financial Secrecy Score | Tax Justice Network | index_score | Direct (raw, not min-max normalized) |
 
-Domain score = normalized indicator score.
+Domain score = raw secrecy score (TJN's 0-100 scale, used without min-max normalization).
+
+**Why the secrecy score, not the FSI Value:**
+
+The TJN Financial Secrecy Index publishes two measures per jurisdiction:
+
+- **Secrecy score** (0-100): how much secrecy a jurisdiction's laws and regulations enable, based on ~20 indicators of financial transparency. Measures *policy choice*.
+- **FSI Value** (secrecy × global scale weight): how much total global financial secrecy this jurisdiction facilitates, accounting for the size of its financial sector. Measures *total impact*.
+
+Earlier versions of this index used FSI Value with min-max normalization. This produced distorted results: the United States scored 100 (the maximum) while the Cayman Islands scored 25 and Panama scored 29. The distortion arose because FSI Value conflates economic scale with secrecy policy — the US has the world's largest financial sector, so even moderate secrecy laws produce a large FSI Value. Min-max normalization then mapped this outlier to 100, compressing all other countries.
+
+The secrecy score measures what the extraction index cares about: structural choices that enable financial secrecy. It is used raw (without min-max normalization) because it is already on a 0-100 scale consistent with the index's convention, and because its empirical range (29-80) reflects TJN's considered assessment that no jurisdiction is at either extreme.
+
+The FSI Value is retained as a displayed context fact for each country, so analysts can still see the scale-adjusted impact measure.
+
+**Limitations:**
+
+- **Scale is not captured in the score.** The US facilitates more total secrecy than Bermuda by virtue of its financial sector size, but this is not reflected in the domain score. The FSI Value context fact partially compensates.
+- **Single-source dependency.** This domain relies entirely on TJN's Financial Secrecy Index. Adding complementary indicators (e.g., FATF compliance, beneficial ownership transparency, tax treaty network quality) would improve construct validity.
+- **Secrecy score range is narrow.** TJN's secrecy scores cluster between 50-75 for most countries, limiting the domain's ability to discriminate in the middle of the distribution.
 
 ## Normalization
 
@@ -187,7 +212,7 @@ A change of **10% or more** is required to register as "rising" or "falling." Ch
 
 Each domain's trend is determined by majority vote across its indicators. The overall country trend is a majority vote across domains, excluding domains with "unknown" trends.
 
-Domains sourced exclusively from V-Dem, RSF, or TJN currently report "unknown" trends because the trend function only analyzes World Bank time-series data.
+World Bank and V-Dem domains estimate trends from their respective time-series data. V-Dem domain trends are computed by majority vote across the domain's indicators. RSF and TJN domains currently report "unknown" trends because they lack multi-year time-series data in the pipeline.
 
 ## Confidence Model
 
@@ -270,7 +295,7 @@ See `sources.md` for the complete source registry including URLs, coverage detai
 
 ## Known Limitations
 
-1. **Three of seven domains have no trend data.** Political capture, information capture (V-Dem portion), and transnational facilitation lack time-series trend analysis because the trend function only processes World Bank data.
+1. **Two of seven domains have no trend data.** Information capture (RSF portion) and transnational facilitation lack time-series trend analysis. V-Dem domains now estimate trends from their time-series data.
 
 2. **Financial extraction remains under-measured.** The domain uses two indicators (domestic credit and bank net interest margin), which better capture the cost of financial intermediation than credit volume alone. However, both are macro-level proxies that cannot distinguish household-level outcomes — whether a given level of credit builds wealth (as in Scandinavian mortgage markets) or destroys it (as in US medical debt). Fully resolving this would require household-level data not available from the World Bank.
 

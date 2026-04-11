@@ -84,3 +84,14 @@ class TestAssembleCountryEntry:
         domains = {"a": _make_domain(50)}
         result = assemble_country_entry("Testland", domains, ["S"])
         assert result["name"] == "Testland"
+
+    def test_data_quality_notes_attached(self):
+        domains = {"a": _make_domain(50)}
+        result = assemble_country_entry("Nigeria", domains, ["S"], country_code="NGA")
+        assert "data_quality_notes" in result
+        assert "informal sector" in result["data_quality_notes"]
+
+    def test_no_data_quality_notes_for_normal_country(self):
+        domains = {"a": _make_domain(50)}
+        result = assemble_country_entry("Testland", domains, ["S"], country_code="TST")
+        assert "data_quality_notes" not in result

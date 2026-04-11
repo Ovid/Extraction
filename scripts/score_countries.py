@@ -72,6 +72,14 @@ INDICATOR_CONFIG = [
         "source_name": "World Bank",
     },
     {
+        "file": "wb_top10_income.csv",
+        "domain": "economic_concentration",
+        "inverted": False,
+        "source_key": "wb_top10_income",
+        "name": "Income share of top 10%",
+        "source_name": "World Bank",
+    },
+    {
         "file": "wb_natural_rents.csv",
         "domain": "resource_capture",
         "inverted": False,
@@ -97,7 +105,8 @@ INDICATOR_QUESTIONS = {
     "ilo_labor_share": "What share of GDP goes to workers as income?",
     "wb_domestic_credit": "How large is the financial sector's credit exposure?",
     "wb_net_interest_margin": "How much do banks extract per dollar intermediated?",
-    "wb_natural_rents": "How dependent is the economy on natural resources?",
+    "wb_top10_income": "How much income is concentrated in the top 10%?",
+    "wb_natural_rents": "How large are natural resource rents as a share of the economy?",
     "wb_wgi_corruption": "How well is corruption controlled?",
     # V-Dem indicators
     "vdem_political_corruption": "How corrupt is the political system?",
@@ -109,10 +118,12 @@ INDICATOR_QUESTIONS = {
     "vdem_rule_of_law": "How strong is the rule of law?",
     "vdem_egalitarian": "How equally are political power and resources distributed?",
     "vdem_participatory_democracy": "How much can citizens participate in governance?",
+    "vdem_legislative_corruption": "How corrupt is the legislature?",
     # RSF
     "rsf_press": "How free is the press?",
     # TJN FSI
-    "tjn_fsi": "How much financial secrecy exists?",
+    "tjn_fsi": "How much does this jurisdiction facilitate global financial secrecy?",
+    "tjn_fsi_secrecy": "How much financial secrecy do this jurisdiction's laws enable?",
 }
 
 
@@ -168,6 +179,12 @@ INDICATOR_DISPLAY = {
         "format": "{:.1f}",
         "unit": "%",
         "comparison_label": ["Highest labour share among", "Lowest labour share among"],
+    },
+    "wb_top10_income": {
+        "label": "Income share of top 10%",
+        "format": "{:.1f}",
+        "unit": "%",
+        "comparison_label": ["Most concentrated among", "Least concentrated among"],
     },
     "wb_domestic_credit": {
         "label": "Domestic credit to private sector",
@@ -247,6 +264,12 @@ INDICATOR_DISPLAY = {
         "unit": "(scale: 0-1)",
         "comparison_label": ["Most participatory among", "Least participatory among"],
     },
+    "vdem_legislative_corruption": {
+        "label": "Legislative corruption index",
+        "format": "{:.2f}",
+        "unit": "(scale: -3 to 3.5)",
+        "comparison_label": ["Least corrupt legislature among", "Most corrupt legislature among"],
+    },
     "rsf_press": {
         "label": "Press freedom score",
         "format": "{:.1f}",
@@ -254,9 +277,15 @@ INDICATOR_DISPLAY = {
         "comparison_label": ["Freest press among", "Least free press among"],
     },
     "tjn_fsi": {
-        "label": "Financial Secrecy Index score",
+        "label": "FSI Value",
         "format": "{:.0f}",
         "unit": "",
+        "comparison_label": ["Largest secrecy facilitator among", "Smallest secrecy facilitator among"],
+    },
+    "tjn_fsi_secrecy": {
+        "label": "Financial secrecy score",
+        "format": "{:.0f}",
+        "unit": "out of 100",
         "comparison_label": ["Most secretive among", "Least secretive among"],
     },
 }
@@ -423,6 +452,27 @@ COUNTRY_NAME_OVERRIDES = {
     "GNB": "Guinea-Bissau",
     "GNQ": "Equatorial Guinea",
     "TLS": "Timor-Leste",
+}
+
+# Data quality notes for countries with known measurement issues.
+# These are displayed as advisories in the UI — they do NOT change scores.
+DATA_QUALITY_NOTES = {
+    "NGA": (
+        "Labour share estimates may be unreliable due to Nigeria's large informal sector "
+        "(~65% of employment). ILO data uses imputations for self-employment income that "
+        "have high uncertainty in this context."
+    ),
+    "IRL": (
+        "GDP is significantly inflated by multinational profit shifting. Indicators "
+        "denominated as % of GDP (domestic credit, resource rents) may understate extraction. "
+        "Ireland's Central Statistics Office recommends GNI* as a more accurate measure."
+    ),
+    "ETH": ("Labour share estimates may be unreliable due to large informal and subsistence agriculture sector."),
+    "LUX": (
+        "GDP per capita is inflated by ~200,000 cross-border workers. GDP-denominated "
+        "indicators may not reflect domestic economic conditions."
+    ),
+    "PRK": ("No independent data sources; scores rely on external estimates and V-Dem expert coding."),
 }
 
 # UN geoscheme region mapping for peer comparisons
@@ -1106,38 +1156,123 @@ def load_rsf_data():
     return dict(zip(df["country_code"], df["score"]))
 
 
-def load_fsi_data():
-    """Load FSI financial secrecy scores. Returns dict of {alpha3: score}."""
+# UK Crown Dependencies and Overseas Territories (alpha-2 codes in TJN data)
+UK_RELATED_JURISDICTION_IDS = ["GG", "JE", "IM", "AI", "BM", "GI", "KY", "MS", "TC", "VG"]
+
+
+def _load_fsi_csv():
+    """Load and filter FSI CSV to the most recent methodology edition.
+
+    Returns (filtered_df, data_year) where data_year is the integer year
+    of the data (e.g. 2024), or None if unavailable.
+    Uses scoring_timestamp (if present) for robust ordering; falls back
+    to sorted methodology_id.
+    """
     csv_path = TJN_DIR / "fsi_jurisdictions.csv"
     if not csv_path.exists():
-        return {}
+        return pd.DataFrame(), None
     df = pd.read_csv(csv_path)
     if df.empty:
-        return {}
-    # Take most recent edition
-    latest_scoring = df["methodology_id"].unique()[-1]
-    df = df[df["methodology_id"] == latest_scoring]
+        return pd.DataFrame(), None
+    if "methodology_id" not in df.columns:
+        return pd.DataFrame(), None
+    data_year = None
+    if "scoring_timestamp" in df.columns:
+        ts = df.dropna(subset=["scoring_timestamp"]).sort_values("scoring_timestamp")
+        if not ts.empty:
+            latest_scoring = ts.iloc[-1]["methodology_id"]
+            # Extract year from timestamp: "2024-09-15T12:00:00.000Z" → 2024
+            try:
+                data_year = int(str(ts.iloc[-1]["scoring_timestamp"])[:4])
+            except (ValueError, IndexError):
+                pass
+        else:
+            latest_scoring = sorted(df["methodology_id"].unique())[-1]
+    else:
+        latest_scoring = sorted(df["methodology_id"].unique())[-1]
+    # Fallback: extract year from methodology_id (e.g. "fsi2024" → 2024)
+    if data_year is None:
+        digits = "".join(c for c in str(latest_scoring) if c.isdigit())
+        if len(digits) == 4:
+            data_year = int(digits)
+    return df[df["methodology_id"] == latest_scoring], data_year
+
+
+def load_fsi_related_jurisdictions():
+    """Load FSI data for UK Crown Dependencies and Overseas Territories.
+
+    Returns list of dicts with name, code, secrecy_score, and fsi_share_pct.
+    """
+    df, _ = _load_fsi_csv()
+    if df.empty:
+        return []
+    result = []
+    for _, row in df.iterrows():
+        if row["jurisdiction_id"] in UK_RELATED_JURISDICTION_IDS:
+            secrecy = round(float(row["index_score"]), 0) if pd.notna(row.get("index_score")) else None
+            if secrecy is None:
+                continue
+            entry = {
+                "name": row.get("jurisdiction_name", row["jurisdiction_id"]),
+                "code": ALPHA2_TO_ALPHA3.get(row["jurisdiction_id"], row["jurisdiction_id"]),
+                "secrecy_score": secrecy,
+            }
+            if "index_share" in row and pd.notna(row.get("index_share")):
+                entry["fsi_share_pct"] = round(float(row["index_share"]) * 100, 2)
+            result.append(entry)
+    return result
+
+
+def load_fsi_data():
+    """Load FSI data. Returns (data_dict, data_year).
+
+    data_dict is {alpha3: {'value': fsi_value, 'secrecy': secrecy_score_or_None}}.
+    data_year is the integer year of the FSI edition (e.g. 2024), or None.
+
+    Every entry always has both 'value' and 'secrecy' keys. 'secrecy' is None
+    when index_score is missing/NaN in the source data.
+
+    The secrecy score (index_score) is the primary scoring indicator — used raw
+    (no min-max normalization) as the TF domain score. The FSI Value (index_value)
+    is retained as a displayed context fact only.
+    """
+    df, data_year = _load_fsi_csv()
+    if df.empty:
+        return {}, None
     # Map alpha-2 to alpha-3
     result = {}
     for _, row in df.iterrows():
         a3 = ALPHA2_TO_ALPHA3.get(row["jurisdiction_id"])
-        if a3 and pd.notna(row["index_score"]):
-            result[a3] = float(row["index_score"])
-    return result
+        if not a3:
+            continue
+        secrecy = float(row["index_score"]) if pd.notna(row.get("index_score")) else None
+        # Load both index_value (for context fact) and index_score (secrecy, for scoring)
+        if "index_value" in row and pd.notna(row.get("index_value")):
+            result[a3] = {"value": float(row["index_value"]), "secrecy": secrecy}
+        elif secrecy is not None:
+            # Fallback for older data or fixtures without index_value
+            result[a3] = {"value": None, "secrecy": secrecy}
+    return result, data_year
 
 
 def load_vdem_data():
-    """Load V-Dem indicators. Returns dict of {alpha3: {var: value}} for most recent year."""
+    """Load V-Dem indicators.
+
+    Returns:
+        (latest, full_df) where latest is {alpha3: {var: value}} for most recent
+        year per country, and full_df is the complete DataFrame (all years) for
+        trend computation. Returns ({}, empty DataFrame) if unavailable.
+    """
     csv_path = VDEM_DIR / "vdem_extract.csv"
     if not csv_path.exists():
-        return {}
+        return {}, pd.DataFrame()
     df = pd.read_csv(csv_path)
     if df.empty:
-        return {}
+        return {}, pd.DataFrame()
     # Filter out excluded codes
     df = df[~df["country_text_id"].isin(EXCLUDE_CODES)]
-    # Take most recent year per country
-    df = df.sort_values("year", ascending=False).drop_duplicates("country_text_id", keep="first")
+    # Take most recent year per country for the latest-values dict
+    latest_df = df.sort_values("year", ascending=False).drop_duplicates("country_text_id", keep="first")
     result = {}
     vdem_vars = [
         "v2x_polyarchy",
@@ -1149,8 +1284,9 @@ def load_vdem_data():
         "v2x_rule",
         "v2x_egal",
         "v2x_partipdem",
+        "v2lgcrrpt",
     ]
-    for _, row in df.iterrows():
+    for _, row in latest_df.iterrows():
         code = row["country_text_id"]
         vals = {}
         for v in vdem_vars:
@@ -1158,7 +1294,7 @@ def load_vdem_data():
                 vals[v] = float(row[v])
         if vals:
             result[code] = vals
-    return result
+    return result, df
 
 
 def assess_domain_confidence(n_indicators, n_sources, most_recent_year):
@@ -1247,7 +1383,7 @@ def cap_confidence_by_coverage(confidence, n_domains):
     return confidence
 
 
-def assemble_country_entry(name, domains, source_names):
+def assemble_country_entry(name, domains, source_names, country_code=None):
     """Assemble the final country dict from scored domains.
 
     Computes composite score (average), overall confidence (with domain-coverage cap),
@@ -1281,7 +1417,7 @@ def assemble_country_entry(name, domains, source_names):
         overall_trend = "unknown"
 
     unique_sources = sorted(set(source_names))
-    return {
+    entry = {
         "name": name,
         "domains": domains,
         "composite_score": composite,
@@ -1289,6 +1425,9 @@ def assemble_country_entry(name, domains, source_names):
         "overall_trend": overall_trend,
         "notes": f"Auto-scored from {', '.join(unique_sources)} ({len(domains)}/7 domains covered).",
     }
+    if country_code and country_code in DATA_QUALITY_NOTES:
+        entry["data_quality_notes"] = DATA_QUALITY_NOTES[country_code]
+    return entry
 
 
 def merge_domain_scores(existing, new_domain):
@@ -1394,6 +1533,72 @@ def estimate_trend(country_code, indicator_file, inverted=False, data_dir=None):
     df = pd.read_csv(filepath)
     df = df[df["country_code"] == country_code].sort_values("year")
     return estimate_trend_from_data(df, inverted=inverted)
+
+
+def estimate_vdem_trend(country_df, var_name, inverted=False):
+    """Estimate trend for a V-Dem variable using time series data.
+
+    Reuses the same threshold logic as World Bank trend estimation.
+    country_df should be a pre-sliced DataFrame for a single country
+    (all years), as returned by groupby or boolean indexing on the full extract.
+    """
+    if country_df.empty or var_name not in country_df.columns:
+        return "unknown"
+    trend_df = country_df[["year", var_name]].dropna(subset=[var_name]).rename(columns={var_name: "value"})
+    return estimate_trend_from_data(trend_df, inverted=inverted)
+
+
+def restructure_institutional_gatekeeping(domains, wb_indicators, vdem_normalized, code):
+    """Re-average institutional_gatekeeping using quality/purpose sub-groups.
+
+    Quality = (corruption_control + rule_of_law) / 2
+    Purpose = (egalitarian + participatory_democracy) / 2
+    Domain = (quality + purpose) / 2
+
+    This ensures "who do institutions serve?" gets equal weight to
+    "how well do institutions function?", matching the Acemoglu/Robinson
+    concept of extractive vs. inclusive institutions.
+    """
+    if "institutional_gatekeeping" not in domains:
+        return
+    quality_scores = []
+    purpose_scores = []
+    # WB corruption control → quality
+    if not wb_indicators.empty:
+        corr = wb_indicators[wb_indicators["source_key"] == "wb_wgi_corruption"]
+        if not corr.empty:
+            quality_scores.append(int(corr["normalized"].iloc[0]))
+    # V-Dem indicators → quality or purpose
+    if code in vdem_normalized:
+        vc = vdem_normalized[code]
+        if "v2x_rule" in vc:
+            quality_scores.append(vc["v2x_rule"]["score"])
+        if "v2x_egal" in vc:
+            purpose_scores.append(vc["v2x_egal"]["score"])
+        if "v2x_partipdem" in vc:
+            purpose_scores.append(vc["v2x_partipdem"]["score"])
+    if quality_scores and purpose_scores:
+        quality_avg = sum(quality_scores) / len(quality_scores)
+        purpose_avg = sum(purpose_scores) / len(purpose_scores)
+        restructured = round((quality_avg + purpose_avg) / 2)
+        domains["institutional_gatekeeping"]["score"] = restructured
+        existing_detail = domains["institutional_gatekeeping"].get("justification_detail", "")
+        domains["institutional_gatekeeping"]["justification_detail"] = (
+            f"{existing_detail} "
+            f"Restructured: quality ({quality_avg:.0f}) = avg(corruption control, rule of law); "
+            f"purpose ({purpose_avg:.0f}) = avg(egalitarian, participatory); "
+            f"domain = avg(quality, purpose) = {restructured}."
+        )
+    elif quality_scores or purpose_scores:
+        existing_detail = domains["institutional_gatekeeping"].get("justification_detail", "")
+        missing = (
+            "purpose (egalitarian, participatory)"
+            if not purpose_scores
+            else "quality (corruption control, rule of law)"
+        )
+        domains["institutional_gatekeeping"]["justification_detail"] = (
+            f"{existing_detail} Quality/purpose restructuring skipped: no {missing} data available; using flat average."
+        )
 
 
 def apply_resource_moderation(domains, raw_polyarchy):
@@ -1583,18 +1788,20 @@ def build_country_scores():
     else:
         rsf_map = {}
 
-    # Load FSI data (transnational_facilitation)
-    fsi_scores = load_fsi_data()
-    if fsi_scores:
-        print(f"  FSI: {len(fsi_scores)} countries")
-        fsi_series = pd.Series(fsi_scores)
-        fsi_normalized = normalize_minmax(fsi_series, inverted=False)  # Higher FSI = more secretive = more extraction
-        fsi_map = dict(zip(fsi_series.index, fsi_normalized))
+    # Load FSI data (transnational_facilitation) — uses secrecy score (raw, not normalized)
+    fsi_data, fsi_year = load_fsi_data()
+    if fsi_data:
+        print(f"  FSI: {len(fsi_data)} countries (data year: {fsi_year})")
+        fsi_secrecy = {k: v["secrecy"] for k, v in fsi_data.items() if v.get("secrecy") is not None}
+        fsi_related = load_fsi_related_jurisdictions()
     else:
-        fsi_map = {}
+        fsi_data = {}
+        fsi_secrecy = {}
+        fsi_related = []
+        fsi_year = None
 
     # Load V-Dem data (political_capture + information_capture)
-    vdem_raw = load_vdem_data()
+    vdem_raw, vdem_df_full = load_vdem_data()
     if vdem_raw:
         print(f"  V-Dem: {len(vdem_raw)} countries")
         # Normalize each V-Dem variable across all countries
@@ -1616,6 +1823,7 @@ def build_country_scores():
                 "inverted": True,
                 "name": "Participatory Democracy",
             },
+            "v2lgcrrpt": {"domain": "political_capture", "inverted": True, "name": "Legislative Corruption"},
         }
         vdem_normalized = normalize_vdem_indicators(vdem_raw, vdem_vars_config)
     else:
@@ -1630,8 +1838,11 @@ def build_country_scores():
             all_indicator_raw[key] = dict(zip(df["country_code"], df["value"]))
     if rsf_scores:
         all_indicator_raw["rsf_press"] = dict(rsf_scores)
-    if fsi_scores:
-        all_indicator_raw["tjn_fsi"] = dict(fsi_scores)
+    if fsi_data:
+        all_indicator_raw["tjn_fsi"] = {k: v["value"] for k, v in fsi_data.items() if v.get("value") is not None}
+        all_indicator_raw["tjn_fsi_secrecy"] = {
+            k: v["secrecy"] for k, v in fsi_data.items() if v.get("secrecy") is not None
+        }
     vdem_source_key_map = {
         "v2x_corr": "vdem_political_corruption",
         "v2xnp_client": "vdem_clientelism",
@@ -1642,15 +1853,22 @@ def build_country_scores():
         "v2x_rule": "vdem_rule_of_law",
         "v2x_egal": "vdem_egalitarian",
         "v2x_partipdem": "vdem_participatory_democracy",
+        "v2lgcrrpt": "vdem_legislative_corruption",
     }
     for var, source_key in vdem_source_key_map.items():
         values = {code: vals[var] for code, vals in vdem_raw.items() if var in vals}
         if values:
             all_indicator_raw[source_key] = values
 
-    if not indicators and not rsf_map and not fsi_map and not vdem_normalized:
+    if not indicators and not rsf_map and not fsi_secrecy and not vdem_normalized:
         print("No indicator data found!")
         return {}
+
+    # Pre-group V-Dem full DataFrame by country for efficient trend lookups
+    if not vdem_df_full.empty:
+        vdem_by_country = dict(tuple(vdem_df_full.groupby("country_text_id")))
+    else:
+        vdem_by_country = {}
 
     # Combine all World Bank indicators
     all_data = pd.concat(indicators.values(), ignore_index=True) if indicators else pd.DataFrame()
@@ -1660,7 +1878,7 @@ def build_country_scores():
     if not all_data.empty:
         country_codes.update(all_data["country_code"].unique())
     country_codes.update(rsf_map.keys())
-    country_codes.update(fsi_map.keys())
+    country_codes.update(fsi_secrecy.keys())
     country_codes.update(vdem_normalized.keys())
 
     countries = {}
@@ -1705,29 +1923,49 @@ def build_country_scores():
             }
             source_names.append("RSF")
 
-        # Add FSI (transnational_facilitation) — FSI 2025 data
-        if code in fsi_map:
-            raw_score = fsi_scores[code]
-            fsi_confidence = assess_domain_confidence(1, 1, 2025)
-            fsi_norm = int(fsi_map[code])
-            fsi_entry = build_indicator_entry("tjn_fsi", raw_score, fsi_norm, code, all_indicator_raw)
-            fsi_ind = [{"name": "Financial Secrecy Index", "raw": raw_score, "normalized": fsi_norm}]
+        # Add FSI (transnational_facilitation) — secrecy score (raw, no normalization)
+        secrecy = fsi_secrecy.get(code)
+        if secrecy is not None:
+            secrecy_rounded = int(round(secrecy))
+            fsi_confidence = assess_domain_confidence(1, 1, fsi_year)
+            # Primary indicator: secrecy score (used for domain score)
+            secrecy_entry = build_indicator_entry("tjn_fsi_secrecy", secrecy, secrecy_rounded, code, all_indicator_raw)
+            # Context fact: FSI Value (secrecy × volume) for analysts
+            fsi_value = fsi_data[code].get("value")
+            if fsi_value is not None and secrecy_entry.get("facts") is not None:
+                secrecy_entry["facts"].append(f"FSI Value (secrecy × scale): {fsi_value:.0f}")
+            fsi_ind = [{"name": "Financial secrecy score", "raw": secrecy, "normalized": secrecy_rounded}]
             domains["transnational_facilitation"] = {
-                "score": fsi_norm,
+                "score": secrecy_rounded,
                 "confidence": fsi_confidence,
                 "trend": "unknown",
-                "sources": ["tjn_fsi"],
-                "indicators": [fsi_entry],
+                "sources": ["tjn_fsi_secrecy"],
+                "indicators": [secrecy_entry],
                 "justification_detail": build_technical_justification("Tax Justice Network FSI", fsi_ind),
                 "_n_indicators": 1,
                 "_n_sources": 1,
-                "_most_recent_year": 2025,
+                "_most_recent_year": fsi_year,
             }
             source_names.append("TJN")
+
+            # Annotate UK with Crown Dependencies data
+            if code == "GBR" and fsi_related:
+                domains["transnational_facilitation"]["related_jurisdictions"] = fsi_related
+                total_share = sum(r.get("fsi_share_pct", 0) for r in fsi_related)
+                if total_share > 0:
+                    share_text = f" that collectively account for {total_share:.1f}% of global financial secrecy value"
+                else:
+                    share_text = ""
+                domains["transnational_facilitation"]["related_jurisdictions_note"] = (
+                    f"The UK retains constitutional authority over Crown Dependencies and "
+                    f"Overseas Territories{share_text}."
+                )
 
         # Add V-Dem indicators (political_capture, information_capture, institutional_gatekeeping)
         if code in vdem_normalized:
             vdem_country = vdem_normalized[code]
+            country_vdem_df = vdem_by_country.get(code, pd.DataFrame())
+            vdem_most_recent = int(country_vdem_df["year"].max()) if not country_vdem_df.empty else None
             # Group V-Dem indicators by domain
             vdem_by_domain = {}
             for var, info in vdem_country.items():
@@ -1757,31 +1995,40 @@ def build_country_scores():
                     )
                 vdem_detail = build_technical_justification("V-Dem", vdem_ind_info)
 
+                # Compute V-Dem trend via majority vote across indicators
+                vdem_trend_votes = []
+                for i in indicators_list:
+                    cfg = vdem_vars_config[i["var"]]
+                    t = estimate_vdem_trend(country_vdem_df, i["var"], inverted=cfg["inverted"])
+                    if t != "unknown":
+                        vdem_trend_votes.append(t)
+                vdem_trend = Counter(vdem_trend_votes).most_common(1)[0][0] if vdem_trend_votes else "unknown"
+
                 if domain in domains:
                     vdem_domain_entry = {
                         "score": vdem_score,
-                        "confidence": assess_domain_confidence(n_vdem, 1, 2024),
-                        "trend": "unknown",
+                        "confidence": assess_domain_confidence(n_vdem, 1, vdem_most_recent),
+                        "trend": vdem_trend,
                         "sources": vdem_sources,
                         "indicators": vdem_ind_entries,
                         "justification_detail": vdem_detail,
                         "_n_indicators": n_vdem,
                         "_n_sources": 1,
-                        "_most_recent_year": 2024,
+                        "_most_recent_year": vdem_most_recent,
                     }
                     domains[domain] = merge_domain_scores(domains[domain], vdem_domain_entry)
                 else:
-                    vdem_confidence = assess_domain_confidence(n_vdem, 1, 2024)
+                    vdem_confidence = assess_domain_confidence(n_vdem, 1, vdem_most_recent)
                     domains[domain] = {
                         "score": vdem_score,
                         "confidence": vdem_confidence,
-                        "trend": "unknown",
+                        "trend": vdem_trend,
                         "sources": vdem_sources,
                         "indicators": vdem_ind_entries,
                         "justification_detail": vdem_detail,
                         "_n_indicators": n_vdem,
                         "_n_sources": 1,
-                        "_most_recent_year": 2024,
+                        "_most_recent_year": vdem_most_recent,
                     }
             source_names.append("V-Dem")
 
@@ -1791,11 +2038,14 @@ def build_country_scores():
         if not domains:
             continue
 
+        # Restructure institutional_gatekeeping into quality/purpose sub-groups
+        restructure_institutional_gatekeeping(domains, country_data, vdem_normalized, code)
+
         # Resource capture: resource rents moderated by democratic accountability
         raw_polyarchy = vdem_raw.get(code, {}).get("v2x_polyarchy")
         apply_resource_moderation(domains, raw_polyarchy)
 
-        countries[code] = assemble_country_entry(name, domains, source_names)
+        countries[code] = assemble_country_entry(name, domains, source_names, country_code=code)
 
     return countries
 
